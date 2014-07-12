@@ -1,0 +1,41 @@
+{% load i18n %}
+<div class="post" id="post-{{ id }}">
+    <div class="post-header"></div>
+    <div class="post-body" id="post-{{ id }}">
+        <p class="blog_date fw_b">{{ day }}<br><span>{{ month_str }}</span></p>
+        <h2 class="post-title"><a href="/article/{{ id }}/" title="{% blocktrans %}Read the detail of {{ title }} {% endblocktrans %}">{{ title }}</a></h2>
+        <p class="post-thumbnail">
+            <a href="/article/{{ id }}/" rel="bookmark" title="{{ tilte }}">
+                <img src="{{ thumbnail_url }}" alt="{{ title }}">
+            </a>
+        </p>
+        <p class="post-desc">{{ description|safe }}</p>
+    </div>
+    <div class="post-footer">
+        <div class="item-bar">
+            <span class="category-icon"><a href="/cate/{{ category_slug }}" title="{% blocktrans %}Views all articles of {{ category_name }} {% endblocktrans %}" rel="category tag">{{ category_name }}</a></span>
+            <span class="tag-icon">
+                {% for tag in tags %}
+                    <a href="/tag/{{ tag.slug }}" rel="tag">{{ tag.name }}</a>{% if not forloop.last %}&nbsp/{% endif %}
+                {% endfor %}
+            </span>
+            <span class="view-icon">{% blocktrans %}Viewed by {{ views_count }} people {% endblocktrans %}</span>
+            {% if enable_comment %}
+            <span class="comment-icon">
+                <a href="/article/{{ id }}/#comments" title="{% blocktrans %}Comments of {{ title }}{% endblocktrans %}">
+                    {% comment %}
+                    {% if comment_count == 0 %}
+                        {% blocktrans %}No comments{% endblocktrans %}
+                    {% else %}
+                        {% blocktrans %}Commented by {{ comment_count }} people {% endblocktrans %}
+                    {% endif %}
+                    {% endcomment %}
+                    <span class="ds-thread-count" data-thread-key="{{ id }}" data-count-type="comments"></span>
+                </a>
+            </span>
+            {% endif %}
+        </div>
+        <a class="readmore" href="/article/{{ id }}/" title="{% blocktrans %}Read the detail of {{ title }} {% endblocktrans %}" rel="bookmark">{% trans "Read more" %} >></a>
+    </div>
+    <div class="clear"></div>
+</div>

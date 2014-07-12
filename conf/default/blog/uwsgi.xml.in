@@ -1,0 +1,16 @@
+<uwsgi>
+    <socket>:%(#blog.http_port)s</socket>
+    <stats>:40000</stats>
+    <env>DJANGO_SETTINGS_MODULE=geekblog.settings</env>
+    <module>django.core.handlers.wsgi:WSGIHandler()</module>
+    <processes>6</processes>
+    <master />
+    <master-as-root />
+    <!-- request timeout -->
+    <harakiri>60</harakiri>
+    <harakiri-verbose/>
+    <!--<post-buffering>32768</post-buffering>-->
+    <daemonize>%(log_dir_base)s/blog/uwsgi.log</daemonize>
+    <listen>32768</listen>
+    <socket-timeout>60</socket-timeout>
+</uwsgi>

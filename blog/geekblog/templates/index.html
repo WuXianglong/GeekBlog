@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load blog_tags %}
+
+{% block scripts %}
+    <!-- use for slider images -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.slider.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.animation.easing.js"></script>
+    <!-- use for pagination -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/modernizr.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.pagination.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            // init the sliders.
+            {% if sliders|length != 0 %}
+            $('#sliders').renderSliders({
+                duration: 700,
+                childClassName: '.box',
+                captionClassName: '.caption',
+                SliderWidth: '940px',
+                SliderHeight: '300px',
+                width: 600,
+                Event: "hover",
+                easing: "circEaseOut",
+                captionEasing: "circEaseInOut",
+                CollapseOnMouseLeave: false,
+                CaptionAnimation: "pop-up"
+            });
+            {% endif %}
+            // init pagination element.
+            $("#pagination").pagination({
+                total: {{ total_page }},
+                value: {{ current_page }},
+                onChange: function(value) {
+                    turnToPage(value);
+                }
+            });
+        });
+        // load duoshuo js for comment count
+        var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = 'http://static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+{% endblock %}
+{% block styles %}
+    <link href="{{ STATIC_URL }}css/slider.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}css/pagination.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block sliders %}
+<div id="sliders">
+    {% for slider in sliders %}
+    <div class="box box_{{ forloop.counter }} {% if forloop.counter == 2 %}featured{% endif %}">
+        <a href="{{ slider.jump_url }}">
+            <img src="{{ slider.image_url }}">
+            <div class="caption caption_{{ forloop.counter }}">
+                <h1>{{ slider.title }}</h1><p>{{ slider.description }}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block core %}
+    <!-- article list: Can add ad in list -->
+    {% if articles|length == 0 %}
+        <div class="no-more-article">{% trans "There is no more articles, please return " %}<a href="/">{% trans "homepage" %}</a></div>
+        <div class="clear"></div>
+    {% else %}
+        {% for item in articles %}
+        {% render_article_item item %}
+        {% endfor %}
+    {% endif %}
+    <!-- pagination -->
+    <div id="pagination" class="sp-slider-wrapper">
+        <nav title='{% trans "Use left and right key ← → to turn page" %}'>
+            <a href="#" class="sp-prev">Previous</a>
+            <a href="#" class="sp-next">Next</a>
+        </nav>
+    </div>
+{% endblock %}

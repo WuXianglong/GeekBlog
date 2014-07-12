@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}<div class="breadcrumbs" style="display:none"><a href="../">{% trans 'Home' %}</a></div>{% endblock %}
+
+{% block content %}
+<div class="logout">
+    <h2>{% trans "Tips" %}</h2>
+    <p>{% trans "Thanks for spending some quality time with the Web site today." %}</p>
+    <p><a href="../">{% trans 'Log in again' %}</a></p>
+</div>
+{% endblock %}
+
+{% block footer %}
+<div id="footer" class="loggout">
+    <span>Copyright&copy; 2013 <a>GeekBlog - WuXianglong</a> Inc.All Rights Reserved.</span>
+</div>
+{% endblock %}

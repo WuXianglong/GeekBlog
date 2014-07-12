@@ -1,0 +1,25 @@
+{% load admin_tools_leftnav_tags %}
+{% spaceless %}
+{% if not item.is_empty %}
+    {% if item.children and item.enabled %}
+        {% if item.children|length == 1 and not item.is_header %}
+            {% admin_tools_render_leftnav_item item.children.0 0 1 %}
+        {% else %}
+            <h3 class="nav-header{% if item.is_header %} first head{{ index  }} open{% else %} open{% endif %}">{{ item.title }}{% if item.is_header %}<span></span>{% endif %}</h3>
+            <ul>
+                {% for child_item in item.children %}
+                {% admin_tools_render_leftnav_item child_item %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% else %}
+        {% if singal_child %}
+            <h3 class="no-child {% if selected %} active{% endif %}"><a href="{% if item.url and item.enabled %}{{ item.url }} {% else %}#{% endif %}">{{ item.title }}</a></h3>
+        {% else %}
+            <li class="{% if not item.enabled %} disabled{% endif %}{% if not item.children and selected %} active{% endif %}{% if item.children %} nav-header{% endif %}{% if item.css_classes %} {{ item.css_classes|join:' ' }}{% endif %}">
+                <a href="{% if item.url and item.enabled %}{{ item.url }}{% else %}#{% endif %}"{% if item.description %} title="{{ item.description }}"{% endif %}{% if item.accesskey %} accesskey="{{ item.accesskey }}"{% endif %}>{% if item.children and item.enabled %}<span class="icon"></span>{% endif %}{{ item.title }}</a>
+            </li>
+        {% endif %}
+    {% endif %}
+{% endif %}
+{% endspaceless %}

@@ -1,0 +1,12 @@
+{% load i18n %}
+
+{% block title %}{% trans "Server error" %}{% endblock %}
+
+{% block body-class %}error-500{% endblock %}
+
+{% block content %}
+<h2>{% trans "Server error" %}</h2>
+
+<p>{% trans "There's been an error. It's been reported to the site administrators via e-mail and should be fixed shortly. Thanks for your patience." %}</p>
+
+{% endblock %}

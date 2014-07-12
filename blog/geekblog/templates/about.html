@@ -1,0 +1,120 @@
+{% load i18n %}
+{% load gravatar %}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>{{ page_title }} - {{ site_name }} | {{ site_desc }}</title>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/about.css" type="text/css">
+        <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico">
+        <script src="{{ STATIC_URL }}js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ STATIC_URL }}js/about.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id="geekblog" class="contact">
+            <div id="header">
+                <h1>{% trans "Xianglong Wu" %}</h1>
+                <p id="jobtitle">
+                {% blocktrans %}
+                    Work at <a href="http://cn.dolphin-browser.com/" rel="me">Dolphin Browser</a>, Chengdu, SiChuan
+                {% endblocktrans %}
+                </p>
+            </div><!-- header -->
+            <ul id="navigation">
+                <li id="nav-contact"><a href="#contact"><span>{% trans "Contact" %}</span></a></li>
+                <li id="nav-about"><a href="#about"><span>{% trans "About" %}</span></a></li>
+            </ul><!-- navigation -->
+            <div id="content" style="display: block;">
+                <h2 style="display: none;">{% trans "Contact" %}</h2>
+                <ul class="node" id="contact" style="display: block;">
+                    <li>
+                        <a href="mailto:wuxianglong098@gmail.com" rel="me">
+                            <img src="{{ STATIC_URL }}images/email.png" width="40" height="41" alt="{% trans "Email" %}">
+                            <strong>Email</strong>wuxianglong098@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://weixin.qq.com" rel="me">
+                            <img src="{{ STATIC_URL }}images/wechat.png" width="40" height="41" alt="{% trans "WeChat" %}">
+                            <strong>WeChat</strong>wuxianlgong098
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://weibo.com/xianglong9098" rel="me">
+                            <img src="{{ STATIC_URL }}images/weibo.png" width="40" height="41" alt="{% trans "Weibo" %}">
+                            <strong>Weibo</strong>weibo.com/xianglong9098
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.renren.com/262504695/profile" rel="me">
+                            <img src="{{ STATIC_URL }}images/renren.png" width="40" height="41" alt="{% trans "RenRen" %}">
+                            <strong>RenRen</strong>www.renren.com/2625046...
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/wuxianglong098" rel="me">
+                            <img src="{{ STATIC_URL }}images/facebook.png" width="40" height="41" alt="{% trans "Facebook" %}">
+                            <strong>Facebook</strong>facebook.com/wuxianglong
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/wuxianglong" rel="me">
+                            <img src="{{ STATIC_URL }}images/twitter.png" width="40" height="41" alt="{% trans "Twitter" %}">
+                            <strong>Twitter</strong>twitter.com/wuxianglong
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com" rel="me">
+                            <img src="{{ STATIC_URL }}images/googleplus.png" width="40" height="41" alt="{% trans "Google+" %}">
+                            <strong>Google+</strong>wuxianglong098@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/WuXianglong" rel="me">
+                            <img src="{{ STATIC_URL }}images/github.png" width="40" height="41" alt="{% trans "Github" %}">
+                            <strong>Github</strong>github.com/WuXianglong
+                        </a>
+                    </li>
+                </ul>
+                <h2 style="display: none;">{% trans "About me" %}</h2>
+                    <ul class="node" id="about" style="display: none;">
+                        <li id="about-personal">
+                            <h3>
+                                <a href="http://xianglong.me/" rel="me">
+                                    <img src="{% gravatar_for_email "wuxianglong098@gmail.com" 41 %}" width="40" height="41" alt="{% trans "About me" %}">
+                                    <small>{% trans "Personal" %}</small>
+                                    <strong>{% trans "About me" %}</strong>xianlgong.me
+                                </a>
+                            </h3>
+                            <ul>
+                                <li><span class="introduce-order">1. </span>1990年出生，80后和90后的综合体，毕业于武汉大学。</li>
+                                <li><span class="introduce-order">2. </span>天蝎座，比较宅，喜欢读书，听音乐，看动漫，旅行。</li>
+                                <li><span class="introduce-order">3. </span>读书钟爱推理侦探小说，福尔摩斯、阿加莎克里斯蒂，江户川乱步，来者不拒。。。。</li>
+                                <li><span class="introduce-order">4. </span>音乐比较偏爱轻音乐，走路和Coding的时候必然戴着耳机。。。。</li>
+                                <li><span class="introduce-order">5. </span>动漫只看日本的，一直追的有灌篮高手、海贼王、名侦探柯南、Angel Beats。。。。</li>
+                                <li><span class="introduce-order">6. </span>喜欢旅行，但是目前为止去过的地方非常有限，一直梦想骑行去西藏，但现在这个梦想还有些远，慢慢努力吧。。。。</li>
+                            </ul>
+                        </li>
+                        <li id="about-work">
+                            <h3>
+                                <a href="http://cn.dolphin-browser.com/" rel="me">
+                                    <img src="{{ STATIC_URL }}images/dolphin.png" width="40" height="41" alt="{% trans "Dolphin Browser" %}">
+                                    <small>{% trans "My work" %}</small>
+                                    <strong>{% trans "Dolphin Browser" %}</strong>cn.dolphin-browser.com
+                                </a>
+                            </h3>
+                        </li>
+                        <li id="about-blog">
+                            <h3>
+                                <a href="http://xianglong.me/" rel="me">
+                                    <img src="{{ STATIC_URL }}images/blog.png" width="40" height="41" alt="{% trans "Xianglong" %}">
+                                    <small>{% trans "My blog" %}</small>
+                                    <strong>{% trans "Xianglong" %}</strong>xianglong.me
+                                </a>
+                            </h3>
+                        </li>
+                    </ul><!-- about -->
+            </div><!-- content -->
+            <p id="footer">{% blocktrans %}Copyright © 2012 - 2013 {{ site_name }}, Inc. All Rights Reserved.{% endblocktrans %}</p>
+        </div><!-- geekblog -->
+    </body>
+</html>

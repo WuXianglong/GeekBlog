@@ -1,0 +1,43 @@
+{% load i18n admin_tools_leftnav_tags %}
+{% if leftnav.children %}
+<script type="text/javascript" src="{{ media_url }}/admin_tools/js/utils.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+    // Load js files syncronously and conditionally
+    var js_files = [
+	{	        
+            src: '{{ media_url }}/admin_tools/js/jquery/jquery.min.js',		
+            test: function() { return typeof(jQuery) == 'undefined'; }		
+        },
+        {
+	   src : '{{ media_url }}/admin_tools/js/jquery/jquery.cookie.min.js',
+	   test: function() {return typeof(jQuery) == 'undefined'; }
+	},
+        {
+            src : '{{ media_url }}/admin_tools/js/leftnav.js',
+            test: function() { return true; }
+        }{% for js in leftnav.Media.js %},
+        {
+            src : '{{ media_url }}/{{ js }}',
+            test: function() { return true; }
+        }{% endfor %}
+    ];
+
+    loadScripts(js_files);
+
+</script>
+<!--[if IE 6]>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    jQuery('#navigation').children('li').hover(
+        function() { jQuery(this).addClass('over'); },
+        function() { jQuery(this).removeClass('over'); }
+    );
+});
+</script>
+<![endif]-->
+
+<ul id="leftnav" class="nav nav-list">
+    {% for item in leftnav.children %}{% admin_tools_render_leftnav_item item forloop.counter %}{% endfor %}
+</ul>
+{% endif %}

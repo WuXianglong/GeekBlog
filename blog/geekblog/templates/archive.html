@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load blog_tags %}
+
+{% block core %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/archive.js"></script>
+<script type="text/javascript">
+    // load duoshuo js for comment count
+    var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<h1 id="archive-title" class="fw_b mt15">{% trans "Blog Archive" %}</h1>
+<div id="archives-content" class="ml10 mt25">
+    {% for year, all_months in archives.items %}
+    <div class="year ml40">
+        <div class="year-header pb40"><a href="#" class="year-title">{{ year }}</a></div>
+        <ul class="all-month pt20">
+            {% for month, articles in all_months.items %}
+            <li class="one-month">
+                <div class="omo-header">
+                    <span class="omo-title">{% blocktrans %}{{ year }} / {{ month }}{% endblocktrans %}<span class="plrx"></span>{% blocktrans with count=articles|length %}Has {{ count }} articles in total{% endblocktrans %}</span>
+                    <span class="plrx"></span><span class="omo-toggle"></span><span class="omo-dot"></span>
+                </div>
+                <ul class="omo-list clearfix">
+                    {% for a in articles %}
+                    <li class="omo-post left">
+                        <span class="day">{% blocktrans with day=a.day %}{{ day }}: {% endblocktrans %}</span>
+                        <span class="title"><a target="_blank" href="/article/{{ a.id }}/">{{ a.title }}</a></span>
+                        <span class="comment">/<a target="_blank" href="/article/{{ a.id }}/#comments"><span class="ds-thread-count" data-thread-key="{{ a.id }}" data-count-type="comments"></span></a></span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    <div class="archives-bottom ml40"></div>
+</div>
+{% endblock %}

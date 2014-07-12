@@ -1,0 +1,13 @@
+{% load i18n admin_tools_pagination_tags %}
+<p class="paginator" id="changelist-footbar">
+共有{{ cl.result_count }}条记录
+{% if pagination_required %}
+    {% if has_previous %}{% paginator_number cl "last" %}{% else %}<a class="pagenav disabled" id="last"></a> {% endif %}
+    {% for i in page_range %}
+        {% paginator_number cl i %}
+    {% endfor %}
+    {% if has_next %}{% paginator_number cl "next" %}{% else %}<a class="pagenav disabled" id="next"></a> {% endif %}
+    第<input id="jumpto" type="text" class='jump' />页 <a href=""class="buttom" id="jumpBtn" onclick="var page_num=parseInt($('input#jumpto').val())-1;if(page_num!=NaN&&page_num>-1){var url=window.location.search;if(url.indexOf('?') > -1){if(url.indexOf('p=')>-1){url=url.replace(/p=([^&=]+)/g,'p='+page_num);}else{url+='&p='+page_num;}}else{url+='?p='+page_num;}this.href = url;return true;}else{return false;}">确定</a>
+{% endif %}
+{% if cl.formset and cl.result_count and has_change_permission %}<input type="submit" name="_save" class="default" value="{% trans 'Save' %}" id="list_save_btn"/>{% endif %}
+</p>

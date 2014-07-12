@@ -1,0 +1,96 @@
+{
+  "posts": {
+    "list": {
+      "required": [
+        "thread_id"
+      ],
+      "method": "GET",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    },
+    "details": {
+      "required": [
+        "post_id"
+      ],
+      "method": "GET",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    }
+  },
+  "threads": {
+    "counts": {
+      "required": [
+        "threads"
+      ],
+      "method": "GET",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    },
+    "listPosts": {
+      "required": [],
+      "method": "GET",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    },
+    "sync": {
+      "required": [
+        "short_name"
+      ],
+      "method": "POST",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    }
+  },
+  "users": {
+    "profile": {
+      "required": [
+        "user_id"
+      ],
+      "method": "GET",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    },
+    "import": {
+      "required": [
+        "users"
+      ],
+      "method": "POST",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    }
+  },
+  "log": {
+    "list": {
+      "required": [],
+      "method": "GET",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    }
+  },
+  "sites": {
+    "listTopThreads": {
+      "required": [],
+      "method": "GET",
+      "formats": [
+        "json",
+        "jsonp"
+      ]
+    }
+  }
+}

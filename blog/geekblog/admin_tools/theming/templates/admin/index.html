@@ -1,0 +1,20 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static theming_tags %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% block stylesheet_dashboard %}{% static "admin/css/dashboard.css" %}{% endblock %}" />
+{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div id="content-main" class='welcome-page'>
+    <h2>{% trans "Tips" %}</h2>
+    <p>{% trans "Welcome to use geekblog content management console." %}</p>
+</div>
+{% endblock %}

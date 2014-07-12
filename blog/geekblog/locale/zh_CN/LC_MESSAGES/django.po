@@ -1,0 +1,565 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-12 18:42+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#: admin_tools/theming/templates/admin/base.html:38
+msgid "Documentation"
+msgstr "文档"
+
+#: admin_tools/theming/templates/admin/base.html:41
+msgid "Change password"
+msgstr "更改密码"
+
+#: admin_tools/theming/templates/admin/base.html:43
+msgid "Log out"
+msgstr "注销"
+
+#: admin_tools/theming/templates/admin/base.html:52
+#: admin_tools/theming/templates/admin/change_form.html:20
+#: admin_tools/theming/templates/admin/change_list.html:40
+#: admin_tools/theming/templates/registration/logged_out.html:4
+msgid "Home"
+msgstr "主页"
+
+#: admin_tools/theming/templates/admin/change_form.html:23
+msgid "Add"
+msgstr "添加"
+
+#: admin_tools/theming/templates/admin/change_form.html:36
+msgid "History"
+msgstr "历史"
+
+#: admin_tools/theming/templates/admin/change_form.html:37
+msgid "View on site"
+msgstr "查看网站"
+
+#: admin_tools/theming/templates/admin/change_form.html:48
+#: admin_tools/theming/templates/admin/change_list.html:83
+#: admin_tools/theming/templates/admin/login.html:21
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] "请更正下面的错误。"
+msgstr[1] "请更正下面的错误。"
+
+#: admin_tools/theming/templates/admin/change_list.html:59
+#, python-format
+msgid "Add %(name)s"
+msgstr "添加 %(name)s"
+
+#: admin_tools/theming/templates/admin/change_list.html:66
+#, python-format
+msgid "Sync %(name)s to production"
+msgstr "同步 %(name)s 到线上"
+
+#: admin_tools/theming/templates/admin/change_list.html:73
+#, python-format
+msgid "Sync %(name)s from production"
+msgstr "从线上更新 %(name)s"
+
+#: admin_tools/theming/templates/admin/change_list.html:92
+msgid "Filter"
+msgstr "条件筛选"
+
+#: admin_tools/theming/templates/admin/filter.html:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr "以 %(filter_title)s "
+
+#: admin_tools/theming/templates/admin/index.html:17
+#: admin_tools/theming/templates/registration/logged_out.html:8
+msgid "Tips"
+msgstr "提示"
+
+#: admin_tools/theming/templates/admin/index.html:18
+msgid "Welcome to use geekblog content management console."
+msgstr "欢迎使用Geeklog管理控制台"
+
+#: admin_tools/theming/templates/admin/login.html:37
+msgid "Username:"
+msgstr "用户名："
+
+#: admin_tools/theming/templates/admin/login.html:37
+msgid "Username"
+msgstr "用户名"
+
+#: admin_tools/theming/templates/admin/login.html:41
+msgid "Password:"
+msgstr "密码："
+
+#: admin_tools/theming/templates/admin/login.html:41
+msgid "Password"
+msgstr "密码"
+
+#: admin_tools/theming/templates/admin/login.html:47
+msgid "Verify Code:"
+msgstr "验证码："
+
+#: admin_tools/theming/templates/admin/login.html:47
+msgid "Verify Code"
+msgstr "验证码"
+
+#: admin_tools/theming/templates/admin/login.html:53
+msgid "Forgotten your password or username?"
+msgstr "忘记密码或用户名？"
+
+#: admin_tools/theming/templates/admin/login.html:57
+msgid "Log in"
+msgstr "登录"
+
+#: admin_tools/theming/templates/admin/pagination.html:12
+#: admin_tools/theming/templates/admin/submit_line.html:3
+msgid "Save"
+msgstr "保存"
+
+#: admin_tools/theming/templates/admin/submit_line.html:4
+msgid "Delete"
+msgstr "删除"
+
+#: admin_tools/theming/templates/admin/submit_line.html:5
+msgid "Save as new"
+msgstr "保存为新的"
+
+#: admin_tools/theming/templates/admin/submit_line.html:6
+msgid "Save and add another"
+msgstr "保存并添加另一个"
+
+#: admin_tools/theming/templates/admin/submit_line.html:7
+msgid "Save and continue editing"
+msgstr "保存并继续编辑"
+
+#: admin_tools/theming/templates/admin/submit_line.html:8
+msgid "Save and sync"
+msgstr "保存并同步"
+
+#: admin_tools/theming/templates/registration/logged_out.html:9
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "感谢您今天在本站花费一些宝贵时间."
+
+#: admin_tools/theming/templates/registration/logged_out.html:10
+msgid "Log in again"
+msgstr "重新登录"
+
+#: admin_tools/theming/templatetags/admin_tools_pagination_tags.py:19
+msgid "next page"
+msgstr "下一页"
+
+#: admin_tools/theming/templatetags/admin_tools_pagination_tags.py:22
+msgid "prev page"
+msgstr "上一页"
+
+#: blog/admin.py:21 blog/admin.py:40 blog/admin.py:59 blog/admin.py:78
+#: blog/admin.py:95 blog/admin.py:119 blog/admin.py:145
+msgid "Basic"
+msgstr "基本信息"
+
+#: blog/admin.py:24 blog/admin.py:43 blog/admin.py:62 blog/admin.py:81
+#: blog/admin.py:98 blog/admin.py:122 blog/admin.py:149
+msgid "Status"
+msgstr "状态"
+
+#: blog/admin.py:131 blog/admin.py:181
+#, python-format
+msgid "You can't publish not approved %(model)s: %(obj)s"
+msgstr "不能发布未审核通过的 %(model)s: %(obj)s"
+
+#: blog/views.py:165
+msgid "Archive"
+msgstr "归档"
+
+#: blog/views.py:173 templates/about.html:24 templates/base.html:60
+msgid "About"
+msgstr "关于"
+
+#: blog/views.py:182
+msgid "Friend Links"
+msgstr "友链"
+
+#: catearticles/models.py:35
+msgid "Category Articles"
+msgstr "分类文章"
+
+#: geekblog/settings.py:211
+msgid "content management"
+msgstr "内容管理"
+
+#: geekblog/settings.py:228
+msgid "system management"
+msgstr "系统管理"
+
+#: templates/404.html:12
+msgid "You Look Lost. Head This Way."
+msgstr "你好像迷路了，点击返回首页"
+
+#: templates/500.html:3 templates/500.html.py:8
+msgid "Server error"
+msgstr "服务器出错"
+
+#: templates/500.html:10
+msgid ""
+"There's been an error. It's been reported to the site administrators via e-"
+"mail and should be fixed shortly. Thanks for your patience."
+msgstr "内部服务器错误, 我们正在努力解决, 如有不便深感抱歉!!"
+
+#: templates/about.html:15
+msgid "Xianglong Wu"
+msgstr "吴降龙"
+
+#: templates/about.html:17
+msgid ""
+"\n"
+"                    Work at <a href=\"http://cn.dolphin-browser.com/\" rel="
+"\"me\">Dolphin Browser</a>, Chengdu, SiChuan\n"
+"                "
+msgstr ""
+"\n"
+"                    工作地点： <a href=\"http://cn.dolphin-browser.com/\" "
+"rel=\"me\">海豚浏览器</a>, @成都, 四川\n"
+"                "
+
+#: templates/about.html:23 templates/about.html.py:27
+msgid "Contact"
+msgstr "联系方式"
+
+#: templates/about.html:31
+msgid "Email"
+msgstr "邮箱"
+
+#: templates/about.html:37
+msgid "WeChat"
+msgstr "微信"
+
+#: templates/about.html:43
+msgid "Weibo"
+msgstr "新浪微博"
+
+#: templates/about.html:49
+msgid "RenRen"
+msgstr "人人网"
+
+#: templates/about.html:55
+msgid "Facebook"
+msgstr "Facebook"
+
+#: templates/about.html:61
+msgid "Twitter"
+msgstr "Twitter"
+
+#: templates/about.html:67
+msgid "Google+"
+msgstr "Google+"
+
+#: templates/about.html:73
+msgid "Github"
+msgstr "Github"
+
+#: templates/about.html:78 templates/about.html.py:83 templates/about.html:85
+msgid "About me"
+msgstr "关于我"
+
+#: templates/about.html:84
+msgid "Personal"
+msgstr "个人信息"
+
+#: templates/about.html:100 templates/about.html.py:102
+msgid "Dolphin Browser"
+msgstr "海豚浏览器"
+
+#: templates/about.html:101
+msgid "My work"
+msgstr "我的工作"
+
+#: templates/about.html:109 templates/about.html.py:111
+msgid "Xianglong"
+msgstr "降龙"
+
+#: templates/about.html:110
+msgid "My blog"
+msgstr "我的博客"
+
+#: templates/about.html:117
+#, fuzzy, python-format
+msgid "Copyright © 2012 - 2013 %(site_name)s, Inc. All Rights Reserved."
+msgstr "Copyright © 2012 - 2014 %(site_name)s, 保留所有权利."
+
+#: templates/archive.html:19
+msgid "Blog Archive"
+msgstr "博客归档"
+
+#: templates/archive.html:28
+#, python-format
+msgid "%(year)s / %(month)s"
+msgstr "%(year)s年%(month)s月"
+
+#: templates/archive.html:28
+#, python-format
+msgid "Has %(count)s articles in total"
+msgstr "共有%(count)s篇文章"
+
+#: templates/archive.html:34
+#, python-format
+msgid "%(day)s: "
+msgstr "%(day)s日："
+
+#: templates/base.html:51
+msgid "Life"
+msgstr "生活"
+
+#: templates/base.html:53
+msgid "Code"
+msgstr "编码"
+
+#: templates/base.html:54
+msgid "Resources"
+msgstr "资源"
+
+#: templates/base.html:58
+msgid "Archives"
+msgstr "归档"
+
+#: templates/base.html:59
+msgid "Friends"
+msgstr "友链"
+
+#: templates/base.html:69
+msgid "Search On Site"
+msgstr "发现之旅"
+
+#: templates/base.html:72
+msgid "Enter search term..."
+msgstr "输入搜索内容..."
+
+#: templates/base.html:73
+msgid "Search"
+msgstr "搜索"
+
+#: templates/base.html:79
+msgid "Newest Articles"
+msgstr "最新热文"
+
+#: templates/base.html:90
+msgid "Hottest Tags"
+msgstr "热门标签"
+
+#: templates/base.html:101
+msgid "Newest Comments"
+msgstr "最新评论"
+
+#: templates/base.html:122
+#, fuzzy, python-format
+msgid ""
+"\n"
+"                    Copyright © 2012 - 2013 %(site_name)s, Inc. All Rights "
+"Reserved.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Copyright © 2012 - 2014 %(site_name)s, 保留所有权利.\n"
+"                    "
+
+#: templates/detail.html:38 templates/item.html:16
+#, python-format
+msgid "Views all articles of %(category_name)s "
+msgstr "查看 %(category_name)s 下的所有文章"
+
+#: templates/detail.html:44 templates/item.html:22
+#, python-format
+msgid "Viewed by %(views_count)s people "
+msgstr "已有%(views_count)s人围观"
+
+#: templates/detail.html:47 templates/item.html:25
+#, python-format
+msgid "Comments of %(title)s"
+msgstr "%(title)s的评论"
+
+#: templates/detail.html:66
+msgid "Previous："
+msgstr "上一篇："
+
+#: templates/detail.html:70
+msgid "No more previous article"
+msgstr "木有最新的文章了"
+
+#: templates/detail.html:73
+msgid "Next："
+msgstr "下一篇："
+
+#: templates/detail.html:77
+msgid "No more next article"
+msgstr "木有更早的文章了"
+
+#: templates/detail.html:84
+msgid "Address："
+msgstr "本文地址："
+
+#: templates/detail.html:85
+msgid "Statement："
+msgstr "特别声明："
+
+#: templates/detail.html:94
+msgid "Comment of this article has closed."
+msgstr "文章的评论已经关闭"
+
+#: templates/index.html:74
+msgid "There is no more articles, please return "
+msgstr "已经木有文章了, 请返回"
+
+#: templates/index.html:74
+msgid "homepage"
+msgstr "主页"
+
+#: templates/index.html:83
+msgid "Use left and right key ← → to turn page"
+msgstr "使用左右键 ← → 快捷翻页"
+
+#: templates/item.html:6 templates/item.html.py:39
+#, python-format
+msgid "Read the detail of %(title)s "
+msgstr "详细阅读 %(title)s"
+
+#: templates/item.html:39
+msgid "Read more"
+msgstr "阅读全文"
+
+#: templates/link.html:8
+msgid "Friend's Links"
+msgstr "友情链接"
+
+#: templates/link.html:16
+msgid "Site's Links"
+msgstr "本站链接"
+
+#: templates/link.html:23
+msgid "Link Statement:"
+msgstr "链接声明："
+
+#: templates/link.html:30
+msgid "Link Format:"
+msgstr "链接格式："
+
+#: templates/link.html:32
+msgid "website name"
+msgstr "网站名称"
+
+#: templates/link.html:33
+msgid "website address"
+msgstr "网站地址"
+
+#: templates/link.html:34
+msgid "website description"
+msgstr "网站描述"
+
+#: usermanagement/admin.py:13
+msgid "addition action"
+msgstr "添加操作"
+
+#: usermanagement/admin.py:14
+msgid "change action"
+msgstr "修改操作"
+
+#: usermanagement/admin.py:15
+msgid "deletion action"
+msgstr "删除操作"
+
+#: usermanagement/admin.py:81
+msgid "action flag"
+msgstr "动作标志"
+
+#: usermanagement/admin.py:87
+msgid "Personal info"
+msgstr "个人信息"
+
+#: usermanagement/admin.py:88
+msgid "Permissions"
+msgstr "权限"
+
+#: usermanagement/admin.py:90
+msgid "Important dates"
+msgstr "重要日期"
+
+#: usermanagement/models.py:18 usermanagement/models.py:90
+msgid "User Management"
+msgstr "用户管理"
+
+#: usermanagement/models.py:19
+msgid "Group"
+msgstr "用户组"
+
+#: usermanagement/models.py:20
+msgid "Groups"
+msgstr "用户组"
+
+#: usermanagement/models.py:58
+msgid "username"
+msgstr "用户名"
+
+#: usermanagement/models.py:59
+msgid ""
+"Required. 50 characters or fewer. Letters, numbers and @/./+/-/_ characters"
+msgstr "必填。不多于50个字符。只能用字母、数字和字符 @/./+/-/_ 。"
+
+#: usermanagement/models.py:62
+msgid "Enter a valid username."
+msgstr "请输入合法的用户名"
+
+#: usermanagement/models.py:64
+msgid "first name"
+msgstr "名字"
+
+#: usermanagement/models.py:65
+msgid "last name"
+msgstr "姓氏"
+
+#: usermanagement/models.py:66
+msgid "email address"
+msgstr "E-mail 地址"
+
+#: usermanagement/models.py:67
+msgid "staff status"
+msgstr "职员状态"
+
+#: usermanagement/models.py:68
+msgid "Designates whether the user can log into this admin site."
+msgstr "指明用户是否可以登录到这个管理站点。"
+
+#: usermanagement/models.py:70
+msgid "date joined"
+msgstr "加入日期"
+
+#: usermanagement/models.py:71
+msgid "status"
+msgstr "状态"
+
+#: usermanagement/models.py:72
+msgid "qq"
+msgstr "QQ"
+
+#: usermanagement/models.py:73
+msgid "website"
+msgstr "网站"
+
+#: usermanagement/models.py:74
+msgid "activation code"
+msgstr "激活码"
+
+#: usermanagement/models.py:91
+msgid "User"
+msgstr "用户"
+
+#: usermanagement/models.py:92
+msgid "Users"
+msgstr "用户"

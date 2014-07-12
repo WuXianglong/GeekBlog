@@ -1,0 +1,12 @@
+[blog]
+debug = %(debug_mode)s
+log_root = %(log_dir_base)s/blog/
+language_code = zh-cn
+mongodb_conf = %(mongodb_conn_str)s
+blog_db_conf = %(blog_mysql_conf)s
+upload_file_root = %(upload_file_dir_base)s/
+file_storage_domain_conf = %(file_storage_domain)s
+duoshuo_secret = %(duoshuo_secret_conf)s
+duoshuo_short_name = %(duoshuo_short_name_conf)s
+email_host_user = %(email_host_user_conf)s
+email_host_password = %(email_host_password_conf)s

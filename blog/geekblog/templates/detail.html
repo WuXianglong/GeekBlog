@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load blog_tags duoshuo_tags %}
+
+{% block scripts %}
+    <!-- ueditor syntax high lighter -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.colorbox.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+        $(document).ready(function() {
+            $(".detail-article").find("img").each(function() {
+                // if not ueditor emotion img, wrap it with <a> tag.
+                if ($(this).attr("src").indexOf("ueditor/dialogs/emotion") == -1) {
+                    $(this).wrap("<a class='img-group' href='" + $(this).attr("src") + "' title='" + $(this).attr("title") + "'></a>");
+                }
+            });
+            // assign the Colorbox event to elements
+            $(".img-group").colorbox({rel:'img-group', maxWidth: '85%', maxHeight: '85%'});
+        });
+    </script>
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/colorbox.css" type="text/css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
+{% endblock %}
+
+{% block core %}
+<!-- Ad here -->
+<div class="detail-page">
+    <div class="detail-header">
+        <div class="title">{{ title }}</div>
+        <div class="date">{{ publish_date_str }}</div>
+    </div>
+
+    <div class="detail-content">
+        <div class="detail-info">
+            <span class="category-icon"><a href="/cate/{{ category_slug }}" title="{% blocktrans %}Views all articles of {{ category_name }} {% endblocktrans %}" rel="category tag">{{ category_name }}</a></span>
+            <span class="tag-icon">
+                {% for tag in tags %}
+                    <a href="/tag/{{ tag.slug }}" rel="tag">{{ tag.name }}</a>{% if not forloop.last %}&nbsp/{% endif %}
+                {% endfor %}
+            </span>
+            <span class="view-icon">{% blocktrans %}Viewed by {{ views_count }} people {% endblocktrans %}</span>
+            {% if enable_comment %}
+            <span class="comment-icon">
+                <a href="#comments" title="{% blocktrans %}Comments of {{ title }}{% endblocktrans %}">
+                    {% comment %}
+                    {% if comment_count == 0 %}
+                        {% blocktrans %}No comments{% endblocktrans %}
+                    {% else %}
+                        {% blocktrans %}Commented by {{ comment_count }} people {% endblocktrans %}
+                    {% endif %}
+                    {% endcomment %}
+                    <span class="ds-thread-count" data-thread-key="{{ id }}" data-count-type="comments"></span>
+                </a>
+            </span>
+            {% endif %}
+        </div>
+        <div class="detail-img"><a class="img-group" href="{{ thumbnail_url }}" title="{{ title }}"><img src="{{ thumbnail_url }}"></img></a></div>
+        <div class="detail-article">{{ content|safe }}</div>
+    </div>
+
+    <div class="detail-footer">
+        <span class="previous">{% trans "Previous："%}
+            {% if prev_a %}
+            <a href="/article/{{ prev_a.id }}/">{{ prev_a.title }}</a>
+            {% else %}
+            {% trans "No more previous article" %}
+            {% endif %}
+        </span>
+        <span class="next">{% trans "Next：" %}
+            {% if next_a %}
+            <a href="/article/{{ next_a.id }}/">{{ next_a.title }}</a>
+            {% else %}
+            {% trans "No more next article" %}
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+<div class="detail-copycat">
+    <p class="detail-addr">{% trans "Address：" %}<a href="/article/{{ id }}/">http://xianglong/article/{{ id }}/</a></p>
+    <p>{% trans "Statement："%}本站文章，如非注明，皆为<a href="/">{{ site_name }}</a>原创。转载需注明本文链接并保证链接可用。</p>
+</div>
+
+<!-- Ad here -->
+
+<div id="comments">
+{% if enable_comment %}
+{% duoshuo_comments %}
+{% else %}
+{% trans "Comment of this article has closed." %}
+{% endif %}
+</div>
+
+{% endblock %}

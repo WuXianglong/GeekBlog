@@ -1,0 +1,137 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }} | {{ site_desc }}</title>
+        <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico">
+        <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css">
+        <link href="{{ STATIC_URL }}css/tooltips.css" rel="stylesheet" type="text/css">
+        <link href="{{ STATIC_URL }}css/jquery-ui.css" rel="stylesheet" type="text/css">
+        {% block styles %}
+        {% endblock %}
+        <script type="text/javascript" src="/jsi18n/"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/geekblog.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/tooltips.js"></script>
+        <script type="text/javascript">
+            var staticPath = '{{ STATIC_URL }}';
+            $(function() {
+                $(".primary-navigation a[title]").tooltips();
+
+                var $backToTopEle = $('<div class="backToTop"></div>').appendTo($("body")).click(function() {
+                            $("html, body").animate({scrollTop: 0}, 800);
+                            return false;
+                        }),
+                    $backToTopFun = function() {
+                        var st = $(window).scrollTop(), winh = $(window).height();
+                        (st > 50) ? $backToTopEle.fadeIn() : $backToTopEle.fadeOut();
+                        // IE6下的定位
+                        if (!window.XMLHttpRequest) {
+                            $backToTopEle.css("top", st + winh - 166);
+                        }
+                    };
+                $(window).bind("scroll", $backToTopFun);
+                $(function() {
+                    $backToTopFun();
+                });
+            });
+        </script>
+        {% block scripts %}
+        {% endblock %}
+    </head>
+    <body id="{{ url_name }}">
+        <div class="maincontent-wrapper">
+            <div class='top'></div>
+            <div class="header">
+                <div class="primary-navigation">
+                    <ul class="navigation">
+                        <li class="nav-item life">
+                            <a href="/cate/life" title="读书 or 旅行">{% trans "Life" %}</a>
+                        </li>
+                        <li class="nav-item code"><a href="/cate/code" title="编码是指尖的魔术">{% trans "Code" %}</a></li>
+                        <li class="nav-item resource"><a href="/cate/res" title="你有资源收集癖吗">{% trans "Resources" %}</a></li>
+                        <li class="nav-item logo">
+                            <a href="/"><img src="{{ STATIC_URL }}images/logo.png" width="53" height="88"></a>
+                        </li>
+                        <li class="nav-item archive"><a href="/archive" title="博客档案">{% trans "Archives" %}</a></li>
+                        <li class="nav-item friend"><a href="/friend" title="网络朋友" target="_blank">{% trans "Friends" %}</a></li>
+                        <li class="nav-item about"><a href="/about" title="想了解一下我吗" target="_blank">{% trans "About" %}</a></li>
+                    </ul>
+                </div>
+            </div><!-- header -->
+            {% block sliders %}{% endblock %}<!-- only display in home page -->
+            <div id="center" class="maincontent">
+                <div class="content">{% block core %}{% endblock %}</div>
+                <div class="sidebar">
+                    <section id="s-search">
+                        <h3>{% trans "Search On Site" %}</h3>
+                        <div class="s-item-content">
+                            <div class="search-box" id="search-box">
+                                <input type="text" class="sb-text" placeholder='{% trans "Enter search term..." %}' value="">
+                                <img class="sb-submit" src="{{ STATIC_URL }}images/search.png" alt='{% trans "Search" %}'></img>
+                            </div>
+                        </div>
+                        <div class="s-item-footer"></div>
+                    </section>
+                    <section id="s-newest">
+                        <h3>{% trans "Newest Articles" %}</h3>
+                        <div class="s-item-content">
+                            <ul class="newest-articles-list">
+                                {% for a_item in newest_articles %}
+                                    <li><a href="/article/{{ a_item.id }}/">{{ a_item.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="s-item-footer"></div>
+                    </section>
+                    <section id="s-tag">
+                        <h3>{% trans "Hottest Tags" %}</h3>
+                        <div class="s-item-content">
+                            <ul class="tag-list">
+                                {% for tag in all_tags %}
+                                    <li><a class="s-tag-item" href="/tag/{{ tag.slug }}">{{ tag.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="s-item-footer"></div>
+                    </section>
+                    <section id="s-comment">
+                        <h3>{% trans "Newest Comments" %}</h3>
+                        <div class="s-item-content">
+                            <ul class="ds-recent-comments" data-num-items="6" data-show-avatars="1" data-show-time="1" data-show-title="0" data-show-admin="1" data-avatar-size="36" data-excerpt-length="13" id="ds-recent-comments"></ul>
+                        </div>
+                        <div class="s-item-footer"></div>
+                    </section>
+                    {% comment %}
+                    <!-- AD -->
+                    <section id="s-ad">
+                        <h3>{% trans "Advertising" %}</h3>
+                        <div class="s-item-content"></div>
+                        <div class="s-item-footer"></div>
+                    </section>
+                    {% endcomment %}
+                </div><!-- sidebar -->
+                <div class="clear"></div>
+            </div>
+            <div class="footer">
+                <div class="footerinner">
+                    <span id="copyright">
+                    {% blocktrans %}
+                    Copyright © 2012 - 2013 {{ site_name }}, Inc. All Rights Reserved.
+                    {% endblocktrans %}
+                    &nbsp;&nbsp;
+                    </span>
+                    <form action="/i18n/setlang/" method="post" style="display:inline;">{% csrf_token %}
+                        <select name="language" onchange="form.submit();">
+                        {% for lang in LANGUAGES %}
+                            <option value="{{ lang.0 }}" {% ifequal lang.0 LANGUAGE_CODE %}selected="selected"{% endifequal %}>{{ lang.1 }}</option>
+                        {% endfor %}
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

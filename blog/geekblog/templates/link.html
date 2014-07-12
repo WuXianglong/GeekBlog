@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load blog_tags duoshuo_tags %}
+
+{% block core %}
+<div id="all-links">
+    {% if friend_links %}
+    <h1 id="link-title-1" class="fw_b mt15 mb5">{% trans "Friend's Links" %}</h1>
+    <ul>
+        {% for link in friend_links %}
+        <li><a href="{{ link.address }}" class="mt10 ml10 mr10" title="{{ link.description }}" target="_blank"><img src="{{ link.icon_url }}" alt="{{ link.title }}" title="{{ link.description }}"> {{ link.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% if site_links %}
+    <h1 id="link-title-2" class="fw_b mt20 mb5">{% trans "Site's Links" %}</h1>
+    <ul>
+        {% for link in site_links %}
+        <li><a href="{{ link.address }}" class="mt10 ml10 mr10" title="{{ link.description }}" target="_blank"><img src="{{ link.icon_url }}" alt="{{ link.title }}" title="{{ link.description }}"> {{ link.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h3 class="fw_b mt20">{% trans "Link Statement:" %}</h3>
+    <p class="pl20">
+        一、内容相关性较高的网站优先考虑，至少每周有更新，内容原创或翻译均可，搜索引擎正常收录。<br>
+        二、在申请本站友链之前请先添加本站链接（链接格式见下方）。<br>
+        三、添加本站链接请在下方留言或将贵站链接发至<img src="{{ STATIC_URL }}images/my-email.gif" style="height: 16px"></img>。<br>
+        四、提交友链申请后，链接会在24小时以内审核并添加。如未通过审核，将不另行通知，请见谅。
+    </p>
+    <h3 class="fw_b mt10">{% trans "Link Format:" %}</h3>
+    <p class="pl20">
+        {% trans "website name" %}：{{ site_name }}<br>
+        {% trans "website address" %}：{{ site_url }}<br>
+        {% trans "website description" %}：{{ site_desc }}
+    </p>
+</div>
+
+{% duoshuo_comments %}
+{% endblock %}

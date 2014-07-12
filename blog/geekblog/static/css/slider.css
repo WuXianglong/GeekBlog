@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+#sliders {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.box {
+    overflow: hidden;
+    display: block;
+    -moz-box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
+    -webkit-box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
+    box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
+    position: absolute;
+    cursor: pointer;
+    display: inline-block;
+    zoom: 1;
+    height: 300px;
+    overflow: hidden;
+    float: left;
+}
+.box_1 {
+    left: 0px;
+}
+.box_2 {
+    left: 136px;
+}
+.box_3 {
+    left: 804px;
+}
+.box_4 {
+    left: 872px;
+}
+.box img {
+    position: relative;
+}
+.caption {
+    position: absolute;
+    padding: 20px;
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+    background: -moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+    ilter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+    background-color: #ededed;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    text-shadow: 1px 1px 0px #ffffff;
+    margin: 0px 20px 20px 20px;
+    left: 0;
+    width: 518px;
+}
+.caption_1 {
+    bottom: -107px;
+}
+.caption_2 {
+    bottom: 0px;
+}
+.caption_3, .caption_4 {
+    bottom: -126px;
+}
+.caption p {
+    color: #999;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+.caption h1 {
+    color: #666;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+.caption a {
+    text-decoration: none;
+}

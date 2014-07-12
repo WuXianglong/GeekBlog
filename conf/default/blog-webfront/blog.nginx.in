@@ -1,0 +1,68 @@
+server {
+	listen %(web_port)s;
+	listen %(https_port)s ssl;
+	server_name %(url)s;
+
+	# They never request frequantly, so keep-alive is meaningless for them.
+	keepalive_timeout 60;
+    client_max_body_size 60M;
+	
+	gzip on;
+	gzip_comp_level 6;
+	gzip_min_length 1000;
+	gzip_proxied any;
+	gzip_buffers 16 32k;
+	gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+	gzip_disable "msie6";
+
+	access_log %(log_dir_base)s/blog-webfront/access.log;
+	error_log %(log_dir_base)s/blog-webfront/error.log;
+
+	# Fix proxy problem.
+	set $foreign_addr $remote_addr;
+	if ($http_x_real_ip) {
+		set $foreign_addr $http_x_real_ip;
+	}	
+	proxy_set_header X-Real-IP $foreign_addr;
+
+	set $real_server_name $server_name;
+	if ($http_x_real_server) {
+		set $real_server_name $http_x_real_server;
+	}	
+	proxy_set_header X-Real-Server $real_server_name;
+	proxy_set_header X-Real-Port $server_port;
+	set $real_secure "off";
+	if ($server_port = %(https_port)s) {
+		set $real_secure "on";
+	}
+	proxy_set_header X-Real-HTTPS $real_secure;
+
+    location = /favicon.ico { access_log off; log_not_found off; }	
+
+	location / {
+		uwsgi_pass blog;
+		include uwsgi_params;
+        uwsgi_send_timeout 1800;
+        uwsgi_read_timeout 1800;
+        uwsgi_connect_timeout 1800;
+	}
+	
+	location /static {
+        alias /var/app/enabled/blog-webfront/static; 
+        expires 1d;
+	}
+	location /upload/images {
+        alias /mnt/blog/upload/images;
+        expires 1d;
+	}
+	location /upload/files {
+        alias /mnt/blog/upload/files;
+        expires 1d;
+	}
+}
+
+upstream blog {
+###template(blog)
+    server %(#blog.ip)s:%(#blog.proxy_port)s;
+###
+}

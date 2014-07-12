@@ -1,0 +1,2 @@
+global-include *.py *.logrotate *.crt *.key *.nginx
+graft scripts
