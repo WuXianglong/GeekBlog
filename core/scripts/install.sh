@@ -24,3 +24,4 @@ else
     sudo python scripts/install.py
 fi
 
+chmod -R 775 /var/app/enabled/$PROJECT
