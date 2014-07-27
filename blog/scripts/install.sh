@@ -35,6 +35,7 @@ echo Configuring ${PROJECT}...
 echo Installing blog...
 [ -z `grep "^$USER:" /etc/passwd` ] && sudo useradd -r $USER -M -N
 
+chmod -R 775 /var/app/enabled/$PROJECT
 chmod -R a+rw /var/app/data/$PROJECT
 chmod -R a+rw /var/app/log/$PROJECT
 chown $USER:nogroup /var/app/data/$PROJECT
