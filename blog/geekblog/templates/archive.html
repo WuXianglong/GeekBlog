@@ -32,8 +32,8 @@
                     {% for a in articles %}
                     <li class="omo-post left">
                         <span class="day">{% blocktrans with day=a.day %}{{ day }}: {% endblocktrans %}</span>
-                        <span class="title"><a target="_blank" href="/article/{{ a.id }}/">{{ a.title }}</a></span>
-                        <span class="comment">/<a target="_blank" href="/article/{{ a.id }}/#comments"><span class="ds-thread-count" data-thread-key="{{ a.id }}" data-count-type="comments"></span></a></span>
+                        <span class="title"><a target="_blank" href="/article/{{ a.slug }}/">{{ a.title }}</a></span>
+                        <span class="comment">/<a target="_blank" href="/article/{{ a.slug }}/#comments"><span class="ds-thread-count" data-thread-key="{{ a.id }}" data-count-type="comments"></span></a></span>
                     </li>
                     {% endfor %}
                 </ul>

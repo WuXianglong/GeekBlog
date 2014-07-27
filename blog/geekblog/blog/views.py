@@ -1,4 +1,4 @@
-#-*- coding: UTF-8 -*-
+# -*- coding: UTF-8 -*-
 import logging
 from django.conf import settings
 from django.template import RequestContext
@@ -70,13 +70,14 @@ def show_homepage(request, page_num):
     return _render_response(request, 'index.html', context_infos)
 
 
-def show_article(request, a_id):
-    article_infos = blog_db.get_article_by_id(a_id)
+def show_article(request, slug):
+    article_infos = blog_db.get_article_by_slug(slug)
     # if article_infos is None or this article can only be viewed by logined user
     if not article_infos or (request.user.is_anonymous() and article_infos['login_required']):
-        logger.exception('Invaild article ID: %s' % a_id)
+        logger.exception('Invaild article slug: %s' % slug)
         return _render_404_response(request)
 
+    a_id = article_infos.get('id', 0)
     # update articel views_count
     blog_db.increment_article_views_count(a_id)
     # get previous and next articles

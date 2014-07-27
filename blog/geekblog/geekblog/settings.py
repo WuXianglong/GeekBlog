@@ -157,8 +157,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
-    'geekblog.context_processors.urlname',
-    'geekblog.context_processors.website_meta',
+    'geekblog.geekblog.context_processors.urlname',
+    'geekblog.geekblog.context_processors.website_meta',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -170,7 +170,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
 )
 
-ROOT_URLCONF = 'geekblog.urls'
+ROOT_URLCONF = 'geekblog.geekblog.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'geekblog.wsgi.application'

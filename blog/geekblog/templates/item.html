@@ -3,13 +3,13 @@
     <div class="post-header"></div>
     <div class="post-body" id="post-{{ id }}">
         <p class="blog_date fw_b">{{ day }}<br><span>{{ month_str }}</span></p>
-        <h2 class="post-title"><a href="/article/{{ id }}/" title="{% blocktrans %}Read the detail of {{ title }} {% endblocktrans %}">{{ title }}</a></h2>
+        <h2 class="post-title"><a href="/article/{{ slug }}/" title="{% blocktrans %}Read the detail of {{ title }} {% endblocktrans %}">{{ title }}</a></h2>
         <p class="post-thumbnail">
-            <a href="/article/{{ id }}/" rel="bookmark" title="{{ tilte }}">
+            <a href="/article/{{ slug }}/" rel="bookmark" title="{{ tilte }}">
                 <img src="{{ thumbnail_url }}" alt="{{ title }}">
             </a>
         </p>
-        <p class="post-desc">{{ description|safe }}</p>
+        <div class="post-desc">{{ description|safe }}</div>
     </div>
     <div class="post-footer">
         <div class="item-bar">
@@ -22,7 +22,7 @@
             <span class="view-icon">{% blocktrans %}Viewed by {{ views_count }} people {% endblocktrans %}</span>
             {% if enable_comment %}
             <span class="comment-icon">
-                <a href="/article/{{ id }}/#comments" title="{% blocktrans %}Comments of {{ title }}{% endblocktrans %}">
+                <a href="/article/{{ slug }}/#comments" title="{% blocktrans %}Comments of {{ title }}{% endblocktrans %}">
                     {% comment %}
                     {% if comment_count == 0 %}
                         {% blocktrans %}No comments{% endblocktrans %}
@@ -35,7 +35,7 @@
             </span>
             {% endif %}
         </div>
-        <a class="readmore" href="/article/{{ id }}/" title="{% blocktrans %}Read the detail of {{ title }} {% endblocktrans %}" rel="bookmark">{% trans "Read more" %} >></a>
+        <a class="readmore" href="/article/{{ slug }}/" title="{% blocktrans %}Read the detail of {{ title }} {% endblocktrans %}" rel="bookmark">{% trans "Read more" %} >></a>
     </div>
     <div class="clear"></div>
 </div>

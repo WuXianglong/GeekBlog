@@ -1,7 +1,7 @@
 <uwsgi>
     <socket>:%(#blog.http_port)s</socket>
     <stats>:40000</stats>
-    <env>DJANGO_SETTINGS_MODULE=geekblog.settings</env>
+    <env>DJANGO_SETTINGS_MODULE=geekblog.geekblog.settings</env>
     <module>django.core.handlers.wsgi:WSGIHandler()</module>
     <processes>6</processes>
     <master />

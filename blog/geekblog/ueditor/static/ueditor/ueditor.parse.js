@@ -347,18 +347,18 @@ UE.parse.register('insertcode',function(utils){
                 cssurl = this.highlightCssUrl;
             }
             utils.loadFile(document,{
-                id : "syntaxhighlighter_css",
-                tag : "link",
-                rel : "stylesheet",
-                type : "text/css",
-                href : cssurl
+                id: "syntaxhighlighter_css",
+                tag: "link",
+                rel: "stylesheet",
+                type: "text/css",
+                href: cssurl
             });
             utils.loadFile(document,{
-                id : "syntaxhighlighter_js",
-                src : jsurl,
-                tag : "script",
-                type : "text/javascript",
-                defer : "defer"
+                id: "syntaxhighlighter_js",
+                src: jsurl,
+                tag: "script",
+                type: "text/javascript",
+                defer: "defer"
             },function(){
                 utils.each(pres,function(pi){
                     if(pi && /brush/i.test(pi.className)){

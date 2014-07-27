@@ -107,6 +107,11 @@ class BlogMongodbStorage(MongodbStorage):
         article_infos = self._db.articles.find_one(cond, fields=ARTICLE_DETAIL_INFO_FIELDS)
         return article_infos
 
+    def get_article_by_slug(self, slug):
+        cond = {'slug': slug}
+        article_infos = self._db.articles.find_one(cond, fields=ARTICLE_DETAIL_INFO_FIELDS)
+        return article_infos
+
     def get_prev_article(self, a_id):
         cond = {'id': {'$gt': long(a_id)}}
         article_infos = self._db.articles.find_one(cond, sort=[('id', self.ORDER_DESC)], fields=ARTICLE_BRIEF_INFO_FIELDS)

@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-12 18:42+0800\n"
+"POT-Creation-Date: 2014-07-26 21:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,15 +177,15 @@ msgstr "状态"
 msgid "You can't publish not approved %(model)s: %(obj)s"
 msgstr "不能发布未审核通过的 %(model)s: %(obj)s"
 
-#: blog/views.py:165
+#: blog/views.py:166
 msgid "Archive"
 msgstr "归档"
 
-#: blog/views.py:173 templates/about.html:24 templates/base.html:60
+#: blog/views.py:174 templates/about.html:24 templates/base.html:60
 msgid "About"
 msgstr "关于"
 
-#: blog/views.py:182
+#: blog/views.py:183
 msgid "Friend Links"
 msgstr "友链"
 
@@ -222,13 +222,13 @@ msgstr "吴降龙"
 #: templates/about.html:17
 msgid ""
 "\n"
-"                    Work at <a href=\"http://cn.dolphin-browser.com/\" rel="
-"\"me\">Dolphin Browser</a>, Chengdu, SiChuan\n"
+"                    Work at <a href=\"http://m.sohu.com/\" rel=\"me\">Sohu "
+"Mobile</a>, Beijing\n"
 "                "
 msgstr ""
 "\n"
 "                    工作地点： <a href=\"http://cn.dolphin-browser.com/\" "
-"rel=\"me\">海豚浏览器</a>, @成都, 四川\n"
+"rel=\"me\">手机搜狐</a>, @北京\n"
 "                "
 
 #: templates/about.html:23 templates/about.html.py:27
@@ -276,8 +276,8 @@ msgid "Personal"
 msgstr "个人信息"
 
 #: templates/about.html:100 templates/about.html.py:102
-msgid "Dolphin Browser"
-msgstr "海豚浏览器"
+msgid "Sohu Mobile"
+msgstr "手机搜狐"
 
 #: templates/about.html:101
 msgid "My work"
@@ -292,8 +292,8 @@ msgid "My blog"
 msgstr "我的博客"
 
 #: templates/about.html:117
-#, fuzzy, python-format
-msgid "Copyright © 2012 - 2013 %(site_name)s, Inc. All Rights Reserved."
+#, python-format
+msgid "Copyright © 2012 - 2014 %(site_name)s, Inc. All Rights Reserved."
 msgstr "Copyright © 2012 - 2014 %(site_name)s, 保留所有权利."
 
 #: templates/archive.html:19
@@ -360,10 +360,10 @@ msgid "Newest Comments"
 msgstr "最新评论"
 
 #: templates/base.html:122
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
-"                    Copyright © 2012 - 2013 %(site_name)s, Inc. All Rights "
+"                    Copyright © 2012 - 2014 %(site_name)s, Inc. All Rights "
 "Reserved.\n"
 "                    "
 msgstr ""

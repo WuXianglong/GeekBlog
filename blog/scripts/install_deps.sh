@@ -5,7 +5,7 @@
 # python-software-properties depend by add-apt-repository to add nginx ppa
 SYS_DEPS=(python-pip python-software-properties python2.7-dev libxml2-dev python-mysqldb libjpeg8-dev)
 
-PYTHON_DEPS=("django==1.5.2" "uwsgi==1.0.4" PIL "pymongo==2.4.1" PyJWT)
+PYTHON_DEPS=("django==1.5.2"PIL "pymongo==2.4.1" PyJWT)
 
 function install_dependencies()
 {
@@ -45,18 +45,14 @@ function install_python_dep()
     fi
 }
 
-function install_java(){
-    sudo add-apt-repository ppa:sun-java-community-team/sun-java6
-    sudo apt-get update
-    sudo apt-get install sun-java6-jdk
-}
-
 # http://stackoverflow.com/questions/16263556/installing-java-7-on-ubuntu
-function install_java7(){
+function install_java(){
+    sudo apt-get install python-software-properties
     sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update
-    sudo apt-get install oracle-java7-installer
-    sudo apt-get install oracle-java7-set-default
+    # sudo apt-get install oracle-java6-installer
+    # sudo apt-get install oracle-java7-installer
+    sudo apt-get install oracle-java8-installer
 }
 
 function install_mongodb(){
@@ -66,6 +62,14 @@ function install_mongodb(){
     sudo apt-get install mongodb-10gen
 }
 
+function install_uwsgi(){
+    wget http://projects.unbit.it/downloads/uwsgi-1.0.4.tar.gz
+    tar xvf uwsgi-1.0.4.tar.gz
+    cd uwsgi-1.0.4
+    sudo python setup.py install
+}
+
 install_dependencies
+install_uwsgi
 install_java
 install_mongodb

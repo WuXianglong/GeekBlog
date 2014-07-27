@@ -1,12 +1,17 @@
 <!-- Just a placeholder -->
 <uwsgi>
-    <socket>:8700</socket> 
+    <socket>:7600</socket>
     <stats>:40000</stats>
-    <env>DJANGO_SETTINGS_MODULE=geekblog.settings</env>
+    <env>DJANGO_SETTINGS_MODULE=geekblog.geekblog.settings</env>
     <module>django.core.handlers.wsgi:WSGIHandler()</module>
-    <processes>4</processes>
-    <master/>
+    <processes>6</processes>
+    <master />
+    <master-as-root />
     <!-- request timeout -->
-    <harakiri>600</harakiri>
+    <harakiri>60</harakiri>
+    <harakiri-verbose/>
+    <!--<post-buffering>32768</post-buffering>-->
     <daemonize>/var/app/log/blog/uwsgi.log</daemonize>
+    <listen>32768</listen>
+    <socket-timeout>60</socket-timeout>
 </uwsgi>

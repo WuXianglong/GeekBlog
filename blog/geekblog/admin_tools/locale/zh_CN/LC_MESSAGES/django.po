@@ -128,6 +128,3 @@ msgstr "欢迎"
 #: theming/templates/admin/base.html:35
 msgid "Documentation"
 msgstr "文档"
-
-#~ msgid "Bookmark this page"
-#~ msgstr "收藏本页"

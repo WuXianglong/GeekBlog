@@ -863,3 +863,8 @@ ul.newest-articles-list li:hover {
     font-size: 15px;
     font-weight: bold;
 }
+
+/* syntaxhighlighter */
+div.syntaxhighlighterDiv {
+    overflow: auto !important;
+}
