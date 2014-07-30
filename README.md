@@ -2,13 +2,16 @@
 GeekBlog
 ========
 
-GeekBlog is a blog system based on django and python.
+简介
+====
+
+GeekBlog是一个基于Django框架实现的博客系统，包含了完善的后台管理系统，更多介绍请访问：[GeekBlog](http://www.xianglong.me/article/django-based-blog-geekblog/)。
+
 
 初始化website的步骤
 ===================
 
-根据install_deps.sh安装所有依赖
--------------------------------
+#根据install_deps.sh安装所有依赖
 
     1). cd GeekBlog/core/scripts && sudo ./install_deps.sh
     2). cd GeekBlog/blog/scripts && sudo ./install_deps.sh
