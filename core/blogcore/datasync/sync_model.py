@@ -1,3 +1,4 @@
+#! -*- coding:utf-8 -*-
 import sys
 import traceback
 from django.conf import settings

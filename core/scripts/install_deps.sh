@@ -23,7 +23,6 @@ function install_dependencies()
        install_python_dep ${python_dep}
    done
    echo "Installing required python packages finished."
-
 }
 
 

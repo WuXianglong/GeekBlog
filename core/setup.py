@@ -11,7 +11,7 @@ setup(
     maintainer='WuXianglong',
     url='http://www.xianglong.me/',
     package_data = {
-            "blogcore": ['locale/zh_CN/LC_MESSAGES/*.mo'],
-            "blogcore.utils": ['verify_code/*.ttf', 'verify_code/*.list'],
-        }
+        "blogcore": ['locale/zh_CN/LC_MESSAGES/*.mo'],
+        "blogcore.utils": ['verify_code/*.ttf', 'verify_code/*.list'],
+    }
 )

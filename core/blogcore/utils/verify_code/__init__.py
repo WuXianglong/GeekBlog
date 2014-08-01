@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 import os
+import Image
+import ImageDraw
+import ImageFont
+import random
+import StringIO
 from math import ceil
-import Image, ImageDraw, ImageFont, random, StringIO
 from django.http import HttpResponse
 
 current_path = os.path.normpath(os.path.dirname(__file__))
@@ -9,7 +13,7 @@ current_path = os.path.normpath(os.path.dirname(__file__))
 
 class Code(object):
 
-    def __init__(self,request):
+    def __init__(self, request):
         """
         初始化,设置各种属性
         """
@@ -86,7 +90,7 @@ class Code(object):
         # the words list maxlength = 8
         self.django_request.session[self.session_key] = ''
         # creat a image
-        im = Image.new('RGB',(self.img_width,self.img_height),self.background)
+        im = Image.new('RGB', (self.img_width, self.img_height), self.background)
         self.code = self._yield_code()
 
         # 更具图片大小自动调整字体大小
@@ -104,30 +108,30 @@ class Code(object):
         for i in range(random.randrange(c - 2, c)):
             line_color = (random.randrange(0, 255), random.randrange(0, 255), random.randrange(0, 255))
             xy = (
-                    random.randrange(0, int(self.img_width * 0.2)),
-                    random.randrange(0, self.img_height),
-                    random.randrange(3 * self.img_width / 4, self.img_width),
-                    random.randrange(0, self.img_height)
-                )
+                random.randrange(0, int(self.img_width * 0.2)),
+                random.randrange(0, self.img_height),
+                random.randrange(3 * self.img_width / 4, self.img_width),
+                random.randrange(0, self.img_height)
+            )
             draw.line(xy, fill=line_color, width=int(self.font_size * 0.1))
 
         # 写验证码
         j = int(self.font_size * 0.3)
         k = int(self.font_size * 0.5)
-        x = random.randrange(j, k) #起始位置
+        x = random.randrange(j, k)    # 起始位置
         for i in self.code:
             # 上下抖动量,字数越多,上下抖动越大
             m = int(len(self.code))
-            y = random.randrange(1,3)
+            y = random.randrange(1, 3)
 
             if i in ('+', '=', '?'):
                 # 对计算符号等特殊字符放大处理
                 m = ceil(self.font_size * 0.8)
             else:
                 # 字体大小变化量,字数越少,字体大小变化越多
-                m = random.randrange(0, int( 45 / self.font_size) + int(self.font_size / 5))
+                m = random.randrange(0, int(45 / self.font_size) + int(self.font_size / 5))
 
-            self.font = ImageFont.truetype(self.font_path.replace('\\', '/'),self.font_size + int(ceil(m)))
+            self.font = ImageFont.truetype(self.font_path.replace('\\', '/'), self.font_size + int(ceil(m)))
             draw.text((x, y), i, font=self.font, fill=random.choice(self.font_color))
             x += self.font_size * 0.9
 

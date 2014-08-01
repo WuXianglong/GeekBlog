@@ -37,4 +37,4 @@ class ActionFlagFilter(admin.SimpleListFilter):
         `self.value()`.
         """
         # to decide how to filter the queryset.
-        return queryset.filter(action_flag__exact=action_values[self.value()])
+        return queryset.filter(action_flag__exact=self.action_values[self.value()])

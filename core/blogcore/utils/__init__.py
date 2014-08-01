@@ -1,3 +1,4 @@
+#! -*- coding:utf-8 -*-
 import uuid
 
 
@@ -5,9 +6,9 @@ def friendly_size(size):
     if size < 1024:
         size = '%sB' % size
     elif size >= 1024 and size < 1024 * 1024:   # 1KB ~ 1M
-        size = '%sK' % (size * 1.0 / 1024,)
+        size = '%sK' % size * 1.0 / 1024
     elif size >= 1024 * 1024:
-        size = '%sM' % (size * 1.0 / (1024 * 1024),)
+        size = '%sM' % size * 1.0 / (1024 * 1024)
     parts = size.split('.')
     if len(parts) > 1:
         if parts[1][0] == '0':

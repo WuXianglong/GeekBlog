@@ -14,7 +14,7 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/var/app/enabled/blog
 NAME=geek-blog
-DESC="geek blog Server"
+DESC="geek blog server"
 PROJECT=blog
 APP_DIR=/var/app/enabled/$PROJECT
 LOG_DIR=/var/app/log/$PROJECT
@@ -45,7 +45,7 @@ function start_blog()
 		echo "$NAME is already running."
 	else
 	    pushd ${APP_DIR} >/dev/null
-	    uwsgi --pidfile=${PID_FILE} -x uwsgi.xml --uid estore --gid nogroup
+	    uwsgi --pidfile=${PID_FILE} -x uwsgi.xml --uid blog --gid nogroup
 	    popd >/dev/null	
 	fi
 }

@@ -5,7 +5,6 @@ import warnings
 from fnmatch import fnmatch
 
 from django.conf import settings
-from django.contrib import admin
 from django.core.urlresolvers import reverse
 
 from blogcore.admin.sites import custom_site

@@ -1,9 +1,8 @@
-# coding:utf-8
+# -*- coding: utf-8 -*-
+
 import urllib
 
 from django.conf import settings
-
-from blogcore.ueditor import settings as ueditor_settings
 
 
 class UEditorEventHandler(object):

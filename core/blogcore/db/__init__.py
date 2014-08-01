@@ -23,7 +23,7 @@ def set_default_order(func):
 
 def cursor_to_list(func):
     @wraps(func)
-    def  wrapper(*args, **kwargs):
+    def wrapper(*args, **kwargs):
         retval = func(*args, **kwargs)
         if isinstance(retval, Cursor):
             retval = [x for x in retval]
@@ -85,7 +85,7 @@ def weighted_sample(items, n):
         selected = [v for _, v in items]
     else:
         if n > 2:
-            selected =  [v for _, v in reversed(sorted(items,key=lambda x: x[0]))][:n]
+            selected = [v for _, v in reversed(sorted(items, key=lambda x: x[0]))][:n]
         else:
             total = float(sum(w for w, _ in items))
             i = 0

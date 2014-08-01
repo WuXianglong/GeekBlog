@@ -1,3 +1,4 @@
+#! -*- coding:utf-8 -*-
 from syncto import sync_to_production
 from syncfrom import sync_from_production
 

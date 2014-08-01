@@ -15,7 +15,7 @@ if [ "$1" = "checkdeps" ] ; then
 fi
 
 PROJECT=blog
-USER=estore
+USER=blog
 
 PTH_FILE='geek-blog.pth'
 if [ "$2" = "lib" ] ; then
@@ -25,7 +25,7 @@ else
     sudo python scripts/install.py
 fi
 
-echo "Collect Static to Webfront "
+echo "Collect Static to Webfront"
 pushd geekblog
 python manage.py collectstatic
 popd

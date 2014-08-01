@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db.models import get_models, signals
 from django.utils.encoding import smart_unicode
 from django.contrib.auth import models as auth_app

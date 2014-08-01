@@ -119,7 +119,7 @@ def update_user_settings():
     if "config" in user_settings:
         UEDITOR_SETTINGS.update(user_settings["config"])
     if "upload" in user_settings:
-        UEditorUploadSettings.update(user_settings["upload"])
+        UEDITOR_UPLOAD_SETTINGS.update(user_settings["upload"])
 
 
 # 取得配置项参数

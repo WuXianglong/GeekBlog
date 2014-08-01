@@ -1,3 +1,5 @@
+#! -*- coding:utf-8 -*-
+
 
 class Enum(object):
     '''
@@ -25,7 +27,7 @@ class Enum(object):
         return super(self, Enum).__getattr__(name)
 
     def to_choices(self):
-        value_label_tuples = [ self._DATA_MAPPING[key] for key in self._DATA_MAPPING ]
+        value_label_tuples = [self._DATA_MAPPING[key] for key in self._DATA_MAPPING]
         return tuple(value_label_tuples)
 
     def to_dict(self):
@@ -38,7 +40,7 @@ class Enum(object):
         value_label_dict = self.to_dict()
         return value_label_dict[value]
 
-    def get_key(self,value):
+    def get_key(self, value):
         for key in self._DATA_MAPPING:
             if self._DATA_MAPPING[key][0] == value:
                 return key
