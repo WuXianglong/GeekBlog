@@ -48,8 +48,8 @@ class BaseModelAdmin(admin.ModelAdmin):
 
     def get_urls(self):
         urlpatterns = super(BaseModelAdmin, self).get_urls()
-        from django.conf.urls.defaults import url
-        info = self.model._meta.app_label, self.model._meta.module_name
+        from django.conf.urls import url
+        info = self.model._meta.app_label, self.model._meta.model_name
         urlpatterns += (
                 url(r'^syncto$', self.sync_to_production_view, name='%s_%s_sync_to_production' % info),
                 url(r'^syncfrom$', self.sync_from_production_view, name='%s_%s_sync_from_production' % info),
@@ -203,7 +203,7 @@ class BaseModelAdmin(admin.ModelAdmin):
 
     def has_view_permission(self, request, obj=None):
         opts = self.opts
-        view_permission = 'view_%s' % self.model._meta.module_name
+        view_permission = 'view_%s' % self.model._meta.model_name
         return request.user.has_perm(opts.app_label + '.' + view_permission)
 
     def has_change_permission(self, request, obj=None):

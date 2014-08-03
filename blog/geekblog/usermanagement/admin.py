@@ -40,7 +40,7 @@ class CustomAuthAdmin(admin.ModelAdmin):
 
     def has_view_permission(self, request, obj=None):
         opts = self.opts
-        view_permission = 'view_%s' % self.model._meta.module_name
+        view_permission = 'view_%s' % self.model._meta.model_name
         return request.user.has_perm(opts.app_label + '.' + view_permission)
 
     def has_change_permission(self, request, obj=None):

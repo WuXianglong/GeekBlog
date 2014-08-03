@@ -5,7 +5,7 @@ GeekBlog
 
 GeekBlog是一个基于Django框架实现的博客系统，包含了完善的后台管理系统，更多介绍请访问：[GeekBlog](http://www.xianglong.me/article/django-based-blog-geekblog/)。特点简单概述如下：
 
-- 基于Django实现，使用uWSGI和Nginx运行，Python2.7 + Django 1.5完美运行
+- 基于Django实现，使用uWSGI和Nginx运行，Python2.7 + Django 1.6.5完美运行
 - 使用MySQL和MongoDB存储数据
 - 基于django-admin-tools对Django Admin进行了深度优化，拥有更好的交互和展示
 - 系统集成了UEditor富文本编辑器

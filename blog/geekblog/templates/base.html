@@ -80,7 +80,7 @@
                         <div class="s-item-content">
                             <ul class="newest-articles-list">
                                 {% for a_item in newest_articles %}
-                                    <li><a href="/article/{{ a_item.id }}/">{{ a_item.title }}</a></li>
+                                    <li><a href="/article/{{ a_item.slug }}/">{{ a_item.title }}</a></li>
                                 {% endfor %}
                             </ul>
                         </div>

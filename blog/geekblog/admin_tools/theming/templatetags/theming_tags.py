@@ -47,8 +47,6 @@ def submit_line(context):
     save_as = context['save_as']
     ctx = {
         'opts': opts,
-        'onclick_attrib': (opts.get_ordered_objects() and change
-                            and 'onclick="submitOrderForm();"' or ''),
         'show_delete_link': (not is_popup and context['has_delete_permission']
                               and change and context.get('show_delete', True)),
         'show_save_as_new': not is_popup and change and save_as,
@@ -57,7 +55,8 @@ def submit_line(context):
         'show_save_and_continue': not is_popup and context['has_change_permission'],
         'show_save_and_sync': not is_popup and context['has_sync_to_permission'],
         'is_popup': is_popup,
-        'show_save': True
+        'show_save': True,
+        'preserved_filters': context.get('preserved_filters'),
     }
     if context.get('original') is not None:
         ctx['original'] = context['original']

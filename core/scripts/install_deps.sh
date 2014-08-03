@@ -5,7 +5,7 @@
 # python-software-properties depend by add-apt-repository to add nginx ppa 
 SYS_DEPS=(python-pip python-software-properties python2.7-dev libxml2-dev python-mysqldb libplist-utils)
 
-PYTHON_DEPS=("django==1.5.2" "pymongo==2.4" "django-smart-selects==1.0.4")
+PYTHON_DEPS=("django==1.6.5" "pymongo==2.4" "django-smart-selects==1.0.4")
 
 function install_dependencies()
 {

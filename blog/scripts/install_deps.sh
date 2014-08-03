@@ -5,7 +5,7 @@
 # python-software-properties depend by add-apt-repository to add nginx ppa
 SYS_DEPS=(mysql-server mysql-client python-pip python-software-properties python2.7-dev libxml2-dev python-mysqldb libjpeg8-dev)
 
-PYTHON_DEPS=("django==1.5.2"PIL "pymongo==2.4.1" PyJWT)
+PYTHON_DEPS=("django==1.6.5" PIL "pymongo==2.4.1" PyJWT)
 
 function install_dependencies()
 {
@@ -22,7 +22,7 @@ function install_dependencies()
        install_python_dep ${python_dep}
    done
    echo "Installing required python packages finished."
-
+   # install PIL in ubuntu 14.04: pip install PIL --allow-external PIL --allow-unverified PIL
 }
 
 function install_sys_dep()

@@ -55,6 +55,7 @@ ARTICLE_BRIEF_INFO_FIELDS = {
     '_id': 0,
     'id': 1,
     'title': 1,
+    'slug': 1,
 }
 
 ARTICLE_DETAIL_INFO_FIELDS = {

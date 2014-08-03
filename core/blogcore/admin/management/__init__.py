@@ -46,7 +46,7 @@ def create_permissions_respecting_proxy(app, created_models, verbosity, **kwargs
     for klass in app_models:
         ctype, created = ContentType.objects.get_or_create(
                 app_label=klass._meta.app_label,
-                model=klass._meta.module_name,
+                model=klass._meta.model_name,
                 defaults = {'name': smart_unicode(klass._meta.verbose_name_raw)}
             )
         ctypes.add(ctype)
@@ -87,7 +87,7 @@ def create_permission(model_class):
     searched_perms = list()
     ctype, created = ContentType.objects.get_or_create(
             app_label=model_class._meta.app_label,
-            model=model_class._meta.module_name,
+            model=model_class._meta.model_name,
             defaults = {'name': smart_unicode(model_class._meta.verbose_name_raw)}
         )
     for perm in _get_default_permissions(model_class._meta):

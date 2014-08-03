@@ -131,6 +131,26 @@ class ArticleAdmin(BaseModelAdmin):
             return False, _("You can't publish not approved %(model)s: %(obj)s") \
                     % {'model': self.model._meta.verbose_name, 'obj': obj}
 
+    def _get_need_adjust_items(self, request, old_obj, new_obj):
+        order_is_existed = self.queryset(request).filter(category__exact=new_obj.category, order__exact=new_obj.order)
+        # if new order is not existed before, return
+        if not order_is_existed:
+            [], 0
+        # if the model is new, set old_order using _get_next_order
+        if old_obj:
+            old_order, new_order = old_obj.order, new_obj.order
+        else:
+            old_order, new_order = self._get_next_order(request), new_obj.order
+        if new_order > old_order:    # order reduce
+            need_adjust_items = self.queryset(request).filter(category__exact=new_obj.category, \
+                    order__gt=old_order, order__lte=new_order)
+            adjust_amount = -1
+        else:    # order rise
+            need_adjust_items = self.queryset(request).filter(category__exact=new_obj.category, \
+                    order__gte=new_order, order__lt=old_order)
+            adjust_amount = 1
+        return need_adjust_items, adjust_amount
+
 
 class CommentAdmin(BaseModelAdmin):
     list_editable = ('status', 'published')
