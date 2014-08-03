@@ -113,14 +113,14 @@ class BlogMongodbStorage(MongodbStorage):
         article_infos = self._db.articles.find_one(cond, fields=ARTICLE_DETAIL_INFO_FIELDS)
         return article_infos
 
-    def get_prev_article(self, a_id):
-        cond = {'id': {'$gt': long(a_id)}}
-        article_infos = self._db.articles.find_one(cond, sort=[('id', self.ORDER_DESC)], fields=ARTICLE_BRIEF_INFO_FIELDS)
+    def get_prev_article(self, publish_date):
+        cond = {'publish_date': {'$lt': publish_date}}
+        article_infos = self._db.articles.find_one(cond, sort=[('publish_date', self.ORDER_DESC)], fields=ARTICLE_BRIEF_INFO_FIELDS)
         return article_infos
 
-    def get_next_article(self, a_id):
-        cond = {'id': {'$lt': long(a_id)}}
-        article_infos = self._db.articles.find_one(cond, sort=[('id', self.ORDER_DESC)], fields=ARTICLE_BRIEF_INFO_FIELDS)
+    def get_next_article(self, publish_date):
+        cond = {'publish_date': {'$gt': publish_date}}
+        article_infos = self._db.articles.find_one(cond, sort=[('publish_date', self.ORDER_ASC)], fields=ARTICLE_BRIEF_INFO_FIELDS)
         return article_infos
 
     def get_tag_info_by_slug(self, tag_slug):

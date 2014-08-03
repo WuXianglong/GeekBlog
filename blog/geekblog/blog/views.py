@@ -77,12 +77,12 @@ def show_article(request, slug):
         logger.exception('Invaild article slug: %s' % slug)
         return _render_404_response(request)
 
-    a_id = article_infos.get('id', 0)
+    a_id, publish_date = article_infos.get('id', 0), article_infos.get('publish_date', 0)
     # update articel views_count
     blog_db.increment_article_views_count(a_id)
     # get previous and next articles
-    prev_a = blog_db.get_prev_article(a_id)
-    next_a = blog_db.get_next_article(a_id)
+    prev_a = blog_db.get_prev_article(publish_date)
+    next_a = blog_db.get_next_article(publish_date)
 
     context_infos = {
         'page_title': article_infos['title'],

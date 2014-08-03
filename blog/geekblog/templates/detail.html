@@ -74,14 +74,14 @@
     <div class="detail-footer">
         <span class="previous">{% trans "Previous："%}
             {% if prev_a %}
-            <a href="/article/{{ prev_a.slug }}/">{{ prev_a.title }}</a>
+            <a href="/article/{{ prev_a.slug }}/" title="{{ prev_a.title }}">{{ prev_a.title|truncatechars:25 }}</a>
             {% else %}
             {% trans "No more previous article" %}
             {% endif %}
         </span>
         <span class="next">{% trans "Next：" %}
             {% if next_a %}
-            <a href="/article/{{ next_a.slug }}/">{{ next_a.title }}</a>
+            <a href="/article/{{ next_a.slug }}/" title="{{ next_a.title }}">{{ next_a.title|truncatechars:35 }}</a>
             {% else %}
             {% trans "No more next article" %}
             {% endif %}
@@ -90,7 +90,7 @@
 </div>
 
 <div class="detail-copycat">
-    <p class="detail-addr">{% trans "Address：" %}<a href="/article/{{ slug }}/">http://xianglong/article/{{ slug }}/</a></p>
+    <p class="detail-addr">{% trans "Address：" %}<a href="/article/{{ slug }}/">http://xianglong.me/article/{{ slug }}/</a></p>
     <p>{% trans "Statement："%}本站文章，如非注明，皆为<a href="/">{{ site_name }}</a>原创。转载需注明本文链接并保证链接可用。</p>
 </div>
 <!-- 百度联盟广告代码 -->
