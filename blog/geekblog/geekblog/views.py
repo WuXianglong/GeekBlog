@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, Group
 
 from blog.models import *
 from utils import json_response
-from blogcore.utils.verify_code import Code
+from blogcore.utils.verify_code import VerifyCode
 
 logger = logging.getLogger('geekblog')
 
@@ -26,4 +26,4 @@ def get_related_lookup_info(request):
 
 
 def generate_verify_code(request):
-    return Code(request).display()
+    return VerifyCode(request).display()

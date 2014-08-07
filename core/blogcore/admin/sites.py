@@ -15,7 +15,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from blogcore.utils.verify_code import Code
+from blogcore.utils.verify_code import VerifyCode
 
 
 @csrf_protect
@@ -65,7 +65,7 @@ class CustomAdminAuthenticationForm(AdminAuthenticationForm):
 
     def clean(self):
         verify_code = self.cleaned_data.get('verify_code')
-        code = Code(self.request)
+        code = VerifyCode(self.request)
 
         if not verify_code:
             raise forms.ValidationError(_("Please enter verify code."))
