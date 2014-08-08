@@ -1,10 +1,10 @@
 import urllib
+import hashlib
 
 from django import template
 from django.conf import settings
 from django.utils import simplejson
 from django.utils.html import escape
-from django.utils.hashcompat import md5_constructor
 
 GRAVATAR_URL_PREFIX = getattr(settings, "GRAVATAR_URL_PREFIX", "http://www.gravatar.com/")
 GRAVATAR_DEFAULT_IMAGE = getattr(settings, "GRAVATAR_DEFAULT_IMAGE", "")
@@ -27,7 +27,7 @@ def _wrap_img_tag(url, info, size):
 
 
 def _get_gravatar_id(email):
-    return md5_constructor(email).hexdigest()
+    return hashlib.md5(email).hexdigest()
 
 
 @register.simple_tag
