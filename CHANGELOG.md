@@ -51,4 +51,4 @@ Version 1.3.2 (2014-08-11)
 TODOs
 =====
 
-  * 页面性能优化
+  * 使用djang-pipeline & memcached优化博客(https://github.com/tualatrix/imtx)
