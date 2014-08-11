@@ -5,11 +5,11 @@
 {% block scripts %}
     <!-- use for slider images -->
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.slider.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.animation.easing.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.animation.easing{{ postfix }}.js"></script>
     <!-- use for pagination -->
     <script type="text/javascript" src="{{ STATIC_URL }}js/modernizr.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.pagination.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.pagination{{ postfix }}.js"></script>
     <script type="text/javascript">
         $(window).load(function() {
             // init the sliders.
@@ -47,10 +47,6 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
     </script>
-{% endblock %}
-{% block styles %}
-    <link href="{{ STATIC_URL }}css/slider.css" rel="stylesheet" type="text/css">
-    <link href="{{ STATIC_URL }}css/pagination.css" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block sliders %}

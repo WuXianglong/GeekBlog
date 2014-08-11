@@ -19,7 +19,7 @@ def render_theming_css():
     if css:
         css = '/'.join([get_media_url(), css])
     else:
-        css = '/'.join([get_media_url(), 'admin_tools', 'css', 'theming.css'])
+        css = '/'.join([get_media_url(), 'admin_tools', 'css', 'theming.css' if settings.DEBUG else 'theming.min.css'])
     return '<link rel="stylesheet" type="text/css" media="screen" href="%s" />' % css
 register.simple_tag(render_theming_css)
 

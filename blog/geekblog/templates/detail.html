@@ -4,8 +4,8 @@
 
 {% block scripts %}
     <!-- ueditor syntax high lighter -->
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.colorbox.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.colorbox{{ postfix }}.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}ueditor/third-party/SyntaxHighlighter/shCore{{ postfix }}.js"></script>
     <script type="text/javascript">
         SyntaxHighlighter.all();
         $(document).ready(function() {
@@ -31,7 +31,7 @@
     </script>
 {% endblock %}
 {% block styles %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/colorbox.css" type="text/css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/colorbox{{ postfix }}.css" type="text/css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
 {% endblock %}
 

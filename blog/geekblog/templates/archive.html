@@ -3,7 +3,7 @@
 {% load blog_tags %}
 
 {% block core %}
-<script type="text/javascript" src="{{ STATIC_URL }}js/archive.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/archive{{ postfix }}.js"></script>
 <script type="text/javascript">
     // load duoshuo js for comment count
     var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};

@@ -42,9 +42,13 @@ Version 1.3.1 (2014-08-03)
   * Fix bug when change order of articles.
   * Fix some bugs after updating the version of django.
 
+Version 1.3.2 (2014-08-11)
+----------------------------
+  * COmpress image size.
+  * Compress and merge JS & CSS files.
+
 
 TODOs
 =====
 
-  * 添加手机访问时的适配页面(Django-Mobile)
-  * 扫一扫即可阅读功能(需要实手机展示页面)
+  * 页面性能优化
