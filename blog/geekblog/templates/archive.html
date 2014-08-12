@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% load blog_tags %}
+{% load blog_tags compressed %}
 
 {% block core %}
-<script type="text/javascript" src="{{ STATIC_URL }}js/archive{{ postfix }}.js"></script>
+{% compressed_js "archive" %}
 <script type="text/javascript">
     // load duoshuo js for comment count
     var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};

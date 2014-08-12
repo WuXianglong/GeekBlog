@@ -1,11 +1,13 @@
 from django.contrib import admin
 from django.conf.urls import patterns, include, url
+from django.views.decorators.cache import cache_page
+from django.contrib.sitemaps import views as sitemap_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from blogcore.admin.sites import custom_site
+from sitemap import ArticleSitemap
 from views import get_related_lookup_info, generate_verify_code
 
-# Uncomment the next two lines to enable the admin:
 admin.autodiscover()
 
 js_info_dict = {
@@ -21,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^console/get_related_lookup_info', get_related_lookup_info, name='get_related_lookup_info'),
 
     url(r'^verify_code', generate_verify_code, name='generate_verify_code'),
+    url(r'^sitemap.xml$', cache_page(60 * 60 * 6)(sitemap_views.sitemap), {'sitemaps': {'articles': ArticleSitemap}}),
 )
 
 urlpatterns += staticfiles_urlpatterns()

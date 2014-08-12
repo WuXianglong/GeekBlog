@@ -3,6 +3,7 @@ import logging
 from django.conf import settings
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+from django.views.decorators.cache import cache_page
 from django.utils.translation import ugettext_lazy as _
 
 from blogcore.utils import safe_cast
@@ -148,6 +149,7 @@ def show_search(request, keyword, page_num):
     return _render_response(request, 'index.html', context_infos)
 
 
+@cache_page(60 * 60 * 4)
 def show_archive_page(request):
     articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'title': 1, 'publish_date': 1}, has_login=(not request.user.is_anonymous()), with_total=True)
     archives = {}
@@ -170,10 +172,12 @@ def show_archive_page(request):
     return _render_response(request, 'archive.html', context_infos)
 
 
+@cache_page(60 * 60 * 4)
 def show_about_page(request):
     return _render_response(request, 'about.html', {'page_title': _('About')})
 
 
+@cache_page(60 * 60 * 4)
 def show_friend_link_page(request):
     all_links = blog_db.get_all_links()
     friend_links = [link for link in all_links if link['type'] == LINK_TYPES.FRIEND_LINK]

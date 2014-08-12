@@ -162,7 +162,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -192,9 +194,11 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'pipeline',
     'ueditor',
     'duoshuo',
     'jsi18n',
@@ -205,6 +209,101 @@ INSTALLED_APPS = (
 # should declare this after 'INSTALL_APPS'.
 AUTH_USER_MODEL = 'usermanagement.CustomUser'
 
+# Cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+
+CACHE_MIDDLEWARE_SECONDS = 3600
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
+
+# pipeline settings
+PIPELINE_ENABLED = not DEBUG
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+
+PIPELINE_YUI_BINARY = '/usr/local/bin/yuglify'
+
+PIPELINE_CSS = {
+    'base': {
+        'source_filenames': (
+            'css/style.css',
+            'css/jquery-ui.css',
+            'css/tooltips.css',
+        ),
+        'output_filename': 'css/base.min.css',
+    },
+    'index': {
+        'source_filenames': (
+            'css/slider.css',
+            'css/pagination.css',
+        ),
+        'output_filename': 'css/index.min.css',
+    },
+    'detail': {
+        'source_filenames': (
+            'css/colorbox.css',
+            'ueditor/third-party/SyntaxHighlighter/shCoreDefault.css',
+        ),
+        'output_filename': 'css/detail.min.css',
+    },
+    'about': {
+        'source_filenames': (
+            'css/about.css',
+        ),
+        'output_filename': 'css/about.min.css',
+    },
+}
+
+PIPELINE_JS = {
+    'base': {
+        'source_filenames': (
+            'js/jquery-1.8.3.min.js',
+            'js/jquery-ui.js',
+            'js/geekblog.js',
+            'js/tooltips.js',
+        ),
+        'output_filename': 'js/base.min.js',
+    },
+    'index': {
+        'source_filenames': (
+            'js/jquery.slider.min.js',
+            'js/jquery.animation.easing.js',
+            'js/modernizr.min.js',
+            'js/jquery.ui.touch-punch.min.js',
+            'js/jquery.pagination.js',
+        ),
+        'output_filename': 'js/index.min.js',
+    },
+    'detail': {
+        'source_filenames': (
+            'js/jquery.colorbox.js',
+            'js/ueditor/third-party/SyntaxHighlighter/shCore.js',
+        ),
+        'output_filename': 'js/detail.min.js',
+    },
+    'about': {
+        'source_filenames': (
+            'js/jquery-1.8.3.min.js',
+            'js/about.js',
+        ),
+        'output_filename': 'js/about.min.js',
+    },
+    'archive': {
+        'source_filenames': (
+            'js/archive.js',
+        ),
+        'output_filename': 'js/archive.min.js',
+    },
+}
+
+# admin left navigation settings
 LEFT_NAV_MODELS = {
     'blog': {
         'order': 1,

@@ -44,11 +44,18 @@ Version 1.3.1 (2014-08-03)
 
 Version 1.3.2 (2014-08-11)
 ----------------------------
-  * COmpress image size.
+  * Compress image size.
   * Compress and merge JS & CSS files.
+
+Version 1.3.3 (2014-08-12)
+----------------------------
+  * Add sitemap url using django sitemap.
+  * Use django memcached to cache blog pages and files.
+  * Use django-pipeline to merge and compress js and css files.
 
 
 TODOs
 =====
 
   * 使用djang-pipeline & memcached优化博客(https://github.com/tualatrix/imtx)
+  * 使用http://zhanzhang.cnzz.com/统计网站访问情况

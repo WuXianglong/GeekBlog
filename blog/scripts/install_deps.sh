@@ -5,7 +5,7 @@
 # python-software-properties depend by add-apt-repository to add nginx ppa
 SYS_DEPS=(mysql-server mysql-client python-pip python-software-properties python2.7-dev libxml2-dev python-mysqldb libjpeg8-dev)
 
-PYTHON_DEPS=("django==1.6.5" PIL "pymongo==2.4.1" PyJWT)
+PYTHON_DEPS=("django==1.6.5" "pymongo==2.4.1" PIL PyJWT django-pipeline)
 
 function install_dependencies()
 {
@@ -69,6 +69,15 @@ function install_uwsgi(){
     sudo python setup.py install
 }
 
+# install yuglify for using django-pipeline
+function install_yuglify(){
+    # ln -s /usr/bin/nodejs /usr/bin/node
+    sudo apt-get install npm
+    sudo npm config set registry http://registry.npmjs.org/
+    sudo npm -g install yuglify
+}
+
+install_yuglify
 install_dependencies
 install_uwsgi
 install_java

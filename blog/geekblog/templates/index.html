@@ -1,15 +1,8 @@
 {% extends 'base.html' %}
-{% load i18n %}
-{% load blog_tags %}
+{% load i18n blog_tags compressed %}
 
 {% block scripts %}
-    <!-- use for slider images -->
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.slider.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.animation.easing{{ postfix }}.js"></script>
-    <!-- use for pagination -->
-    <script type="text/javascript" src="{{ STATIC_URL }}js/modernizr.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.touch-punch.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.pagination{{ postfix }}.js"></script>
+    {% compressed_js "index" %}
     <script type="text/javascript">
         $(window).load(function() {
             // init the sliders.
@@ -47,6 +40,10 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
     </script>
+{% endblock %}
+
+{% block styles %}
+    {% compressed_css "index" %}
 {% endblock %}
 
 {% block sliders %}

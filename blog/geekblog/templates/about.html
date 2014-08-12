@@ -1,13 +1,12 @@
 {% load i18n %}
-{% load gravatar %}
+{% load gravatar compressed %}
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>{{ page_title }} - {{ site_name }} | {{ site_desc }}</title>
         <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico">
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/about{{ postfix }}.css" type="text/css">
-        <script src="{{ STATIC_URL }}js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="{{ STATIC_URL }}js/about{{ postfix }}.js" type="text/javascript" charset="utf-8"></script>
+        {% compressed_js "about" %}
+        {% compressed_css "about" %}
     </head>
     <body>
         <div id="geekblog" class="contact">

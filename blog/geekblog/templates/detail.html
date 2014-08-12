@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
-{% load i18n %}
-{% load blog_tags duoshuo_tags %}
+{% load i18n blog_tags duoshuo_tags compressed %}
 
 {% block scripts %}
     <!-- ueditor syntax high lighter -->
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.colorbox{{ postfix }}.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}ueditor/third-party/SyntaxHighlighter/shCore{{ postfix }}.js"></script>
+    {% compressed_js "detail" %}
     <script type="text/javascript">
         SyntaxHighlighter.all();
         $(document).ready(function() {
@@ -31,8 +29,7 @@
     </script>
 {% endblock %}
 {% block styles %}
-<link rel="stylesheet" href="{{ STATIC_URL }}css/colorbox{{ postfix }}.css" type="text/css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
+    {% compressed_css "detail" %}
 {% endblock %}
 
 {% block core %}
