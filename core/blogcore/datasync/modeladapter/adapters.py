@@ -48,6 +48,7 @@ class TagAdapter(ModelAdapter):
                 'name': from_model.name,
                 'slug': from_model.slug,
                 'views_count': from_model.views_count,
+                'article_count': from_model.total_articles.filter(hided=False).count(),
             }
         except Exception, e:
             logger.exception('Convert tag failed, error: %s' % e)

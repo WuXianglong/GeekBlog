@@ -138,7 +138,7 @@ class Article(BaseModel):
     content = UEditorField(height=400, width=690, verbose_name=_('content'), toolbars='full', \
             image_path="upload/images/", file_path='upload/files/')
     mark = models.IntegerField(default=0, choices=ARTICLE_MARKS.to_choices(), verbose_name=_('mark'))
-    tags = models.ManyToManyField(Tag, verbose_name=_('tag'), help_text=_('Tags that describe this article'), blank=True)
+    tags = models.ManyToManyField(Tag, verbose_name=_('tag'), help_text=_('Tags that describe this article'), blank=True, related_name='total_articles')
     publish_date = models.DateTimeField(verbose_name=_('publish date'), help_text=_('The date and time this shall appear online.'))
     login_required = models.BooleanField(blank=True, verbose_name=_('login required'), help_text=_('Enable this if users must login before they can read this article.'))
     thumbnail = models.ForeignKey(Photo, null=True, blank=True, verbose_name=_('thumbnail'))
@@ -158,6 +158,9 @@ class Article(BaseModel):
         tag_names = [tag['name'] for tag in self.get_tags()]
         return ', '.join(tag_names)
     display_tags.short_description = _('tags')
+
+    def get_absolute_url(self):
+        return "/console/article_preview/%s/" % self.slug
 
     class Meta:
         app_label = string_with_title('blog', _('Blog'))

@@ -10,7 +10,7 @@ class ArticleSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Article.objects.filter(published=True, sync_status=SYNC_STATUS.SYNCED)
+        return Article.objects.filter(hided=False, published=True, sync_status=SYNC_STATUS.SYNCED)
 
     def lastmod(self, obj):
         return obj.modified_time

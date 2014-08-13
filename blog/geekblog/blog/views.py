@@ -7,9 +7,10 @@ from django.views.decorators.cache import cache_page
 from django.utils.translation import ugettext_lazy as _
 
 from blogcore.utils import safe_cast
-from blogcore.db import timestamp2datetime
+from blogcore.db import datetime2timestamp, timestamp2datetime
 from blogcore.db.blog import BlogMongodbStorage
 from blogcore.models.constants import ALL_MONTHS, LINK_TYPES
+from .models import Article
 
 blog_db = BlogMongodbStorage(settings.MONGODB_CONF)
 logger = logging.getLogger('geekblog')
@@ -89,6 +90,44 @@ def show_article(request, slug):
         'page_title': article_infos['title'],
         'prev_a': prev_a,
         'next_a': next_a,
+    }
+    context_infos.update(_process_single_article(article_infos))
+    return _render_response(request, 'detail.html', context_infos)
+
+
+def preview_article(request, slug):
+    try:
+        article = Article.objects.get(slug__exact=slug)
+    except Article.DoesNotExist:
+        logger.exception('Invaild article slug: %s' % slug)
+        return _render_404_response(request)
+
+    publish_date = datetime2timestamp(article.publish_date, convert_to_utc=True)
+    # get previous and next articles
+    prev_a = blog_db.get_prev_article(publish_date)
+    next_a = blog_db.get_next_article(publish_date)
+
+    context_infos = {
+        'page_title': article.title,
+        'prev_a': prev_a,
+        'next_a': next_a,
+    }
+    article_infos = {
+        'id': article.id,
+        'title': article.title,
+        'slug': article.slug,
+        'category_id': article.category.id,
+        'category_name': article.category.name,
+        'category_slug': article.category.slug,
+        'description': article.description,
+        'content': article.content,
+        'mark': article.mark,
+        'enable_comment': article.enable_comment,
+        'login_required': article.login_required,
+        'views_count': article.views_count,
+        'publish_date': publish_date,
+        'thumbnail_url': (article.thumbnail.path.url if article.thumbnail.path else article.thumbnail.url) if article.thumbnail else 'http://xianglong.qiniudn.com/default_article_image.gif',
+        'tags': article.get_tags(),
     }
     context_infos.update(_process_single_article(article_infos))
     return _render_response(request, 'detail.html', context_infos)

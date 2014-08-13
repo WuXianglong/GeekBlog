@@ -58,4 +58,5 @@ TODOs
 =====
 
   * 使用djang-pipeline & memcached优化博客(https://github.com/tualatrix/imtx)
-  * 使用http://zhanzhang.cnzz.com/统计网站访问情况
+  * 增加预览页面
+  * 修改object history页面

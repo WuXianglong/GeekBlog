@@ -10,6 +10,7 @@ TAG_INFO_FIELDS = {
     'id': 1,
     'name': 1,
     'slug': 1,
+    'article_count': 1,
 }
 
 LINK_INFO_FIELDS = {
@@ -146,11 +147,9 @@ class BlogMongodbStorage(MongodbStorage):
         return sliders
 
     @cursor_to_list
-    @set_default_order
-    def get_tags(self, order=None):
-        # display 14 tags in web pages at most.
-        # TODO: sort by the count of tag's articles.
-        tags = self._db.tags.find({}, sort=order, fields=TAG_INFO_FIELDS, limit=14)
+    def get_tags(self):
+        # display 20 tags in web pages at most and sort by article count.
+        tags = self._db.tags.find({}, sort=[('article_count', self.ORDER_DESC)], fields=TAG_INFO_FIELDS, limit=20)
         return tags
 
     @cursor_to_list

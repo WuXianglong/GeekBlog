@@ -6,6 +6,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from blogcore.admin.sites import custom_site
 from sitemap import ArticleSitemap
+from blog.views import preview_article
 from views import get_related_lookup_info, generate_verify_code
 
 admin.autodiscover()
@@ -23,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^console/get_related_lookup_info', get_related_lookup_info, name='get_related_lookup_info'),
 
     url(r'^verify_code', generate_verify_code, name='generate_verify_code'),
+    url(r'^console/article_preview/(?P<slug>[a-z0-9A-Z_-]+)/$', preview_article, name='article_preview'),
     url(r'^sitemap.xml$', cache_page(60 * 60 * 6)(sitemap_views.sitemap), {'sitemaps': {'articles': ArticleSitemap}}),
 )
 
