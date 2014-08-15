@@ -4,7 +4,7 @@ from django.conf import settings
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.views.decorators.cache import cache_page
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext
 
 from blogcore.utils import safe_cast
 from blogcore.db import datetime2timestamp, timestamp2datetime
@@ -32,6 +32,8 @@ def _get_month_and_day(p_date):
 def _process_single_article(article):
     # process article infos and format the data with rules.
     article.update(_get_month_and_day(article.get('publish_date', None)))
+    if settings.DEBUG:
+        article.update({'enable_comment': False})
     return article
 
 
@@ -122,7 +124,7 @@ def preview_article(request, slug):
         'description': article.description,
         'content': article.content,
         'mark': article.mark,
-        'enable_comment': article.enable_comment,
+        'enable_comment': False,
         'login_required': article.login_required,
         'views_count': article.views_count,
         'publish_date': publish_date,
@@ -230,7 +232,7 @@ def show_friend_link_page(request):
     site_links = [link for link in all_links if link['type'] == LINK_TYPES.SITE_LINK]
 
     context_infos = {
-        'page_title': _('Friend Links'),
+        'page_title': ugettext('Friend Links'),
         'friend_links': friend_links,
         'site_links': site_links,
     }

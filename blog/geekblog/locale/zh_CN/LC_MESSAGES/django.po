@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-26 21:14+0800\n"
+"POT-Creation-Date: 2014-08-16 01:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,7 @@ msgstr "注销"
 #: admin_tools/theming/templates/admin/base.html:52
 #: admin_tools/theming/templates/admin/change_form.html:20
 #: admin_tools/theming/templates/admin/change_list.html:40
+#: admin_tools/theming/templates/admin/object_history.html:6
 #: admin_tools/theming/templates/registration/logged_out.html:4
 msgid "Home"
 msgstr "主页"
@@ -41,6 +42,7 @@ msgid "Add"
 msgstr "添加"
 
 #: admin_tools/theming/templates/admin/change_form.html:36
+#: admin_tools/theming/templates/admin/object_history.html:10
 msgid "History"
 msgstr "历史"
 
@@ -121,6 +123,25 @@ msgstr "忘记密码或用户名？"
 msgid "Log in"
 msgstr "登录"
 
+#: admin_tools/theming/templates/admin/object_history.html:23
+msgid "Date/time"
+msgstr "日期/时间"
+
+#: admin_tools/theming/templates/admin/object_history.html:24
+#: usermanagement/models.py:105
+msgid "User"
+msgstr "用户"
+
+#: admin_tools/theming/templates/admin/object_history.html:25
+msgid "Action"
+msgstr "动作"
+
+#: admin_tools/theming/templates/admin/object_history.html:40
+msgid ""
+"This object doesn't have a change history. It probably wasn't added via this "
+"admin site."
+msgstr "当前对象没有修改历史. 可能不是通过Admin添加的."
+
 #: admin_tools/theming/templates/admin/pagination.html:12
 #: admin_tools/theming/templates/admin/submit_line.html:3
 msgid "Save"
@@ -163,29 +184,29 @@ msgid "prev page"
 msgstr "上一页"
 
 #: blog/admin.py:21 blog/admin.py:40 blog/admin.py:59 blog/admin.py:78
-#: blog/admin.py:95 blog/admin.py:119 blog/admin.py:145
+#: blog/admin.py:95 blog/admin.py:119 blog/admin.py:165
 msgid "Basic"
 msgstr "基本信息"
 
 #: blog/admin.py:24 blog/admin.py:43 blog/admin.py:62 blog/admin.py:81
-#: blog/admin.py:98 blog/admin.py:122 blog/admin.py:149
+#: blog/admin.py:98 blog/admin.py:122 blog/admin.py:169
 msgid "Status"
 msgstr "状态"
 
-#: blog/admin.py:131 blog/admin.py:181
+#: blog/admin.py:131 blog/admin.py:201
 #, python-format
 msgid "You can't publish not approved %(model)s: %(obj)s"
 msgstr "不能发布未审核通过的 %(model)s: %(obj)s"
 
-#: blog/views.py:166
+#: blog/views.py:216
 msgid "Archive"
 msgstr "归档"
 
-#: blog/views.py:174 templates/about.html:24 templates/base.html:60
+#: blog/views.py:225 templates/about.html:23 templates/base.html:55
 msgid "About"
 msgstr "关于"
 
-#: blog/views.py:183
+#: blog/views.py:235
 msgid "Friend Links"
 msgstr "友链"
 
@@ -193,15 +214,15 @@ msgstr "友链"
 msgid "Category Articles"
 msgstr "分类文章"
 
-#: geekblog/settings.py:211
+#: geekblog/settings.py:309
 msgid "content management"
 msgstr "内容管理"
 
-#: geekblog/settings.py:228
+#: geekblog/settings.py:326
 msgid "system management"
 msgstr "系统管理"
 
-#: templates/404.html:12
+#: templates/404.html:99
 msgid "You Look Lost. Head This Way."
 msgstr "你好像迷路了，点击返回首页"
 
@@ -215,11 +236,11 @@ msgid ""
 "mail and should be fixed shortly. Thanks for your patience."
 msgstr "内部服务器错误, 我们正在努力解决, 如有不便深感抱歉!!"
 
-#: templates/about.html:15
+#: templates/about.html:14
 msgid "Xianglong Wu"
 msgstr "吴降龙"
 
-#: templates/about.html:17
+#: templates/about.html:16
 msgid ""
 "\n"
 "                    Work at <a href=\"http://m.sohu.com/\" rel=\"me\">Sohu "
@@ -231,67 +252,67 @@ msgstr ""
 "rel=\"me\">手机搜狐</a>, @北京\n"
 "                "
 
-#: templates/about.html:23 templates/about.html.py:27
+#: templates/about.html:22 templates/about.html.py:26
 msgid "Contact"
 msgstr "联系方式"
 
-#: templates/about.html:31
+#: templates/about.html:30
 msgid "Email"
 msgstr "邮箱"
 
-#: templates/about.html:37
+#: templates/about.html:36
 msgid "WeChat"
 msgstr "微信"
 
-#: templates/about.html:43
+#: templates/about.html:42
 msgid "Weibo"
 msgstr "新浪微博"
 
-#: templates/about.html:49
+#: templates/about.html:48
 msgid "RenRen"
 msgstr "人人网"
 
-#: templates/about.html:55
+#: templates/about.html:54
 msgid "Facebook"
 msgstr "Facebook"
 
-#: templates/about.html:61
+#: templates/about.html:60
 msgid "Twitter"
 msgstr "Twitter"
 
-#: templates/about.html:67
+#: templates/about.html:66
 msgid "Google+"
 msgstr "Google+"
 
-#: templates/about.html:73
+#: templates/about.html:72
 msgid "Github"
 msgstr "Github"
 
-#: templates/about.html:78 templates/about.html.py:83 templates/about.html:85
+#: templates/about.html:77 templates/about.html.py:82 templates/about.html:84
 msgid "About me"
 msgstr "关于我"
 
-#: templates/about.html:84
+#: templates/about.html:83
 msgid "Personal"
 msgstr "个人信息"
 
-#: templates/about.html:100 templates/about.html.py:102
+#: templates/about.html:99 templates/about.html.py:101
 msgid "Sohu Mobile"
 msgstr "手机搜狐"
 
-#: templates/about.html:101
+#: templates/about.html:100
 msgid "My work"
 msgstr "我的工作"
 
-#: templates/about.html:109 templates/about.html.py:111
+#: templates/about.html:108 templates/about.html.py:110
 msgid "Xianglong"
 msgstr "降龙"
 
-#: templates/about.html:110
+#: templates/about.html:109
 msgid "My blog"
 msgstr "我的博客"
 
-#: templates/about.html:117
+#: templates/about.html:116
 #, python-format
 msgid "Copyright © 2012 - 2014 %(site_name)s, Inc. All Rights Reserved."
 msgstr "Copyright © 2012 - 2014 %(site_name)s, 保留所有权利."
@@ -300,66 +321,66 @@ msgstr "Copyright © 2012 - 2014 %(site_name)s, 保留所有权利."
 msgid "Blog Archive"
 msgstr "博客归档"
 
-#: templates/archive.html:28
+#: templates/archive.html:29
 #, python-format
 msgid "%(year)s / %(month)s"
 msgstr "%(year)s年%(month)s月"
 
-#: templates/archive.html:28
+#: templates/archive.html:29
 #, python-format
 msgid "Has %(count)s articles in total"
 msgstr "共有%(count)s篇文章"
 
-#: templates/archive.html:34
+#: templates/archive.html:35
 #, python-format
 msgid "%(day)s: "
 msgstr "%(day)s日："
 
-#: templates/base.html:51
+#: templates/base.html:46
 msgid "Life"
 msgstr "生活"
 
-#: templates/base.html:53
+#: templates/base.html:48
 msgid "Code"
 msgstr "编码"
 
-#: templates/base.html:54
+#: templates/base.html:49
 msgid "Resources"
 msgstr "资源"
 
-#: templates/base.html:58
+#: templates/base.html:53
 msgid "Archives"
 msgstr "归档"
 
-#: templates/base.html:59
+#: templates/base.html:54
 msgid "Friends"
 msgstr "友链"
 
-#: templates/base.html:69
+#: templates/base.html:64
 msgid "Search On Site"
 msgstr "发现之旅"
 
-#: templates/base.html:72
+#: templates/base.html:67
 msgid "Enter search term..."
 msgstr "输入搜索内容..."
 
-#: templates/base.html:73
+#: templates/base.html:68
 msgid "Search"
 msgstr "搜索"
 
-#: templates/base.html:79
+#: templates/base.html:74
 msgid "Newest Articles"
 msgstr "最新热文"
 
-#: templates/base.html:90
+#: templates/base.html:85
 msgid "Hottest Tags"
 msgstr "热门标签"
 
-#: templates/base.html:101
+#: templates/base.html:96
 msgid "Newest Comments"
 msgstr "最新评论"
 
-#: templates/base.html:122
+#: templates/base.html:132
 #, python-format
 msgid ""
 "\n"
@@ -371,58 +392,58 @@ msgstr ""
 "                    Copyright © 2012 - 2014 %(site_name)s, 保留所有权利.\n"
 "                    "
 
-#: templates/detail.html:38 templates/item.html:16
+#: templates/detail.html:45 templates/item.html:16
 #, python-format
 msgid "Views all articles of %(category_name)s "
 msgstr "查看 %(category_name)s 下的所有文章"
 
-#: templates/detail.html:44 templates/item.html:22
+#: templates/detail.html:51 templates/item.html:22
 #, python-format
 msgid "Viewed by %(views_count)s people "
 msgstr "已有%(views_count)s人围观"
 
-#: templates/detail.html:47 templates/item.html:25
+#: templates/detail.html:54 templates/item.html:25
 #, python-format
 msgid "Comments of %(title)s"
 msgstr "%(title)s的评论"
 
-#: templates/detail.html:66
+#: templates/detail.html:73
 msgid "Previous："
 msgstr "上一篇："
 
-#: templates/detail.html:70
+#: templates/detail.html:77
 msgid "No more previous article"
 msgstr "木有最新的文章了"
 
-#: templates/detail.html:73
+#: templates/detail.html:80
 msgid "Next："
 msgstr "下一篇："
 
-#: templates/detail.html:77
+#: templates/detail.html:84
 msgid "No more next article"
 msgstr "木有更早的文章了"
 
-#: templates/detail.html:84
+#: templates/detail.html:91
 msgid "Address："
 msgstr "本文地址："
 
-#: templates/detail.html:85
+#: templates/detail.html:92
 msgid "Statement："
 msgstr "特别声明："
 
-#: templates/detail.html:94
+#: templates/detail.html:119
 msgid "Comment of this article has closed."
 msgstr "文章的评论已经关闭"
 
-#: templates/index.html:74
+#: templates/index.html:67
 msgid "There is no more articles, please return "
 msgstr "已经木有文章了, 请返回"
 
-#: templates/index.html:74
+#: templates/index.html:67
 msgid "homepage"
 msgstr "主页"
 
-#: templates/index.html:83
+#: templates/index.html:76
 msgid "Use left and right key ← → to turn page"
 msgstr "使用左右键 ← → 快捷翻页"
 
@@ -491,7 +512,7 @@ msgstr "权限"
 msgid "Important dates"
 msgstr "重要日期"
 
-#: usermanagement/models.py:18 usermanagement/models.py:90
+#: usermanagement/models.py:18 usermanagement/models.py:104
 msgid "User Management"
 msgstr "用户管理"
 
@@ -537,29 +558,35 @@ msgid "Designates whether the user can log into this admin site."
 msgstr "指明用户是否可以登录到这个管理站点。"
 
 #: usermanagement/models.py:70
+msgid "active"
+msgstr "有效"
+
+#: usermanagement/models.py:71
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr "指明用户是否被认为活跃的。以反选代替删除帐号。"
+
+#: usermanagement/models.py:73
 msgid "date joined"
 msgstr "加入日期"
 
-#: usermanagement/models.py:71
+#: usermanagement/models.py:74
 msgid "status"
 msgstr "状态"
 
-#: usermanagement/models.py:72
+#: usermanagement/models.py:75
 msgid "qq"
 msgstr "QQ"
 
-#: usermanagement/models.py:73
+#: usermanagement/models.py:76
 msgid "website"
 msgstr "网站"
 
-#: usermanagement/models.py:74
+#: usermanagement/models.py:77
 msgid "activation code"
 msgstr "激活码"
 
-#: usermanagement/models.py:91
-msgid "User"
-msgstr "用户"
-
-#: usermanagement/models.py:92
+#: usermanagement/models.py:106
 msgid "Users"
 msgstr "用户"

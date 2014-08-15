@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-12 18:41+0800\n"
+"POT-Creation-Date: 2014-08-16 01:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,15 +68,15 @@ msgstr "%(name)s \"%(obj)s\" 添加成功, 并成功同步到线上."
 msgid "action flag"
 msgstr "动作标志"
 
-#: admin/filters.py:22
+#: admin/filters.py:28
 msgid "addition action"
 msgstr "添加操作"
 
-#: admin/filters.py:23
+#: admin/filters.py:29
 msgid "change action"
 msgstr "修改操作"
 
-#: admin/filters.py:24
+#: admin/filters.py:30
 msgid "deletion action"
 msgstr "删除操作"
 
@@ -96,26 +96,26 @@ msgstr "请输入正确的验证码."
 msgid "Log in"
 msgstr "登录"
 
-#: admin/widgets.py:29
+#: admin/widgets.py:30
 msgid "Lookup"
 msgstr "查询"
 
-#: datasync/syncfrom.py:21
+#: datasync/syncfrom.py:22
 #, python-format
 msgid "%(count)d %(items)s successfully sync data from production environment."
 msgstr "成功从线上同步 %(count)d %(items)s"
 
-#: datasync/syncfrom.py:25
+#: datasync/syncfrom.py:26
 #, python-format
 msgid "No %(items)s need to sync to production environment."
 msgstr "没有需要同步的 %(items)s"
 
-#: datasync/syncto.py:45
+#: datasync/syncto.py:46
 #, python-format
 msgid "%(count)d %(items)s successfully sync data to production environment.\n"
 msgstr "成功同步 %(count)d %(items)s 到线上\n"
 
-#: datasync/syncto.py:48
+#: datasync/syncto.py:49
 #, python-format
 msgid "%(count)d %(items)s fail sync data to production environment.\n"
 msgstr "%(count)d %(items)s 同步失败\n"
@@ -136,15 +136,15 @@ msgstr "修改者"
 msgid "last modified"
 msgstr "修改日期"
 
-#: models/base.py:28 models/blog.py:179
+#: models/base.py:28 models/blog.py:182
 msgid "hided"
 msgstr "已隐藏"
 
-#: models/base.py:30 models/blog.py:180
+#: models/base.py:30 models/blog.py:183
 msgid "published"
 msgstr "已发布"
 
-#: models/base.py:32 models/blog.py:181
+#: models/base.py:32 models/blog.py:184
 msgid "sync status"
 msgstr "同步状态"
 
@@ -189,7 +189,7 @@ msgid "article count"
 msgstr "文章数量"
 
 #: models/blog.py:58 models/blog.py:73 models/blog.py:89 models/blog.py:110
-#: models/blog.py:125 models/blog.py:163 models/blog.py:192
+#: models/blog.py:125 models/blog.py:166 models/blog.py:195
 msgid "Blog"
 msgstr "博客"
 
@@ -265,7 +265,7 @@ msgstr "幻灯块"
 msgid "category"
 msgstr "分类"
 
-#: models/blog.py:134 models/blog.py:182
+#: models/blog.py:134 models/blog.py:185
 msgid "status"
 msgstr "状态"
 
@@ -273,7 +273,7 @@ msgstr "状态"
 msgid "enable comment"
 msgstr "打开评论功能"
 
-#: models/blog.py:138 models/blog.py:178
+#: models/blog.py:138 models/blog.py:181
 msgid "content"
 msgstr "内容"
 
@@ -317,63 +317,63 @@ msgstr "评论次数"
 msgid "tags"
 msgstr "标签"
 
-#: models/blog.py:164
+#: models/blog.py:167
 msgid "Article"
 msgstr "文章"
 
-#: models/blog.py:165
+#: models/blog.py:168
 msgid "Articles"
 msgstr "文章"
 
-#: models/blog.py:169
+#: models/blog.py:172
 msgid "user"
 msgstr "用户"
 
-#: models/blog.py:170
+#: models/blog.py:173
 msgid "article"
 msgstr "文章"
 
-#: models/blog.py:171
+#: models/blog.py:174
 msgid "author"
 msgstr "作者"
 
-#: models/blog.py:172
+#: models/blog.py:175
 msgid "email"
 msgstr "邮箱"
 
-#: models/blog.py:173
+#: models/blog.py:176
 msgid "website"
 msgstr "网站"
 
-#: models/blog.py:174
+#: models/blog.py:177
 msgid "ip"
 msgstr "IP地址"
 
-#: models/blog.py:175
+#: models/blog.py:178
 msgid "user agent"
 msgstr "用户代理"
 
-#: models/blog.py:176
+#: models/blog.py:179
 msgid "parent comment"
 msgstr "父级评论"
 
-#: models/blog.py:177
+#: models/blog.py:180
 msgid "comment date"
 msgstr "评论日期"
 
-#: models/blog.py:183
+#: models/blog.py:186
 msgid "duoshuo comment ID"
 msgstr "多说评论ID"
 
-#: models/blog.py:184
+#: models/blog.py:187
 msgid "duoshuo user ID"
 msgstr "多说用户ID"
 
-#: models/blog.py:193
+#: models/blog.py:196
 msgid "Comment"
 msgstr "评论"
 
-#: models/blog.py:194
+#: models/blog.py:197
 msgid "Comments"
 msgstr "评论"
 

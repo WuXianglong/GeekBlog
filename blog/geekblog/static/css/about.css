@@ -46,7 +46,7 @@ ins {
 
 /* @group body */
 body {
-    background: url(../images/body-top.gif) repeat-x 0 0, url(../images/body.gif) repeat 0 0;
+    background: url(../images/body-top.png) repeat-x 0 0, url(../images/body.png) repeat 0 0;
     background-color: #a7b1ba;
     padding-top: 5px;
     font: 11px/16px 'Microsoft YaHei', 微软雅黑, Arial, Lucida Grande, Tahoma, sans-serif;

@@ -234,7 +234,6 @@ PIPELINE_CSS = {
     'base': {
         'source_filenames': (
             'css/style.css',
-            'css/jquery-ui.css',
             'css/tooltips.css',
         ),
         'output_filename': 'css/base.min.css',
