@@ -6,12 +6,8 @@
     // Load js files syncronously and conditionally
     var js_files = [
         {	        
-            src: '{{ media_url }}/admin_tools/js/jquery/jquery.min.js',		
+            src: '{{ media_url }}/admin_tools/js/jquery-1.11.1.min.js',		
             test: function() { return typeof(jQuery) == 'undefined'; }		
-        },
-        {
-            src : '{{ media_url }}/admin_tools/js/jquery/jquery.cookie.min.js',
-            test: function() {return typeof(jQuery) == 'undefined'; }
         },
         {
             src : '{{ media_url }}/admin_tools/js/leftnav{{ postfix }}.js',

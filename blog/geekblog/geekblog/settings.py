@@ -264,7 +264,7 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'base': {
         'source_filenames': (
-            'js/jquery-1.8.3.min.js',
+            'js/jquery-1.11.1.min.js',
             'js/jquery-ui.js',
             'js/geekblog.js',
             'js/tooltips.js',
@@ -290,7 +290,7 @@ PIPELINE_JS = {
     },
     'about': {
         'source_filenames': (
-            'js/jquery-1.8.3.min.js',
+            'js/jquery-1.11.1.min.js',
             'js/about.js',
         ),
         'output_filename': 'js/about.min.js',

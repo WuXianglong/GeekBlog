@@ -16,6 +16,7 @@
 <div class="module">
 
 {% if action_list %}
+    <div id="change-history-list">
     <table id="change-history">
         <thead>
         <tr>
@@ -26,14 +27,15 @@
         </thead>
         <tbody>
         {% for action in action_list %}
-        <tr>
-            <th scope="row">{{ action.action_time|date:"DATETIME_FORMAT" }}</th>
+        <tr class="{% cycle 'row1' 'row2' %}">
+            <td scope="row">{{ action.action_time|date:"DATETIME_FORMAT" }}</td>
             <td>{{ action.user.get_username }}{% if action.user.get_full_name %} ({{ action.user.get_full_name }}){% endif %}</td>
             <td>{{ action.change_message }}</td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
+    </div>
 {% else %}
     <p>{% trans "This object doesn't have a change history. It probably wasn't added via this admin site." %}</p>
 {% endif %}

@@ -7,8 +7,8 @@ var loadScripts = function(js_files, onComplete){
 
         if (index >= len) {
            if(onComplete) {
-	    	     onComplete();
-	        }
+               onComplete();
+           }
            return;
         }
 

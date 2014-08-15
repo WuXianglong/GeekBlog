@@ -626,10 +626,6 @@ div.results {
     overflow: auto;
 }
 
-.results table {
-    white-space: nowrap;
-}
-
 .selector {
     width: 1040px;
     float: left;
@@ -652,7 +648,8 @@ div.results {
 }
 
 /*add by hyf table style*/
-.results table {
+.results table, #change-history-list table {
+    white-space: nowrap;
 }
 
 .results table thead tr {
@@ -660,26 +657,33 @@ div.results {
     border-top: 1px solid #ccc;
 }
 
-.results table thead tr th {
-    text-align: center;
-    background: #f0f0f0;
+#change-history-list table thead tr {
+    height: 35px;
 }
 
-.results table tbody tr {
+.results table thead tr th, #change-history-list table thead tr th {
+    text-align: center;
+    background: #f0f0f0;
+    border-left: 1px solid #ddd;
+}
+
+.results table tbody tr, #change-history-list table tbody tr {
     height: 49px;
 }
 
-.results table tbody tr td {
+.results table tbody tr td, #change-history-list table tbody tr td {
     text-align: center;
+    border-right: 1px solid #ddd;
 }
 
-.results .row1 {
+.results .row1, #change-history-list .row1 {
     background-color: #fff;
 }
 
-.results .row2 {
+.results .row2, #change-history-list .row2 {
     background-color: #f6f6f6;
 }
+
 /*search style*/
 #changelist-search div {
     position: absolute;

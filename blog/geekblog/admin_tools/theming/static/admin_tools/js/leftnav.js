@@ -1,18 +1,4 @@
 jQuery(document).ready(function(){
-    // if(document.documentElement.clientHeight>document.body.clientHeight){$('#leftnav').css('min-height', document.documentElement.clientHeight); }
-    // $('#leftnav').css('min-height',document.body.clientHeight-80);
-    /* image preview */
-    var tmp2 = $('.icon_path .file-upload>a'), tmp3 = $('#uploadsmallimg'), tmp4 = $('#imgpreview');
-    if(tmp2.length!=0&&tmp3.length!=0&&tmp2.attr('href')) {
-        tmp4[0].src = tmp3[0].src = tmp2[0].href;
-        tmp3.mouseover(function(){tmp4.css('display', 'block')});
-        tmp3.mouseout(function(){tmp4.css('display', 'none')});
-    } else if (tmp3.length!=0) {
-        tmp2 = $('.icon_path>div>p:nth-child(2)');
-        if(tmp2.length) {
-           tmp3[0].src = 'http://estoredwnld7.189store.com/' + tmp2.text();
-        }
-    }
 
     /* action buttons */
     var action_div = $('.actions');
@@ -80,8 +66,6 @@ jQuery(document).ready(function(){
             $.getJSON('../../../get_related_lookup_info?cls_name=' + display_href.attr('cls_name') + '&v=' + value, function(data) {
                 if (data == "" || data == undefined) {
                     alert("请输入正确的ID.");
-                } else if (data == "not_reviewed_app") {
-                    alert("请输入已审核的应用.");
                 } else {
                     display_href.find('strong').text(data);
                     var href_value = display_href.attr('href').replace(/\/(\d+|obj_id_placeholder)\//, '/' + value + '/');

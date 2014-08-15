@@ -175,7 +175,7 @@ class BlogMongodbStorage(MongodbStorage):
         results = self._db.articles.find(cond, skip=start_index, limit=count, sort=self.DATE_ORDER, fields=fields)
         if with_total:
             total = self._db.articles.find(cond).count()
-            page_count = total / count if total % count == 0 else total / count + 1
+            page_count = total + count - 1 / count
             return {'results': results, 'total': total, 'page_count': page_count}
         return results
 

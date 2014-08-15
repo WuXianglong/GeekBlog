@@ -47,11 +47,14 @@ Version 1.3.2 (2014-08-11)
   * Compress image size.
   * Compress and merge JS & CSS files.
 
-Version 1.3.3 (2014-08-12)
+Version 1.3.3 (2014-08-15)
 ----------------------------
+  * Update jquery version.
+  * Fix sorting bug in archive page.
   * Add sitemap url using django sitemap.
   * Use django memcached to cache blog pages and files.
   * Use django-pipeline to merge and compress js and css files.
+  * Change django admin default object_history page styles.
 
 
 TODOs
@@ -59,4 +62,3 @@ TODOs
 
   * 使用djang-pipeline & memcached优化博客(https://github.com/tualatrix/imtx)
   * 增加预览页面
-  * 修改object history页面

@@ -22,7 +22,8 @@
     <div class="year ml40">
         <div class="year-header pb40"><a href="#" class="year-title">{{ year }}</a></div>
         <ul class="all-month pt20">
-            {% for month, articles in all_months.items %}
+            {% for month in all_months.month_list %}
+            {% with articles=all_months|get_item:month %}
             <li class="one-month">
                 <div class="omo-header">
                     <span class="omo-title">{% blocktrans %}{{ year }} / {{ month }}{% endblocktrans %}<span class="plrx"></span>{% blocktrans with count=articles|length %}Has {{ count }} articles in total{% endblocktrans %}</span>
@@ -38,6 +39,7 @@
                     {% endfor %}
                 </ul>
             </li>
+            {% endwith %}
             {% endfor %}
         </ul>
     </div>

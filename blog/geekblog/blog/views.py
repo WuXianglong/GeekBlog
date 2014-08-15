@@ -203,9 +203,16 @@ def show_archive_page(request):
         else:
             archives[year] = {month: [article]}
 
+    # sort archives
+    import operator
+    sorted_archives = dict(sorted(archives.items(), key=operator.itemgetter(1), reverse=True))
+    for year, all_months in sorted_archives.items():
+        all_months.update({'month_list': sorted(all_months.keys(), reverse=True)})
+        sorted_archives[year] = all_months
+
     context_infos = {
         'page_title': _('Archive'),
-        'archives': archives,
+        'archives': sorted_archives,
         'total_num': articles['total'],
     }
     return _render_response(request, 'archive.html', context_infos)
