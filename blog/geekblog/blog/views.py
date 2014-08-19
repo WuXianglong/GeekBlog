@@ -32,6 +32,7 @@ def _get_month_and_day(p_date):
 def _process_single_article(article):
     # process article infos and format the data with rules.
     article.update(_get_month_and_day(article.get('publish_date', None)))
+    # to disable comment when debug is on
     if settings.DEBUG:
         article.update({'enable_comment': False})
     return article
