@@ -1,24 +1,3 @@
-/* turn to the page with given page num when click pagination buttons */
-function turnToPage(page_num) {
-    var url = window.location.href, pathName = window.location.pathname, retUrl = "";
-    // if pathName is empty, means current page is home page.
-    if (pathName === "" || pathName === undefined) {
-        retUrl = url + "/page/" + page_num + "/";
-    } else if (pathName === "/") {
-        retUrl = url + "page/" + page_num + "/";
-    } else {
-        // match page & cate & tag.
-        var matchs = pathName.match(/^\/(page|tag(?:\/[a-z_]+)|search(?:\/.+)|cate(?:\/[a-z_]+))\/(?:(\d+)\/)?/i);
-        if (matchs && matchs[1] && matchs[2]) {
-            retUrl = url.replace(/(page|tag(?:\/[a-z_]+)|search(?:\/.+)|cate(?:\/[a-z_]+))\/\d+/, matchs[1] + "/" + page_num);
-        } else if (matchs && matchs[1] && matchs[2] === undefined) {
-            retUrl = url + page_num + "/";
-        }
-    }
-    if (retUrl != "")
-        window.location.href = retUrl;
-}
-
 jQuery(document).ready(function() {
     // add click event for search button.
     $('img.sb-submit').click(function() {

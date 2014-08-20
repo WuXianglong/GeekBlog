@@ -26,7 +26,7 @@ function showVcardLabel() {
 }
 
 function hideVcardLabel() {
-    $("#vcard a span").animate({ 
+    $("#vcard a span").animate({
         top: "-35px",
         opacity: 0
     }, 250);

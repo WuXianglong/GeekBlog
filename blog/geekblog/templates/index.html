@@ -4,6 +4,19 @@
 {% block scripts %}
     {% compressed_js "index" %}
     <script type="text/javascript">
+        /* turn to the page with given page num when click pagination buttons */
+        function turnToPage(page_num) {
+            var pathName = window.location.pathname, retUrl = "";
+            // match page & cate & tag.
+            var matchs = pathName.match(/^\/(page|tag(?:\/[a-z_]+)|search(?:\/[^\/]+)|cate(?:\/[a-z_]+))\/(?:(\d+)\/)?/i)
+            if (matchs) {
+                retUrl = "/" + matchs[1] + "/" + page_num + "/";
+            } else {
+                retUrl = "/page/" + page_num + "/";
+            }
+            if (retUrl != "")
+                window.location.href = retUrl;
+        }
         $(window).load(function() {
             // init the sliders.
             {% if sliders|length != 0 %}
