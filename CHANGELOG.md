@@ -56,6 +56,11 @@ Version 1.3.3 (2014-08-15)
   * Use django-pipeline to merge and compress js and css files.
   * Change django admin default object_history page styles.
 
+Version 1.3.4 (2014-08-20)
+----------------------------
+  * Fix bug in django pipeline settings.
+  * Remove unused files & code in left navigation.
+
 
 TODOs
 =====

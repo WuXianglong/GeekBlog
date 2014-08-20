@@ -137,7 +137,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -283,7 +282,7 @@ PIPELINE_JS = {
     'detail': {
         'source_filenames': (
             'js/jquery.colorbox.js',
-            'js/ueditor/third-party/SyntaxHighlighter/shCore.js',
+            'ueditor/third-party/SyntaxHighlighter/shCore.js',
         ),
         'output_filename': 'js/detail.min.js',
     },

@@ -2,7 +2,6 @@
 Module where admin tools leftnav classes are defined.
 """
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 from admin_tools.theming import items
 
@@ -98,3 +97,10 @@ class DefaultLeftNav(LeftNav):
             app_list = items.AppList(v['title'], models=v['models'], \
                     app_label_order=v['app_label_order'])
             self.children += [app_list]
+
+    class Media:
+        css = (''.join(['admin_tools/css/leftnav', '' if settings.DEBUG else '.min', '.css']),)
+        js = (
+            'admin_tools/js/jquery-1.11.1.min.js',
+            ''.join(['admin_tools/js/leftnav', '' if settings.DEBUG else '.min', '.js']),
+        )

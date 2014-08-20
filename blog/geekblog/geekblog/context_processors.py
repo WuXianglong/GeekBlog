@@ -15,7 +15,6 @@ def urlname(request):
 
 def website_meta(request):
     return {
-        "postfix": "" if getattr(settings, "DEBUG", True) else ".min",
         "site_name": getattr(settings, "WEBSITE_NAME", ""),
         "site_desc": getattr(settings, "WEBSITE_DESC", ""),
         "site_url": getattr(settings, "WEBSITE_URL", ""),

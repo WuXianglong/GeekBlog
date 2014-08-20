@@ -113,7 +113,7 @@ class ArticleAdmin(BaseModelAdmin):
     list_per_page = settings.ADMIN_LIST_PER_PAGE
     list_filter = ['status', 'mark', 'enable_comment', 'sync_status']
     search_fields = ['title', 'slug', 'description']
-    ordering = ('order',)
+    ordering = ('-publish_date',)
     raw_id_fields = ('thumbnail',)
     fieldsets = (
         (_('Basic'), {
