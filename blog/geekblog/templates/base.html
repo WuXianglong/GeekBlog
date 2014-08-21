@@ -1,10 +1,14 @@
 {% load i18n compressed %}
 <!DOCTYPE html>
-<html>
+<html lang="{{ LANGUAGE_CODE|default:"zh-cn" }}">
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="keywords" content="{{ site_keywords }}">
+        <meta name="generator" content="GeekBlog {{ blog_version }}">
+        <meta name="copyright" content="Copyright © 2014 Xianglong Wu. All Rights Reserved.">
+        <meta name="description" content="{% if page_title %}{{ page_title }} - {% endif %}{{ site_desc }}, 关注{{ site_keywords }}">
         <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }} | {{ site_desc }}</title>
-        <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico">
+        <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
         {% compressed_css "base" %}
         {% block styles %}
         {% endblock %}
@@ -35,7 +39,7 @@
         </script>
         {% block scripts %}
         {% endblock %}
-    </head>
+    </head><!-- end of header-->
     <body id="{{ url_name }}">
         <div class="maincontent-wrapper">
             <div class='top'></div>
@@ -146,5 +150,5 @@
         <div id="cnzz" style="display: none;">
             <script src="http://s95.cnzz.com/z_stat.php?id=1253027820&web_id=1253027820" language="JavaScript"></script>
         </div>
-    </body>
+    </body><!-- end of body -->
 </html>

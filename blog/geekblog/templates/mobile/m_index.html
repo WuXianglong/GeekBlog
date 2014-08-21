@@ -1,0 +1,48 @@
+{% load i18n %}
+{% extends 'm_base.html' %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        /* turn to the page with given page num when click pagination buttons */
+        function turnToPage(page_num) {
+            var pathName = window.location.pathname, retUrl = "";
+            // match page & cate & tag.
+            var matchs = pathName.match(/^\/(page|tag(?:\/[a-z_]+)|search(?:\/[^\/]+)|cate(?:\/[a-z_]+))\/(?:(\d+)\/)?/i)
+            if (matchs) {
+                retUrl = "/" + matchs[1] + "/" + page_num + "/";
+            } else {
+                retUrl = "/page/" + page_num + "/";
+            }
+            if (retUrl != "")
+                window.location.href = retUrl;
+        }
+        // load duoshuo js for comment count
+        var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = 'http://static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+{% endblock %}
+
+{% block core %}
+    <content id="content">
+        {% if articles|length == 0 %}
+            <div class="no-more-article">{% trans "There is no more articles, please return " %}<a href="/">{% trans "homepage" %}</a></div>
+            <div class="clear"></div>
+        {% else %}
+            {% for item in articles %}
+            {% render_article_item item %}
+            {% endfor %}
+        {% endif %}
+    </content>	
+    <!-- pagination -->
+    <nav id="pagenavi">
+        <span class="page page-prev disabled">上一页</span>
+        <a class="page page-next" href="http://www.xinsenz.com/page/2">下一页</a>
+    </nav>
+{% endblock %}
+

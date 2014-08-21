@@ -1,0 +1,27 @@
+{% load i18n %}
+<article class="post" id="post-{{ id }}">
+    <div class="post-header">
+        <h2 class="post-title">
+            <a class="post-title-link" href="/article/{{ slug }}/" rel="bookmark">{{ title }}</a>
+        </h2>
+    </div>
+    <div class="post-content post-text">
+        <p>{{ description|safe }}</p>
+    </div>
+    <div class="post-footer">
+        <span class="post-meta">{{ publish_date }}</span>
+        <span class="post-meta tag-icon">
+            {% for tag in tags %}
+                <a href="/tag/{{ tag.slug }}" rel="tag">{{ tag.name }}</a>{% if not forloop.last %}&nbsp/{% endif %}
+            {% endfor %}
+        </span>
+        <span class="post-meta view-icon">{% blocktrans %}Viewed by {{ views_count }} people {% endblocktrans %}</span>
+        {% if enable_comment %}
+        <span class="post-meta comment-icon">
+            <a href="/article/{{ slug }}/#comments" title="{% blocktrans %}Comments of {{ title }}{% endblocktrans %}">
+                <span class="ds-thread-count" data-thread-key="{{ id }}" data-count-type="comments"></span>
+            </a>
+        </span>
+        {% endif %}
+    </div>
+</article>

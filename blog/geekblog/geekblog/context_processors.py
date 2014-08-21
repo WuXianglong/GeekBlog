@@ -15,9 +15,11 @@ def urlname(request):
 
 def website_meta(request):
     return {
+        "saying": getattr(settings, "SAYING", ""),
         "site_name": getattr(settings, "WEBSITE_NAME", ""),
         "site_desc": getattr(settings, "WEBSITE_DESC", ""),
         "site_url": getattr(settings, "WEBSITE_URL", ""),
-        "saying": getattr(settings, "SAYING", ""),
+        "site_keywords": getattr(settings, "WEBSITE_KEYWORDS", ""),
+        "blog_version": getattr(settings, "GEEKBLOG_VERSION", "1.3.4"),
         "duoshuo_short_name": getattr(settings, "DUOSHUO_SHORT_NAME", ""),
     }
