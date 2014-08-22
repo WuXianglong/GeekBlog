@@ -86,6 +86,7 @@ MANAGERS = ADMINS
 # date and datetime field formats
 DATE_FORMAT = 'Y-m-d'
 DATETIME_FORMAT = 'Y-m-d H:i:s'
+PUBLISH_DATE_FORMAT = '%Y-%m-%d'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -211,6 +212,17 @@ INSTALLED_APPS = (
 # should declare this after 'INSTALL_APPS'.
 AUTH_USER_MODEL = 'usermanagement.CustomUser'
 
+# template name mappings
+TEMPLATE_NAMES = {
+    '404': {'p': '404.html', 'm': 'mobile/m_404.html'},
+    'index': {'p': 'index.html', 'm': 'mobile/m_index.html'},
+    'detail': {'p': 'detail.html', 'm': 'mobile/m_detail.html'},
+    'archive': {'p': 'archive.html', 'm': 'archive.html'},
+    'about': {'p': 'about.html', 'm': 'about.html'},
+    'link': {'p': 'link.html', 'm': 'link.html'},
+}
+
+
 # Cache
 CACHES = {
     'default': {
@@ -259,6 +271,12 @@ PIPELINE_CSS = {
             'css/about.css',
         ),
         'output_filename': 'css/about.min.css',
+    },
+    'mobile': {
+        'source_filenames': (
+            'css/mobile/style.css',
+        ),
+        'output_filename': 'css/mobile/style.min.css',
     },
 }
 

@@ -6,7 +6,7 @@ from blog.views import show_homepage, show_article, show_category, \
 
 urlpatterns = patterns('',
     url(r'^$', show_homepage, {'page_num': 1}, name='homepage'),
-    url(r'^page/(?P<page_num>\d+)/$', show_homepage),
+    url(r'^page/(?P<page_num>\d+)/$', show_homepage, name='homepage'),
 
     url(r'^article/(?P<slug>[a-z0-9A-Z_-]+)/$', show_article, name='article_detail'),
     url(r'^cate/(?P<cate_slug>[a-z_]+)(?:/(?P<page_num>\d+))?/$', show_category, name='category'),

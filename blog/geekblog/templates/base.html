@@ -85,6 +85,15 @@
                         </div>
                         <div class="s-item-footer"></div>
                     </section>
+                    {% if url_name != "archive_page" and url_name != "about_page" and url_name != "friend_link_page" %}
+                    <section id="s-qrcode">
+                        <h3>{% trans "View On Mobile" %}</h3>
+                        <div class="s-item-content">
+                            <img class="s-qrcode" width="16" height="16" src="http://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=UTF-8&chld=H&chl=http://www.xianglong.me" alt='{% trans "View on mobile" %}'></img>
+                        </div>
+                        <div class="s-item-footer"></div>
+                    </section>
+                    {% endif %}
                     <section id="s-tag">
                         <h3>{% trans "Hottest Tags" %}</h3>
                         <div class="s-item-content">

@@ -12,18 +12,17 @@ from blogcore.db.blog import BlogMongodbStorage
 from blogcore.models.constants import ALL_MONTHS, LINK_TYPES
 from .models import Article
 
-blog_db = BlogMongodbStorage(settings.MONGODB_CONF)
 logger = logging.getLogger('geekblog')
-
-DATE_FORMAT = '%Y-%m-%d'
+blog_db = BlogMongodbStorage(settings.MONGODB_CONF)
 
 
 def _get_month_and_day(p_date):
+    """ parse publish_date and get month and day """
     infos = {'year': '1990', 'month': '01', 'day': '01', 'month_str': ALL_MONTHS[0], 'publish_date_str': ''}
     if not p_date or not isinstance(p_date, long):
         return infos
     date = timestamp2datetime(p_date, convert_to_local=True).date()
-    date_str = date.strftime(DATE_FORMAT)
+    date_str = date.strftime(settings.PUBLISH_DATE_FORMAT)
     infos['year'], infos['month'], infos['day'] = date_str.split('-')
     infos['month_str'], infos['publish_date_str'] = ALL_MONTHS[date.month - 1], date_str
     return infos
@@ -45,21 +44,23 @@ def _process_articles(articles):
 
 
 def _get_start_index(page_num):
-    page_num = safe_cast(page_num, int)
-    if page_num is None:
-        page_num = 1
+    page_num = safe_cast(page_num, int, 1)
     return settings.LIST_PER_PAGE * (page_num - 1)
 
 
 def _render_response(request, template_name, context):
-    if context:
+    is_mobile = request.META.get('is_mobile', False)
+    template_path = settings.TEMPLATE_NAMES[template_name]['m' if is_mobile else 'p']
+
+    # update context to add all_tags and newest_articles infos when is_mobile is False
+    if context and not is_mobile:
         context.update({'all_tags': blog_db.get_tags(), 'newest_articles': blog_db.get_newest_articles(has_login=(not request.user.is_anonymous()))})
 
-    return render_to_response(template_name, context, context_instance=RequestContext(request))
+    return render_to_response(template_path, context, context_instance=RequestContext(request))
 
 
 def _render_404_response(request):
-    return _render_response(request, '404.html', {})
+    return _render_response(request, '404', {})
 
 
 def show_homepage(request, page_num):
@@ -70,9 +71,11 @@ def show_homepage(request, page_num):
         'sliders': blog_db.get_all_sliders(),
         'current_page': page_num,
         'total_page': article_infos['page_count'],
+        'has_prev': page_num > 1,
+        'has_next': article_infos['page_count'] > page_num,
         'articles': _process_articles(article_infos['results']),
     }
-    return _render_response(request, 'index.html', context_infos)
+    return _render_response(request, 'index', context_infos)
 
 
 def show_article(request, slug):
@@ -95,7 +98,7 @@ def show_article(request, slug):
         'next_a': next_a,
     }
     context_infos.update(_process_single_article(article_infos))
-    return _render_response(request, 'detail.html', context_infos)
+    return _render_response(request, 'detail', context_infos)
 
 
 def preview_article(request, slug):
@@ -129,11 +132,12 @@ def preview_article(request, slug):
         'login_required': article.login_required,
         'views_count': article.views_count,
         'publish_date': publish_date,
-        'thumbnail_url': (article.thumbnail.path.url if article.thumbnail.path else article.thumbnail.url) if article.thumbnail else 'http://xianglong.qiniudn.com/default_article_image.gif',
+        'thumbnail_url': (article.thumbnail.path.url if article.thumbnail.path else article.thumbnail.url) \
+                if article.thumbnail else 'http://xianglong.qiniudn.com/default_article_image.gif',
         'tags': article.get_tags(),
     }
     context_infos.update(_process_single_article(article_infos))
-    return _render_response(request, 'detail.html', context_infos)
+    return _render_response(request, 'detail', context_infos)
 
 
 def show_category(request, cate_slug, page_num):
@@ -150,9 +154,11 @@ def show_category(request, cate_slug, page_num):
         'sliders': blog_db.get_all_sliders(),
         'current_page': page_num or 1,
         'total_page': article_infos['page_count'],
+        'has_prev': page_num > 1,
+        'has_next': article_infos['page_count'] > page_num,
         'articles': _process_articles(article_infos['results']),
     }
-    return _render_response(request, 'index.html', context_infos)
+    return _render_response(request, 'index', context_infos)
 
 
 def show_tag(request, tag_slug, page_num):
@@ -169,9 +175,11 @@ def show_tag(request, tag_slug, page_num):
         'sliders': blog_db.get_all_sliders(),
         'current_page': page_num or 1,
         'total_page': article_infos['page_count'],
+        'has_prev': page_num > 1,
+        'has_next': article_infos['page_count'] > page_num,
         'articles': _process_articles(article_infos['results']),
     }
-    return _render_response(request, 'index.html', context_infos)
+    return _render_response(request, 'index', context_infos)
 
 
 def show_search(request, keyword, page_num):
@@ -186,9 +194,11 @@ def show_search(request, keyword, page_num):
         'sliders': blog_db.get_all_sliders(),
         'current_page': page_num or 1,
         'total_page': article_infos['page_count'],
+        'has_prev': page_num > 1,
+        'has_next': article_infos['page_count'] > page_num,
         'articles': _process_articles(article_infos['results']),
     }
-    return _render_response(request, 'index.html', context_infos)
+    return _render_response(request, 'index', context_infos)
 
 
 @cache_page(60 * 60 * 4)
@@ -218,12 +228,12 @@ def show_archive_page(request):
         'archives': sorted_archives,
         'total_num': articles['total'],
     }
-    return _render_response(request, 'archive.html', context_infos)
+    return _render_response(request, 'archive', context_infos)
 
 
 @cache_page(60 * 60 * 4)
 def show_about_page(request):
-    return _render_response(request, 'about.html', {'page_title': _('About')})
+    return _render_response(request, 'about', {'page_title': _('About')})
 
 
 @cache_page(60 * 60 * 4)
@@ -237,4 +247,4 @@ def show_friend_link_page(request):
         'friend_links': friend_links,
         'site_links': site_links,
     }
-    return _render_response(request, 'link.html', context_infos)
+    return _render_response(request, 'link', context_infos)

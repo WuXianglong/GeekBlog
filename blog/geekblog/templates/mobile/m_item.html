@@ -9,7 +9,7 @@
         <p>{{ description|safe }}</p>
     </div>
     <div class="post-footer">
-        <span class="post-meta">{{ publish_date }}</span>
+        <span class="post-meta">{{ publish_date_str }}</span>
         <span class="post-meta tag-icon">
             {% for tag in tags %}
                 <a href="/tag/{{ tag.slug }}" rel="tag">{{ tag.name }}</a>{% if not forloop.last %}&nbsp/{% endif %}

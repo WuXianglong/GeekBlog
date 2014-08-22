@@ -30,9 +30,19 @@
 
 {% block core %}
     <content id="content">
-        {% if page_title %}
+        {% if page_title and (url_name == "category" or url_name == "tag" or url_name == "search") %}
         <section id="archivecat">
-            <div class="postcats"><h2>{% blocktrans %}Category: {{ page_title }}{% endblocktrans %}</h2></div>
+            <div class="postcats">
+                <h2>
+                    {% if url_name == "category" %}
+                    {% blocktrans %}Category: {{ page_title }}{% endblocktrans %}
+                    {% else if url_name == "tag" %}
+                    {% blocktrans %}Tag: {{ page_title }}{% endblocktrans %}
+                    {% else %}
+                    {% blocktrans %}Search: {{ page_title }}{% endblocktrans %}
+                    {% endif %}
+                </h2>
+            </div>
             <div class="catdesc"></div>
 		</section>
         {% endif %}
@@ -47,8 +57,8 @@
     </content>	
     <!-- pagination -->
     <nav id="pagenavi">
-        <span class="page page-prev disabled">上一页</span>
-        <a class="page page-next" href="http://www.xinsenz.com/page/2">下一页</a>
+        <span class="page page-prev{% if not has_prev %} disabled{% endif %}" {% if has_prev %} onclick="turnToPage();"{% endif %}>{% trans "Previous" %}</span>
+        <span class="page page-next{% if not has_next %} disabled{% endif %}" {% if has_next %} onclick="turnToPage();"{% endif %}>{% trans "Next" %}</span>
     </nav>
 {% endblock %}
 

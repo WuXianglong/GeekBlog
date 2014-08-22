@@ -31,6 +31,7 @@ def generate_unique_token():
 
 
 class string_with_title(str):
+
     def __new__(cls, value, title):
         instance = str.__new__(cls, value)
         instance._title = title
