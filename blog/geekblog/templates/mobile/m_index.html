@@ -30,6 +30,12 @@
 
 {% block core %}
     <content id="content">
+        {% if page_title %}
+        <section id="archivecat">
+            <div class="postcats"><h2>{% blocktrans %}Category: {{ page_title }}{% endblocktrans %}</h2></div>
+            <div class="catdesc"></div>
+		</section>
+        {% endif %}
         {% if articles|length == 0 %}
             <div class="no-more-article">{% trans "There is no more articles, please return " %}<a href="/">{% trans "homepage" %}</a></div>
             <div class="clear"></div>
