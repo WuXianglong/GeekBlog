@@ -53,7 +53,7 @@ def _get_pagination_infos(article_infos, page_num):
     return {
         'current_page': page_num,
         'total_page': article_infos['page_count'],
-        'has_prev': page_num > 1 and page_num < article_infos['page_count'],
+        'has_prev': page_num > 1 and page_num <= article_infos['page_count'],
         'has_next': page_num >= 1 and article_infos['page_count'] > page_num,
     }
 
