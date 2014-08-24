@@ -5,7 +5,7 @@ jQuery(document).ready(function() {
         if (keyword == undefined || keyword == "") {
             return false;
         }
-        window.location.href = window.location.origin + "/search/" + keyword + "/";
+        window.location.href = "/search/" + keyword + "/";
     });
 
     // implete to use left and right key to turn page.

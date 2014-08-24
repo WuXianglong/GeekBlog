@@ -71,7 +71,7 @@ _load_config('blog', [os.path.join(SITE_ROOT, "geekblog.cfg")])
 WEBSITE_NAME = u'降龙'
 WEBSITE_DESC = u'记录生活与工作的点滴，分享旅行与技术的乐趣'
 SAYING = u'一切都会过去！'    # u'不相信自己的人，连努力的价值都没有。'
-WEBSITE_URL = 'http://xianglong.me/'
+WEBSITE_URL = 'http://xianglong.me'
 WEBSITE_KEYWORDS = u'python,django,tornado,vim,linux,javascript,web开发,工作经验,人生,感悟,骑行'
 GEEKBLOG_VERSION = '1.3.4'
 
@@ -274,9 +274,13 @@ PIPELINE_CSS = {
     },
     'mobile': {
         'source_filenames': (
-            'css/mobile/style.css',
+            'css/mobile.css',
+            'ueditor/third-party/SyntaxHighlighter/shCoreDefault.css',
         ),
-        'output_filename': 'css/mobile/style.min.css',
+        'output_filename': 'css/mobile.min.css',
+        'extra_context': {
+            'media': 'screen',
+        },
     },
 }
 
@@ -319,6 +323,14 @@ PIPELINE_JS = {
             'js/archive.js',
         ),
         'output_filename': 'js/archive.min.js',
+    },
+    'mobile': {
+        'source_filenames': (
+            'js/jquery-1.11.1.min.js',
+            'ueditor/third-party/SyntaxHighlighter/shCore.js',
+            'js/mobile.js',
+        ),
+        'output_filename': 'js/mobile.min.js',
     },
 }
 

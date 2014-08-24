@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-16 01:11+0800\n"
+"POT-Creation-Date: 2014-08-24 19:54+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,27 +30,27 @@ msgid "Log out"
 msgstr "注销"
 
 #: admin_tools/theming/templates/admin/base.html:52
-#: admin_tools/theming/templates/admin/change_form.html:20
+#: admin_tools/theming/templates/admin/change_form.html:19
 #: admin_tools/theming/templates/admin/change_list.html:40
 #: admin_tools/theming/templates/admin/object_history.html:6
 #: admin_tools/theming/templates/registration/logged_out.html:4
 msgid "Home"
 msgstr "主页"
 
-#: admin_tools/theming/templates/admin/change_form.html:23
+#: admin_tools/theming/templates/admin/change_form.html:22
 msgid "Add"
 msgstr "添加"
 
-#: admin_tools/theming/templates/admin/change_form.html:36
+#: admin_tools/theming/templates/admin/change_form.html:35
 #: admin_tools/theming/templates/admin/object_history.html:10
 msgid "History"
 msgstr "历史"
 
-#: admin_tools/theming/templates/admin/change_form.html:37
+#: admin_tools/theming/templates/admin/change_form.html:36
 msgid "View on site"
 msgstr "查看网站"
 
-#: admin_tools/theming/templates/admin/change_form.html:48
+#: admin_tools/theming/templates/admin/change_form.html:47
 #: admin_tools/theming/templates/admin/change_list.html:83
 #: admin_tools/theming/templates/admin/login.html:21
 msgid "Please correct the error below."
@@ -198,15 +198,16 @@ msgstr "状态"
 msgid "You can't publish not approved %(model)s: %(obj)s"
 msgstr "不能发布未审核通过的 %(model)s: %(obj)s"
 
-#: blog/views.py:216
+#: blog/views.py:224
 msgid "Archive"
 msgstr "归档"
 
-#: blog/views.py:225 templates/about.html:23 templates/base.html:55
+#: blog/views.py:233 templates/about.html:23 templates/base.html:59
+#: templates/mobile/m_base.html:35
 msgid "About"
 msgstr "关于"
 
-#: blog/views.py:235
+#: blog/views.py:243
 msgid "Friend Links"
 msgstr "友链"
 
@@ -214,15 +215,15 @@ msgstr "友链"
 msgid "Category Articles"
 msgstr "分类文章"
 
-#: geekblog/settings.py:309
+#: geekblog/settings.py:341
 msgid "content management"
 msgstr "内容管理"
 
-#: geekblog/settings.py:326
+#: geekblog/settings.py:358
 msgid "system management"
 msgstr "系统管理"
 
-#: templates/404.html:99
+#: templates/404.html:101
 msgid "You Look Lost. Head This Way."
 msgstr "你好像迷路了，点击返回首页"
 
@@ -336,51 +337,59 @@ msgstr "共有%(count)s篇文章"
 msgid "%(day)s: "
 msgstr "%(day)s日："
 
-#: templates/base.html:46
+#: templates/base.html:50 templates/mobile/m_base.html:32
 msgid "Life"
 msgstr "生活"
 
-#: templates/base.html:48
+#: templates/base.html:52 templates/mobile/m_base.html:33
 msgid "Code"
 msgstr "编码"
 
-#: templates/base.html:49
+#: templates/base.html:53 templates/mobile/m_base.html:34
 msgid "Resources"
 msgstr "资源"
 
-#: templates/base.html:53
+#: templates/base.html:57
 msgid "Archives"
 msgstr "归档"
 
-#: templates/base.html:54
+#: templates/base.html:58
 msgid "Friends"
 msgstr "友链"
 
-#: templates/base.html:64
+#: templates/base.html:68
 msgid "Search On Site"
 msgstr "发现之旅"
 
-#: templates/base.html:67
+#: templates/base.html:71 templates/mobile/m_base.html:49
 msgid "Enter search term..."
 msgstr "输入搜索内容..."
 
-#: templates/base.html:68
+#: templates/base.html:72
 msgid "Search"
 msgstr "搜索"
 
-#: templates/base.html:74
+#: templates/base.html:78
 msgid "Newest Articles"
 msgstr "最新热文"
 
-#: templates/base.html:85
+#: templates/base.html:90
+msgid "View On Mobile"
+msgstr "扫描观看"
+
+#: templates/base.html:92
+msgid "View on mobile"
+msgstr "扫描观看"
+
+#: templates/base.html:98
 msgid "Hottest Tags"
 msgstr "热门标签"
 
-#: templates/base.html:96
+#: templates/base.html:109
 msgid "Newest Comments"
 msgstr "最新评论"
 
-#: templates/base.html:132
+#: templates/base.html:145 templates/mobile/m_base.html:56
 #, python-format
 msgid ""
 "\n"
@@ -392,58 +401,61 @@ msgstr ""
 "                    Copyright © 2012 - 2014 %(site_name)s, 保留所有权利.\n"
 "                    "
 
-#: templates/detail.html:45 templates/item.html:16
+#: templates/detail.html:44 templates/item.html:16
 #, python-format
 msgid "Views all articles of %(category_name)s "
 msgstr "查看 %(category_name)s 下的所有文章"
 
-#: templates/detail.html:51 templates/item.html:22
+#: templates/detail.html:50 templates/item.html:22
+#: templates/mobile/m_detail.html:27 templates/mobile/m_item.html:16
 #, python-format
 msgid "Viewed by %(views_count)s people "
 msgstr "已有%(views_count)s人围观"
 
-#: templates/detail.html:54 templates/item.html:25
+#: templates/detail.html:53 templates/item.html:25
+#: templates/mobile/m_detail.html:30
 #, python-format
 msgid "Comments of %(title)s"
 msgstr "%(title)s的评论"
 
-#: templates/detail.html:73
+#: templates/detail.html:72
 msgid "Previous："
 msgstr "上一篇："
 
-#: templates/detail.html:77
+#: templates/detail.html:76
 msgid "No more previous article"
 msgstr "木有最新的文章了"
 
-#: templates/detail.html:80
+#: templates/detail.html:79
 msgid "Next："
 msgstr "下一篇："
 
-#: templates/detail.html:84
+#: templates/detail.html:83
 msgid "No more next article"
 msgstr "木有更早的文章了"
 
-#: templates/detail.html:91
+#: templates/detail.html:90
 msgid "Address："
 msgstr "本文地址："
 
-#: templates/detail.html:92
+#: templates/detail.html:91
 msgid "Statement："
 msgstr "特别声明："
 
-#: templates/detail.html:119
+#: templates/detail.html:118 templates/mobile/m_detail.html:55
 msgid "Comment of this article has closed."
 msgstr "文章的评论已经关闭"
 
-#: templates/index.html:67
+#: templates/index.html:80 templates/mobile/m_index.html:41
 msgid "There is no more articles, please return "
 msgstr "已经木有文章了, 请返回"
 
-#: templates/index.html:67
+#: templates/index.html:80 templates/mobile/m_base.html:31
+#: templates/mobile/m_index.html:41
 msgid "homepage"
 msgstr "主页"
 
-#: templates/index.html:76
+#: templates/index.html:89
 msgid "Use left and right key ← → to turn page"
 msgstr "使用左右键 ← → 快捷翻页"
 
@@ -483,6 +495,41 @@ msgstr "网站地址"
 #: templates/link.html:34
 msgid "website description"
 msgstr "网站描述"
+
+#: templates/mobile/m_404.html:21
+msgid "You Look Lost, will return home page now! "
+msgstr "你好像迷路了，将在5秒后返回首页"
+
+#: templates/mobile/m_detail.html:40
+msgid "Category: "
+msgstr "分类: "
+
+#: templates/mobile/m_detail.html:43
+msgid "Tag: "
+msgstr "标签: "
+
+#: templates/mobile/m_index.html:29
+#, python-format
+msgid "Category: %(page_title)s"
+msgstr "分类: %(page_title)s"
+
+#: templates/mobile/m_index.html:31
+#, python-format
+msgid "Tag: %(page_title)s"
+msgstr "标签: %(page_title)s"
+
+#: templates/mobile/m_index.html:33
+#, python-format
+msgid "Search: %(page_title)s"
+msgstr "搜索: %(page_title)s"
+
+#: templates/mobile/m_index.html:52
+msgid "Previous"
+msgstr "上一页"
+
+#: templates/mobile/m_index.html:53
+msgid "Next"
+msgstr "下一页"
 
 #: usermanagement/admin.py:13
 msgid "addition action"

@@ -1,10 +1,11 @@
-{% load i18n %}
-{% extends 'm_base.html' %}
+{% extends 'mobile/m_base.html' %}
+{% load i18n blog_tags %}
 
 {% block scripts %}
     <script type="text/javascript">
         /* turn to the page with given page num when click pagination buttons */
-        function turnToPage(page_num) {
+        function turnToPage(amount) {
+            var page_num = {{ current_page }} + amount;
             var pathName = window.location.pathname, retUrl = "";
             // match page & cate & tag.
             var matchs = pathName.match(/^\/(page|tag(?:\/[a-z_]+)|search(?:\/[^\/]+)|cate(?:\/[a-z_]+))\/(?:(\d+)\/)?/i)
@@ -13,30 +14,20 @@
             } else {
                 retUrl = "/page/" + page_num + "/";
             }
-            if (retUrl != "")
-                window.location.href = retUrl;
+            if (retUrl != "") window.location.href = retUrl;
         }
-        // load duoshuo js for comment count
-        var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};
-        (function() {
-            var ds = document.createElement('script');
-            ds.type = 'text/javascript';ds.async = true;
-            ds.src = 'http://static.duoshuo.com/embed.js';
-            ds.charset = 'UTF-8';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
     </script>
 {% endblock %}
 
 {% block core %}
     <content id="content">
-        {% if page_title and (url_name == "category" or url_name == "tag" or url_name == "search") %}
+        {% if url_name == "category" or url_name == "tag" or url_name == "search" %}
         <section id="archivecat">
             <div class="postcats">
                 <h2>
                     {% if url_name == "category" %}
                     {% blocktrans %}Category: {{ page_title }}{% endblocktrans %}
-                    {% else if url_name == "tag" %}
+                    {% elif url_name == "tag" %}
                     {% blocktrans %}Tag: {{ page_title }}{% endblocktrans %}
                     {% else %}
                     {% blocktrans %}Search: {{ page_title }}{% endblocktrans %}
@@ -51,14 +42,15 @@
             <div class="clear"></div>
         {% else %}
             {% for item in articles %}
-            {% render_article_item item %}
+            {% render_mobile_article_item item %}
             {% endfor %}
         {% endif %}
     </content>	
     <!-- pagination -->
-    <nav id="pagenavi">
-        <span class="page page-prev{% if not has_prev %} disabled{% endif %}" {% if has_prev %} onclick="turnToPage();"{% endif %}>{% trans "Previous" %}</span>
-        <span class="page page-next{% if not has_next %} disabled{% endif %}" {% if has_next %} onclick="turnToPage();"{% endif %}>{% trans "Next" %}</span>
+    <nav id="pagenav">
+        {% if has_prev or has_next %}
+            <span class="page page-prev{% if not has_prev %} disabled{% endif %}" {% if has_prev %} onclick="turnToPage(-1);"{% endif %}>{% trans "Previous" %}</span>
+            <span class="page page-next{% if not has_next %} disabled{% endif %}" {% if has_next %} onclick="turnToPage(1);"{% endif %}>{% trans "Next" %}</span>
+        {% endif %}
     </nav>
 {% endblock %}
-

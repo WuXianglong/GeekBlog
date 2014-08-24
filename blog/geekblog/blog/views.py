@@ -48,13 +48,26 @@ def _get_start_index(page_num):
     return settings.LIST_PER_PAGE * (page_num - 1)
 
 
-def _render_response(request, template_name, context):
-    is_mobile = request.META.get('is_mobile', False)
+def _get_pagination_infos(article_infos, page_num):
+    page_num = safe_cast(page_num, int, 1)
+    return {
+        'current_page': page_num,
+        'total_page': article_infos['page_count'],
+        'has_prev': page_num > 1 and page_num < article_infos['page_count'],
+        'has_next': page_num >= 1 and article_infos['page_count'] > page_num,
+    }
+
+
+def _render_response(request, template_name, context, is_index=False):
+    is_mobile = request.META.get('IS_MOBILE', False)
     template_path = settings.TEMPLATE_NAMES[template_name]['m' if is_mobile else 'p']
 
     # update context to add all_tags and newest_articles infos when is_mobile is False
     if context and not is_mobile:
         context.update({'all_tags': blog_db.get_tags(), 'newest_articles': blog_db.get_newest_articles(has_login=(not request.user.is_anonymous()))})
+    # if page is blog list page, update slider infos
+    if is_index:
+        context.update({'sliders': blog_db.get_all_sliders()})
 
     return render_to_response(template_path, context, context_instance=RequestContext(request))
 
@@ -68,14 +81,10 @@ def show_homepage(request, page_num):
     article_infos = blog_db.get_articles({}, start_index=start_index, count=settings.LIST_PER_PAGE, has_login=(not request.user.is_anonymous()), with_total=True)
 
     context_infos = {
-        'sliders': blog_db.get_all_sliders(),
-        'current_page': page_num,
-        'total_page': article_infos['page_count'],
-        'has_prev': page_num > 1,
-        'has_next': article_infos['page_count'] > page_num,
         'articles': _process_articles(article_infos['results']),
     }
-    return _render_response(request, 'index', context_infos)
+    context_infos.update(_get_pagination_infos(article_infos, page_num))
+    return _render_response(request, 'index', context_infos, is_index=True)
 
 
 def show_article(request, slug):
@@ -151,14 +160,10 @@ def show_category(request, cate_slug, page_num):
 
     context_infos = {
         'page_title': cate_infos['name'],
-        'sliders': blog_db.get_all_sliders(),
-        'current_page': page_num or 1,
-        'total_page': article_infos['page_count'],
-        'has_prev': page_num > 1,
-        'has_next': article_infos['page_count'] > page_num,
         'articles': _process_articles(article_infos['results']),
     }
-    return _render_response(request, 'index', context_infos)
+    context_infos.update(_get_pagination_infos(article_infos, page_num))
+    return _render_response(request, 'index', context_infos, is_index=True)
 
 
 def show_tag(request, tag_slug, page_num):
@@ -172,14 +177,10 @@ def show_tag(request, tag_slug, page_num):
 
     context_infos = {
         'page_title': tag_infos['name'],
-        'sliders': blog_db.get_all_sliders(),
-        'current_page': page_num or 1,
-        'total_page': article_infos['page_count'],
-        'has_prev': page_num > 1,
-        'has_next': article_infos['page_count'] > page_num,
         'articles': _process_articles(article_infos['results']),
     }
-    return _render_response(request, 'index', context_infos)
+    context_infos.update(_get_pagination_infos(article_infos, page_num))
+    return _render_response(request, 'index', context_infos, is_index=True)
 
 
 def show_search(request, keyword, page_num):
@@ -191,14 +192,10 @@ def show_search(request, keyword, page_num):
 
     context_infos = {
         'page_title': keyword,
-        'sliders': blog_db.get_all_sliders(),
-        'current_page': page_num or 1,
-        'total_page': article_infos['page_count'],
-        'has_prev': page_num > 1,
-        'has_next': article_infos['page_count'] > page_num,
         'articles': _process_articles(article_infos['results']),
     }
-    return _render_response(request, 'index', context_infos)
+    context_infos.update(_get_pagination_infos(article_infos, page_num))
+    return _render_response(request, 'index', context_infos, is_index=True)
 
 
 @cache_page(60 * 60 * 4)

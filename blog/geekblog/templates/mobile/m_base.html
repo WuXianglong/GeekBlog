@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n compressed %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"zh-cn" }}">
     <head>
@@ -13,46 +13,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }} | {{ site_desc }}</title>
         <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="./style.css" type="text/css" media="screen">
         <style>[touch-action="none"]{-ms-touch-action: none; touch-action: none;}[touch-action="pan-x"]{-ms-touch-action: pan-x; touch-action: pan-x;}[touch-action="pan-y"]{-ms-touch-action: pan-y; touch-action: pan-y;}[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{-ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y;}</style>
+        {% compressed_js "mobile" %}
+        {% compressed_css "mobile" %}
         {% block styles %}
         {% endblock %}
         {% block scripts %}
         {% endblock %}
-        <script type="text/javascript">
-            $(function() {
-                var $backToTopEle = $('<div class="mobileBackToTop"></div>').appendTo($("body")).click(function() {
-                            $("html, body").animate({scrollTop: 0}, 800);
-                            return false;
-                        }),
-                    $backToTopFun = function() {
-                        var st = $(window).scrollTop(), winh = $(window).height();
-                        (st > 50) ? $backToTopEle.fadeIn() : $backToTopEle.fadeOut();
-                        // IE6下的定位
-                        if (!window.XMLHttpRequest) {
-                            $backToTopEle.css("top", st + winh - 166);
-                        }
-                    };
-                $(window).bind("scroll", $backToTopFun);
-                $(function() {
-                    $backToTopFun();
-                });
-            });
-        </script>
     </head><!-- end of header-->
     <body id="{{ url_name }}">
         <nav id="slide-menu">
             <article>
                 <div class="menu-content">
                     <nav class="slide-menu">
-                        <div class="slide-logo">
-                            <div class="slide-title">
-                                <div class="slide-avatar">
-                                    <img alt="logo" src="{{ STATIC_URL }}images/logo.png" width="53" height="88">
-                                </div>
-                                降龙
-                            </div>
-                        </div>
+                        <div class="slide-title">{{ site_name }}</div>
                         <ul>
                             <li><a href="/">{% trans "homepage" %}</a></li>
                             <li><a href="/cate/life">{% trans "Life" %}</a></li>
@@ -61,10 +35,6 @@
                             <li><a href="/about">{% trans "About" %}</a></li>
                         </ul>
                     </nav>
-                    <div class="search" id="search-box">
-                        <input type="text" class="sb-text" placeholder='{% trans "Enter search term..." %}' value="">
-                        <img class="sb-submit" width="16" height="16" src="{{ STATIC_URL }}images/search.png" alt='{% trans "Search" %}'></img>
-                    </div>
                 </div>
             </article>
         </nav><!-- end of slide menu -->
@@ -73,6 +43,11 @@
                 <div class="header-main">
                     <a href="javascript:;" class="menu-button"><span class="icon-list"></span></a>
                     <span class="logo"><a href="/">{{ site_name }}</a></span>
+                    <a href="javascript:;" class="search-button"><span class="icon-search"></span></a>
+                </div>
+                <div id="drop-down-search" style="display: none;">
+                    <input type="text" class="search-text" placeholder='{% trans "Enter search term..." %}' value="">
+                    <a href="javascript:;" class="submit-button"><span class="icon-search"></span></a>
                 </div>
             </header>
             {% block core %}{% endblock %}

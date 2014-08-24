@@ -1,20 +1,9 @@
-{% extends 'm_base.html' %}
+{% extends 'mobile/m_base.html' %}
 {% load i18n duoshuo_tags %}
 
 {% block scripts %}
     <script type="text/javascript">
         SyntaxHighlighter.all();
-        $(document).ready(function() {
-            // add image group
-            $(".detail-article").find("img").each(function() {
-                // if not ueditor emotion img, wrap it with <a> tag.
-                if ($(this).attr("src").indexOf("ueditor/dialogs/emotion") == -1) {
-                    $(this).wrap("<a class='img-group' href='" + $(this).attr("src") + "' title='" + $(this).attr("title") + "'></a>");
-                }
-            });
-            // assign the Colorbox event to elements
-            $(".img-group").colorbox({rel:'img-group', maxWidth: '85%', maxHeight: '85%'});
-        });
         $(window).load(function() {
             // add div to code table
             $("table.syntaxhighlighter").each(function() {
@@ -29,56 +18,36 @@
 
 {% block core %}
 <!-- Ad here -->
-<div class="detail-page">
-    <div class="detail-header">
-        <div class="title">{{ title }}</div>
-        <div class="date">{{ publish_date_str }}</div>
-    </div>
-
-    <div class="detail-content">
-        <div class="detail-info">
-            <span class="category-icon"><a href="/cate/{{ category_slug }}" title="{% blocktrans %}Views all articles of {{ category_name }} {% endblocktrans %}" rel="category tag">{{ category_name }}</a></span>
-            <span class="tag-icon">
+<content id="content">
+    <article id="post-{{ id }}" class="post">
+	    <div class="post-header">
+		    <h2 class="post-title">{{ title }}</h2>
+			<div class="post-data">
+			    <span class="post-meta">{{ publish_date_str }}</span>
+                <span class="post-meta">{% blocktrans %}Viewed by {{ views_count }} people {% endblocktrans %}</span>
+                {% if enable_comment %}
+                    <span class="post-meta">
+                        <a href="#comments" title="{% blocktrans %}Comments of {{ title }}{% endblocktrans %}">
+                            <span class="ds-thread-count" data-thread-key="{{ id }}" data-count-type="comments"></span>
+                        </a>
+                    </span>
+                {% endif %}
+			</div>
+		</div>	
+		<div class="post-content single-post-content">{{ content|safe }}</div>
+		<div class="post-footer single-post-footer">
+            <span class="post-meta">
+                {% trans "Category: " %}<a href="/cate/{{ category_slug }}" rel="category">{{ category_name }}</a>
+            </span>
+			<span class="post-meta">
+			    {% trans "Tag: " %}
                 {% for tag in tags %}
                     <a href="/tag/{{ tag.slug }}" rel="tag">{{ tag.name }}</a>{% if not forloop.last %}&nbsp/{% endif %}
                 {% endfor %}
-            </span>
-            <span class="view-icon">{% blocktrans %}Viewed by {{ views_count }} people {% endblocktrans %}</span>
-            {% if enable_comment %}
-            <span class="comment-icon">
-                <a href="#comments" title="{% blocktrans %}Comments of {{ title }}{% endblocktrans %}">
-                    <span class="ds-thread-count" data-thread-key="{{ id }}" data-count-type="comments"></span>
-                </a>
-            </span>
-            {% endif %}
-        </div>
-        <div class="detail-img"><a class="img-group" href="{{ thumbnail_url }}" title="{{ title }}"><img width="540" height="270" src="{{ thumbnail_url }}"></img></a></div>
-        <div class="detail-article">{{ content|safe }}</div>
-    </div>
-
-    <div class="detail-footer">
-        <span class="previous">{% trans "Previous："%}
-            {% if prev_a %}
-            <a href="/article/{{ prev_a.slug }}/" title="{{ prev_a.title }}">{{ prev_a.title|truncatechars:25 }}</a>
-            {% else %}
-            {% trans "No more previous article" %}
-            {% endif %}
-        </span>
-        <span class="next">{% trans "Next：" %}
-            {% if next_a %}
-            <a href="/article/{{ next_a.slug }}/" title="{{ next_a.title }}">{{ next_a.title|truncatechars:35 }}</a>
-            {% else %}
-            {% trans "No more next article" %}
-            {% endif %}
-        </span>
-    </div>
-</div>
-
-<div class="detail-copycat">
-    <p class="detail-addr">{% trans "Address：" %}<a href="/article/{{ slug }}/">http://xianglong.me/article/{{ slug }}/</a></p>
-    <p>{% trans "Statement："%}本站文章，如非注明，皆为<a href="/">{{ site_name }}</a>原创。转载需注明本文链接并保证链接可用。</p>
-</div>
-
+			</span>
+		</div>			
+    </article>
+</content>
 <div id="comments">
 {% if enable_comment %}
 {% duoshuo_comments %}
@@ -86,5 +55,4 @@
 {% trans "Comment of this article has closed." %}
 {% endif %}
 </div>
-
 {% endblock %}

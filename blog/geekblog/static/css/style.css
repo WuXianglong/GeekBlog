@@ -652,6 +652,12 @@ ul.newest-articles-list li {
 ul.newest-articles-list li:hover {
     background: url("../images/sidebar-item.png") no-repeat scroll -5px -21px transparent;
 }
+/* sidebar view on moblie part */
+.sidebar section .s-qrcode {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* sidebar tag list part */
 .tag-list {
     margin: 0;
