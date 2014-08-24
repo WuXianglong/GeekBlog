@@ -60,6 +60,7 @@ Version 1.3.4 (2014-08-20)
 ----------------------------
   * Fix bug in django pipeline settings.
   * Remove unused files & code in left navigation.
+  * Add mobile pages and "view on mobile" feature.
 
 
 TODOs
