@@ -7,7 +7,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from blogcore.admin.sites import custom_site
 from sitemap import ArticleSitemap
 from blog.views import preview_article
-from views import get_related_lookup_info, generate_verify_code
+from views import get_related_lookup_info, generate_verify_code, custom_page_not_found
 
 admin.autodiscover()
 
@@ -29,3 +29,5 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += staticfiles_urlpatterns()
+
+handler404 = 'custom_page_not_found'

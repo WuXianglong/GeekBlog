@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
+
 from django.contrib.auth.models import User, Group
+from django.views.decorators.csrf import requires_csrf_token
+from django.template import TemplateDoesNotExist, RequestContext
 
 from blog.models import *
 from utils import json_response
@@ -27,3 +30,20 @@ def get_related_lookup_info(request):
 
 def generate_verify_code(request):
     return VerifyCode(request).display()
+
+
+@requires_csrf_token
+def custom_page_not_found(request, template_name='404.html'):
+    if request.META.get('IS_MOBILE', False):
+        template_name = 'mobile/404.html'
+
+    try:
+        template = loader.get_template(template_name)
+        content_type = None             # Django will use DEFAULT_CONTENT_TYPE
+    except TemplateDoesNotExist:
+        template = Template(
+            '<h1>Not Found</h1>'
+            '<p>The requested URL {{ request_path }} was not found on this server.</p>')
+        content_type = 'text/html'
+    body = template.render(RequestContext(request, {'request_path': request.path}))
+    return http.HttpResponseNotFound(body, content_type=content_type)
