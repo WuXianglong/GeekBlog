@@ -307,7 +307,7 @@ PIPELINE_JS = {
     'detail': {
         'source_filenames': (
             'js/jquery.colorbox.js',
-            'ueditor/third-party/SyntaxHighlighter/shCore.js',
+            # 'ueditor/third-party/SyntaxHighlighter/shCore.js',
         ),
         'output_filename': 'js/detail.min.js',
     },
@@ -327,7 +327,7 @@ PIPELINE_JS = {
     'mobile': {
         'source_filenames': (
             'js/jquery-1.11.1.min.js',
-            'ueditor/third-party/SyntaxHighlighter/shCore.js',
+            # 'ueditor/third-party/SyntaxHighlighter/shCore.js',
             'js/mobile.js',
         ),
         'output_filename': 'js/mobile.min.js',

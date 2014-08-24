@@ -3,6 +3,7 @@
 
 {% block scripts %}
     {% compressed_js "detail" %}
+    <script type="text/javascript" src="{{ STATIC_URL }}ueditor/third-party/SyntaxHighlighter/shCore.min.js"></script>
     <script type="text/javascript">
         SyntaxHighlighter.all();
         $(document).ready(function() {
