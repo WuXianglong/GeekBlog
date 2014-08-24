@@ -655,8 +655,7 @@ ul.newest-articles-list li:hover {
 /* sidebar view on moblie part */
 .sidebar section .s-qrcode {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 23px;
 }
 /* sidebar tag list part */
 .tag-list {
