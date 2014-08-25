@@ -239,10 +239,13 @@ PIPELINE_ENABLED = not DEBUG
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
-PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+# PIPELINE_YUGLIFY_BINARY = '/usr/local/bin/yuglify'
+# PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+# PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 
-PIPELINE_YUI_BINARY = '/usr/local/bin/yuglify'
+PIPELINE_YUI_BINARY = '/usr/bin/yui-compressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
 
 PIPELINE_CSS = {
     'base': {
@@ -307,7 +310,7 @@ PIPELINE_JS = {
     'detail': {
         'source_filenames': (
             'js/jquery.colorbox.js',
-            # 'ueditor/third-party/SyntaxHighlighter/shCore.js',
+            'ueditor/third-party/SyntaxHighlighter/shCore.min.js',
         ),
         'output_filename': 'js/detail.min.js',
     },
@@ -327,7 +330,7 @@ PIPELINE_JS = {
     'mobile': {
         'source_filenames': (
             'js/jquery-1.11.1.min.js',
-            # 'ueditor/third-party/SyntaxHighlighter/shCore.js',
+            'ueditor/third-party/SyntaxHighlighter/shCore.min.js',
             'js/mobile.js',
         ),
         'output_filename': 'js/mobile.min.js',

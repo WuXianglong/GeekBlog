@@ -30,4 +30,4 @@ urlpatterns = patterns('',
 
 urlpatterns += staticfiles_urlpatterns()
 
-handler404 = 'custom_page_not_found'
+handler404 = 'geekblog.geekblog.views.custom_page_not_found'

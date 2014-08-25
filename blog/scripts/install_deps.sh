@@ -3,7 +3,7 @@
 # This scripts is used to install dependencies for the application.
 #
 # python-software-properties depend by add-apt-repository to add nginx ppa
-SYS_DEPS=(mysql-server mysql-client python-pip python-software-properties python2.7-dev libxml2-dev python-mysqldb libjpeg8-dev libmemcached-dev memcached python-memcache)
+SYS_DEPS=(mysql-server mysql-client python-pip python-software-properties python2.7-dev libxml2-dev python-mysqldb libjpeg8-dev libmemcached-dev memcached python-memcache yui-compressor)
 
 PYTHON_DEPS=("django==1.6.5" "pymongo==2.4.1" PIL PyJWT django-pipeline)
 
