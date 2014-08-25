@@ -43,6 +43,12 @@ GeekBlog是一个基于Django框架实现的博客系统，包含了完善的后
     4). django-admin.py compilemessages --locale=zh_CN
     5). https://github.com/django-mptt/django-mptt/commit/4b6a9758396450651bc2d02b2c7d49bac6cd3f25
 
+###更改配置文件
+
+    1). cd Geekblog/blog/geekblog
+    2). mv geekblog-example.cfg geekblog.cfg
+    3). 修改geekblog.cfg文件中的配置，将部分配置替换成自己的信息
+
 ###运行website
 
     1). cd GeekBlog/blog/geekblog
