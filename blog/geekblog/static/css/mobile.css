@@ -163,7 +163,9 @@ img.alignleft {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-search {
+   margin-top: 3px;
+}
 .icon-search:before {
     content: "\e600";
 }
@@ -191,7 +193,7 @@ img.alignleft {
     left: 0;
     bottom: 0;
     display: block;
-    width: 80%;
+    width: 50%;
     height: 100%;
     background: #40444b;
     z-index: 0;
@@ -312,10 +314,10 @@ body.menu-active #slide-menu, body.menu-active #page {
 
 body.menu-active #page {
     overflow: hidden;
-    -webkit-transform: translateX(80%);
-    -moz-transform: translateX(80%);
-    -ms-transform: translateX(80%);
-    transform: translateX(80%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
     -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.65);
     -moz-box-shadow: 0 0 20px rgba(0,0,0,0.65);
     box-shadow: 0 0 20px rgba(0,0,0,0.65);
@@ -387,11 +389,13 @@ body.menu-active #page {
     z-index: 10;
 }
 #drop-down-search .search-text {
-    width: 80%;
+    width: 78%;
     height: 25px;
     line-height: 25px;
-    font: inherit;
+    font-size: 12px;
     vertical-align: baseline;
+    border-radius: 8px;
+    padding: 3px;
 }
 .logo {
     display: block;
