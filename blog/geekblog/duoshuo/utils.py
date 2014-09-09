@@ -1,16 +1,13 @@
 # -*- coding:utf-8 -*-
 #!/usr/bin/env python
-#
-# Copyright 2012 Duoshuo
-
-import base64
-import hashlib
+import jwt
 import hmac
 import time
+import json
+import base64
 import urllib
 import urllib2
-import json
-import jwt
+import hashlib
 
 from django.conf import settings
 
@@ -54,28 +51,6 @@ def set_duoshuo_token(request, response):
         signed_token = jwt.encode(token, settings.DUOSHUO_SECRET)
         response.set_cookie('duoshuo_token', signed_token)
     return response
-
-
-#def sync_article(article):
-#    userprofile = request.user.get_profile()
-#    if userprofile.duoshuo_id:
-#        author_id = userprofile.duoshuo_id
-#    else:
-#        author_id = 0
-#
-#    api_url = 'http://api.duoshuo.com/threads/sync.json'
-#    #TODO: get article url from urls.py
-#    url_hash = hashlib.md5(article.url).hexdigest()
-#    data = urllib.urlencode({
-#        'short_name': settings.DUOSHUO_SHORT_NAME,
-#        'thread_key': article.id,
-#        'url': article.url,
-#        'url_hash': url_hash,
-#        'author_key': author_id
-#    })
-#
-#    response = json.loads(urllib2.urlopen(api_url, data).read())['response']
-#    return response
 
 
 def get_url(api, redirect_uri=None):

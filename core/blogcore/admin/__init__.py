@@ -291,12 +291,12 @@ class BaseModelAdmin(admin.ModelAdmin):
             verbose_name = opts_.verbose_name
         return_url = request.GET.get('rtn_url', None)
 
-        if "_saveandsync" in request.POST:
+        if '_saveandsync' in request.POST:
             sync_obj(obj, self.model)
             self.message_user(request, _("The %(name)s \"%(obj)s\" was changed successfully, and successfully synced to production.") \
                     % {'name': force_unicode(verbose_name), 'obj': force_unicode(obj)})
             return HttpResponseRedirect("../")
-        elif "_continue" not in request.POST and "_saveasnew" not in request.POST \
+        elif '_continue' not in request.POST and '_saveasnew' not in request.POST \
                 and "_addanother" not in request.POST and self.has_change_permission(request, None) and return_url:
             msg = _('The %(name)s "%(obj)s" was changed successfully.') % {'name': force_unicode(verbose_name), 'obj': force_unicode(obj)}
             self.message_user(request, msg)

@@ -9,7 +9,6 @@ from ConfigParser import SafeConfigParser, NoOptionError, NoSectionError
 logger = logging.getLogger('geekblog')
 
 EPOCH = datetime.datetime(1970, 1, 1)
-
 ONE_DAY = datetime.timedelta(days=1)
 
 

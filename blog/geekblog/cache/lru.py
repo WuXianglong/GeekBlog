@@ -10,7 +10,7 @@ def lru_cache_function(max_size=1024, expiration=15*60):
     """
     >>> @lru_cache_function(3, 1)
     ... def f(x):
-    ...    print "Calling f(" + str(x) + ")"
+    ...    print 'Calling f(' + str(x) + ')'
     ...    return x
     >>> f(3)
     Calling f(3)
@@ -143,7 +143,7 @@ class LRUCachedFunction(object):
     A memoized function, backed by an LRU cache.
 
     >>> def f(x):
-    ...    print "Calling f(" + str(x) + ")"
+    ...    print 'Calling f(' + str(x) + ')'
     ...    return x
     >>> f = LRUCachedFunction(f, LRUCacheDict(max_size=3, expiration=3) )
     >>> f(3)
@@ -189,6 +189,6 @@ class LRUCachedFunction(object):
             self.cache[key] = value
             return value
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import doctest
     doctest.testmod()

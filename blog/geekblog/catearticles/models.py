@@ -32,7 +32,7 @@ def catearticle_factory(class_s, category_name, model=Article):
     def _get_meta(category_name):
         class Meta:
             proxy = True
-            app_label = string_with_title("catearticles", _("Category Articles"))
+            app_label = string_with_title('catearticles', _('Category Articles'))
             verbose_name = category_name
             verbose_name_plural = category_name
         return Meta

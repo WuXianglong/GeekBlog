@@ -6,7 +6,7 @@ from blogcore.models.constants import SYNC_STATUS
 
 
 class ArticleSitemap(Sitemap):
-    changefreq = "monthly"
+    changefreq = 'monthly'
     priority = 0.5
 
     def items(self):
@@ -16,4 +16,4 @@ class ArticleSitemap(Sitemap):
         return obj.modified_time
 
     def location(self, obj):
-        return "/article/%s/" % obj.slug
+        return '/article/%s/' % obj.slug

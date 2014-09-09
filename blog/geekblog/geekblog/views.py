@@ -5,9 +5,9 @@ from django.contrib.auth.models import User, Group
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
-from blog.models import *
 from utils import json_response
 from blogcore.utils.verify_code import VerifyCode
+from blog.models import Category, Tag, Link, Slider, Article, Comment, Photo
 
 logger = logging.getLogger('geekblog')
 

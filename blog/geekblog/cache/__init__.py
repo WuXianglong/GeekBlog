@@ -29,6 +29,6 @@ def url_cache_key(url, language=None, key_prefix=None):
     return cache_key
 
 
-if __name__ == "__main__":
-    expire_page("/friend")
-    expire_page("/about")
+if __name__ == '__main__':
+    expire_page('/friend')
+    expire_page('/about')

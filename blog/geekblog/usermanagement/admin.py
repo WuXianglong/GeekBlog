@@ -1,4 +1,4 @@
-#-*- coding: UTF-8 -*-
+# -*- coding: UTF-8 -*-
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin, GroupAdmin
@@ -32,8 +32,8 @@ class CustomAuthAdmin(admin.ModelAdmin):
             self.has_change = True
         if not extra_context:
             extra_context = {}
-        extra_context.update({'has_change_permission': request.user.has_perm(self.opts.app_label + \
-                '.' + self.opts.get_change_permission())})
+        extra_context.update({'has_change_permission': request.user.has_perm(self.opts.app_label +
+                              '.' + self.opts.get_change_permission())})
         result = super(CustomAuthAdmin, self).changelist_view(request, extra_context=extra_context)
         self.has_change = False
         return result
@@ -59,8 +59,7 @@ class CustomAuthAdmin(admin.ModelAdmin):
         old_has_change = self.has_change
         self.has_change = False
         context.update({'has_sync_to_permission': False})
-        result = super(CustomAuthAdmin, self).render_change_form(request, context, add=add, \
-                change=change, form_url=form_url, obj=obj)
+        result = super(CustomAuthAdmin, self).render_change_form(request, context, add=add, change=change, form_url=form_url, obj=obj)
         if old_has_change:
             self.has_change = True
         return result

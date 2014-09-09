@@ -66,7 +66,7 @@ def _load_config(section, config_files):
         },
     }
 
-_load_config('blog', [os.path.join(SITE_ROOT, "geekblog.cfg")])
+_load_config('blog', [os.path.join(SITE_ROOT, 'geekblog.cfg')])
 
 WEBSITE_NAME = u'降龙'
 WEBSITE_DESC = u'记录生活与工作的点滴，分享旅行与技术的乐趣'
@@ -132,7 +132,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(SITE_ROOT, "static"),
+    os.path.join(SITE_ROOT, 'static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -181,12 +181,12 @@ ROOT_URLCONF = 'geekblog.geekblog.urls'
 WSGI_APPLICATION = 'geekblog.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(SITE_ROOT, "templates"),
+    os.path.join(SITE_ROOT, 'templates'),
 )
 
 LOCALE_PATHS = (
-    os.path.join(SITE_ROOT, "locale"),
-    os.path.join(SITE_ROOT, "jsi18n", "locale"),
+    os.path.join(SITE_ROOT, 'locale'),
+    os.path.join(SITE_ROOT, 'jsi18n', 'locale'),
 )
 LOCALE_PATHS += CORE_LOCALE_PATH
 
@@ -221,7 +221,6 @@ TEMPLATE_NAMES = {
     'about': {'p': 'about.html', 'm': 'about.html'},
     'link': {'p': 'link.html', 'm': 'link.html'},
 }
-
 
 # Cache
 CACHES = {

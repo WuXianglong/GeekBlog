@@ -27,7 +27,8 @@ class DuoshuoCommentsNode(Node):
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
         </script>
-        <!-- Duoshuo Comment END -->''' % (context.get('id', ''), context.get('page_title', ''), context['request'].build_absolute_uri(), self.short_name)
+        <!-- Duoshuo Comment END -->''' % (context.get('id', ''), context.get('page_title', ''),
+                context['request'].build_absolute_uri(), self.short_name)
         return code
 
 
@@ -38,19 +39,5 @@ def duoshuo_comments(parser, token):
     elif len(short_name) == 2:
         return DuoshuoCommentsNode(short_name[1])
     else:
-        raise template.TemplateSyntaxError, "duoshuo_comments tag takes SHORT_NAME as exactly one argument"
+        raise template.TemplateSyntaxError, 'duoshuo_comments tag takes SHORT_NAME as exactly one argument'
 duoshuo_comments = register.tag(duoshuo_comments)
-
-
-# 生成remote_auth，使用JWT后弃用
-# @register.filter
-# def remote_auth(value):
-#     user = value
-#     duoshuo_query = ds_remote_auth(user.id, user.username, user.email)
-#     code = '''
-#     <script>
-#     duoshuoQuery['remote_auth'] = '%s';
-#     </script>
-#     ''' % duoshuo_query
-#     return code
-# remote_auth.is_safe = True

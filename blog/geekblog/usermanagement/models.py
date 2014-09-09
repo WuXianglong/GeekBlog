@@ -15,9 +15,9 @@ class CustomGroup(Group):
 
     class Meta:
         proxy = True
-        app_label = string_with_title("usermanagement", _("User Management"))
-        verbose_name = _("Group")
-        verbose_name_plural = _("Groups")
+        app_label = string_with_title('usermanagement', _('User Management'))
+        verbose_name = _('Group')
+        verbose_name_plural = _('Groups')
 
 
 class CustomUserManager(BaseUserManager):
@@ -101,6 +101,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         super(CustomUser, self).save(*args, **kwargs)
 
     class Meta:
-        app_label = string_with_title("usermanagement", _("User Management"))
-        verbose_name = _("User")
-        verbose_name_plural = _("Users")
+        app_label = string_with_title('usermanagement', _('User Management'))
+        verbose_name = _('User')
+        verbose_name_plural = _('Users')

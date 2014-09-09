@@ -10,7 +10,7 @@ from blog.models import Category, Tag, Link, Slider, Photo, Article, Comment
 class CategoryAdmin(BaseModelAdmin):
     readonly_fields = ('views_count',)
     list_editable = ('published', 'order')
-    list_display = ('order', 'name', 'slug', 'description', 'parent', \
+    list_display = ('order', 'name', 'slug', 'description', 'parent',
             'modified_time', 'published', 'sync_status')
     list_display_links = ('name',)
     list_per_page = settings.ADMIN_LIST_PER_PAGE
@@ -48,7 +48,7 @@ class TagAdmin(BaseModelAdmin):
 
 class LinkAdmin(BaseModelAdmin):
     list_editable = ('published', 'order')
-    list_display = ('order', 'title', 'address', 'icon_url', 'modified_time', \
+    list_display = ('order', 'title', 'address', 'icon_url', 'modified_time',
             'published', 'sync_status')
     list_display_links = ('title',)
     list_per_page = settings.ADMIN_LIST_PER_PAGE
@@ -107,7 +107,7 @@ class PhotoAdmin(BaseModelAdmin):
 class ArticleAdmin(BaseModelAdmin):
     readonly_fields = ('views_count', 'comment_count')
     list_editable = ('order', 'status', 'enable_comment', 'login_required', 'published')
-    list_display = ('order', 'title', 'slug', 'category', 'status', 'enable_comment', \
+    list_display = ('order', 'title', 'slug', 'category', 'status', 'enable_comment',
             'display_tags', 'publish_date', 'modified_time', 'login_required', 'published', 'sync_status')
     list_display_links = ('title',)
     list_per_page = settings.ADMIN_LIST_PER_PAGE
@@ -128,8 +128,8 @@ class ArticleAdmin(BaseModelAdmin):
         if obj.status == ARTICLE_STATUS.PUBLISHED:
             return True, ''
         else:
-            return False, _("You can't publish not approved %(model)s: %(obj)s") \
-                    % {'model': self.model._meta.verbose_name, 'obj': obj}
+            return False, (_("You can't publish not approved %(model)s: %(obj)s")
+                    % {'model': self.model._meta.verbose_name, 'obj': obj})
 
     def _get_need_adjust_items(self, request, old_obj, new_obj):
         order_is_existed = self.queryset(request).filter(category__exact=new_obj.category, order__exact=new_obj.order)
@@ -142,11 +142,11 @@ class ArticleAdmin(BaseModelAdmin):
         else:
             old_order, new_order = self._get_next_order(request), new_obj.order
         if new_order > old_order:    # order reduce
-            need_adjust_items = self.queryset(request).filter(category__exact=new_obj.category, \
+            need_adjust_items = self.queryset(request).filter(category__exact=new_obj.category,
                     order__gt=old_order, order__lte=new_order)
             adjust_amount = -1
         else:    # order rise
-            need_adjust_items = self.queryset(request).filter(category__exact=new_obj.category, \
+            need_adjust_items = self.queryset(request).filter(category__exact=new_obj.category,
                     order__gte=new_order, order__lt=old_order)
             adjust_amount = 1
         return need_adjust_items, adjust_amount
@@ -154,7 +154,7 @@ class ArticleAdmin(BaseModelAdmin):
 
 class CommentAdmin(BaseModelAdmin):
     list_editable = ('status', 'published')
-    list_display = ('author', 'user', 'article', 'author_email', 'comment_date', 'status', \
+    list_display = ('author', 'user', 'article', 'author_email', 'comment_date', 'status',
             'content', 'published', 'sync_status')
     list_per_page = settings.ADMIN_LIST_PER_PAGE
     list_filter = ['status', 'published']
@@ -163,7 +163,7 @@ class CommentAdmin(BaseModelAdmin):
     raw_id_fields = ('user', 'article')
     fieldsets = (
         (_('Basic'), {
-            'fields': ('user', 'article', 'author', 'author_email', 'author_website', 'author_ip', \
+            'fields': ('user', 'article', 'author', 'author_email', 'author_website', 'author_ip',
                         'author_agent', 'parent', 'comment_date', 'content'),
         }),
         (_('Status'), {
@@ -198,8 +198,8 @@ class CommentAdmin(BaseModelAdmin):
         if obj.status == COMMENT_STATUS.APPROVED:
             return True, ''
         else:
-            return False, _("You can't publish not approved %(model)s: %(obj)s") \
-                    % {'model': self.model._meta.verbose_name, 'obj': obj}
+            return False, (_("You can't publish not approved %(model)s: %(obj)s")
+                    % {'model': self.model._meta.verbose_name, 'obj': obj})
 
 custom_site.register(Category, CategoryAdmin)
 custom_site.register(Tag, TagAdmin)
