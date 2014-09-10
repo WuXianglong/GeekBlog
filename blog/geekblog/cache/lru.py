@@ -93,7 +93,7 @@ class LRUCacheDict(object):
         ...
         KeyError: 'foo'
         """
-        return self.__values.has_key(key)
+        return key in self.__values
 
     def __setitem__(self, key, value):
         t = int(time())
@@ -115,7 +115,7 @@ class LRUCacheDict(object):
         return value
 
     def __delete__(self, key):
-        if self.__values.has_key(key):
+        if key in self.__values:
             del self.__values[key]
             del self.__expire_times[key]
             del self.__access_times[key]

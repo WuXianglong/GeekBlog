@@ -1,27 +1,31 @@
 #! -*- coding:utf-8 -*-
 import uuid
 
+SIZE_UNIT = {"BYTE": 1, "KB": 1024, "MB": 1048576, "GB": 1073741824, "TB": 1099511627776L}
+
 
 def friendly_size(size):
-    if size < 1024:
-        size = '%sB' % size
-    elif size >= 1024 and size < 1024 * 1024:   # 1KB ~ 1M
-        size = '%sK' % size * 1.0 / 1024
-    elif size >= 1024 * 1024:
-        size = '%sM' % size * 1.0 / (1024 * 1024)
-    parts = size.split('.')
-    if len(parts) > 1:
-        if parts[1][0] == '0':
-            size = parts[0] + parts[1][-1]
-        else:
-            size = '%s.%s%s' % (parts[0], parts[1][0], parts[1][-1])
-    return size
+    if size < SIZE_UNIT["KB"]:
+        unit = "BYTE"
+    elif size < SIZE_UNIT["MB"]:
+        unit = "KB"
+    elif size < SIZE_UNIT["GB"]:
+        unit = "MB"
+    elif size < SIZE_UNIT["TB"]:
+        unit = "GB"
+    else:
+        unit = "TB"
+
+    if size % SIZE_UNIT[unit] == 0:
+        return "%s%s" % (size / SIZE_UNIT[unit], unit)
+    else:
+        return "%0.2f%s" % (round(float(size) / float(SIZE_UNIT[unit]), 2), unit)
 
 
 def safe_cast(val, to_type, default=None):
     try:
         return to_type(val)
-    except Exception:
+    except (ValueError, TypeError):
         return default
 
 
@@ -30,7 +34,7 @@ def generate_unique_token():
     return token.replace('-', '')
 
 
-class string_with_title(str):
+class StringWithTitle(str):
 
     def __new__(cls, value, title):
         instance = str.__new__(cls, value)

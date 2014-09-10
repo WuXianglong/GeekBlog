@@ -16,8 +16,7 @@ def _get_all_permissions(opts, actions):
     """ Returns (codename, name) for all permissions in the given opts. """
     perms = []
     for action in actions:
-        perms.append((_get_permission_codename(action, opts), u'Can %s %s' \
-                % (action, opts.verbose_name_raw)))
+        perms.append((_get_permission_codename(action, opts), u'Can %s %s' % (action, opts.verbose_name_raw)))
     return perms
 
 
@@ -45,10 +44,10 @@ def create_permissions_respecting_proxy(app, created_models, verbosity, **kwargs
     ctypes = set()
     for klass in app_models:
         ctype, created = ContentType.objects.get_or_create(
-                app_label=klass._meta.app_label,
-                model=klass._meta.model_name,
-                defaults = {'name': smart_unicode(klass._meta.verbose_name_raw)}
-            )
+            app_label=klass._meta.app_label,
+            model=klass._meta.model_name,
+            defaults={'name': smart_unicode(klass._meta.verbose_name_raw)}
+        )
         ctypes.add(ctype)
         for perm in _get_default_permissions(klass._meta):
             searched_perms.append((ctype, perm))
@@ -86,10 +85,10 @@ def create_permission(model_class):
 
     searched_perms = list()
     ctype, created = ContentType.objects.get_or_create(
-            app_label=model_class._meta.app_label,
-            model=model_class._meta.model_name,
-            defaults = {'name': smart_unicode(model_class._meta.verbose_name_raw)}
-        )
+        app_label=model_class._meta.app_label,
+        model=model_class._meta.model_name,
+        defaults={'name': smart_unicode(model_class._meta.verbose_name_raw)}
+    )
     for perm in _get_default_permissions(model_class._meta):
         searched_perms.append(perm)
     if issubclass(model_class, BaseModel):

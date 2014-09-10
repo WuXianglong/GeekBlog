@@ -14,9 +14,12 @@ class UEditorField(models.TextField):
         image_path: 图片上传的路径, 如"images/", 实现上传到"{{ MEDIA_ROOT }}/images"文件夹
         file_path: 附件上传的路径, 如"files/", 实现上传到"{{ MEDIA_ROOT }}/files"文件夹
     """
-    def __init__(self, verbose_name=None, width=600, height=400, toolbars="normal", \
-            image_path="", file_path="", upload_settings={}, settings={}, command=None, \
-            event_handler=None, **kwargs):
+    def __init__(self, verbose_name=None, width=600, height=400, toolbars="normal",
+            image_path="", file_path="", upload_settings=None, settings=None, command=None, event_handler=None, **kwargs):
+        if upload_settings is None:
+            upload_settings = {}
+        if settings is None:
+            settings = {}
         self.ueditor_settings = locals().copy()
         kwargs["verbose_name"] = verbose_name
         del self.ueditor_settings["self"], self.ueditor_settings["kwargs"], self.ueditor_settings["verbose_name"]

@@ -28,8 +28,7 @@ class BaseModel(models.Model):
     hided = models.BooleanField(default=False, verbose_name=_("hided"))
     # used to decide to delete or update data in mongo when run syncto actioin.
     published = models.BooleanField(default=False, verbose_name=_("published"))
-    sync_status = models.IntegerField(default=0, choices=SYNC_STATUS.to_choices(), \
-            verbose_name=_("sync status"))
+    sync_status = models.IntegerField(default=0, choices=SYNC_STATUS.to_choices(), verbose_name=_("sync status"))
     order = models.IntegerField(null=True, blank=True, verbose_name=_('No.'))
 
     objects = BaseManager()

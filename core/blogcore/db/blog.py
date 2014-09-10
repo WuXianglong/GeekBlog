@@ -155,7 +155,7 @@ class BlogMongodbStorage(MongodbStorage):
     @cursor_to_list
     @set_default_order
     def query_categories(self, parents=[0], start_index=0, count=20, order=None, with_total=False):
-        cond = {'parent_id': {'$in' : parents}}
+        cond = {'parent_id': {'$in': parents}}
         results = self._db.categories.find(cond, skip=start_index, limit=count, sort=order, fields=CATE_DETAIL_INFO_FIELDS)
         if with_total:
             total = self._db.categories.find(cond).count()

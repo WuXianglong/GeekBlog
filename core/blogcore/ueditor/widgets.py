@@ -81,8 +81,8 @@ class UEditorWidget(forms.Textarea):
         """ 计算上传路径,允许是function """
         try:
             tmp_settings = self.upload_settings
-            for key in ("filePathFormat", "imagePathFormat", "scrawlPathFormat", "videoPathFormat", \
-                    "snapscreenPathFormat", "catcherPathFormat", "imageManagerListPath", "fileManagerListPath"):
+            for key in ("filePathFormat", "imagePathFormat", "scrawlPathFormat", "videoPathFormat",
+                        "snapscreenPathFormat", "catcherPathFormat", "imageManagerListPath", "fileManagerListPath"):
                 if key in self._upload_settings:
                     tmp_settings[key] = calc_path(self._upload_settings[key], model_inst)
             # 设置默认值，未指定涂鸦、截图、远程抓图、图片目录时,默认均等于imagePath

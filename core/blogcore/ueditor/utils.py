@@ -28,8 +28,8 @@ def generate_random_filename(filename):
     from os.path import splitext
     f_name, f_ext = splitext(filename)
 
-    return "%s_%s%s%s" % (f_name, datetime.datetime.now().strftime("%Y%m%d_%H%M%S_"), \
-            random.randrange(10, 99), f_ext)
+    return "%s_%s%s%s" % (f_name, datetime.datetime.now().strftime("%Y%m%d_%H%M%S_"),
+                          random.randrange(10, 99), f_ext)
 
 
 class FileSize():

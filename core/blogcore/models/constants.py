@@ -3,8 +3,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from blogcore.utils.enum import Enum
 
-ALL_MONTHS = [_('JAN'), _('FEB'), _('MAR'), _('APR'), _('MAY'), _('JUN'), \
-        _('JUL'), _('AUG'), _('SEP'), _('OCT'), _('NOV'), _('DEC')]
+ALL_MONTHS = [_('JAN'), _('FEB'), _('MAR'), _('APR'), _('MAY'), _('JUN'),
+              _('JUL'), _('AUG'), _('SEP'), _('OCT'), _('NOV'), _('DEC')]
 
 SYNC_STATUS = Enum({
     'NEED_SYNC': (0, _('Need Sync')),

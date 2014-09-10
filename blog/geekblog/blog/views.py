@@ -4,7 +4,7 @@ from django.conf import settings
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.views.decorators.cache import cache_page
-from django.utils.translation import ugettext, ugettext_lazy as _,
+from django.utils.translation import ugettext, ugettext_lazy as _
 
 from blogcore.utils import safe_cast
 from blogcore.db import datetime2timestamp, timestamp2datetime
@@ -141,8 +141,7 @@ def preview_article(request, slug):
         'login_required': article.login_required,
         'views_count': article.views_count,
         'publish_date': publish_date,
-        'thumbnail_url': (article.thumbnail.path.url if article.thumbnail.path else article.thumbnail.url)
-                if article.thumbnail else 'http://xianglong.qiniudn.com/default_article_image.gif',
+        'thumbnail_url': (article.thumbnail.path.url if article.thumbnail.path else article.thumbnail.url) if article.thumbnail else 'http://xianglong.qiniudn.com/default_article_image.gif',
         'tags': article.get_tags(),
     }
     context_infos.update(_process_single_article(article_infos))
@@ -157,7 +156,7 @@ def show_category(request, cate_slug, page_num):
 
     start_index = _get_start_index(page_num)
     article_infos = blog_db.get_cate_articles(cate_infos['id'], start_index=start_index, count=settings.LIST_PER_PAGE,
-            has_login=(not request.user.is_anonymous()), with_total=True)
+                                              has_login=(not request.user.is_anonymous()), with_total=True)
 
     context_infos = {
         'page_title': cate_infos['name'],
@@ -175,7 +174,7 @@ def show_tag(request, tag_slug, page_num):
 
     start_index = _get_start_index(page_num)
     article_infos = blog_db.get_tag_articles(tag_infos['id'], start_index=start_index, count=settings.LIST_PER_PAGE,
-            has_login=(not request.user.is_anonymous()), with_total=True)
+                                             has_login=(not request.user.is_anonymous()), with_total=True)
 
     context_infos = {
         'page_title': tag_infos['name'],
@@ -191,7 +190,7 @@ def show_search(request, keyword, page_num):
     start_index = _get_start_index(page_num)
 
     article_infos = blog_db.search_articles(keyword, start_index=start_index, count=settings.LIST_PER_PAGE,
-            has_login=(not request.user.is_anonymous()), with_total=True)
+                                            has_login=(not request.user.is_anonymous()), with_total=True)
 
     context_infos = {
         'page_title': keyword,
@@ -204,18 +203,13 @@ def show_search(request, keyword, page_num):
 @cache_page(60 * 60 * 4)
 def show_archive_page(request):
     articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'title': 1, 'publish_date': 1},
-            has_login=(not request.user.is_anonymous()), with_total=True)
-    archives = {}
+                                    has_login=(not request.user.is_anonymous()), with_total=True)
+    from collections import defaultdict
+    archives = defaultdict(dict)
     # format the data of archives for template
     for article in _process_articles(articles['results']):
         year, month = article['year'], article['month']
-        if year in archives:
-            if month in archives[year]:
-                archives[year][month].append(article)
-            else:
-                archives[year][month] = [article]
-        else:
-            archives[year] = {month: [article]}
+        archives[year].setdefault(month, []).append(article)
 
     # sort archives
     import operator

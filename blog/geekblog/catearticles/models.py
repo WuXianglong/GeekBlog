@@ -3,7 +3,7 @@ from django.db.models.base import ModelBase
 
 from blogcore.admin.management import create_permission
 from blogcore.models.base import BaseManager
-from blogcore.utils import string_with_title
+from blogcore.utils import StringWithTitle
 from blog.models import Article, Category
 
 CATEGORIES = {}
@@ -32,7 +32,7 @@ def catearticle_factory(class_s, category_name, model=Article):
     def _get_meta(category_name):
         class Meta:
             proxy = True
-            app_label = string_with_title('catearticles', _('Category Articles'))
+            app_label = StringWithTitle('catearticles', _('Category Articles'))
             verbose_name = category_name
             verbose_name_plural = category_name
         return Meta

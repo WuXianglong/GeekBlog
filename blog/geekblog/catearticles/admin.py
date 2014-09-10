@@ -36,5 +36,4 @@ def catearticleadmin_factory(class_s, category_name, model=CategoryArticleAdmin)
 
 categories = query_categories()
 for cate in categories:
-    custom_site.register(catearticle_factory(cate.id, cate.name),
-            catearticleadmin_factory(cate.id, cate.name))
+    custom_site.register(catearticle_factory(cate.id, cate.name), catearticleadmin_factory(cate.id, cate.name))

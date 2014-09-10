@@ -7,8 +7,11 @@ from blogcore.ueditor.models import UEditorField as ModelUEditorField
 
 class UEditorField(forms.CharField):
 
-    def __init__(self, label, width=600, height=400, toolbars="full", image_path="", file_path="", \
-            upload_settings={}, settings={}, command=None, event_handler=None, *args, **kwargs):
+    def __init__(self, label, width=600, height=400, toolbars="full", image_path="", file_path="",
+            upload_settings=None, settings=None, command=None, event_handler=None, *args, **kwargs):
+        for param in (upload_settings, settings):
+            if param is None:
+                param = {}
         ueditor_settings = locals().copy()
         del ueditor_settings["self"], ueditor_settings["label"], ueditor_settings["args"], ueditor_settings["kwargs"]
         kwargs["widget"] = UEditorWidget(attrs=ueditor_settings)

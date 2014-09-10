@@ -137,11 +137,11 @@ class MongodbStorage(object):
     def __init__(self, conn_str, db_name):
         try:
             if conn_str.find("replicaSet") == -1:
-                _conn = Connection(conn_str, max_pool_size=30, safe=True, \
-                        read_preference=ReadPreference.SECONDARY_ONLY)
+                _conn = Connection(conn_str, max_pool_size=30, safe=True,
+                                   read_preference=ReadPreference.SECONDARY_ONLY)
             else:
-                _conn = ReplicaSetConnection(conn_str, max_pool_size=30, safe=True, \
-                        read_preference=ReadPreference.SECONDARY_ONLY)
+                _conn = ReplicaSetConnection(conn_str, max_pool_size=30, safe=True,
+                                             read_preference=ReadPreference.SECONDARY_ONLY)
             self._db = _conn[db_name]
         except Exception, e:
             logger.exception('Can not connect to mongodb: %s' % e)

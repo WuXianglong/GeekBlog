@@ -4,7 +4,7 @@ from django.conf import settings
 from django.utils.encoding import smart_str
 from django.utils.translation import ugettext_lazy as _
 
-from blogcore.utils import string_with_title
+from blogcore.utils import StringWithTitle
 from blogcore.ueditor.models import UEditorField
 from blogcore.models.base import BaseModel, BaseManager
 from blogcore.admin.storages import LocalFileSystemStorage
@@ -30,11 +30,11 @@ class Category(BaseModel):
     slug = models.CharField(max_length=100, unique=True, verbose_name=_('slug'))
     description = models.TextField(max_length=4096, verbose_name=_('description'))
     icon_url = models.CharField(max_length=255, default='', null=True, blank=True, verbose_name=_('icon URL'))
-    icon_path = models.ImageField(storage=LocalFileSystemStorage(), upload_to='upload/images/', verbose_name=_('icon path'), \
-            null=True, blank=True, help_text=_('Please upload JPEG, PNG, GIF files, size: 64x64'))
+    icon_path = models.ImageField(storage=LocalFileSystemStorage(), upload_to='upload/images/', verbose_name=_('icon path'),
+                                  null=True, blank=True, help_text=_('Please upload JPEG, PNG, GIF files, size: 64x64'))
     # parent_category is null means top category
-    parent = models.ForeignKey('self', related_name='children', limit_choices_to={'parent__isnull': True}, \
-            null=True, blank=True, default=None, verbose_name=_('parent category'))
+    parent = models.ForeignKey('self', related_name='children', limit_choices_to={'parent__isnull': True},
+                               null=True, blank=True, default=None, verbose_name=_('parent category'))
     views_count = models.IntegerField(default=0, verbose_name=_('views count'))
 
     def __unicode__(self):
@@ -55,7 +55,7 @@ class Category(BaseModel):
         return _get_cate_children(self, only_id=only_id)
 
     class Meta:
-        app_label = string_with_title('blog', _('Blog'))
+        app_label = StringWithTitle('blog', _('Blog'))
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
         unique_together = ("name", "parent")
@@ -70,7 +70,7 @@ class Tag(BaseModel):
         return self.name
 
     class Meta:
-        app_label = string_with_title('blog', _('Blog'))
+        app_label = StringWithTitle('blog', _('Blog'))
         verbose_name = _('Tag')
         verbose_name_plural = _('Tags')
 
@@ -86,7 +86,7 @@ class Link(BaseModel):
         return self.title
 
     class Meta:
-        app_label = string_with_title('blog', _('Blog'))
+        app_label = StringWithTitle('blog', _('Blog'))
         verbose_name = _('Link')
         verbose_name_plural = _('Links')
 
@@ -107,7 +107,7 @@ class Photo(BaseModel):
         super(Photo, self).save()
 
     class Meta:
-        app_label = string_with_title('blog', _('Blog'))
+        app_label = StringWithTitle('blog', _('Blog'))
         verbose_name = _('Photo')
         verbose_name_plural = _('Photos')
 
@@ -122,7 +122,7 @@ class Slider(BaseModel):
         return self.title
 
     class Meta:
-        app_label = string_with_title('blog', _('Blog'))
+        app_label = StringWithTitle('blog', _('Blog'))
         verbose_name = _('Slider')
         verbose_name_plural = _('Sliders')
 
@@ -130,17 +130,20 @@ class Slider(BaseModel):
 class Article(BaseModel):
     title = models.CharField(max_length=100, unique=True, verbose_name=_('title'))
     slug = models.CharField(max_length=100, unique=True, verbose_name=_('slug'))
-    category = models.ForeignKey(Category, related_name='total_articles', limit_choices_to={'parent__isnull': False}, verbose_name=_('category'))
+    category = models.ForeignKey(Category, related_name='total_articles', limit_choices_to={'parent__isnull': False},
+                                 verbose_name=_('category'))
     status = models.IntegerField(default=0, choices=ARTICLE_STATUS.to_choices(), verbose_name=_('status'))
     enable_comment = models.BooleanField(default=True, verbose_name=_('enable comment'))
-    description = UEditorField(height=200, width=690, verbose_name=_('description'), null=True, blank=True, toolbars='full', \
-            image_path="upload/images/", file_path='upload/files/')
-    content = UEditorField(height=400, width=690, verbose_name=_('content'), toolbars='full', \
-            image_path="upload/images/", file_path='upload/files/')
+    description = UEditorField(height=200, width=690, verbose_name=_('description'), null=True, blank=True,
+                               toolbars='full', image_path="upload/images/", file_path='upload/files/')
+    content = UEditorField(height=400, width=690, verbose_name=_('content'), toolbars='full',
+                           image_path="upload/images/", file_path='upload/files/')
     mark = models.IntegerField(default=0, choices=ARTICLE_MARKS.to_choices(), verbose_name=_('mark'))
-    tags = models.ManyToManyField(Tag, verbose_name=_('tag'), help_text=_('Tags that describe this article'), blank=True, related_name='total_articles')
+    tags = models.ManyToManyField(Tag, verbose_name=_('tag'), help_text=_('Tags that describe this article'),
+                                  blank=True, related_name='total_articles')
     publish_date = models.DateTimeField(verbose_name=_('publish date'), help_text=_('The date and time this shall appear online.'))
-    login_required = models.BooleanField(blank=True, verbose_name=_('login required'), help_text=_('Enable this if users must login before they can read this article.'))
+    login_required = models.BooleanField(blank=True, verbose_name=_('login required'),
+                                         help_text=_('Enable this if users must login before they can read this article.'))
     thumbnail = models.ForeignKey(Photo, null=True, blank=True, verbose_name=_('thumbnail'))
     views_count = models.IntegerField(default=0, verbose_name=_('views count'))
     comment_count = models.IntegerField(default=0, verbose_name=_('comment count'))
@@ -163,7 +166,7 @@ class Article(BaseModel):
         return "/console/article_preview/%s/" % self.slug
 
     class Meta:
-        app_label = string_with_title('blog', _('Blog'))
+        app_label = StringWithTitle('blog', _('Blog'))
         verbose_name = _('Article')
         verbose_name_plural = _('Articles')
 
@@ -192,6 +195,6 @@ class Comment(models.Model):
         return self.article.title
 
     class Meta:
-        app_label = string_with_title('blog', _('Blog'))
+        app_label = StringWithTitle('blog', _('Blog'))
         verbose_name = _('Comment')
         verbose_name_plural = _('Comments')

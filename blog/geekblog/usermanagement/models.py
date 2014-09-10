@@ -7,7 +7,7 @@ from django.core import validators
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import Group, AbstractBaseUser, PermissionsMixin, BaseUserManager
 
-from blogcore.utils import string_with_title
+from blogcore.utils import StringWithTitle
 from blogcore.models.constants import USER_STATUS
 
 
@@ -15,7 +15,7 @@ class CustomGroup(Group):
 
     class Meta:
         proxy = True
-        app_label = string_with_title('usermanagement', _('User Management'))
+        app_label = StringWithTitle('usermanagement', _('User Management'))
         verbose_name = _('Group')
         verbose_name_plural = _('Groups')
 
@@ -101,6 +101,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         super(CustomUser, self).save(*args, **kwargs)
 
     class Meta:
-        app_label = string_with_title('usermanagement', _('User Management'))
+        app_label = StringWithTitle('usermanagement', _('User Management'))
         verbose_name = _('User')
         verbose_name_plural = _('Users')

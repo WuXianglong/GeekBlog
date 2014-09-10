@@ -26,9 +26,10 @@ class BaseModelAdmin(admin.ModelAdmin):
     def __init__(self, model, admin_site):
         self.in_add_view = False
         self.has_change = False
-        self.special_fieldset = ((_('ReadOnly'), {
-                    'fields': self.special_readonly + self.readonly_fields,
-                }),)
+        self.special_fieldset = ((
+            _('ReadOnly'),
+            {'fields': self.special_readonly + self.readonly_fields}
+        ),)
         super(BaseModelAdmin, self).__init__(model, admin_site)
 
     def formfield_for_foreignkey(self, db_field, request=None, **kwargs):
@@ -51,9 +52,9 @@ class BaseModelAdmin(admin.ModelAdmin):
         from django.conf.urls import url
         info = self.model._meta.app_label, self.model._meta.model_name
         urlpatterns += (
-                url(r'^syncto$', self.sync_to_production_view, name='%s_%s_sync_to_production' % info),
-                url(r'^syncfrom$', self.sync_from_production_view, name='%s_%s_sync_from_production' % info),
-            )
+            url(r'^syncto$', self.sync_to_production_view, name='%s_%s_sync_to_production' % info),
+            url(r'^syncfrom$', self.sync_from_production_view, name='%s_%s_sync_from_production' % info),
+        )
         return urlpatterns
 
     def get_actions(self, request):
@@ -193,8 +194,9 @@ class BaseModelAdmin(admin.ModelAdmin):
             self.has_change = True
         if not extra_context:
             extra_context = {}
-        extra_context.update({'has_change_permission': request.user.has_perm(self.opts.app_label + \
-                '.' + self.opts.get_change_permission())})
+        extra_context.update({
+            'has_change_permission': request.user.has_perm(self.opts.app_label + '.' + self.opts.get_change_permission())
+        })
         extra_context.update({'has_sync_to_permission': self.has_sync_to_permission(request)})
         extra_context.update({'has_sync_from_permission': self.has_sync_from_permission(request)})
         result = super(BaseModelAdmin, self).changelist_view(request, extra_context=extra_context)
@@ -228,8 +230,8 @@ class BaseModelAdmin(admin.ModelAdmin):
         old_has_change = self.has_change
         self.has_change = False
         context.update({'has_sync_to_permission': self.has_sync_to_permission(request)})
-        result = super(BaseModelAdmin, self).render_change_form(request, context, add=add, \
-                change=change, form_url=form_url, obj=obj)
+        result = super(BaseModelAdmin, self).render_change_form(request, context, add=add,
+                                                                change=change, form_url=form_url, obj=obj)
         if old_has_change:
             self.has_change = True
         return result
@@ -293,8 +295,11 @@ class BaseModelAdmin(admin.ModelAdmin):
 
         if '_saveandsync' in request.POST:
             sync_obj(obj, self.model)
-            self.message_user(request, _("The %(name)s \"%(obj)s\" was changed successfully, and successfully synced to production.") \
-                    % {'name': force_unicode(verbose_name), 'obj': force_unicode(obj)})
+            self.message_user(
+                request,
+                (_("The %(name)s \"%(obj)s\" was changed successfully, and successfully synced to production.") %
+                    {'name': force_unicode(verbose_name), 'obj': force_unicode(obj)})
+            )
             return HttpResponseRedirect("../")
         elif '_continue' not in request.POST and '_saveasnew' not in request.POST \
                 and "_addanother" not in request.POST and self.has_change_permission(request, None) and return_url:
@@ -307,8 +312,11 @@ class BaseModelAdmin(admin.ModelAdmin):
     def response_add(self, request, obj, post_url_continue='../%s/'):
         if "_saveandsync" in request.POST:
             sync_obj(obj, self.model)
-            self.message_user(request, _("The %(name)s \"%(obj)s\" was added successfully, and successfully synced to production.") \
-                    % {'name': force_unicode(obj._meta.verbose_name), 'obj': force_unicode(obj)})
+            self.message_user(
+                request,
+                (_("The %(name)s \"%(obj)s\" was added successfully, and successfully synced to production.") %
+                    {'name': force_unicode(obj._meta.verbose_name), 'obj': force_unicode(obj)})
+            )
             return HttpResponseRedirect("../")
         else:
             return super(BaseModelAdmin, self).response_add(request, obj)

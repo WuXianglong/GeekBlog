@@ -5,26 +5,26 @@ from django.conf import settings
 # TODO: insertimage  &&  simpleupload
 TOOLBARS_SETTINGS = {
     "besttome": [
-        ['source', 'undo', 'redo', 'bold', 'italic', 'underline', 'forecolor', 'backcolor', \
-                'superscript', 'subscript', 'ustifyleft', 'justifycenter', 'justifyright', \
-                'insertorderedlist', 'insertunorderedlist', 'blockquote', 'formatmatch', \
-                'removeformat', 'autotypeset', 'inserttable', 'pasteplain', 'wordimage', \
-                'searchreplace', 'map', 'preview', 'fullscreen'],
-        ['insertcode', 'paragraph', "fontfamily", "fontsize", 'link', 'unlink', 'insertimage', \
-                'insertvideo', 'attachment', 'emotion', "date", "time"]
+        ['source', 'undo', 'redo', 'bold', 'italic', 'underline', 'forecolor', 'backcolor',
+         'superscript', 'subscript', 'ustifyleft', 'justifycenter', 'justifyright',
+         'insertorderedlist', 'insertunorderedlist', 'blockquote', 'formatmatch',
+         'removeformat', 'autotypeset', 'inserttable', 'pasteplain', 'wordimage',
+         'searchreplace', 'map', 'preview', 'fullscreen'],
+        ['insertcode', 'paragraph', "fontfamily", "fontsize", 'link', 'unlink', 'insertimage',
+         'insertvideo', 'attachment', 'emotion', "date", "time"]
     ],
     "mini": [
-        ['source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'formatmatch', \
-                'autotypeset', '|', 'forecolor', 'backcolor', '|', 'link', 'unlink', '|', \
-                'insertimage', 'attachment']
+        ['source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'formatmatch',
+         'autotypeset', '|', 'forecolor', 'backcolor', '|', 'link', 'unlink', '|',
+         'insertimage', 'attachment']
     ],
     "normal": [
-        ['source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'removeformat', \
-                'formatmatch', 'autotypeset', '|', 'forecolor', 'backcolor', '|', 'link', \
-                'unlink', '|', 'insertimage', 'emotion', 'attachment', '|', 'inserttable', \
-                'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', \
-                'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', \
-                'splittocols']
+        ['source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'removeformat',
+         'formatmatch', 'autotypeset', '|', 'forecolor', 'backcolor', '|', 'link',
+         'unlink', '|', 'insertimage', 'emotion', 'attachment', '|', 'inserttable',
+         'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol',
+         'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows',
+         'splittocols']
     ],
 }
 

@@ -16,8 +16,8 @@ class CustomForeignKeyRawIdWidget(ForeignKeyRawIdWidget):
         extra = []
         if rel_to in self.admin_site._registry:
             # The related object is registered with the same AdminSite
-            related_url = reverse('admin:%s_%s_changelist' % \
-                    (rel_to._meta.app_label, rel_to._meta.model_name), current_app=self.admin_site.name)
+            related_url = reverse('admin:%s_%s_changelist' % (rel_to._meta.app_label, rel_to._meta.model_name),
+                                  current_app=self.admin_site.name)
             params = self.url_parameters()
             if params:
                 url = u'?' + u'&amp;'.join([u'%s=%s' % (k, v) for k, v in params.items()])
@@ -25,8 +25,8 @@ class CustomForeignKeyRawIdWidget(ForeignKeyRawIdWidget):
                 url = u''
             if "class" not in attrs:
                 attrs['class'] = 'vForeignKeyRawIdAdminField'    # The JavaScript looks for this hook.
-            extra.append(u'<a href="%s%s" class="related-lookup" id="lookup_id_%s" onclick="return showRelatedObjectLookupPopup(this);"> ' % \
-                (related_url, url, name))
+            extra.append(u'<a href="%s%s" class="related-lookup" id="lookup_id_%s" onclick="return showRelatedObjectLookupPopup(this);"> ' %
+                         (related_url, url, name))
             extra.append(u'<img src="%sadmin/img/selector-search.gif" width="16" height="16" alt="%s" /></a>' % (settings.STATIC_URL, _('Lookup')))
         output = [super(ForeignKeyRawIdWidget, self).render(name, value, attrs)] + extra
         output.append(self.label_for_value(value))

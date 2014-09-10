@@ -13,7 +13,8 @@ class NotRegistered(Exception):
     pass
 
 
-def register(model, adapter_class, conn_options):    # only register non-proxy model
+def register(model, adapter_class, conn_options):
+    # only register non-proxy model
     try:
         if model in _ADAPTERS:
             raise AlreadyRegistered('The model %s is already registered' % model.__name__)

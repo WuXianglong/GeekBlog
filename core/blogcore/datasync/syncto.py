@@ -44,11 +44,13 @@ def sync_to_production(modeladmin, request=None):
             sync_failed += 1
 
     success_msg = _("%(count)d %(items)s successfully sync data to production environment.\n") % {
-                'count': sync_successed, 'items': model_ngettext(modeladmin.opts, sync_successed)
-            }
+        'count': sync_successed,
+        'items': model_ngettext(modeladmin.opts, sync_successed)
+    }
     failed_msg = _("%(count)d %(items)s fail sync data to production environment.\n") % {
-                'count': sync_failed, 'items': model_ngettext(modeladmin.opts, sync_failed)
-            }
+        'count': sync_failed,
+        'items': model_ngettext(modeladmin.opts, sync_failed)
+    }
     if request:
         modeladmin.message_user(request, success_msg + failed_msg)
     else:

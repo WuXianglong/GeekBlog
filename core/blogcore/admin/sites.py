@@ -21,7 +21,7 @@ from blogcore.utils.verify_code import VerifyCode
 @csrf_protect
 @never_cache
 def custom_login(request, template_name='registration/login.html', redirect_field_name=REDIRECT_FIELD_NAME,
-          authentication_form=AuthenticationForm, current_app=None, extra_context=None):
+        authentication_form=AuthenticationForm, current_app=None, extra_context=None):
     """
     Displays the login form and handles the login action.
     """

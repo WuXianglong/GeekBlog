@@ -23,16 +23,18 @@ class UEditorEventHandler(object):
         # 列出所有on_打头的方法，然后在ueditor中进行侦听
         events = filter(lambda x: x[0:3] == "on_", dir(self))
         for event in events:
-            try:
-                event_code = getattr(self, event)()
+            event_method = getattr(self, event)
+            if callable(event_method):
+                event_code = event_method()
                 if event_code:
                     event_code = event_code % {"editor": editor_id}
-                    event_codes.append(jscode % {"editor": editor_id, "event": event[3:], \
-                            "event_code": event_code})
-            except:
-                pass
+                    event_codes.append(jscode % {
+                        "editor": editor_id,
+                        "event": event[3:],
+                        "event_code": event_code
+                    })
 
-        return "" if len(event_codes) == 0 else "\n".join(event_codes)
+        return "\n".join(event_codes) if event_codes else ""
 
 
 class UEditorCommand(object):
@@ -84,7 +86,7 @@ class UEditorCommand(object):
             cmds.append(u"""queryCommandValue:function(){
                     %s
                 }""" % queryvalue_command)
-        if len(cmds) > 0:
+        if cmds:
             return u"""
             editor.registerCommand(uiName, {
                     %s
@@ -100,12 +102,12 @@ class UEditorCommand(object):
             %(uiObject)s
         },%(index)s,"%(editor)s");
         """ % {
-                "registerCommand": self.render_command(),
-                "uiName": self.uiName,
-                "uiObject": self.render_ui(editor_id),
-                "index": self.index,
-                "editor": editor_id,
-            }
+            "registerCommand": self.render_command(),
+            "uiName": self.uiName,
+            "uiObject": self.render_ui(editor_id),
+            "index": self.index,
+            "editor": editor_id,
+        }
 
     def on_execute_command(self):
         """ 返回执行Command时的js代码 """
@@ -143,10 +145,10 @@ class UEditorButtonCommand(UEditorCommand):
             });
             return btn
         """ % {
-                "icon": urllib.basejoin(settings.MEDIA_URL, self.icon),
-                "onclick": self.onClick(),
-                "title": self.title
-            }
+            "icon": urllib.basejoin(settings.MEDIA_URL, self.icon),
+            "onclick": self.onClick(),
+            "title": self.title
+        }
 
 
 class UEditorComboCommand(UEditorCommand):
@@ -176,10 +178,10 @@ class UEditorComboCommand(UEditorCommand):
         });
         return combox;
         """ % {
-                "title": self.title,
-                "items": str(self.get_items()),
-                "onselect": self.onSelect(),
-                "initValue": self.initValue
+            "title": self.title,
+            "items": str(self.get_items()),
+            "onselect": self.onSelect(),
+            "initValue": self.initValue
         }
 
 
