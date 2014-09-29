@@ -209,10 +209,7 @@ class BlogMongodbStorage(MongodbStorage):
 
     def get_last_log_id(self):
         log_id = self._db.log_ids.find_one({}, sort=[('sync_time', self.ORDER_DESC)])
-        if log_id:
-            return log_id['log_id']
-        else:
-            return 0
+        return log_id['log_id'] if log_id else 0
 
     def increment_article_views_count(self, a_id):
         """ increments the value of article views_count """

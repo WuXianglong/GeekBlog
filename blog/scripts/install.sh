@@ -44,3 +44,4 @@ chown $USER:nogroup /var/app/log/$PROJECT
 ln -sf /var/app/enabled/$PROJECT/scripts/geek-blog-init.sh /etc/init.d/geek-blog
 update-rc.d geek-blog defaults
 cp /var/app/enabled/$PROJECT/scripts/geekblog.cron /etc/cron.d/geekblog
+cp /var/app/enabled/$PROJECT/scripts/geekblog.logrotate /etc/logrotate.d/geekblog

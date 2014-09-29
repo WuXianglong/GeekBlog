@@ -1,0 +1,18 @@
+/var/app/log/blog/*.log {
+    weekly
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 0777 root root 
+}
+/var/app/log/blog-webfront/*.log {
+    weekly
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 0777 root root 
+}

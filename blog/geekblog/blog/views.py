@@ -21,35 +21,43 @@ def _get_month_and_day(p_date):
     infos = {'year': '1990', 'month': '01', 'day': '01', 'month_str': ALL_MONTHS[0], 'publish_date_str': ''}
     if not p_date or not isinstance(p_date, long):
         return infos
+
     date = timestamp2datetime(p_date, convert_to_local=True).date()
     date_str = date.strftime(settings.PUBLISH_DATE_FORMAT)
+
     infos['year'], infos['month'], infos['day'] = date_str.split('-')
     infos['month_str'], infos['publish_date_str'] = ALL_MONTHS[date.month - 1], date_str
+
     return infos
 
 
 def _process_single_article(article):
     # process article infos and format the data with rules.
     article.update(_get_month_and_day(article.get('publish_date', None)))
+
     # to disable comment when debug is on
     if settings.DEBUG:
         article.update({'enable_comment': False})
+
     return article
 
 
 def _process_articles(articles):
     for article in articles:
         _process_single_article(article)
+
     return articles
 
 
 def _get_start_index(page_num):
     page_num = safe_cast(page_num, int, 1)
+
     return settings.LIST_PER_PAGE * (page_num - 1)
 
 
 def _get_pagination_infos(article_infos, page_num):
     page_num = safe_cast(page_num, int, 1)
+
     return {
         'current_page': page_num,
         'total_page': article_infos['page_count'],
@@ -84,6 +92,7 @@ def show_homepage(request, page_num):
         'articles': _process_articles(article_infos['results']),
     }
     context_infos.update(_get_pagination_infos(article_infos, page_num))
+
     return _render_response(request, 'index', context_infos, is_index=True)
 
 
@@ -91,12 +100,13 @@ def show_article(request, slug):
     article_infos = blog_db.get_article_by_slug(slug)
     # if article_infos is None or this article can only be viewed by logined user
     if not article_infos or (request.user.is_anonymous() and article_infos['login_required']):
-        logger.exception('Invaild article slug: %s' % slug)
+        logger.warning('Invaild article slug: %s' % slug)
         return _render_404_response(request)
 
     a_id, publish_date = article_infos.get('id', 0), article_infos.get('publish_date', 0)
     # update articel views_count
     blog_db.increment_article_views_count(a_id)
+
     # get previous and next articles
     prev_a = blog_db.get_prev_article(publish_date)
     next_a = blog_db.get_next_article(publish_date)
@@ -107,6 +117,7 @@ def show_article(request, slug):
         'next_a': next_a,
     }
     context_infos.update(_process_single_article(article_infos))
+
     return _render_response(request, 'detail', context_infos)
 
 
@@ -114,7 +125,7 @@ def preview_article(request, slug):
     try:
         article = Article.objects.get(slug__exact=slug)
     except Article.DoesNotExist:
-        logger.exception('Invaild article slug: %s' % slug)
+        logger.warning('Invaild article slug: %s' % slug)
         return _render_404_response(request)
 
     publish_date = datetime2timestamp(article.publish_date, convert_to_utc=True)
@@ -145,13 +156,14 @@ def preview_article(request, slug):
         'tags': article.get_tags(),
     }
     context_infos.update(_process_single_article(article_infos))
+
     return _render_response(request, 'detail', context_infos)
 
 
 def show_category(request, cate_slug, page_num):
     cate_infos = blog_db.get_cate_info_by_slug(cate_slug)
     if not cate_infos:
-        logger.exception('Invaild category slug: %s' % cate_slug)
+        logger.warning('Invaild category slug: %s' % cate_slug)
         return _render_404_response(request)
 
     start_index = _get_start_index(page_num)
@@ -163,13 +175,14 @@ def show_category(request, cate_slug, page_num):
         'articles': _process_articles(article_infos['results']),
     }
     context_infos.update(_get_pagination_infos(article_infos, page_num))
+
     return _render_response(request, 'index', context_infos, is_index=True)
 
 
 def show_tag(request, tag_slug, page_num):
     tag_infos = blog_db.get_tag_info_by_slug(tag_slug)
     if not tag_infos:
-        logger.exception('Invaild tag slug: %s' % tag_slug)
+        logger.warning('Invaild tag slug: %s' % tag_slug)
         return _render_404_response(request)
 
     start_index = _get_start_index(page_num)
@@ -181,6 +194,7 @@ def show_tag(request, tag_slug, page_num):
         'articles': _process_articles(article_infos['results']),
     }
     context_infos.update(_get_pagination_infos(article_infos, page_num))
+
     return _render_response(request, 'index', context_infos, is_index=True)
 
 
@@ -197,6 +211,7 @@ def show_search(request, keyword, page_num):
         'articles': _process_articles(article_infos['results']),
     }
     context_infos.update(_get_pagination_infos(article_infos, page_num))
+
     return _render_response(request, 'index', context_infos, is_index=True)
 
 
@@ -204,6 +219,7 @@ def show_search(request, keyword, page_num):
 def show_archive_page(request):
     articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'title': 1, 'publish_date': 1},
                                     has_login=(not request.user.is_anonymous()), with_total=True)
+
     from collections import defaultdict
     archives = defaultdict(dict)
     # format the data of archives for template
@@ -242,4 +258,5 @@ def show_friend_link_page(request):
         'friend_links': friend_links,
         'site_links': site_links,
     }
+
     return _render_response(request, 'link', context_infos)
