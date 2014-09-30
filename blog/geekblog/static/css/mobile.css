@@ -469,7 +469,7 @@ body.menu-active #page {
 /* post */
 #content {
     display: block;
-    padding: 0 10px;
+    padding: 8px 8px;
 }
 
 .post {

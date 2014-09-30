@@ -156,8 +156,8 @@ class ArticleAdmin(BaseModelAdmin):
 
 class CommentAdmin(BaseModelAdmin):
     list_editable = ('status', 'published')
-    list_display = ('author', 'user', 'article', 'author_email', 'comment_date', 'status',
-                    'content', 'published', 'sync_status')
+    list_display = ('author', 'article', 'short_content', 'author_email', 'comment_date', 'status',
+                    'published', 'sync_status')
     list_per_page = settings.ADMIN_LIST_PER_PAGE
     list_filter = ['status', 'published']
     search_fields = ['author', 'author_email', 'content']
@@ -174,6 +174,10 @@ class CommentAdmin(BaseModelAdmin):
     )
     special_exclude = ('sync_status',)
     special_readonly = ('sync_status',)
+
+    def short_content(self):
+        return obj.content[:20] + '...' if len(obj.content) > 20 else obj.content
+    short_content.short_description = _('Content')
 
     def save_model(self, request, obj, form, change):
         obj.sync_status = 0

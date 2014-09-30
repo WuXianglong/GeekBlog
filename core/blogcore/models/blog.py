@@ -184,7 +184,7 @@ class Comment(models.Model):
     content = models.TextField(verbose_name=_('content'))
     hided = models.BooleanField(default=False, verbose_name=_("hided"))
     published = models.BooleanField(default=False, verbose_name=_("published"))
-    sync_status = models.IntegerField(choices=SYNC_STATUS.to_choices(), verbose_name=_("sync status"))
+    sync_status = models.IntegerField(default=0, choices=SYNC_STATUS.to_choices(), verbose_name=_("sync status"))
     status = models.IntegerField(default=COMMENT_STATUS.APPROVED, choices=COMMENT_STATUS.to_choices(), verbose_name=_('status'))
     duoshuo_id = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('duoshuo comment ID'))
     duoshuo_user_id = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('duoshuo user ID'))

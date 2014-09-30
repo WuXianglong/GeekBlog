@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-24 19:54+0800\n"
+"POT-Creation-Date: 2014-09-30 13:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -184,30 +184,34 @@ msgid "prev page"
 msgstr "上一页"
 
 #: blog/admin.py:21 blog/admin.py:40 blog/admin.py:59 blog/admin.py:78
-#: blog/admin.py:95 blog/admin.py:119 blog/admin.py:165
+#: blog/admin.py:95 blog/admin.py:119 blog/admin.py:167
 msgid "Basic"
 msgstr "基本信息"
 
 #: blog/admin.py:24 blog/admin.py:43 blog/admin.py:62 blog/admin.py:81
-#: blog/admin.py:98 blog/admin.py:122 blog/admin.py:169
+#: blog/admin.py:98 blog/admin.py:122 blog/admin.py:171
 msgid "Status"
 msgstr "状态"
 
-#: blog/admin.py:131 blog/admin.py:201
+#: blog/admin.py:131 blog/admin.py:207
 #, python-format
 msgid "You can't publish not approved %(model)s: %(obj)s"
 msgstr "不能发布未审核通过的 %(model)s: %(obj)s"
 
-#: blog/views.py:224
+#: blog/admin.py:180
+msgid "Content"
+msgstr "内容"
+
+#: blog/views.py:238
 msgid "Archive"
 msgstr "归档"
 
-#: blog/views.py:233 templates/about.html:23 templates/base.html:59
+#: blog/views.py:247 templates/about.html:23 templates/base.html:59
 #: templates/mobile/m_base.html:35
 msgid "About"
 msgstr "关于"
 
-#: blog/views.py:243
+#: blog/views.py:257
 msgid "Friend Links"
 msgstr "友链"
 
@@ -215,15 +219,15 @@ msgstr "友链"
 msgid "Category Articles"
 msgstr "分类文章"
 
-#: geekblog/settings.py:341
+#: geekblog/settings.py:343
 msgid "content management"
 msgstr "内容管理"
 
-#: geekblog/settings.py:358
+#: geekblog/settings.py:360
 msgid "system management"
 msgstr "系统管理"
 
-#: templates/404.html:101
+#: templates/404.html:105
 msgid "You Look Lost. Head This Way."
 msgstr "你好像迷路了，点击返回首页"
 
@@ -401,48 +405,48 @@ msgstr ""
 "                    Copyright © 2012 - 2014 %(site_name)s, 保留所有权利.\n"
 "                    "
 
-#: templates/detail.html:44 templates/item.html:16
+#: templates/detail.html:45 templates/item.html:16
 #, python-format
 msgid "Views all articles of %(category_name)s "
 msgstr "查看 %(category_name)s 下的所有文章"
 
-#: templates/detail.html:50 templates/item.html:22
-#: templates/mobile/m_detail.html:27 templates/mobile/m_item.html:16
+#: templates/detail.html:51 templates/item.html:22
+#: templates/mobile/m_detail.html:28 templates/mobile/m_item.html:16
 #, python-format
 msgid "Viewed by %(views_count)s people "
 msgstr "已有%(views_count)s人围观"
 
-#: templates/detail.html:53 templates/item.html:25
-#: templates/mobile/m_detail.html:30
+#: templates/detail.html:54 templates/item.html:25
+#: templates/mobile/m_detail.html:31
 #, python-format
 msgid "Comments of %(title)s"
 msgstr "%(title)s的评论"
 
-#: templates/detail.html:72
+#: templates/detail.html:73
 msgid "Previous："
 msgstr "上一篇："
 
-#: templates/detail.html:76
+#: templates/detail.html:77
 msgid "No more previous article"
 msgstr "木有最新的文章了"
 
-#: templates/detail.html:79
+#: templates/detail.html:80
 msgid "Next："
 msgstr "下一篇："
 
-#: templates/detail.html:83
+#: templates/detail.html:84
 msgid "No more next article"
 msgstr "木有更早的文章了"
 
-#: templates/detail.html:90
+#: templates/detail.html:91
 msgid "Address："
 msgstr "本文地址："
 
-#: templates/detail.html:91
+#: templates/detail.html:92
 msgid "Statement："
 msgstr "特别声明："
 
-#: templates/detail.html:118 templates/mobile/m_detail.html:55
+#: templates/detail.html:119 templates/mobile/m_detail.html:59
 msgid "Comment of this article has closed."
 msgstr "文章的评论已经关闭"
 
@@ -500,11 +504,11 @@ msgstr "网站描述"
 msgid "You Look Lost, will return home page now! "
 msgstr "你好像迷路了，将在5秒后返回首页"
 
-#: templates/mobile/m_detail.html:40
+#: templates/mobile/m_detail.html:41
 msgid "Category: "
 msgstr "分类: "
 
-#: templates/mobile/m_detail.html:43
+#: templates/mobile/m_detail.html:44
 msgid "Tag: "
 msgstr "标签: "
 
@@ -543,19 +547,19 @@ msgstr "修改操作"
 msgid "deletion action"
 msgstr "删除操作"
 
-#: usermanagement/admin.py:81
+#: usermanagement/admin.py:80
 msgid "action flag"
 msgstr "动作标志"
 
-#: usermanagement/admin.py:87
+#: usermanagement/admin.py:86
 msgid "Personal info"
 msgstr "个人信息"
 
-#: usermanagement/admin.py:88
+#: usermanagement/admin.py:87
 msgid "Permissions"
 msgstr "权限"
 
-#: usermanagement/admin.py:90
+#: usermanagement/admin.py:89
 msgid "Important dates"
 msgstr "重要日期"
 

@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import time
-import logging
 import datetime
 
 import requests
@@ -10,11 +9,9 @@ from django.core.management.base import BaseCommand
 
 from blogcore.db.blog import BlogMongodbStorage
 from blogcore.db import timestamp2datetime
-from blogcore.models.blog import Article, Comment
 from blogcore.models.constants import COMMENT_STATUS
 
 blog_db = BlogMongodbStorage(settings.MONGODB_CONF)
-logger = logging.getLogger('geekblog')
 
 
 def _upsert_comment(comment):
@@ -28,14 +25,18 @@ def _upsert_comment(comment):
     """
     action = comment.get('action', '')
     meta = comment.get('meta', None)
-    if meta:
+    if meta and isinstance(meta, dict):
+        from blogcore.models.blog import Article, Comment
+        a_id = meta.get('thread_key')
         try:
             if action == 'create':
-                articles = Article.objects.filter(id=meta.get('thread_key', ''))
-                if articles.count() == 0:
+                try:
+                    article = Article.objects.get(id=int(a_id))
+                except (Article.DoesNotExist, TypeError, ValueError) as e:
+                    print 'Article does not exist, ID: %s, error: %s' % (a_id, e)
                     return
                 c = Comment()
-                c.article = articles[0]
+                c.article = article
                 parent_id = meta.get('parent_id', '0')
                 parent_c = Comment.objects.filter(duoshuo_id=parent_id)
                 c.parent = None if parent_id == '0' or parent_c.count() == 0 else parent_c[0]
@@ -51,7 +52,9 @@ def _upsert_comment(comment):
                 c.author_agent = ''
                 status = meta.get('status', '')
                 c.status = COMMENT_STATUS.APPROVED if status == 'approved' else (COMMENT_STATUS.NOT_REVIEWED if status == 'pending' else COMMENT_STATUS.REJECTED)
+                c.sync_status = 0
                 c.save()
+                print 'Create comment, article ID: %s, comment ID: %s' % (a_id, c.id)
             elif action == 'approve':
                 Comment.objects.filter(duoshuo_id__in=meta).update(status=COMMENT_STATUS.APPROVED)
             elif action == 'spam':
@@ -59,20 +62,23 @@ def _upsert_comment(comment):
             elif action in ('delete', 'delete-forever'):
                 Comment.objects.filter(duoshuo_id__in=meta).update(hided=True, status=COMMENT_STATUS.REJECTED)
         except Exception, e:
-            logger.exception('update article comment failed, exception: %s, comment: %s' % (e, comment))
+            print 'update article comment failed, exception: %s, comment: %s' % (e, comment)
 
 
 class Command(BaseCommand):
 
     def handle(self, action='all', **options):
         print 'sync comment, views_count and comment_count'
+        from blogcore.models.blog import Article
+
         # sync views_count from mongodb
         articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'views_count': 1}, has_login=True)
         for article in articles:
+            print 'update views_count, article ID: %s, views count: %s' % (article['id'], article['views_count'])
             try:
                 Article.objects.filter(id=article['id']).update(views_count=article['views_count'])
             except Exception, e:
-                logger.exception('sync article views_count failed, exception: %s' % e)
+                print 'sync article views_count failed, exception: %s' % e
 
         # sync article comments from duoshuo
         # API example: http://dev.duoshuo.com/docs/50037b11b66af78d0c000009
@@ -83,22 +89,24 @@ class Command(BaseCommand):
                 'since_id': blog_db.get_last_log_id(),
                 'limit': 200,
             }
+            print 'DUOSHUO api params: %s' % api_params
             while True:
                 r = requests.get('http://api.duoshuo.com/log/list.json', params=api_params)
                 ret_msg = r.json()
                 # if return error or return data length is 0, break
-                if ret_msg['code'] != 0 or 'response' not in ret_msg or len(ret_msg['response']):
+                if ret_msg['code'] != 0 or 'response' not in ret_msg or not bool(ret_msg['response']):
                     break
-                for i, comment in enumerate(ret_msg['response']):
+                response = ret_msg['response']
+                for i, comment in enumerate(response):
                     # update since_id for while loop
-                    if i == len(ret_msg['response']) - 1:
+                    if i == len(response) - 1:
                         api_params['since_id'] = comment['log_id']
                     # update or insert comment
                     _upsert_comment(comment)
             # save sync log_id
             blog_db.save_sync_log_id({'log_id': api_params['since_id'], 'sync_time': int(time.time())})
         except Exception, e:
-            logger.exception('sync article comment from duoshuo failed, exception: %s' % e)
+            print 'sync article comment from duoshuo failed, exception: %s' % e
 
         # update article comment count
         for article in Article.objects.all().filter(hided=False):
@@ -106,4 +114,4 @@ class Command(BaseCommand):
                 article.comment_count = article.comments.all().filter(hided=False, status=COMMENT_STATUS.APPROVED).count()
                 article.save()
             except Exception, e:
-                logger.exception('update article comment_count failed, exception: %s' % e)
+                print 'update article comment_count failed, exception: %s' % e
