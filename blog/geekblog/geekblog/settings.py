@@ -4,7 +4,6 @@ import os
 import re
 from django.utils.translation import ugettext_lazy as _
 
-from blogcore import CORE_LOCALE_PATH
 from utils import FreeConfigParser
 
 DEBUG = True
@@ -73,7 +72,7 @@ WEBSITE_DESC = u'记录生活与工作的点滴，分享旅行与技术的乐趣
 SAYING = u'一切都会过去！'    # u'不相信自己的人，连努力的价值都没有。'
 WEBSITE_URL = 'http://xianglong.me'
 WEBSITE_KEYWORDS = u'python,django,tornado,vim,linux,javascript,web开发,工作经验,人生,感悟,骑行'
-GEEKBLOG_VERSION = '1.3.4'
+GEEKBLOG_VERSION = '1.4.0'
 
 LIST_PER_PAGE = 8
 
@@ -188,7 +187,6 @@ LOCALE_PATHS = (
     os.path.join(SITE_ROOT, 'locale'),
     os.path.join(SITE_ROOT, 'jsi18n', 'locale'),
 )
-LOCALE_PATHS += CORE_LOCALE_PATH
 
 INSTALLED_APPS = (
     'admin_tools',
@@ -343,12 +341,12 @@ LEFT_NAV_MODELS = {
         'title': _('content management'),
         'models': [
             'catearticles.*',
-            'blogcore.models.blog.Category',
-            'blogcore.models.blog.Tag',
-            'blogcore.models.blog.Link',
-            'blogcore.models.blog.Slider',
-            'blogcore.models.blog.Photo',
-            'blogcore.models.blog.Comment',
+            'geekblog.blog.models.Category',
+            'geekblog.blog.models.Tag',
+            'geekblog.blog.models.Link',
+            'geekblog.blog.models.Slider',
+            'geekblog.blog.models.Photo',
+            'geekblog.blog.models.Comment',
         ],
         'app_label_order': {
             'catearticles': 1,

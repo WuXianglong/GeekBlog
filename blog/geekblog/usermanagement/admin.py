@@ -4,10 +4,10 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin, GroupAdmin
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
 
-from blogcore.admin.filters import ActionFlagFilter
-from blogcore.admin.sites import custom_site
-from usermanagement.models import CustomGroup, CustomUser
-from usermanagement.forms import CustomUserCreationForm, CustomUserChangeForm
+from geekblog.admin.filters import ActionFlagFilter
+from geekblog.admin.sites import custom_site
+from geekblog.usermanagement.models import CustomGroup, CustomUser
+from geekblog.usermanagement.forms import CustomUserCreationForm, CustomUserChangeForm
 
 _LOG_ACTIONS = {
     ADDITION: _('addition action'),

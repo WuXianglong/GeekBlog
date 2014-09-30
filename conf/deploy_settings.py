@@ -8,7 +8,7 @@ ROLE_ALIAS = {
 }
 
 ROLE_APPS_TABLE = {
-    'Blog': ['core', 'blog'],
+    'Blog': ['blog'],
     'Blog-Webfront': ['blog-webfront'],
 }
 

@@ -7,9 +7,9 @@ import requests
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from blogcore.db.blog import BlogMongodbStorage
-from blogcore.db import timestamp2datetime
-from blogcore.models.constants import COMMENT_STATUS
+from geekblog.mongodb.blog import BlogMongodbStorage
+from geekblog.mongodb import timestamp2datetime
+from geekblog.blog.models.constants import COMMENT_STATUS
 
 blog_db = BlogMongodbStorage(settings.MONGODB_CONF)
 
@@ -26,7 +26,7 @@ def _upsert_comment(comment):
     action = comment.get('action', '')
     meta = comment.get('meta', None)
     if meta and isinstance(meta, dict):
-        from blogcore.models.blog import Article, Comment
+        from geekblog.blog.models import Article, Comment
         a_id = meta.get('thread_key')
         try:
             if action == 'create':
@@ -69,7 +69,7 @@ class Command(BaseCommand):
 
     def handle(self, action='all', **options):
         print 'sync comment, views_count and comment_count'
-        from blogcore.models.blog import Article
+        from geekblog.blog.models import Article
 
         # sync views_count from mongodb
         articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'views_count': 1}, has_login=True)

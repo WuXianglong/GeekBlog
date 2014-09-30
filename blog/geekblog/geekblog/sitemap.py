@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.contrib.sitemaps import Sitemap
 
-from blogcore.models.blog import Article
-from blogcore.models.constants import SYNC_STATUS
+from geekblog.blog.models import Article
+from geekblog.geekblog.constants import SYNC_STATUS
 
 
 class ArticleSitemap(Sitemap):

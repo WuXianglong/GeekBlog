@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='geek-blog',
-    version='1.3.4',
+    version='1.4.0',
     packages=find_packages(),
     license=open('../LICENSE.txt').read(),
     description='Full blog based on django',
@@ -11,7 +11,7 @@ setup(
     author_email='wuxianglong098@gmail.com',
     maintainer='WuXianglong',
     url='http://www.xianglong.me/',
-    download_url='http://github.com/sshwsfc/django-xadmin/archive/master.zip',
+    download_url='https://github.com/WuXianglong/GeekBlog/archive/master.zip',
     packages=['geekblog'],
     include_package_data=True,
     install_requires=[

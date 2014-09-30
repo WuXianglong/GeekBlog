@@ -1,13 +1,18 @@
+from django import VERSION
+
+if VERSION[0: 2] > (1, 3):
+    from django.conf.urls import patterns, include, url
+else:
+    from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
-from django.conf.urls import patterns, include, url
 from django.views.decorators.cache import cache_page
 from django.contrib.sitemaps import views as sitemap_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from blogcore.admin.sites import custom_site
-from sitemap import ArticleSitemap
-from blog.views import preview_article
-from views import get_related_lookup_info, generate_verify_code
+from geekblog.admin.sites import custom_site
+from geekblog.blog.views import preview_article
+from geekblog.geekblog.sitemap import ArticleSitemap
+from geekblog.geekblog.views import get_related_lookup_info, generate_verify_code
 
 admin.autodiscover()
 

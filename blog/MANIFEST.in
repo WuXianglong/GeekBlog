@@ -1,4 +1,4 @@
-global-include *.py *.sh *.xml *.cfg *.po *.mo *.json 
+global-include *.py *.sh *.xml *.cfg *.po *.mo *.json *.ttf *.jar
 graft scripts
 graft geekblog/jsi18n
 graft geekblog/locale
