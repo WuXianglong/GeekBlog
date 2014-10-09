@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+import re
 import time
 import datetime
 
@@ -12,6 +13,16 @@ from geekblog.mongodb import timestamp2datetime
 from geekblog.blog.models.constants import COMMENT_STATUS
 
 blog_db = BlogMongodbStorage(settings.MONGODB_CONF)
+img_regex = re.compile(r'(<img src="[^"]+" alt="[^"]+" title="([^"]+)" class="ds-smiley" />)')
+
+
+def _clean_content(content):
+    all_matches = img_regex.findall(content)
+
+    for item in all_matches:
+        content = content.replace(item[0], item[1])
+
+    return content
 
 
 def _upsert_comment(comment):
@@ -48,7 +59,7 @@ def _upsert_comment(comment):
                 c.author_website = meta.get('author_url', '')
                 c.author_ip = meta.get('ip', '')
                 c.comment_date = timestamp2datetime(comment.get('date', None), convert_to_local=True) or datetime.datetime.now()
-                c.content = meta.get('message', '')
+                c.content = _clean_content(meta.get('message', ''))
                 c.author_agent = ''
                 status = meta.get('status', '')
                 c.status = COMMENT_STATUS.APPROVED if status == 'approved' else (COMMENT_STATUS.NOT_REVIEWED if status == 'pending' else COMMENT_STATUS.REJECTED)

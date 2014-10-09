@@ -3,9 +3,9 @@
 # This scripts is used to install dependencies for the application.
 #
 # python-software-properties depend by add-apt-repository to add nginx ppa
-SYS_DEPS=( python-software-properties )
+SYS_DEPS=(python-software-properties)
 
-PYTHON_DEPS=( )
+PYTHON_DEPS=()
 
 function install_dependencies()
 {

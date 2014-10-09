@@ -1,4 +1,4 @@
-CONFIG_FILES=( blog.nginx )
+CONFIG_FILES=(blog.nginx)
 CERT_FILE=xxx.com.crt
 KEY_FILE=xxx.com.key
 
