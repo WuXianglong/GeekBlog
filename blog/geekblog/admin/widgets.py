@@ -14,6 +14,7 @@ class CustomForeignKeyRawIdWidget(ForeignKeyRawIdWidget):
         if attrs is None:
             attrs = {}
         extra = []
+
         if rel_to in self.admin_site._registry:
             # The related object is registered with the same AdminSite
             related_url = reverse('admin:%s_%s_changelist' % (rel_to._meta.app_label, rel_to._meta.model_name),
@@ -36,6 +37,7 @@ class CustomForeignKeyRawIdWidget(ForeignKeyRawIdWidget):
         key = self.rel.get_related_field().name
         obj_name = self.rel.to._meta.object_name
         related_url = reverse('admin:%s_%s_changelist' % (self.rel.to._meta.app_label, self.rel.to._meta.model_name), current_app=self.admin_site.name)
+
         if value:
             try:
                 obj = self.rel.to._default_manager.using(self.db).get(**{key: value})
