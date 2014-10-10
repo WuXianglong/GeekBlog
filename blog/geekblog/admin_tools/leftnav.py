@@ -3,7 +3,7 @@ Module where admin tools leftnav classes are defined.
 """
 from django.conf import settings
 
-from admin_tools.theming import items
+from geekblog.admin_tools import items
 
 
 class LeftNav(object):

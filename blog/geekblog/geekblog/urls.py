@@ -9,7 +9,7 @@ from django.views.decorators.cache import cache_page
 from django.contrib.sitemaps import views as sitemap_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from geekblog.admin.sites import custom_site
+from geekblog.admin_tools.sites import custom_site
 from geekblog.blog.views import preview_article
 from geekblog.geekblog.sitemap import ArticleSitemap
 from geekblog.geekblog.views import get_related_lookup_info, generate_verify_code

@@ -7,13 +7,10 @@ leftnav template tags, the following leftnav tags are available:
 
 To load the leftnav tags in your templates: ``{% load admin_tools_leftnav_tags %}``.
 """
-
 from django import template
-from django.core.urlresolvers import reverse
 
-from admin_tools.utils import get_media_url, get_admin_site_name
-from admin_tools.theming import items
-from admin_tools.theming.leftnav import DefaultLeftNav
+from geekblog.admin_tools.utils import get_media_url
+from geekblog.admin_tools.leftnav import DefaultLeftNav
 
 register = template.Library()
 tag_func = register.inclusion_tag('admin_tools/leftnav/dummy.html', takes_context=True)

@@ -1,8 +1,8 @@
-from django.contrib.admin.views.main import ALL_VAR, PAGE_VAR
 from django.template import Library
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.admin.views.main import ALL_VAR, PAGE_VAR
 
 register = Library()
 DOT = '.'
@@ -38,7 +38,7 @@ def pagination(cl, has_change_permission):
     if not pagination_required:
         page_range = []
     else:
-        ON_EACH_SIDE = 2 
+        ON_EACH_SIDE = 2
         ON_ENDS = 1
 
         # If there are 10 or fewer pages, display links to every page.

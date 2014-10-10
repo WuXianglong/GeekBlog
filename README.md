@@ -11,6 +11,7 @@ GeekBlog是一个基于Django框架实现的博客系统，包含了完善的后
 - 系统集成了UEditor富文本编辑器
 - 使用多说作为博客的评论系统
 - 支持手机访问页面
+- 使用Django Pipeline优化网站静态资源文件(JS & CSS)
 
 ##初始化website的步骤
 

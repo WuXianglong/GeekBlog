@@ -2,7 +2,7 @@ from django.utils.translation import ugettext as _
 from django.db.models.base import ModelBase
 
 from geekblog.utils import StringWithTitle
-from geekblog.admin.management import create_permission
+from geekblog.admin_tools.management import create_permission
 from geekblog.blog.models import BaseManager, Article, Category
 
 CATEGORIES = {}

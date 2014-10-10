@@ -189,8 +189,6 @@ LOCALE_PATHS = (
 )
 
 INSTALLED_APPS = (
-    'admin_tools',
-    'admin_tools.theming',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -199,11 +197,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'pipeline',
-    'ueditor',
-    'duoshuo',
     'jsi18n',
     'blog',
+    'ueditor',
+    'duoshuo',
+    'pipeline',
+    'admin_tools',
     'catearticles',
     'usermanagement',
 )

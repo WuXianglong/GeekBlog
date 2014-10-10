@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-30 16:06+0800\n"
+"POT-Creation-Date: 2014-10-10 17:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,244 +17,244 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: admin/__init__.py:30
+#: admin_tools/__init__.py:30
 msgid "ReadOnly"
 msgstr "只读"
 
-#: admin/__init__.py:46
+#: admin_tools/__init__.py:46
 msgid "None"
 msgstr "无"
 
-#: admin/__init__.py:85
+#: admin_tools/__init__.py:85
 #, python-format
 msgid "Successfully deleted %(count)d %(items)s."
 msgstr "成功删除 %(count)d %(items)s."
 
-#: admin/__init__.py:88
+#: admin_tools/__init__.py:88
 #, python-format
 msgid "Delete selected %(verbose_name_plural)s"
 msgstr "删除所选的 %(verbose_name_plural)s"
 
-#: admin/__init__.py:95
+#: admin_tools/__init__.py:95
 #, python-format
 msgid "Successfully synced %(count)d %(items)s."
 msgstr "成功同步 %(count)d %(items)s."
 
-#: admin/__init__.py:98
+#: admin_tools/__init__.py:98
 #, python-format
 msgid "Sync selected %(verbose_name_plural)s"
 msgstr "同步所选的 %(verbose_name_plural)s"
 
-#: admin/__init__.py:300
+#: admin_tools/__init__.py:300
 #, python-format
 msgid ""
 "The %(name)s \"%(obj)s\" was changed successfully, and successfully synced "
 "to production."
 msgstr "%(name)s \"%(obj)s\" 修改成功, 并成功同步到线上."
 
-#: admin/__init__.py:306
+#: admin_tools/__init__.py:306
 #, python-format
 msgid "The %(name)s \"%(obj)s\" was changed successfully."
 msgstr "%(name)s \"%(obj)s\" 修改成功."
 
-#: admin/__init__.py:317
+#: admin_tools/__init__.py:317
 #, python-format
 msgid ""
 "The %(name)s \"%(obj)s\" was added successfully, and successfully synced to "
 "production."
 msgstr "%(name)s \"%(obj)s\" 添加成功, 并成功同步到线上."
 
-#: admin/filters.py:8 usermanagement/admin.py:80
+#: admin_tools/filters.py:8 usermanagement/admin.py:80
 msgid "action flag"
 msgstr "动作标志"
 
-#: admin/filters.py:28 usermanagement/admin.py:13
+#: admin_tools/filters.py:28 usermanagement/admin.py:13
 msgid "addition action"
 msgstr "添加操作"
 
-#: admin/filters.py:29 usermanagement/admin.py:14
+#: admin_tools/filters.py:29 usermanagement/admin.py:14
 msgid "change action"
 msgstr "修改操作"
 
-#: admin/filters.py:30 usermanagement/admin.py:15
+#: admin_tools/filters.py:30 usermanagement/admin.py:15
 msgid "deletion action"
 msgstr "删除操作"
 
-#: admin/sites.py:64 admin_tools/theming/templates/admin/login.html:47
+#: admin_tools/sites.py:64 admin_tools/templates/admin/login.html:47
 msgid "Verify Code"
 msgstr "验证码"
 
-#: admin/sites.py:71
+#: admin_tools/sites.py:71
 msgid "Please enter verify code."
 msgstr "请输入验证码."
 
-#: admin/sites.py:73
+#: admin_tools/sites.py:73
 msgid "Please enter a correct verify code."
 msgstr "请输入正确的验证码."
 
-#: admin/sites.py:86 admin_tools/theming/templates/admin/login.html:57
+#: admin_tools/sites.py:86 admin_tools/templates/admin/login.html:57
 msgid "Log in"
 msgstr "登录"
 
-#: admin/widgets.py:30
+#: admin_tools/widgets.py:31
 msgid "Lookup"
 msgstr "查询"
 
-#: admin_tools/theming/templates/admin/base.html:38
+#: admin_tools/templates/admin/base.html:38
 msgid "Documentation"
 msgstr "文档"
 
-#: admin_tools/theming/templates/admin/base.html:41
+#: admin_tools/templates/admin/base.html:41
 msgid "Change password"
 msgstr "更改密码"
 
-#: admin_tools/theming/templates/admin/base.html:43
+#: admin_tools/templates/admin/base.html:43
 msgid "Log out"
 msgstr "注销"
 
-#: admin_tools/theming/templates/admin/base.html:52
-#: admin_tools/theming/templates/admin/change_form.html:19
-#: admin_tools/theming/templates/admin/change_list.html:40
-#: admin_tools/theming/templates/admin/object_history.html:6
-#: admin_tools/theming/templates/registration/logged_out.html:4
+#: admin_tools/templates/admin/base.html:52
+#: admin_tools/templates/admin/change_form.html:19
+#: admin_tools/templates/admin/change_list.html:40
+#: admin_tools/templates/admin/object_history.html:6
+#: admin_tools/templates/registration/logged_out.html:4
 msgid "Home"
 msgstr "主页"
 
-#: admin_tools/theming/templates/admin/change_form.html:22
+#: admin_tools/templates/admin/change_form.html:22
 msgid "Add"
 msgstr "添加"
 
-#: admin_tools/theming/templates/admin/change_form.html:35
-#: admin_tools/theming/templates/admin/object_history.html:10
+#: admin_tools/templates/admin/change_form.html:35
+#: admin_tools/templates/admin/object_history.html:10
 msgid "History"
 msgstr "历史"
 
-#: admin_tools/theming/templates/admin/change_form.html:36
+#: admin_tools/templates/admin/change_form.html:36
 msgid "View on site"
 msgstr "查看网站"
 
-#: admin_tools/theming/templates/admin/change_form.html:47
-#: admin_tools/theming/templates/admin/change_list.html:83
-#: admin_tools/theming/templates/admin/login.html:21
+#: admin_tools/templates/admin/change_form.html:47
+#: admin_tools/templates/admin/change_list.html:83
+#: admin_tools/templates/admin/login.html:21
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] "请更正下面的错误。"
 msgstr[1] "请更正下面的错误。"
 
-#: admin_tools/theming/templates/admin/change_list.html:59
+#: admin_tools/templates/admin/change_list.html:59
 #, python-format
 msgid "Add %(name)s"
 msgstr "添加 %(name)s"
 
-#: admin_tools/theming/templates/admin/change_list.html:66
+#: admin_tools/templates/admin/change_list.html:66
 #, python-format
 msgid "Sync %(name)s to production"
 msgstr "同步 %(name)s 到线上"
 
-#: admin_tools/theming/templates/admin/change_list.html:73
+#: admin_tools/templates/admin/change_list.html:73
 #, python-format
 msgid "Sync %(name)s from production"
 msgstr "从线上更新 %(name)s"
 
-#: admin_tools/theming/templates/admin/change_list.html:92
+#: admin_tools/templates/admin/change_list.html:92
 msgid "Filter"
 msgstr "条件筛选"
 
-#: admin_tools/theming/templates/admin/filter.html:2
+#: admin_tools/templates/admin/filter.html:2
 #, python-format
 msgid " By %(filter_title)s "
 msgstr "以 %(filter_title)s "
 
-#: admin_tools/theming/templates/admin/index.html:17
-#: admin_tools/theming/templates/registration/logged_out.html:8
+#: admin_tools/templates/admin/index.html:17
+#: admin_tools/templates/registration/logged_out.html:8
 msgid "Tips"
 msgstr "提示"
 
-#: admin_tools/theming/templates/admin/index.html:18
+#: admin_tools/templates/admin/index.html:18
 msgid "Welcome to use geekblog content management console."
 msgstr "欢迎使用Geeklog管理控制台"
 
-#: admin_tools/theming/templates/admin/login.html:37
+#: admin_tools/templates/admin/login.html:37
 msgid "Username:"
 msgstr "用户名："
 
-#: admin_tools/theming/templates/admin/login.html:37
+#: admin_tools/templates/admin/login.html:37
 msgid "Username"
 msgstr "用户名"
 
-#: admin_tools/theming/templates/admin/login.html:41
+#: admin_tools/templates/admin/login.html:41
 msgid "Password:"
 msgstr "密码："
 
-#: admin_tools/theming/templates/admin/login.html:41
+#: admin_tools/templates/admin/login.html:41
 msgid "Password"
 msgstr "密码"
 
-#: admin_tools/theming/templates/admin/login.html:47
+#: admin_tools/templates/admin/login.html:47
 msgid "Verify Code:"
 msgstr "验证码："
 
-#: admin_tools/theming/templates/admin/login.html:53
+#: admin_tools/templates/admin/login.html:53
 msgid "Forgotten your password or username?"
 msgstr "忘记密码或用户名？"
 
-#: admin_tools/theming/templates/admin/object_history.html:23
+#: admin_tools/templates/admin/object_history.html:23
 msgid "Date/time"
 msgstr "日期/时间"
 
-#: admin_tools/theming/templates/admin/object_history.html:24
+#: admin_tools/templates/admin/object_history.html:24
 #: usermanagement/models.py:106
 msgid "User"
 msgstr "用户"
 
-#: admin_tools/theming/templates/admin/object_history.html:25
+#: admin_tools/templates/admin/object_history.html:25
 msgid "Action"
 msgstr "动作"
 
-#: admin_tools/theming/templates/admin/object_history.html:40
+#: admin_tools/templates/admin/object_history.html:40
 msgid ""
 "This object doesn't have a change history. It probably wasn't added via this "
 "admin site."
 msgstr "当前对象没有修改历史. 可能不是通过Admin添加的."
 
-#: admin_tools/theming/templates/admin/pagination.html:12
-#: admin_tools/theming/templates/admin/submit_line.html:3
+#: admin_tools/templates/admin/pagination.html:12
+#: admin_tools/templates/admin/submit_line.html:3
 msgid "Save"
 msgstr "保存"
 
-#: admin_tools/theming/templates/admin/submit_line.html:4
+#: admin_tools/templates/admin/submit_line.html:4
 msgid "Delete"
 msgstr "删除"
 
-#: admin_tools/theming/templates/admin/submit_line.html:5
+#: admin_tools/templates/admin/submit_line.html:5
 msgid "Save as new"
 msgstr "保存为新的"
 
-#: admin_tools/theming/templates/admin/submit_line.html:6
+#: admin_tools/templates/admin/submit_line.html:6
 msgid "Save and add another"
 msgstr "保存并添加另一个"
 
-#: admin_tools/theming/templates/admin/submit_line.html:7
+#: admin_tools/templates/admin/submit_line.html:7
 msgid "Save and continue editing"
 msgstr "保存并继续编辑"
 
-#: admin_tools/theming/templates/admin/submit_line.html:8
+#: admin_tools/templates/admin/submit_line.html:8
 msgid "Save and sync"
 msgstr "保存并同步"
 
-#: admin_tools/theming/templates/registration/logged_out.html:9
+#: admin_tools/templates/registration/logged_out.html:9
 msgid "Thanks for spending some quality time with the Web site today."
 msgstr "感谢您今天在本站花费一些宝贵时间."
 
-#: admin_tools/theming/templates/registration/logged_out.html:10
+#: admin_tools/templates/registration/logged_out.html:10
 msgid "Log in again"
 msgstr "重新登录"
 
-#: admin_tools/theming/templatetags/admin_tools_pagination_tags.py:19
+#: admin_tools/templatetags/admin_tools_pagination_tags.py:19
 msgid "next page"
 msgstr "下一页"
 
-#: admin_tools/theming/templatetags/admin_tools_pagination_tags.py:22
+#: admin_tools/templatetags/admin_tools_pagination_tags.py:22
 msgid "prev page"
 msgstr "上一页"
 
@@ -675,11 +675,11 @@ msgstr "友情链接"
 msgid "Site's Links"
 msgstr "本站链接"
 
-#: geekblog/settings.py:341
+#: geekblog/settings.py:340
 msgid "content management"
 msgstr "内容管理"
 
-#: geekblog/settings.py:358
+#: geekblog/settings.py:357
 msgid "system management"
 msgstr "系统管理"
 

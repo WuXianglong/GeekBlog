@@ -7,7 +7,7 @@ from fnmatch import fnmatch
 from django.conf import settings
 from django.core.urlresolvers import reverse
 
-from geekblog.admin.sites import custom_site
+from geekblog.admin_tools.sites import custom_site
 
 
 def get_admin_site_name(context):

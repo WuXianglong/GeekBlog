@@ -6,7 +6,5 @@ graft geekblog/static
 graft geekblog/templates
 graft geekblog/ueditor/static
 graft geekblog/ueditor/templates
-graft geekblog/admin_tools/locale
 graft geekblog/admin_tools/static
-graft geekblog/admin_tools/theming/static
-graft geekblog/admin_tools/theming/templates
+graft geekblog/admin_tools/templates

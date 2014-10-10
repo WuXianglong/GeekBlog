@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from geekblog.utils import StringWithTitle
 from geekblog.ueditor.models import UEditorField
-from geekblog.admin.storages import LocalFileSystemStorage
+from geekblog.admin_tools.storages import LocalFileSystemStorage
 from geekblog.geekblog.constants import SYNC_STATUS, ARTICLE_MARKS, ARTICLE_STATUS, COMMENT_STATUS, LINK_TYPES
 
 
