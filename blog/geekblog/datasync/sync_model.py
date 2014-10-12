@@ -3,7 +3,7 @@ import sys
 import traceback
 from django.conf import settings
 
-from geekblog.datasync.modeladapter import get_adapter
+from datasync.modeladapter import get_adapter
 
 
 def sync_obj(obj, cls):

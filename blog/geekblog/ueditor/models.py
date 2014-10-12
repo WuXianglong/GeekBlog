@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.admin import widgets as admin_widgets
 
-from geekblog.ueditor.widgets import UEditorWidget, AdminUEditorWidget
+from ueditor.widgets import UEditorWidget, AdminUEditorWidget
 
 
 class UEditorField(models.TextField):

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.utils.translation import ugettext_lazy as _
 
-from geekblog.utils.enum import Enum
+# from utils.enum import Enum
+from .enum import Enum
 
 ALL_MONTHS = [_('JAN'), _('FEB'), _('MAR'), _('APR'), _('MAY'), _('JUN'),
               _('JUL'), _('AUG'), _('SEP'), _('OCT'), _('NOV'), _('DEC')]

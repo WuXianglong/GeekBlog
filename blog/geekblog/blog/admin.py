@@ -1,10 +1,10 @@
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-from geekblog.admin_tools import BaseModelAdmin
-from geekblog.admin_tools.sites import custom_site
-from geekblog.geekblog.constants import ARTICLE_STATUS, COMMENT_STATUS
-from geekblog.blog.models import Category, Tag, Link, Slider, Photo, Article, Comment
+from admin_tools import BaseModelAdmin
+from admin_tools.sites import custom_site
+from geek_blog.constants import ARTICLE_STATUS, COMMENT_STATUS
+from blog.models import Category, Tag, Link, Slider, Photo, Article, Comment
 
 
 class CategoryAdmin(BaseModelAdmin):

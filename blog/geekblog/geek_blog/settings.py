@@ -158,8 +158,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
-    'geekblog.geekblog.context_processors.urlname',
-    'geekblog.geekblog.context_processors.website_meta',
+    'geek_blog.context_processors.urlname',
+    'geek_blog.context_processors.website_meta',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -171,13 +171,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'geekblog.geekblog.middlewares.MobileDetectionMiddleware',
+    'geek_blog.middlewares.MobileDetectionMiddleware',
 )
 
-ROOT_URLCONF = 'geekblog.geekblog.urls'
+ROOT_URLCONF = 'geek_blog.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'geekblog.wsgi.application'
+WSGI_APPLICATION = 'geek_blog.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
@@ -340,12 +340,12 @@ LEFT_NAV_MODELS = {
         'title': _('content management'),
         'models': [
             'catearticles.*',
-            'geekblog.blog.models.Category',
-            'geekblog.blog.models.Tag',
-            'geekblog.blog.models.Link',
-            'geekblog.blog.models.Slider',
-            'geekblog.blog.models.Photo',
-            'geekblog.blog.models.Comment',
+            'blog.models.Category',
+            'blog.models.Tag',
+            'blog.models.Link',
+            'blog.models.Slider',
+            'blog.models.Photo',
+            'blog.models.Comment',
         ],
         'app_label_order': {
             'catearticles': 1,

@@ -4,7 +4,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.util import model_ngettext
 
-from geekblog.datasync.modeladapter import get_adapter
+from datasync.modeladapter import get_adapter
 
 logger = logging.getLogger('geekblog')
 

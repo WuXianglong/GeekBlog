@@ -10,7 +10,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from geekblog.ueditor import settings as ueditor_settings
+from ueditor import settings as ueditor_settings
 
 logger = logging.getLogger('geekblog')
 
@@ -186,7 +186,7 @@ def upload_file(request):
     max_size = long(request.GET.get(upload_max_sizes[action], \
             ueditor_settings.UEDITOR_UPLOAD_SETTINGS.get(upload_max_sizes[action], 0)))
     if max_size != 0:
-        from geekblog.ueditor.utils import FileSize
+        from ueditor.utils import FileSize
         max_file_size = FileSize(max_size)
         if upload_file_size > max_file_size.size:
             state = u"上传文件大小不允许超过%s。" % max_file_size.friend_value

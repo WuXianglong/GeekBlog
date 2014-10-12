@@ -11,11 +11,10 @@ from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _
 from django.http import HttpResponseRedirect
 
-from geekblog.admin_tools.widgets import CustomForeignKeyRawIdWidget
-from geekblog.geekblog.constants import SYNC_STATUS
-from geekblog.datasync.sync_model import sync_obj
-from geekblog.datasync.modeladapter import get_adapter
-from geekblog.datasync import sync_to_production, sync_from_production
+from admin_tools.widgets import CustomForeignKeyRawIdWidget
+from datasync.sync_model import sync_obj
+from datasync.modeladapter import get_adapter
+from datasync import sync_to_production, sync_from_production
 
 
 class BaseModelAdmin(admin.ModelAdmin):
@@ -186,6 +185,7 @@ class BaseModelAdmin(admin.ModelAdmin):
         if 'order' in form.clean() and (not old_obj or old_obj.order != obj.order):
             need_adjust_items, adjust_amount = self._get_need_adjust_items(request, old_obj, obj)
             # adjust order and save items
+            from geek_blog.constants import SYNC_STATUS
             need_adjust_items.update(order=F('order') + adjust_amount, sync_status=SYNC_STATUS.NEED_SYNC)
         obj.save()
 

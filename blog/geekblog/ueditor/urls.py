@@ -6,7 +6,7 @@ if VERSION[0: 2] > (1, 3):
 else:
     from django.conf.urls.defaults import patterns, url
 
-from geekblog.ueditor.views import get_ueditor_controller
+from ueditor.views import get_ueditor_controller
 
 urlpatterns = patterns(
     '',

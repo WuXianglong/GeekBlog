@@ -1,7 +1,7 @@
 #! -*- coding:utf-8 -*-
 import logging
 from pymongo import DESCENDING
-from geekblog.mongodb import MongodbStorage, IncrementalId, set_default_order, cursor_to_list
+from mongodb import MongodbStorage, IncrementalId, set_default_order, cursor_to_list
 
 logger = logging.getLogger('geekblog')
 

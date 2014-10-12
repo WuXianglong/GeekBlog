@@ -2,9 +2,9 @@
 from syncto import sync_to_production
 from syncfrom import sync_from_production
 
-from geekblog.mongodb.blog import BlogMongodbStorage
-from geekblog.blog.models import Category, Tag, Link, Slider, Article, Comment
-from geekblog.datasync.modeladapter import register, adapters
+from mongodb.blog import BlogMongodbStorage
+from blog.models import Category, Tag, Link, Slider, Article, Comment
+from datasync.modeladapter import register, adapters
 
 register(Category, adapters.CategoryAdapter, {'db': BlogMongodbStorage, 'table': 'categories'})
 register(Tag, adapters.TagAdapter, {'db': BlogMongodbStorage, 'table': 'tags'})

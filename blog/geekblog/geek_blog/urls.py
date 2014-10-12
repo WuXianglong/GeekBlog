@@ -9,10 +9,10 @@ from django.views.decorators.cache import cache_page
 from django.contrib.sitemaps import views as sitemap_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from geekblog.admin_tools.sites import custom_site
-from geekblog.blog.views import preview_article
-from geekblog.geekblog.sitemap import ArticleSitemap
-from geekblog.geekblog.views import get_related_lookup_info, generate_verify_code
+from admin_tools.sites import custom_site
+from blog.views import preview_article
+from .sitemap import ArticleSitemap
+from .views import get_related_lookup_info, generate_verify_code
 
 admin.autodiscover()
 
@@ -36,4 +36,4 @@ urlpatterns = patterns(
 
 urlpatterns += staticfiles_urlpatterns()
 
-handler404 = 'geekblog.geekblog.views.custom_page_not_found'
+handler404 = 'geek_blog.views.custom_page_not_found'

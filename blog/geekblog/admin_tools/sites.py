@@ -15,8 +15,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from geekblog.utils.verify_code import VerifyCode
-
 
 @csrf_protect
 @never_cache
@@ -64,6 +62,7 @@ class CustomAdminAuthenticationForm(AdminAuthenticationForm):
     verify_code = forms.CharField(label=_("Verify Code"), max_length=10, required=False)
 
     def clean(self):
+        from verify_code import VerifyCode
         verify_code = self.cleaned_data.get('verify_code')
         code = VerifyCode(self.request)
 

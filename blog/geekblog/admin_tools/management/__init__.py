@@ -4,7 +4,7 @@ from django.utils.encoding import smart_unicode
 from django.contrib.auth import models as auth_app
 from django.contrib.auth.management import create_permissions
 
-from geekblog.blog.models import BaseModel, Comment
+from blog.models import BaseModel, Comment
 
 
 def _get_permission_codename(action, opts):

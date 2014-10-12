@@ -5,8 +5,8 @@ if VERSION[0: 2] > (1, 3):
 else:
     from django.conf.urls.defaults import patterns, url
 
-from geekblog.blog.views import (show_homepage, show_article, show_category, show_tag,
-                                 show_search, show_archive_page, show_about_page, show_friend_link_page)
+from blog.views import (show_homepage, show_article, show_category, show_tag,
+                        show_search, show_archive_page, show_about_page, show_friend_link_page)
 
 urlpatterns = patterns(
     '',

@@ -1,8 +1,8 @@
 #! -*- coding:utf-8 -*-
 import logging
 
-from geekblog.utils import safe_cast
-from geekblog.mongodb import datetime2timestamp, timestamp2datetime
+from utils import safe_cast
+from mongodb import datetime2timestamp, timestamp2datetime
 
 logger = logging.getLogger('geekblog')
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django import forms
 
-from geekblog.ueditor.widgets import UEditorWidget
-from geekblog.ueditor.models import UEditorField as ModelUEditorField
+from ueditor.widgets import UEditorWidget
+from ueditor.models import UEditorField as ModelUEditorField
 
 
 class UEditorField(forms.CharField):

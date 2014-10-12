@@ -4,10 +4,10 @@ from django.conf import settings
 from django.utils.encoding import smart_str
 from django.utils.translation import ugettext_lazy as _
 
-from geekblog.utils import StringWithTitle
-from geekblog.ueditor.models import UEditorField
-from geekblog.admin_tools.storages import LocalFileSystemStorage
-from geekblog.geekblog.constants import SYNC_STATUS, ARTICLE_MARKS, ARTICLE_STATUS, COMMENT_STATUS, LINK_TYPES
+from utils import StringWithTitle
+from ueditor.models import UEditorField
+from admin_tools.storages import LocalFileSystemStorage
+from geek_blog.constants import SYNC_STATUS, ARTICLE_MARKS, ARTICLE_STATUS, COMMENT_STATUS, LINK_TYPES
 
 
 def _get_cate_children(category, only_id=False):

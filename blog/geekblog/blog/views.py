@@ -6,11 +6,11 @@ from django.shortcuts import render_to_response
 from django.views.decorators.cache import cache_page
 from django.utils.translation import ugettext, ugettext_lazy as _
 
-from geekblog.utils import safe_cast
-from geekblog.mongodb.blog import BlogMongodbStorage
-from geekblog.mongodb import datetime2timestamp, timestamp2datetime
-from geekblog.geekblog.constants import ALL_MONTHS, LINK_TYPES
-from geekblog.blog.models import Article
+from utils import safe_cast
+from mongodb.blog import BlogMongodbStorage
+from mongodb import datetime2timestamp, timestamp2datetime
+from geek_blog.constants import ALL_MONTHS, LINK_TYPES
+from blog.models import Article
 
 logger = logging.getLogger('geekblog')
 blog_db = BlogMongodbStorage(settings.MONGODB_CONF)

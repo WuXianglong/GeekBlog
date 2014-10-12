@@ -6,7 +6,7 @@ To load the theming tags just do: ``{% load theming_tags %}``.
 
 from django import template
 from django.conf import settings
-from geekblog.admin_tools.utils import get_media_url
+from admin_tools.utils import get_media_url
 
 register = template.Library()
 

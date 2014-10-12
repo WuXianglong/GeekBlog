@@ -1,9 +1,9 @@
 import logging
 from django import forms
 
-from geekblog.blog.admin import ArticleAdmin
-from geekblog.admin_tools.sites import custom_site
-from geekblog.catearticles.models import get_category, query_categories, catearticle_factory
+from blog.admin import ArticleAdmin
+from admin_tools.sites import custom_site
+from catearticles.models import get_category, query_categories, catearticle_factory
 
 logger = logging.getLogger('geekblog')
 

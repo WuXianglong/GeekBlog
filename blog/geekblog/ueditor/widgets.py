@@ -6,8 +6,8 @@ from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 from django.utils.http import urlencode
 
-from geekblog.ueditor.commands import *
-from geekblog.ueditor import settings as u_settings
+from ueditor.commands import *
+from ueditor import settings as u_settings
 
 
 def calc_path(output_path, instance=None):

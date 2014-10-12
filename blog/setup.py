@@ -12,7 +12,6 @@ setup(
     maintainer='WuXianglong',
     url='http://www.xianglong.me/',
     download_url='https://github.com/WuXianglong/GeekBlog/archive/master.zip',
-    packages=['geekblog'],
     include_package_data=True,
     install_requires=[
         'setuptools',

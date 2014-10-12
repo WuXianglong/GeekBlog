@@ -9,8 +9,8 @@ To load the leftnav tags in your templates: ``{% load admin_tools_leftnav_tags %
 """
 from django import template
 
-from geekblog.admin_tools.utils import get_media_url
-from geekblog.admin_tools.leftnav import DefaultLeftNav
+from admin_tools.utils import get_media_url
+from admin_tools.leftnav import DefaultLeftNav
 
 register = template.Library()
 tag_func = register.inclusion_tag('admin_tools/leftnav/dummy.html', takes_context=True)
