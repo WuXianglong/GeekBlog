@@ -36,6 +36,5 @@ nosetests.xml
 .idea
 
 # conf files
-conf/dev/dev.cfg
 conf/online/online.cfg
 blog/geekblog/geekblog.cfg
