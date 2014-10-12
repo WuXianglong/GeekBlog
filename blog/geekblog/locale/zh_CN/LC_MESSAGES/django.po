@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-10 17:33+0800\n"
+"POT-Creation-Date: 2014-10-12 15:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,30 +17,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: admin_tools/__init__.py:30
+#: admin_tools/__init__.py:29
 msgid "ReadOnly"
 msgstr "只读"
 
-#: admin_tools/__init__.py:46
+#: admin_tools/__init__.py:45
 msgid "None"
 msgstr "无"
 
-#: admin_tools/__init__.py:85
+#: admin_tools/__init__.py:84
 #, python-format
 msgid "Successfully deleted %(count)d %(items)s."
 msgstr "成功删除 %(count)d %(items)s."
 
-#: admin_tools/__init__.py:88
+#: admin_tools/__init__.py:87
 #, python-format
 msgid "Delete selected %(verbose_name_plural)s"
 msgstr "删除所选的 %(verbose_name_plural)s"
 
-#: admin_tools/__init__.py:95
+#: admin_tools/__init__.py:94
 #, python-format
 msgid "Successfully synced %(count)d %(items)s."
 msgstr "成功同步 %(count)d %(items)s."
 
-#: admin_tools/__init__.py:98
+#: admin_tools/__init__.py:97
 #, python-format
 msgid "Sync selected %(verbose_name_plural)s"
 msgstr "同步所选的 %(verbose_name_plural)s"
@@ -80,19 +80,19 @@ msgstr "修改操作"
 msgid "deletion action"
 msgstr "删除操作"
 
-#: admin_tools/sites.py:64 admin_tools/templates/admin/login.html:47
+#: admin_tools/sites.py:62 admin_tools/templates/admin/login.html:47
 msgid "Verify Code"
 msgstr "验证码"
 
-#: admin_tools/sites.py:71
+#: admin_tools/sites.py:70
 msgid "Please enter verify code."
 msgstr "请输入验证码."
 
-#: admin_tools/sites.py:73
+#: admin_tools/sites.py:72
 msgid "Please enter a correct verify code."
 msgstr "请输入正确的验证码."
 
-#: admin_tools/sites.py:86 admin_tools/templates/admin/login.html:57
+#: admin_tools/sites.py:85 admin_tools/templates/admin/login.html:57
 msgid "Log in"
 msgstr "登录"
 
@@ -571,115 +571,115 @@ msgstr "成功同步 %(count)d %(items)s 到线上\n"
 msgid "%(count)d %(items)s fail sync data to production environment.\n"
 msgstr "%(count)d %(items)s 同步失败\n"
 
-#: geekblog/constants.py:6
+#: geek_blog/constants.py:7
 msgid "JAN"
 msgstr "一月"
 
-#: geekblog/constants.py:6
+#: geek_blog/constants.py:7
 msgid "FEB"
 msgstr "二月"
 
-#: geekblog/constants.py:6
+#: geek_blog/constants.py:7
 msgid "MAR"
 msgstr "三月"
 
-#: geekblog/constants.py:6
+#: geek_blog/constants.py:7
 msgid "APR"
 msgstr "四月"
 
-#: geekblog/constants.py:6
+#: geek_blog/constants.py:7
 msgid "MAY"
 msgstr "五月"
 
-#: geekblog/constants.py:6
+#: geek_blog/constants.py:7
 msgid "JUN"
 msgstr "六月"
 
-#: geekblog/constants.py:7
+#: geek_blog/constants.py:8
 msgid "JUL"
 msgstr "七月"
 
-#: geekblog/constants.py:7
+#: geek_blog/constants.py:8
 msgid "AUG"
 msgstr "八月"
 
-#: geekblog/constants.py:7
+#: geek_blog/constants.py:8
 msgid "SEP"
 msgstr "九月"
 
-#: geekblog/constants.py:7
+#: geek_blog/constants.py:8
 msgid "OCT"
 msgstr "十月"
 
-#: geekblog/constants.py:7
+#: geek_blog/constants.py:8
 msgid "NOV"
 msgstr "十一月"
 
-#: geekblog/constants.py:7
+#: geek_blog/constants.py:8
 msgid "DEC"
 msgstr "十二月"
 
-#: geekblog/constants.py:10
+#: geek_blog/constants.py:11
 msgid "Need Sync"
 msgstr "需要同步"
 
-#: geekblog/constants.py:11
+#: geek_blog/constants.py:12
 msgid "Synced"
 msgstr "已同步"
 
-#: geekblog/constants.py:15
+#: geek_blog/constants.py:16
 msgid "Not Authed"
 msgstr "未认证"
 
-#: geekblog/constants.py:16
+#: geek_blog/constants.py:17
 msgid "Active"
 msgstr "已激活"
 
-#: geekblog/constants.py:17 geekblog/constants.py:35
+#: geek_blog/constants.py:18 geek_blog/constants.py:36
 msgid "Rejected"
 msgstr "已拒绝"
 
-#: geekblog/constants.py:21
+#: geek_blog/constants.py:22
 msgid "Newest"
 msgstr "最新"
 
-#: geekblog/constants.py:22
+#: geek_blog/constants.py:23
 msgid "Hottest"
 msgstr "最热"
 
-#: geekblog/constants.py:23
+#: geek_blog/constants.py:24
 msgid "Recommend"
 msgstr "推荐"
 
-#: geekblog/constants.py:27 geekblog/constants.py:33
+#: geek_blog/constants.py:28 geek_blog/constants.py:34
 msgid "Not Reviewed"
 msgstr "未审核"
 
-#: geekblog/constants.py:28
+#: geek_blog/constants.py:29
 msgid "Published"
 msgstr "已发布"
 
-#: geekblog/constants.py:29
+#: geek_blog/constants.py:30
 msgid "Expired"
 msgstr "过期"
 
-#: geekblog/constants.py:34
+#: geek_blog/constants.py:35
 msgid "Approved"
 msgstr "通过"
 
-#: geekblog/constants.py:39 templates/link.html:8
+#: geek_blog/constants.py:40 templates/link.html:8
 msgid "Friend's Links"
 msgstr "友情链接"
 
-#: geekblog/constants.py:40 templates/link.html:16
+#: geek_blog/constants.py:41 templates/link.html:16
 msgid "Site's Links"
 msgstr "本站链接"
 
-#: geekblog/settings.py:340
+#: geek_blog/settings.py:336
 msgid "content management"
 msgstr "内容管理"
 
-#: geekblog/settings.py:357
+#: geek_blog/settings.py:353
 msgid "system management"
 msgstr "系统管理"
 

@@ -16,9 +16,11 @@ class UEditorField(models.TextField):
     """
     def __init__(self, verbose_name=None, width=600, height=400, toolbars="normal",
             image_path="", file_path="", upload_settings=None, settings=None, command=None, event_handler=None, **kwargs):
-        for param in (upload_settings, settings):
-            if param is None:
-                param = {}
+        if upload_settings is None:
+            upload_settings = {}
+        if settings is None:
+            settings = {}
+
         self.ueditor_settings = locals().copy()
         kwargs["verbose_name"] = verbose_name
         del self.ueditor_settings["self"], self.ueditor_settings["kwargs"], self.ueditor_settings["verbose_name"]
