@@ -1,10 +1,9 @@
 from django.utils.translation import ugettext as _
 from django.db.models.base import ModelBase
 
-from blogcore.admin.management import create_permission
-from blogcore.models.base import BaseManager
-from blogcore.utils import StringWithTitle
-from blog.models import Article, Category
+from utils import StringWithTitle
+from admin_tools.management import create_permission
+from blog.models import BaseManager, Article, Category
 
 CATEGORIES = {}
 
@@ -45,4 +44,5 @@ def catearticle_factory(class_s, category_name, model=Article):
     class_name = '%s%s' % (model.__name__, class_s)
     model_class = ModelBase(class_name, (model,), class_attrs)
     create_permission(model_class)
+
     return model_class

@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-from blogcore.admin import BaseModelAdmin
-from blogcore.admin.sites import custom_site
-from blogcore.models.constants import ARTICLE_STATUS, COMMENT_STATUS
+from admin_tools import BaseModelAdmin
+from admin_tools.sites import custom_site
+from geek_blog.constants import ARTICLE_STATUS, COMMENT_STATUS
 from blog.models import Category, Tag, Link, Slider, Photo, Article, Comment
 
 

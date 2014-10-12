@@ -4,8 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin, GroupAdmin
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
 
-from blogcore.admin.filters import ActionFlagFilter
-from blogcore.admin.sites import custom_site
+from admin_tools.filters import ActionFlagFilter
+from admin_tools.sites import custom_site
 from usermanagement.models import CustomGroup, CustomUser
 from usermanagement.forms import CustomUserCreationForm, CustomUserChangeForm
 

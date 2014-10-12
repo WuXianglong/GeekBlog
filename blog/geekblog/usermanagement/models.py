@@ -7,8 +7,9 @@ from django.core import validators
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import Group, AbstractBaseUser, PermissionsMixin, BaseUserManager
 
-from blogcore.utils import StringWithTitle
-from blogcore.models.constants import USER_STATUS
+from geek_blog.enum import Enum
+from utils import StringWithTitle
+from geek_blog.constants import USER_STATUS
 
 
 class CustomGroup(Group):

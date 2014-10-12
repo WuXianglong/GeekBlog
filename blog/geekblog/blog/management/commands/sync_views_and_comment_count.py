@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+import re
 import time
 import datetime
 
@@ -7,11 +8,21 @@ import requests
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from blogcore.db.blog import BlogMongodbStorage
-from blogcore.db import timestamp2datetime
-from blogcore.models.constants import COMMENT_STATUS
+from mongodb.blog import BlogMongodbStorage
+from mongodb import timestamp2datetime
+from blog.models.constants import COMMENT_STATUS
 
 blog_db = BlogMongodbStorage(settings.MONGODB_CONF)
+img_regex = re.compile(r'(<img src="[^"]+" alt="[^"]+" title="([^"]+)" class="ds-smiley" />)')
+
+
+def _clean_content(content):
+    all_matches = img_regex.findall(content)
+
+    for item in all_matches:
+        content = content.replace(item[0], item[1])
+
+    return content
 
 
 def _upsert_comment(comment):
@@ -26,7 +37,7 @@ def _upsert_comment(comment):
     action = comment.get('action', '')
     meta = comment.get('meta', None)
     if meta and isinstance(meta, dict):
-        from blogcore.models.blog import Article, Comment
+        from blog.models import Article, Comment
         a_id = meta.get('thread_key')
         try:
             if action == 'create':
@@ -48,7 +59,7 @@ def _upsert_comment(comment):
                 c.author_website = meta.get('author_url', '')
                 c.author_ip = meta.get('ip', '')
                 c.comment_date = timestamp2datetime(comment.get('date', None), convert_to_local=True) or datetime.datetime.now()
-                c.content = meta.get('message', '')
+                c.content = _clean_content(meta.get('message', ''))
                 c.author_agent = ''
                 status = meta.get('status', '')
                 c.status = COMMENT_STATUS.APPROVED if status == 'approved' else (COMMENT_STATUS.NOT_REVIEWED if status == 'pending' else COMMENT_STATUS.REJECTED)
@@ -69,7 +80,7 @@ class Command(BaseCommand):
 
     def handle(self, action='all', **options):
         print 'sync comment, views_count and comment_count'
-        from blogcore.models.blog import Article
+        from blog.models import Article
 
         # sync views_count from mongodb
         articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'views_count': 1}, has_login=True)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-30 13:06+0800\n"
+"POT-Creation-Date: 2014-10-10 17:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,169 +17,244 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: admin_tools/theming/templates/admin/base.html:38
+#: admin_tools/__init__.py:30
+msgid "ReadOnly"
+msgstr "只读"
+
+#: admin_tools/__init__.py:46
+msgid "None"
+msgstr "无"
+
+#: admin_tools/__init__.py:85
+#, python-format
+msgid "Successfully deleted %(count)d %(items)s."
+msgstr "成功删除 %(count)d %(items)s."
+
+#: admin_tools/__init__.py:88
+#, python-format
+msgid "Delete selected %(verbose_name_plural)s"
+msgstr "删除所选的 %(verbose_name_plural)s"
+
+#: admin_tools/__init__.py:95
+#, python-format
+msgid "Successfully synced %(count)d %(items)s."
+msgstr "成功同步 %(count)d %(items)s."
+
+#: admin_tools/__init__.py:98
+#, python-format
+msgid "Sync selected %(verbose_name_plural)s"
+msgstr "同步所选的 %(verbose_name_plural)s"
+
+#: admin_tools/__init__.py:300
+#, python-format
+msgid ""
+"The %(name)s \"%(obj)s\" was changed successfully, and successfully synced "
+"to production."
+msgstr "%(name)s \"%(obj)s\" 修改成功, 并成功同步到线上."
+
+#: admin_tools/__init__.py:306
+#, python-format
+msgid "The %(name)s \"%(obj)s\" was changed successfully."
+msgstr "%(name)s \"%(obj)s\" 修改成功."
+
+#: admin_tools/__init__.py:317
+#, python-format
+msgid ""
+"The %(name)s \"%(obj)s\" was added successfully, and successfully synced to "
+"production."
+msgstr "%(name)s \"%(obj)s\" 添加成功, 并成功同步到线上."
+
+#: admin_tools/filters.py:8 usermanagement/admin.py:80
+msgid "action flag"
+msgstr "动作标志"
+
+#: admin_tools/filters.py:28 usermanagement/admin.py:13
+msgid "addition action"
+msgstr "添加操作"
+
+#: admin_tools/filters.py:29 usermanagement/admin.py:14
+msgid "change action"
+msgstr "修改操作"
+
+#: admin_tools/filters.py:30 usermanagement/admin.py:15
+msgid "deletion action"
+msgstr "删除操作"
+
+#: admin_tools/sites.py:64 admin_tools/templates/admin/login.html:47
+msgid "Verify Code"
+msgstr "验证码"
+
+#: admin_tools/sites.py:71
+msgid "Please enter verify code."
+msgstr "请输入验证码."
+
+#: admin_tools/sites.py:73
+msgid "Please enter a correct verify code."
+msgstr "请输入正确的验证码."
+
+#: admin_tools/sites.py:86 admin_tools/templates/admin/login.html:57
+msgid "Log in"
+msgstr "登录"
+
+#: admin_tools/widgets.py:31
+msgid "Lookup"
+msgstr "查询"
+
+#: admin_tools/templates/admin/base.html:38
 msgid "Documentation"
 msgstr "文档"
 
-#: admin_tools/theming/templates/admin/base.html:41
+#: admin_tools/templates/admin/base.html:41
 msgid "Change password"
 msgstr "更改密码"
 
-#: admin_tools/theming/templates/admin/base.html:43
+#: admin_tools/templates/admin/base.html:43
 msgid "Log out"
 msgstr "注销"
 
-#: admin_tools/theming/templates/admin/base.html:52
-#: admin_tools/theming/templates/admin/change_form.html:19
-#: admin_tools/theming/templates/admin/change_list.html:40
-#: admin_tools/theming/templates/admin/object_history.html:6
-#: admin_tools/theming/templates/registration/logged_out.html:4
+#: admin_tools/templates/admin/base.html:52
+#: admin_tools/templates/admin/change_form.html:19
+#: admin_tools/templates/admin/change_list.html:40
+#: admin_tools/templates/admin/object_history.html:6
+#: admin_tools/templates/registration/logged_out.html:4
 msgid "Home"
 msgstr "主页"
 
-#: admin_tools/theming/templates/admin/change_form.html:22
+#: admin_tools/templates/admin/change_form.html:22
 msgid "Add"
 msgstr "添加"
 
-#: admin_tools/theming/templates/admin/change_form.html:35
-#: admin_tools/theming/templates/admin/object_history.html:10
+#: admin_tools/templates/admin/change_form.html:35
+#: admin_tools/templates/admin/object_history.html:10
 msgid "History"
 msgstr "历史"
 
-#: admin_tools/theming/templates/admin/change_form.html:36
+#: admin_tools/templates/admin/change_form.html:36
 msgid "View on site"
 msgstr "查看网站"
 
-#: admin_tools/theming/templates/admin/change_form.html:47
-#: admin_tools/theming/templates/admin/change_list.html:83
-#: admin_tools/theming/templates/admin/login.html:21
+#: admin_tools/templates/admin/change_form.html:47
+#: admin_tools/templates/admin/change_list.html:83
+#: admin_tools/templates/admin/login.html:21
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] "请更正下面的错误。"
 msgstr[1] "请更正下面的错误。"
 
-#: admin_tools/theming/templates/admin/change_list.html:59
+#: admin_tools/templates/admin/change_list.html:59
 #, python-format
 msgid "Add %(name)s"
 msgstr "添加 %(name)s"
 
-#: admin_tools/theming/templates/admin/change_list.html:66
+#: admin_tools/templates/admin/change_list.html:66
 #, python-format
 msgid "Sync %(name)s to production"
 msgstr "同步 %(name)s 到线上"
 
-#: admin_tools/theming/templates/admin/change_list.html:73
+#: admin_tools/templates/admin/change_list.html:73
 #, python-format
 msgid "Sync %(name)s from production"
 msgstr "从线上更新 %(name)s"
 
-#: admin_tools/theming/templates/admin/change_list.html:92
+#: admin_tools/templates/admin/change_list.html:92
 msgid "Filter"
 msgstr "条件筛选"
 
-#: admin_tools/theming/templates/admin/filter.html:2
+#: admin_tools/templates/admin/filter.html:2
 #, python-format
 msgid " By %(filter_title)s "
 msgstr "以 %(filter_title)s "
 
-#: admin_tools/theming/templates/admin/index.html:17
-#: admin_tools/theming/templates/registration/logged_out.html:8
+#: admin_tools/templates/admin/index.html:17
+#: admin_tools/templates/registration/logged_out.html:8
 msgid "Tips"
 msgstr "提示"
 
-#: admin_tools/theming/templates/admin/index.html:18
+#: admin_tools/templates/admin/index.html:18
 msgid "Welcome to use geekblog content management console."
 msgstr "欢迎使用Geeklog管理控制台"
 
-#: admin_tools/theming/templates/admin/login.html:37
+#: admin_tools/templates/admin/login.html:37
 msgid "Username:"
 msgstr "用户名："
 
-#: admin_tools/theming/templates/admin/login.html:37
+#: admin_tools/templates/admin/login.html:37
 msgid "Username"
 msgstr "用户名"
 
-#: admin_tools/theming/templates/admin/login.html:41
+#: admin_tools/templates/admin/login.html:41
 msgid "Password:"
 msgstr "密码："
 
-#: admin_tools/theming/templates/admin/login.html:41
+#: admin_tools/templates/admin/login.html:41
 msgid "Password"
 msgstr "密码"
 
-#: admin_tools/theming/templates/admin/login.html:47
+#: admin_tools/templates/admin/login.html:47
 msgid "Verify Code:"
 msgstr "验证码："
 
-#: admin_tools/theming/templates/admin/login.html:47
-msgid "Verify Code"
-msgstr "验证码"
-
-#: admin_tools/theming/templates/admin/login.html:53
+#: admin_tools/templates/admin/login.html:53
 msgid "Forgotten your password or username?"
 msgstr "忘记密码或用户名？"
 
-#: admin_tools/theming/templates/admin/login.html:57
-msgid "Log in"
-msgstr "登录"
-
-#: admin_tools/theming/templates/admin/object_history.html:23
+#: admin_tools/templates/admin/object_history.html:23
 msgid "Date/time"
 msgstr "日期/时间"
 
-#: admin_tools/theming/templates/admin/object_history.html:24
-#: usermanagement/models.py:105
+#: admin_tools/templates/admin/object_history.html:24
+#: usermanagement/models.py:106
 msgid "User"
 msgstr "用户"
 
-#: admin_tools/theming/templates/admin/object_history.html:25
+#: admin_tools/templates/admin/object_history.html:25
 msgid "Action"
 msgstr "动作"
 
-#: admin_tools/theming/templates/admin/object_history.html:40
+#: admin_tools/templates/admin/object_history.html:40
 msgid ""
 "This object doesn't have a change history. It probably wasn't added via this "
 "admin site."
 msgstr "当前对象没有修改历史. 可能不是通过Admin添加的."
 
-#: admin_tools/theming/templates/admin/pagination.html:12
-#: admin_tools/theming/templates/admin/submit_line.html:3
+#: admin_tools/templates/admin/pagination.html:12
+#: admin_tools/templates/admin/submit_line.html:3
 msgid "Save"
 msgstr "保存"
 
-#: admin_tools/theming/templates/admin/submit_line.html:4
+#: admin_tools/templates/admin/submit_line.html:4
 msgid "Delete"
 msgstr "删除"
 
-#: admin_tools/theming/templates/admin/submit_line.html:5
+#: admin_tools/templates/admin/submit_line.html:5
 msgid "Save as new"
 msgstr "保存为新的"
 
-#: admin_tools/theming/templates/admin/submit_line.html:6
+#: admin_tools/templates/admin/submit_line.html:6
 msgid "Save and add another"
 msgstr "保存并添加另一个"
 
-#: admin_tools/theming/templates/admin/submit_line.html:7
+#: admin_tools/templates/admin/submit_line.html:7
 msgid "Save and continue editing"
 msgstr "保存并继续编辑"
 
-#: admin_tools/theming/templates/admin/submit_line.html:8
+#: admin_tools/templates/admin/submit_line.html:8
 msgid "Save and sync"
 msgstr "保存并同步"
 
-#: admin_tools/theming/templates/registration/logged_out.html:9
+#: admin_tools/templates/registration/logged_out.html:9
 msgid "Thanks for spending some quality time with the Web site today."
 msgstr "感谢您今天在本站花费一些宝贵时间."
 
-#: admin_tools/theming/templates/registration/logged_out.html:10
+#: admin_tools/templates/registration/logged_out.html:10
 msgid "Log in again"
 msgstr "重新登录"
 
-#: admin_tools/theming/templatetags/admin_tools_pagination_tags.py:19
+#: admin_tools/templatetags/admin_tools_pagination_tags.py:19
 msgid "next page"
 msgstr "下一页"
 
-#: admin_tools/theming/templatetags/admin_tools_pagination_tags.py:22
+#: admin_tools/templatetags/admin_tools_pagination_tags.py:22
 msgid "prev page"
 msgstr "上一页"
 
@@ -202,6 +277,263 @@ msgstr "不能发布未审核通过的 %(model)s: %(obj)s"
 msgid "Content"
 msgstr "内容"
 
+#: blog/models.py:42 blog/models.py:64
+msgid "creator"
+msgstr "创建者"
+
+#: blog/models.py:43
+msgid "created_time"
+msgstr "创建时间"
+
+#: blog/models.py:44 blog/models.py:58
+msgid "modifier"
+msgstr "修改者"
+
+#: blog/models.py:45
+msgid "last modified"
+msgstr "修改日期"
+
+#: blog/models.py:46 blog/models.py:232
+msgid "hided"
+msgstr "已隐藏"
+
+#: blog/models.py:48 blog/models.py:233
+msgid "published"
+msgstr "已发布"
+
+#: blog/models.py:49 blog/models.py:234
+msgid "sync status"
+msgstr "同步状态"
+
+#: blog/models.py:50
+msgid "No."
+msgstr "序号"
+
+#: blog/models.py:76 blog/models.py:112
+msgid "name"
+msgstr "名字"
+
+#: blog/models.py:77 blog/models.py:113 blog/models.py:179
+msgid "slug"
+msgstr "别名"
+
+#: blog/models.py:78 blog/models.py:130 blog/models.py:166 blog/models.py:184
+msgid "description"
+msgstr "描述"
+
+#: blog/models.py:79 blog/models.py:128 blog/models.py:142
+msgid "icon URL"
+msgstr "图标URL"
+
+#: blog/models.py:80
+msgid "icon path"
+msgstr "图标路径"
+
+#: blog/models.py:81
+msgid "Please upload JPEG, PNG, GIF files, size: 64x64"
+msgstr "请上传 JPEG, PNG, GIF 格式的文件，大小：64x64"
+
+#: blog/models.py:84
+msgid "parent category"
+msgstr "父级分类"
+
+#: blog/models.py:85 blog/models.py:114 blog/models.py:195
+msgid "views count"
+msgstr "访问次数"
+
+#: blog/models.py:99
+msgid "article count"
+msgstr "文章数量"
+
+#: blog/models.py:105 blog/models.py:120 blog/models.py:136 blog/models.py:157
+#: blog/models.py:172 blog/models.py:216 blog/models.py:245
+msgid "Blog"
+msgstr "博客"
+
+#: blog/models.py:106
+msgid "Category"
+msgstr "分类"
+
+#: blog/models.py:107
+msgid "Categories"
+msgstr "分类"
+
+#: blog/models.py:121
+msgid "Tag"
+msgstr "标签"
+
+#: blog/models.py:122
+msgid "Tags"
+msgstr "标签"
+
+#: blog/models.py:126
+msgid "link type"
+msgstr "链接类型"
+
+#: blog/models.py:127 blog/models.py:163 blog/models.py:178
+msgid "title"
+msgstr "标题"
+
+#: blog/models.py:129
+msgid "address"
+msgstr "地址"
+
+#: blog/models.py:137
+msgid "Link"
+msgstr "链接"
+
+#: blog/models.py:138
+msgid "Links"
+msgstr "链接"
+
+#: blog/models.py:143
+msgid "image path"
+msgstr "图片路径"
+
+#: blog/models.py:144
+msgid "image title"
+msgstr "图片标题"
+
+#: blog/models.py:158
+msgid "Photo"
+msgstr "图片"
+
+#: blog/models.py:159
+msgid "Photos"
+msgstr "图片"
+
+#: blog/models.py:164
+msgid "slider image"
+msgstr "幻灯图片"
+
+#: blog/models.py:165
+msgid "jump url"
+msgstr "跳转URL"
+
+#: blog/models.py:173
+msgid "Slider"
+msgstr "幻灯块"
+
+#: blog/models.py:174
+msgid "Sliders"
+msgstr "幻灯块"
+
+#: blog/models.py:181
+msgid "category"
+msgstr "分类"
+
+#: blog/models.py:182 blog/models.py:235 usermanagement/models.py:75
+msgid "status"
+msgstr "状态"
+
+#: blog/models.py:183
+msgid "enable comment"
+msgstr "打开评论功能"
+
+#: blog/models.py:186 blog/models.py:231
+msgid "content"
+msgstr "内容"
+
+#: blog/models.py:188
+msgid "mark"
+msgstr "标记"
+
+#: blog/models.py:189
+msgid "tag"
+msgstr "标签"
+
+#: blog/models.py:189
+msgid "Tags that describe this article"
+msgstr "文章标签"
+
+#: blog/models.py:191
+msgid "publish date"
+msgstr "发布日期"
+
+#: blog/models.py:191
+msgid "The date and time this shall appear online."
+msgstr "显示的文章发布日期"
+
+#: blog/models.py:192
+msgid "login required"
+msgstr "需要登录"
+
+#: blog/models.py:193
+msgid "Enable this if users must login before they can read this article."
+msgstr "如果用户需要登录才能查看，请勾选这个选项"
+
+#: blog/models.py:194
+msgid "thumbnail"
+msgstr "缩略图"
+
+#: blog/models.py:196
+msgid "comment count"
+msgstr "评论次数"
+
+#: blog/models.py:210
+msgid "tags"
+msgstr "标签"
+
+#: blog/models.py:217
+msgid "Article"
+msgstr "文章"
+
+#: blog/models.py:218
+msgid "Articles"
+msgstr "文章"
+
+#: blog/models.py:222
+msgid "user"
+msgstr "用户"
+
+#: blog/models.py:223
+msgid "article"
+msgstr "文章"
+
+#: blog/models.py:224
+msgid "author"
+msgstr "作者"
+
+#: blog/models.py:225
+msgid "email"
+msgstr "邮箱"
+
+#: blog/models.py:226 usermanagement/models.py:77
+msgid "website"
+msgstr "网站"
+
+#: blog/models.py:227
+msgid "ip"
+msgstr "IP地址"
+
+#: blog/models.py:228
+msgid "user agent"
+msgstr "用户代理"
+
+#: blog/models.py:229
+msgid "parent comment"
+msgstr "父级评论"
+
+#: blog/models.py:230
+msgid "comment date"
+msgstr "评论日期"
+
+#: blog/models.py:236
+msgid "duoshuo comment ID"
+msgstr "多说评论ID"
+
+#: blog/models.py:237
+msgid "duoshuo user ID"
+msgstr "多说用户ID"
+
+#: blog/models.py:246
+msgid "Comment"
+msgstr "评论"
+
+#: blog/models.py:247
+msgid "Comments"
+msgstr "评论"
+
 #: blog/views.py:238
 msgid "Archive"
 msgstr "归档"
@@ -215,15 +547,139 @@ msgstr "关于"
 msgid "Friend Links"
 msgstr "友链"
 
-#: catearticles/models.py:35
+#: catearticles/models.py:34
 msgid "Category Articles"
 msgstr "分类文章"
 
-#: geekblog/settings.py:343
+#: datasync/syncfrom.py:23
+#, python-format
+msgid "%(count)d %(items)s successfully sync data from production environment."
+msgstr "成功从线上同步 %(count)d %(items)s"
+
+#: datasync/syncfrom.py:27
+#, python-format
+msgid "No %(items)s need to sync to production environment."
+msgstr "没有需要同步的 %(items)s"
+
+#: datasync/syncto.py:44
+#, python-format
+msgid "%(count)d %(items)s successfully sync data to production environment.\n"
+msgstr "成功同步 %(count)d %(items)s 到线上\n"
+
+#: datasync/syncto.py:48
+#, python-format
+msgid "%(count)d %(items)s fail sync data to production environment.\n"
+msgstr "%(count)d %(items)s 同步失败\n"
+
+#: geekblog/constants.py:6
+msgid "JAN"
+msgstr "一月"
+
+#: geekblog/constants.py:6
+msgid "FEB"
+msgstr "二月"
+
+#: geekblog/constants.py:6
+msgid "MAR"
+msgstr "三月"
+
+#: geekblog/constants.py:6
+msgid "APR"
+msgstr "四月"
+
+#: geekblog/constants.py:6
+msgid "MAY"
+msgstr "五月"
+
+#: geekblog/constants.py:6
+msgid "JUN"
+msgstr "六月"
+
+#: geekblog/constants.py:7
+msgid "JUL"
+msgstr "七月"
+
+#: geekblog/constants.py:7
+msgid "AUG"
+msgstr "八月"
+
+#: geekblog/constants.py:7
+msgid "SEP"
+msgstr "九月"
+
+#: geekblog/constants.py:7
+msgid "OCT"
+msgstr "十月"
+
+#: geekblog/constants.py:7
+msgid "NOV"
+msgstr "十一月"
+
+#: geekblog/constants.py:7
+msgid "DEC"
+msgstr "十二月"
+
+#: geekblog/constants.py:10
+msgid "Need Sync"
+msgstr "需要同步"
+
+#: geekblog/constants.py:11
+msgid "Synced"
+msgstr "已同步"
+
+#: geekblog/constants.py:15
+msgid "Not Authed"
+msgstr "未认证"
+
+#: geekblog/constants.py:16
+msgid "Active"
+msgstr "已激活"
+
+#: geekblog/constants.py:17 geekblog/constants.py:35
+msgid "Rejected"
+msgstr "已拒绝"
+
+#: geekblog/constants.py:21
+msgid "Newest"
+msgstr "最新"
+
+#: geekblog/constants.py:22
+msgid "Hottest"
+msgstr "最热"
+
+#: geekblog/constants.py:23
+msgid "Recommend"
+msgstr "推荐"
+
+#: geekblog/constants.py:27 geekblog/constants.py:33
+msgid "Not Reviewed"
+msgstr "未审核"
+
+#: geekblog/constants.py:28
+msgid "Published"
+msgstr "已发布"
+
+#: geekblog/constants.py:29
+msgid "Expired"
+msgstr "过期"
+
+#: geekblog/constants.py:34
+msgid "Approved"
+msgstr "通过"
+
+#: geekblog/constants.py:39 templates/link.html:8
+msgid "Friend's Links"
+msgstr "友情链接"
+
+#: geekblog/constants.py:40 templates/link.html:16
+msgid "Site's Links"
+msgstr "本站链接"
+
+#: geekblog/settings.py:340
 msgid "content management"
 msgstr "内容管理"
 
-#: geekblog/settings.py:360
+#: geekblog/settings.py:357
 msgid "system management"
 msgstr "系统管理"
 
@@ -472,14 +928,6 @@ msgstr "详细阅读 %(title)s"
 msgid "Read more"
 msgstr "阅读全文"
 
-#: templates/link.html:8
-msgid "Friend's Links"
-msgstr "友情链接"
-
-#: templates/link.html:16
-msgid "Site's Links"
-msgstr "本站链接"
-
 #: templates/link.html:23
 msgid "Link Statement:"
 msgstr "链接声明："
@@ -535,22 +983,6 @@ msgstr "上一页"
 msgid "Next"
 msgstr "下一页"
 
-#: usermanagement/admin.py:13
-msgid "addition action"
-msgstr "添加操作"
-
-#: usermanagement/admin.py:14
-msgid "change action"
-msgstr "修改操作"
-
-#: usermanagement/admin.py:15
-msgid "deletion action"
-msgstr "删除操作"
-
-#: usermanagement/admin.py:80
-msgid "action flag"
-msgstr "动作标志"
-
 #: usermanagement/admin.py:86
 msgid "Personal info"
 msgstr "个人信息"
@@ -563,81 +995,73 @@ msgstr "权限"
 msgid "Important dates"
 msgstr "重要日期"
 
-#: usermanagement/models.py:18 usermanagement/models.py:104
+#: usermanagement/models.py:19 usermanagement/models.py:105
 msgid "User Management"
 msgstr "用户管理"
 
-#: usermanagement/models.py:19
+#: usermanagement/models.py:20
 msgid "Group"
 msgstr "用户组"
 
-#: usermanagement/models.py:20
+#: usermanagement/models.py:21
 msgid "Groups"
 msgstr "用户组"
 
-#: usermanagement/models.py:58
+#: usermanagement/models.py:59
 msgid "username"
 msgstr "用户名"
 
-#: usermanagement/models.py:59
+#: usermanagement/models.py:60
 msgid ""
 "Required. 50 characters or fewer. Letters, numbers and @/./+/-/_ characters"
 msgstr "必填。不多于50个字符。只能用字母、数字和字符 @/./+/-/_ 。"
 
-#: usermanagement/models.py:62
+#: usermanagement/models.py:63
 msgid "Enter a valid username."
 msgstr "请输入合法的用户名"
 
-#: usermanagement/models.py:64
+#: usermanagement/models.py:65
 msgid "first name"
 msgstr "名字"
 
-#: usermanagement/models.py:65
+#: usermanagement/models.py:66
 msgid "last name"
 msgstr "姓氏"
 
-#: usermanagement/models.py:66
+#: usermanagement/models.py:67
 msgid "email address"
 msgstr "E-mail 地址"
 
-#: usermanagement/models.py:67
+#: usermanagement/models.py:68
 msgid "staff status"
 msgstr "职员状态"
 
-#: usermanagement/models.py:68
+#: usermanagement/models.py:69
 msgid "Designates whether the user can log into this admin site."
 msgstr "指明用户是否可以登录到这个管理站点。"
 
-#: usermanagement/models.py:70
+#: usermanagement/models.py:71
 msgid "active"
 msgstr "有效"
 
-#: usermanagement/models.py:71
+#: usermanagement/models.py:72
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr "指明用户是否被认为活跃的。以反选代替删除帐号。"
 
-#: usermanagement/models.py:73
+#: usermanagement/models.py:74
 msgid "date joined"
 msgstr "加入日期"
 
-#: usermanagement/models.py:74
-msgid "status"
-msgstr "状态"
-
-#: usermanagement/models.py:75
+#: usermanagement/models.py:76
 msgid "qq"
 msgstr "QQ"
 
-#: usermanagement/models.py:76
-msgid "website"
-msgstr "网站"
-
-#: usermanagement/models.py:77
+#: usermanagement/models.py:78
 msgid "activation code"
 msgstr "激活码"
 
-#: usermanagement/models.py:106
+#: usermanagement/models.py:107
 msgid "Users"
 msgstr "用户"

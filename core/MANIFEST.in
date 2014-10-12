@@ -1,3 +1,0 @@
-global-include *.py *.sh *.xml *.cfg *.po *.mo *.jar *.list *.ttf
-graft scripts
-graft estorecore/locale/zh_CN/LC_MESSAGES

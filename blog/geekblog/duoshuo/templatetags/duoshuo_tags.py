@@ -34,10 +34,12 @@ class DuoshuoCommentsNode(Node):
 
 def duoshuo_comments(parser, token):
     short_name = token.contents.split()
+
     if DUOSHUO_SHORT_NAME:
         return DuoshuoCommentsNode(DUOSHUO_SHORT_NAME)
     elif len(short_name) == 2:
         return DuoshuoCommentsNode(short_name[1])
     else:
         raise template.TemplateSyntaxError, 'duoshuo_comments tag takes SHORT_NAME as exactly one argument'
+
 duoshuo_comments = register.tag(duoshuo_comments)
