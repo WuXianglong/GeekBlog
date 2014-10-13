@@ -75,6 +75,13 @@ Version 1.4.0 (2014-09-30)
   * Fix bugs in CSS style and logging.
   * Format code style with pep8.
 
+Version 1.4.1 (2014-10-12)
+----------------------------
+
+  * Adjust project structure & remove core module and unused files in admin_tools.
+  * Update translation files.
+  * Fix some bugs in JS and CSS.
+
 
 TODOs
 =====

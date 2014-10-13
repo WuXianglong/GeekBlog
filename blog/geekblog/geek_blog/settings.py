@@ -72,7 +72,7 @@ WEBSITE_DESC = u'记录生活与工作的点滴，分享旅行与技术的乐趣
 SAYING = u'一切都会过去！'    # u'不相信自己的人，连努力的价值都没有。'
 WEBSITE_URL = 'http://xianglong.me'
 WEBSITE_KEYWORDS = u'python,django,tornado,vim,linux,javascript,web开发,工作经验,人生,感悟,骑行'
-GEEKBLOG_VERSION = '1.4.0'
+GEEKBLOG_VERSION = '1.4.1'
 
 LIST_PER_PAGE = 8
 
