@@ -10,7 +10,7 @@ from django.core.management.base import BaseCommand
 
 from mongodb.blog import BlogMongodbStorage
 from mongodb import timestamp2datetime
-from blog.models.constants import COMMENT_STATUS
+from geek_blog.constants import COMMENT_STATUS
 
 blog_db = BlogMongodbStorage(settings.MONGODB_CONF)
 img_regex = re.compile(r'(<img src="[^"]+" alt="[^"]+" title="([^"]+)" class="ds-smiley" />)')
