@@ -93,14 +93,13 @@ class Command(BaseCommand):
 
         # sync article comments from duoshuo
         # API example: http://dev.duoshuo.com/docs/50037b11b66af78d0c000009
+        api_params = {
+            'short_name': getattr(settings, 'DUOSHUO_SHORT_NAME', ''),
+            'secret': getattr(settings, 'DUOSHUO_SECRET', ''),
+            'since_id': blog_db.get_last_log_id(),
+            'limit': 200,
+        }
         try:
-            api_params = {
-                'short_name': getattr(settings, 'DUOSHUO_SHORT_NAME', ''),
-                'secret': getattr(settings, 'DUOSHUO_SECRET', ''),
-                'since_id': blog_db.get_last_log_id(),
-                'limit': 200,
-            }
-            print 'DUOSHUO api params: %s' % api_params
             while True:
                 r = requests.get('http://api.duoshuo.com/log/list.json', params=api_params)
                 ret_msg = r.json()
@@ -126,3 +125,4 @@ class Command(BaseCommand):
                 article.save()
             except Exception, e:
                 print 'update article comment_count failed, exception: %s' % e
+
