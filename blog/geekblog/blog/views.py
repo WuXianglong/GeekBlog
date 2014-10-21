@@ -217,7 +217,7 @@ def show_search(request, keyword, page_num):
 
 @cache_page(60 * 60 * 4)
 def show_archive_page(request):
-    articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'title': 1, 'publish_date': 1},
+    articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'title': 1, 'publish_date': 1, 'slug': 1},
                                     has_login=(not request.user.is_anonymous()), with_total=True)
 
     from collections import defaultdict
