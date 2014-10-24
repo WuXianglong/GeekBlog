@@ -801,7 +801,7 @@ div.results {
     border-color: #abadb3;
 }
 
-.form-row>div>input[type="text"] {
+.form-row>div>input[type="text"],.form-row>div>input[type="url"],.form-row>div>input[type="password"] {
     height: 23px;
     width: 320px;
     line-height: 23px;
@@ -810,14 +810,6 @@ div.results {
 }
 
 .form-row>input[type="password"] {
-    height: 23px;
-    width: 320px;
-    line-height: 23px;
-    font-size: 14px;
-    border-color: #abadb3;
-}
-
-.form-row>div>input[type="password"] {
     height: 23px;
     width: 320px;
     line-height: 23px;
