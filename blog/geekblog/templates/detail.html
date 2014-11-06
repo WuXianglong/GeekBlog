@@ -78,7 +78,7 @@
         </span>
         <span class="next">{% trans "Next：" %}
             {% if next_a %}
-            <a href="/article/{{ next_a.slug }}/" title="{{ next_a.title }}">{{ next_a.title|truncatechars:35 }}</a>
+            <a href="/article/{{ next_a.slug }}/" title="{{ next_a.title }}">{{ next_a.title|truncatechars:32 }}</a>
             {% else %}
             {% trans "No more next article" %}
             {% endif %}
