@@ -72,7 +72,7 @@ def _render_response(request, template_name, context, is_index=False):
 
     # update context to add all_tags and newest_articles infos when is_mobile is False
     if context and not is_mobile:
-        context.update({'all_tags': blog_db.get_tags(), 'newest_articles': blog_db.get_newest_articles(has_login=(not request.user.is_anonymous()))})
+        context.update({'all_tags': blog_db.get_tags(), 'newest_articles': blog_db.get_hottest_articles(has_login=(not request.user.is_anonymous()))})
     # if page is blog list page, update slider infos
     if is_index:
         context.update({'sliders': blog_db.get_all_sliders()})

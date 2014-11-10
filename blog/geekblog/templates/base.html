@@ -85,6 +85,7 @@
                         </div>
                         <div class="s-item-footer"></div>
                     </section>
+                    {% comment %}
                     {% if url_name != "archive_page" and url_name != "about_page" and url_name != "friend_link_page" %}
                     <section id="s-qrcode">
                         <h3>{% trans "View On Mobile" %}</h3>
@@ -94,6 +95,7 @@
                         <div class="s-item-footer"></div>
                     </section>
                     {% endif %}
+                    {% endcomment %}
                     <section id="s-tag">
                         <h3>{% trans "Hottest Tags" %}</h3>
                         <div class="s-item-content">

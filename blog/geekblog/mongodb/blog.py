@@ -105,31 +105,37 @@ class BlogMongodbStorage(MongodbStorage):
         eval("self._db.%s.update(%s, {'$set': %s}, upsert=%s, multi=%s)" % (table, cond, item, upsert, multi))
 
     def get_article_by_id(self, a_id):
+        """ 根据ID获取文章详情 """
         cond = {'id': long(a_id)}
         article_infos = self._db.articles.find_one(cond, fields=ARTICLE_DETAIL_INFO_FIELDS)
         return article_infos
 
     def get_article_by_slug(self, slug):
+        """ 根据SLUG获取文章详情 """
         cond = {'slug': slug}
         article_infos = self._db.articles.find_one(cond, fields=ARTICLE_DETAIL_INFO_FIELDS)
         return article_infos
 
     def get_prev_article(self, publish_date):
+        """ 根据时间获取上一篇文章 """
         cond = {'publish_date': {'$lt': publish_date}}
         article_infos = self._db.articles.find_one(cond, sort=[('publish_date', self.ORDER_DESC)], fields=ARTICLE_BRIEF_INFO_FIELDS)
         return article_infos
 
     def get_next_article(self, publish_date):
+        """ 根据时间获取下一篇文章 """
         cond = {'publish_date': {'$gt': publish_date}}
         article_infos = self._db.articles.find_one(cond, sort=[('publish_date', self.ORDER_ASC)], fields=ARTICLE_BRIEF_INFO_FIELDS)
         return article_infos
 
     def get_tag_info_by_slug(self, tag_slug):
+        """ 根据SLUG获取TAG """
         cond = {'slug': tag_slug}
         tag = self._db.tags.find_one(cond, fields=TAG_INFO_FIELDS)
         return tag
 
     def get_cate_info_by_slug(self, cate_slug):
+        """ 根据SLUG获取CATEGROY """
         cond = {'slug': cate_slug}
         cate = self._db.categories.find_one(cond, fields=CATE_BRIEF_INFO_FIELDS)
         return cate
@@ -137,17 +143,20 @@ class BlogMongodbStorage(MongodbStorage):
     @cursor_to_list
     @set_default_order
     def get_all_links(self, order=None):
+        """ 获取所有的LINKS """
         links = self._db.links.find({}, sort=order, fields=LINK_INFO_FIELDS)
         return links
 
     @cursor_to_list
     @set_default_order
     def get_all_sliders(self, order=None):
+        """ 获取所有的SLIDERS """
         sliders = self._db.sliders.find({}, sort=order, fields=SLIDER_INFO_FIELDS)
         return sliders
 
     @cursor_to_list
     def get_tags(self):
+        """ 获取的TAGS """
         # display 20 tags in web pages at most and sort by article count.
         tags = self._db.tags.find({}, sort=[('article_count', self.ORDER_DESC)], fields=TAG_INFO_FIELDS, limit=20)
         return tags
@@ -155,6 +164,7 @@ class BlogMongodbStorage(MongodbStorage):
     @cursor_to_list
     @set_default_order
     def query_categories(self, parents=None, start_index=0, count=20, order=None, with_total=False):
+        """ 查询CATEGTORY信息 """
         if parents is None:
             parents = [0]
         cond = {'parent_id': {'$in': parents}}
@@ -166,12 +176,21 @@ class BlogMongodbStorage(MongodbStorage):
 
     @cursor_to_list
     def get_newest_articles(self, count=5, has_login=False):
+        """ 获取最新的文章 """
         cond = {'login_required': False} if not has_login else {}
         article_infos = self._db.articles.find(cond, sort=[('publish_date', self.ORDER_DESC)], skip=0, limit=count, fields=ARTICLE_BRIEF_INFO_FIELDS)
         return article_infos
 
     @cursor_to_list
+    def get_hottest_articles(self, count=5, has_login=False):
+        """ 获取最热门的文章 """
+        cond = {'login_required': False} if not has_login else {}
+        article_infos = self._db.articles.find(cond, sort=[('views_count', self.ORDER_DESC)], skip=0, limit=count, fields=ARTICLE_BRIEF_INFO_FIELDS)
+        return article_infos
+
+    @cursor_to_list
     def get_articles(self, cond, start_index=0, count=10, order=None, fields=ARTICLE_DETAIL_INFO_FIELDS, has_login=False, with_total=False):
+        """ 获取文章 """
         if not has_login:    # if no user login, add login_required cond
             cond['login_required'] = False
         results = self._db.articles.find(cond, skip=start_index, limit=count, sort=self.DATE_ORDER, fields=fields)
@@ -183,18 +202,21 @@ class BlogMongodbStorage(MongodbStorage):
 
     @cursor_to_list
     def get_tag_articles(self, tag_id, start_index=0, count=10, order=None, fields=ARTICLE_DETAIL_INFO_FIELDS, has_login=False, with_total=False):
+        """ 根据TAG获取文章 """
         cond = {'tag_ids': tag_id}
         results = self.get_articles(cond, start_index=start_index, count=count, order=order, fields=fields, has_login=has_login, with_total=with_total)
         return results
 
     @cursor_to_list
     def get_cate_articles(self, cate_id, start_index=0, count=10, order=None, fields=ARTICLE_DETAIL_INFO_FIELDS, has_login=False, with_total=False):
+        """ 根据CATEGROY获取文章 """
         cond = {'$or': [{'category_id': cate_id}, {'parent_cate_id': cate_id}]}
         results = self.get_articles(cond, start_index=start_index, count=count, order=order, fields=fields, has_login=has_login, with_total=with_total)
         return results
 
     @cursor_to_list
     def search_articles(self, keyword, start_index=0, count=10, order=None, fields=ARTICLE_DETAIL_INFO_FIELDS, has_login=False, with_total=False):
+        """ 根据关键词查找文章 """
         import re
         regx = re.compile(keyword, re.IGNORECASE)
         cond = {'$or': [{'title': {'$regex': regx}}, {'description': {'$regex': regx}}]}

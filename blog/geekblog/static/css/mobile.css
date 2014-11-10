@@ -464,6 +464,7 @@ body.menu-active #page {
     top: 90%;
     cursor: pointer;
     border-radius: 8px;
+    z-index: 99;
 }
 
 /* post */
