@@ -296,12 +296,14 @@ PIPELINE_JS = {
             'js/modernizr.min.js',
             'js/jquery.ui.touch-punch.min.js',
             'js/jquery.pagination.js',
+            'js/jquery.qrcode.js',
         ),
         'output_filename': 'js/index.min.js',
     },
     'detail': {
         'source_filenames': (
             'js/jquery.colorbox.js',
+            'js/jquery.qrcode.js',
             # 'ueditor/third-party/SyntaxHighlighter/shCore.min.js',
         ),
         'output_filename': 'js/detail.min.js',
