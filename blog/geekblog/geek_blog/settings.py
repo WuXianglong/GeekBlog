@@ -68,7 +68,7 @@ def _load_config(section, config_files):
 _load_config('blog', [os.path.join(SITE_ROOT, 'geekblog.cfg')])
 
 WEBSITE_NAME = u'降龙'
-WEBSITE_DESC = u'记录生活与工作的点滴，分享旅行与技术的乐趣'
+WEBSITE_DESC = u'记录生活与工作的点滴，分享旅行与技术的乐趣。'
 SAYING = u'一切都会过去！'    # u'不相信自己的人，连努力的价值都没有。'
 WEBSITE_URL = 'http://xianglong.me'
 WEBSITE_KEYWORDS = u'python,django,tornado,vim,linux,javascript,web开发,工作经验,人生,感悟,骑行'

@@ -12,6 +12,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from admin_tools.sites import custom_site
 from blog.views import preview_article
 from .sitemap import ArticleSitemap
+from .feeds import LatestArticleFeed
 from .views import get_related_lookup_info, generate_verify_code
 
 admin.autodiscover()
@@ -29,6 +30,7 @@ urlpatterns = patterns(
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
     url(r'^console/get_related_lookup_info', get_related_lookup_info, name='get_related_lookup_info'),
 
+    url(r'^feed|rss/$', LatestArticleFeed()),
     url(r'^verify_code', generate_verify_code, name='generate_verify_code'),
     url(r'^console/article_preview/(?P<slug>[a-z0-9A-Z_-]+)/$', preview_article, name='article_preview'),
     url(r'^sitemap.xml$', cache_page(60 * 60 * 6)(sitemap_views.sitemap), {'sitemaps': {'articles': ArticleSitemap}}),
