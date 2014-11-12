@@ -85,5 +85,5 @@ Version 1.4.1 (2014-10-12)
 
 TODOs
 =====
-  * RSS
-  * Python qr code
+  * RSS Button
+  * side on top

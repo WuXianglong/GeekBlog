@@ -1,7 +1,12 @@
 #! -*- coding:utf-8 -*-
 import logging
+import datetime
 from pymongo import DESCENDING
-from mongodb import MongodbStorage, IncrementalId, set_default_order, cursor_to_list
+
+from mongodb import (
+    MongodbStorage, IncrementalId, set_default_order,
+    cursor_to_list, datetime2timestamp
+)
 
 logger = logging.getLogger('geekblog')
 
@@ -185,6 +190,9 @@ class BlogMongodbStorage(MongodbStorage):
     def get_hottest_articles(self, count=5, has_login=False):
         """ 获取最热门的文章 """
         cond = {'login_required': False} if not has_login else {}
+        # 只获取前6个月的数据
+        date_time = datetime.datetime.now() - datetime.timedelta(days=180)
+        cond['publish_date'] = {'$gt': datetime2timestamp(date_time, convert_to_utc=True)}
         article_infos = self._db.articles.find(cond, sort=[('views_count', self.ORDER_DESC)], skip=0, limit=count, fields=ARTICLE_BRIEF_INFO_FIELDS)
         return article_infos
 

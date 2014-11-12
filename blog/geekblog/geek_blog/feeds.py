@@ -4,6 +4,7 @@ from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 
 from blog.models import Article
+from .constants import SYNC_STATUS
 
 
 class ExtendedRSSFeed(Rss201rev2Feed):
@@ -27,7 +28,7 @@ class LatestArticleFeed(Feed):
     title = settings.WEBSITE_NAME
     link = settings.WEBSITE_URL
     author = settings.WEBSITE_NAME
-    description = settings.WEBSITE_NAME + u"关注python、django、vim、linux、web开发和互联网"
+    description = settings.WEBSITE_DESC + u"关注python、django、vim、linux、web开发和互联网"
 
     def items(self):
         return Article.objects.filter(hided=False, published=True, sync_status=SYNC_STATUS.SYNCED).order_by('-publish_date')[:10]
@@ -45,7 +46,7 @@ class LatestArticleFeed(Feed):
         return item.creator.get_full_name()
 
     def item_pubdate(self, item):
-        return item.create_time
+        return item.publish_date
 
     def item_content_encoded(self, item):
         return item.content
