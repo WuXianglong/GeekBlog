@@ -82,6 +82,13 @@ Version 1.4.1 (2014-10-12)
   * Update translation files.
   * Fix some bugs in JS and CSS.
 
+Version 1.4.2 (2014-11-12)
+----------------------------
+
+  * Add feed rss.
+  * Update qrcode feature: use jquery.qrcode instead of google api.
+  * Fix bugs.
+
 
 TODOs
 =====
