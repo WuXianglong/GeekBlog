@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-12 15:16+0800\n"
+"POT-Creation-Date: 2014-11-15 12:58+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -203,7 +203,7 @@ msgid "Date/time"
 msgstr "日期/时间"
 
 #: admin_tools/templates/admin/object_history.html:24
-#: usermanagement/models.py:106
+#: usermanagement/models.py:105
 msgid "User"
 msgstr "用户"
 
@@ -422,7 +422,7 @@ msgstr "幻灯块"
 msgid "category"
 msgstr "分类"
 
-#: blog/models.py:182 blog/models.py:235 usermanagement/models.py:75
+#: blog/models.py:182 blog/models.py:235 usermanagement/models.py:74
 msgid "status"
 msgstr "状态"
 
@@ -498,7 +498,7 @@ msgstr "作者"
 msgid "email"
 msgstr "邮箱"
 
-#: blog/models.py:226 usermanagement/models.py:77
+#: blog/models.py:226 usermanagement/models.py:76
 msgid "website"
 msgstr "网站"
 
@@ -538,8 +538,8 @@ msgstr "评论"
 msgid "Archive"
 msgstr "归档"
 
-#: blog/views.py:247 templates/about.html:23 templates/base.html:59
-#: templates/mobile/m_base.html:35
+#: blog/views.py:247 templates/about.html:23 templates/base.html:81
+#: templates/mobile/m_base.html:36
 msgid "About"
 msgstr "关于"
 
@@ -571,115 +571,115 @@ msgstr "成功同步 %(count)d %(items)s 到线上\n"
 msgid "%(count)d %(items)s fail sync data to production environment.\n"
 msgstr "%(count)d %(items)s 同步失败\n"
 
-#: geek_blog/constants.py:7
+#: geek_blog/constants.py:50
 msgid "JAN"
 msgstr "一月"
 
-#: geek_blog/constants.py:7
+#: geek_blog/constants.py:50
 msgid "FEB"
 msgstr "二月"
 
-#: geek_blog/constants.py:7
+#: geek_blog/constants.py:50
 msgid "MAR"
 msgstr "三月"
 
-#: geek_blog/constants.py:7
+#: geek_blog/constants.py:50
 msgid "APR"
 msgstr "四月"
 
-#: geek_blog/constants.py:7
+#: geek_blog/constants.py:50
 msgid "MAY"
 msgstr "五月"
 
-#: geek_blog/constants.py:7
+#: geek_blog/constants.py:50
 msgid "JUN"
 msgstr "六月"
 
-#: geek_blog/constants.py:8
+#: geek_blog/constants.py:51
 msgid "JUL"
 msgstr "七月"
 
-#: geek_blog/constants.py:8
+#: geek_blog/constants.py:51
 msgid "AUG"
 msgstr "八月"
 
-#: geek_blog/constants.py:8
+#: geek_blog/constants.py:51
 msgid "SEP"
 msgstr "九月"
 
-#: geek_blog/constants.py:8
+#: geek_blog/constants.py:51
 msgid "OCT"
 msgstr "十月"
 
-#: geek_blog/constants.py:8
+#: geek_blog/constants.py:51
 msgid "NOV"
 msgstr "十一月"
 
-#: geek_blog/constants.py:8
+#: geek_blog/constants.py:51
 msgid "DEC"
 msgstr "十二月"
 
-#: geek_blog/constants.py:11
+#: geek_blog/constants.py:54
 msgid "Need Sync"
 msgstr "需要同步"
 
-#: geek_blog/constants.py:12
+#: geek_blog/constants.py:55
 msgid "Synced"
 msgstr "已同步"
 
-#: geek_blog/constants.py:16
+#: geek_blog/constants.py:59
 msgid "Not Authed"
 msgstr "未认证"
 
-#: geek_blog/constants.py:17
+#: geek_blog/constants.py:60
 msgid "Active"
 msgstr "已激活"
 
-#: geek_blog/constants.py:18 geek_blog/constants.py:36
+#: geek_blog/constants.py:61 geek_blog/constants.py:79
 msgid "Rejected"
 msgstr "已拒绝"
 
-#: geek_blog/constants.py:22
+#: geek_blog/constants.py:65
 msgid "Newest"
 msgstr "最新"
 
-#: geek_blog/constants.py:23
+#: geek_blog/constants.py:66
 msgid "Hottest"
 msgstr "最热"
 
-#: geek_blog/constants.py:24
+#: geek_blog/constants.py:67
 msgid "Recommend"
 msgstr "推荐"
 
-#: geek_blog/constants.py:28 geek_blog/constants.py:34
+#: geek_blog/constants.py:71 geek_blog/constants.py:77
 msgid "Not Reviewed"
 msgstr "未审核"
 
-#: geek_blog/constants.py:29
+#: geek_blog/constants.py:72
 msgid "Published"
 msgstr "已发布"
 
-#: geek_blog/constants.py:30
+#: geek_blog/constants.py:73
 msgid "Expired"
 msgstr "过期"
 
-#: geek_blog/constants.py:35
+#: geek_blog/constants.py:78
 msgid "Approved"
 msgstr "通过"
 
-#: geek_blog/constants.py:40 templates/link.html:8
+#: geek_blog/constants.py:83 templates/link.html:8
 msgid "Friend's Links"
 msgstr "友情链接"
 
-#: geek_blog/constants.py:41 templates/link.html:16
+#: geek_blog/constants.py:84 templates/link.html:16
 msgid "Site's Links"
 msgstr "本站链接"
 
-#: geek_blog/settings.py:336
+#: geek_blog/settings.py:338
 msgid "content management"
 msgstr "内容管理"
 
-#: geek_blog/settings.py:353
+#: geek_blog/settings.py:355
 msgid "system management"
 msgstr "系统管理"
 
@@ -797,59 +797,55 @@ msgstr "共有%(count)s篇文章"
 msgid "%(day)s: "
 msgstr "%(day)s日："
 
-#: templates/base.html:50 templates/mobile/m_base.html:32
+#: templates/base.html:72 templates/mobile/m_base.html:33
 msgid "Life"
 msgstr "生活"
 
-#: templates/base.html:52 templates/mobile/m_base.html:33
+#: templates/base.html:74 templates/mobile/m_base.html:34
 msgid "Code"
 msgstr "编码"
 
-#: templates/base.html:53 templates/mobile/m_base.html:34
+#: templates/base.html:75 templates/mobile/m_base.html:35
 msgid "Resources"
 msgstr "资源"
 
-#: templates/base.html:57
+#: templates/base.html:79
 msgid "Archives"
 msgstr "归档"
 
-#: templates/base.html:58
+#: templates/base.html:80
 msgid "Friends"
 msgstr "友链"
 
-#: templates/base.html:68
+#: templates/base.html:90
 msgid "Search On Site"
 msgstr "发现之旅"
 
-#: templates/base.html:71 templates/mobile/m_base.html:49
+#: templates/base.html:93 templates/mobile/m_base.html:51
 msgid "Enter search term..."
 msgstr "输入搜索内容..."
 
-#: templates/base.html:72
+#: templates/base.html:94
 msgid "Search"
 msgstr "搜索"
 
-#: templates/base.html:78
+#: templates/base.html:100
 msgid "Newest Articles"
 msgstr "最新热文"
 
-#: templates/base.html:90
+#: templates/base.html:112
 msgid "View On Mobile"
 msgstr "扫描观看"
 
-#: templates/base.html:92
-msgid "View on mobile"
-msgstr "扫描观看"
-
-#: templates/base.html:98
+#: templates/base.html:123
 msgid "Hottest Tags"
 msgstr "热门标签"
 
-#: templates/base.html:109
+#: templates/base.html:134
 msgid "Newest Comments"
 msgstr "最新评论"
 
-#: templates/base.html:145 templates/mobile/m_base.html:56
+#: templates/base.html:170 templates/mobile/m_base.html:58
 #, python-format
 msgid ""
 "\n"
@@ -861,61 +857,66 @@ msgstr ""
 "                    Copyright © 2012 - 2014 %(site_name)s, 保留所有权利.\n"
 "                    "
 
-#: templates/detail.html:45 templates/item.html:16
+#: templates/base.html:182 templates/base.html.py:183
+#: templates/mobile/m_base.html:37
+msgid "Feed"
+msgstr "订阅"
+
+#: templates/detail.html:46 templates/item.html:16
 #, python-format
 msgid "Views all articles of %(category_name)s "
 msgstr "查看 %(category_name)s 下的所有文章"
 
-#: templates/detail.html:51 templates/item.html:22
+#: templates/detail.html:52 templates/item.html:22
 #: templates/mobile/m_detail.html:28 templates/mobile/m_item.html:16
 #, python-format
 msgid "Viewed by %(views_count)s people "
 msgstr "已有%(views_count)s人围观"
 
-#: templates/detail.html:54 templates/item.html:25
+#: templates/detail.html:55 templates/item.html:25
 #: templates/mobile/m_detail.html:31
 #, python-format
 msgid "Comments of %(title)s"
 msgstr "%(title)s的评论"
 
-#: templates/detail.html:73
+#: templates/detail.html:74
 msgid "Previous："
 msgstr "上一篇："
 
-#: templates/detail.html:77
+#: templates/detail.html:78
 msgid "No more previous article"
 msgstr "木有最新的文章了"
 
-#: templates/detail.html:80
+#: templates/detail.html:81
 msgid "Next："
 msgstr "下一篇："
 
-#: templates/detail.html:84
+#: templates/detail.html:85
 msgid "No more next article"
 msgstr "木有更早的文章了"
 
-#: templates/detail.html:91
+#: templates/detail.html:92
 msgid "Address："
 msgstr "本文地址："
 
-#: templates/detail.html:92
+#: templates/detail.html:93
 msgid "Statement："
 msgstr "特别声明："
 
-#: templates/detail.html:119 templates/mobile/m_detail.html:59
+#: templates/detail.html:120 templates/mobile/m_detail.html:59
 msgid "Comment of this article has closed."
 msgstr "文章的评论已经关闭"
 
-#: templates/index.html:80 templates/mobile/m_index.html:41
+#: templates/index.html:81 templates/mobile/m_index.html:41
 msgid "There is no more articles, please return "
 msgstr "已经木有文章了, 请返回"
 
-#: templates/index.html:80 templates/mobile/m_base.html:31
+#: templates/index.html:81 templates/mobile/m_base.html:32
 #: templates/mobile/m_index.html:41
 msgid "homepage"
 msgstr "主页"
 
-#: templates/index.html:89
+#: templates/index.html:90
 msgid "Use left and right key ← → to turn page"
 msgstr "使用左右键 ← → 快捷翻页"
 
@@ -995,73 +996,73 @@ msgstr "权限"
 msgid "Important dates"
 msgstr "重要日期"
 
-#: usermanagement/models.py:19 usermanagement/models.py:105
+#: usermanagement/models.py:18 usermanagement/models.py:104
 msgid "User Management"
 msgstr "用户管理"
 
-#: usermanagement/models.py:20
+#: usermanagement/models.py:19
 msgid "Group"
 msgstr "用户组"
 
-#: usermanagement/models.py:21
+#: usermanagement/models.py:20
 msgid "Groups"
 msgstr "用户组"
 
-#: usermanagement/models.py:59
+#: usermanagement/models.py:58
 msgid "username"
 msgstr "用户名"
 
-#: usermanagement/models.py:60
+#: usermanagement/models.py:59
 msgid ""
 "Required. 50 characters or fewer. Letters, numbers and @/./+/-/_ characters"
 msgstr "必填。不多于50个字符。只能用字母、数字和字符 @/./+/-/_ 。"
 
-#: usermanagement/models.py:63
+#: usermanagement/models.py:62
 msgid "Enter a valid username."
 msgstr "请输入合法的用户名"
 
-#: usermanagement/models.py:65
+#: usermanagement/models.py:64
 msgid "first name"
 msgstr "名字"
 
-#: usermanagement/models.py:66
+#: usermanagement/models.py:65
 msgid "last name"
 msgstr "姓氏"
 
-#: usermanagement/models.py:67
+#: usermanagement/models.py:66
 msgid "email address"
 msgstr "E-mail 地址"
 
-#: usermanagement/models.py:68
+#: usermanagement/models.py:67
 msgid "staff status"
 msgstr "职员状态"
 
-#: usermanagement/models.py:69
+#: usermanagement/models.py:68
 msgid "Designates whether the user can log into this admin site."
 msgstr "指明用户是否可以登录到这个管理站点。"
 
-#: usermanagement/models.py:71
+#: usermanagement/models.py:70
 msgid "active"
 msgstr "有效"
 
-#: usermanagement/models.py:72
+#: usermanagement/models.py:71
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr "指明用户是否被认为活跃的。以反选代替删除帐号。"
 
-#: usermanagement/models.py:74
+#: usermanagement/models.py:73
 msgid "date joined"
 msgstr "加入日期"
 
-#: usermanagement/models.py:76
+#: usermanagement/models.py:75
 msgid "qq"
 msgstr "QQ"
 
-#: usermanagement/models.py:78
+#: usermanagement/models.py:77
 msgid "activation code"
 msgstr "激活码"
 
-#: usermanagement/models.py:107
+#: usermanagement/models.py:106
 msgid "Users"
 msgstr "用户"

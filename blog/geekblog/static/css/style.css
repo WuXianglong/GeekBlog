@@ -233,7 +233,7 @@ code {
     margin-bottom: -12px;
     bottom: 0px;
     width: 100%;
-    background: url("../images/footer-bg.jpg") repeat;
+    background: url(../images/footer-bg.jpg) repeat;
 }
 .footerinner {
     font-size: 12px;
@@ -242,6 +242,10 @@ code {
 }
 #copyright {
     color: #fff;
+}
+#feed {
+    margin-left: 5px;
+    vertical-align: -webkit-baseline-middle;
 }
 
 /* header navigation */
@@ -353,7 +357,7 @@ code {
 
 /* archive page */
 #archives-content {width: 690px}
-#archives-content .year {background: url("../images/ssline.png") 0 0 repeat-y}
+#archives-content .year {background: url(../images/ssline.png) 0 0 repeat-y}
 #archives-content .year-header {height: 84px}
 #archives-content .year-title {
     width: 84px;
@@ -366,7 +370,7 @@ code {
     color: #909090;
     text-align: center;
     text-shadow: 1px 1px 0 rgba(255, 255, 255, .8);
-    background: url("../images/archive.png") no-repeat 0 -2px
+    background: url(../images/archive.png) no-repeat 0 -2px
 }
 #archives-content .year-title:hover {
     color: #0196e3;
@@ -381,7 +385,7 @@ code {
     height: 27px;
     line-height: 27px;
     padding: 0 0 7px 58px;
-    background: url("../images/yearline.png") 0 100% no-repeat
+    background: url(../images/yearline.png) 0 100% no-repeat
 }
 .omo-dot {
     position: absolute;
@@ -389,7 +393,7 @@ code {
     height: 11px;
     left: -4px;
     bottom: -5px;
-    background: url("../images/archive.png") no-repeat -95px -68px
+    background: url(../images/archive.png) no-repeat -95px -68px
 }
 .omo-list {padding-left: 13px;padding-top:30px}
 .omo-post {display: block;padding: 6px 6px 7px 6px;margin-left: 45px}
@@ -400,13 +404,13 @@ code {
     position: absolute;
     width: 26px;
     height: 27px;
-    background: url("../images/archive.png") no-repeat -86px -2px;
+    background: url(../images/archive.png) no-repeat -86px -2px;
     left: 320px;
     top: 0px;
     cursor: pointer
 }
-.one-month.selected .omo-toggle {background: url("../images/archive.png") no-repeat -86px -31px}
-.archives-bottom {height: 150px;background: url("../images/ssbottom.png") 0 0 no-repeat}
+.one-month.selected .omo-toggle {background: url(../images/archive.png) no-repeat -86px -31px}
+.archives-bottom {height: 150px;background: url(../images/ssbottom.png) 0 0 no-repeat}
 
 #map {
     border: 1px #EDEDED solid;
@@ -464,7 +468,7 @@ h2.post-title {
     color: #444;
 }
 .post-header {
-    background: url("../images/post.png") no-repeat;
+    background: url(../images/post.png) no-repeat;
     width: 660px;
     padding: 4px 15px 2px 15px;
 }
@@ -473,14 +477,14 @@ h2.post-title {
     width: 660px;
     text-align: left;
     border: 1px;
-    background: url("../images/post-body.png") repeat-y;
+    background: url(../images/post-body.png) repeat-y;
     text-shadow: 1px 1px 0px #fff;
     padding: 15px 15px;
 }
 .post-footer {
     display: inline-block;
     width: 660px;
-    background: url("../images/post.png") no-repeat 0 -55px;
+    background: url(../images/post.png) no-repeat 0 -55px;
     height: 31px;
     padding: 12px 15px 0 15px;
 }
@@ -544,20 +548,20 @@ h2.post-title {
     padding-left: 18px;
 }
 .view-icon {
-    background: url("../images/view.png") no-repeat;
+    background: url(../images/view.png) no-repeat;
     background-position: left center;
     color: #919191;
 }
 .comment-icon {
-    background: url("../images/comment.png") no-repeat;
+    background: url(../images/comment.png) no-repeat;
     background-position: left center;
 }
 .category-icon {
-    background: url("../images/category.png") no-repeat;
+    background: url(../images/category.png) no-repeat;
     background-position: left center;
 }
 .tag-icon {
-    background: url("../images/tag.png") no-repeat;
+    background: url(../images/tag.png) no-repeat;
     background-position: left center;
 }
 
@@ -632,12 +636,12 @@ a.readmore {
     position: relative;
     padding: 10px 0px 0px 18px;
     overflow: hidden;
-    background: url("../images/s-item-content.png") repeat-y;
+    background: url(../images/s-item-content.png) repeat-y;
 }
 .sidebar section .s-item-footer {
     width: 238px;
     height: 15px;
-    background: url("../images/sidebar.png") no-repeat 0 -40px;
+    background: url(../images/sidebar.png) no-repeat 0 -40px;
 }
 /* sidebar newest articles list part */
 ul.newest-articles-list li {
@@ -646,7 +650,7 @@ ul.newest-articles-list li {
     -o-transition: all 0.3s ease 0s;
     -ms-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    background: url("../images/sidebar-item.png") no-repeat scroll -5px 8px transparent;
+    background: url(../images/sidebar-item.png) no-repeat scroll -5px 8px transparent;
     border-bottom: 1px dashed #DEDEDE;
     line-height: 32px;
     text-indent: 1.1em;
@@ -657,7 +661,7 @@ ul.newest-articles-list li {
     overflow: hidden;
 }
 ul.newest-articles-list li:hover {
-    background: url("../images/sidebar-item.png") no-repeat scroll -5px -21px transparent;
+    background: url(../images/sidebar-item.png) no-repeat scroll -5px -21px transparent;
 }
 /* sidebar view on moblie part */
 .sidebar section#s-qrcode img {
@@ -673,7 +677,7 @@ ul.newest-articles-list li:hover {
     float: left;
     margin: 0 6px 6px 0;
     list-style: none;
-    background: url("../images/tag-label.png") center left no-repeat;
+    background: url(../images/tag-label.png) center left no-repeat;
     opacity: .8;
     -webkit-transition: all 0.12s ease-in;
     -moz-transition: all 0.12s ease-in;
@@ -721,7 +725,7 @@ ul.newest-articles-list li:hover {
     color: #fff;
     text-shadow: 0 1px 0 #0084fa;
     text-align: center;
-    background: url("../images/date-bg.png") top left no-repeat;
+    background: url(../images/date-bg.png) top left no-repeat;
 }
 .post-body .blog_date span {
     font-size: 13px;
@@ -736,7 +740,7 @@ ul.newest-articles-list li:hover {
 .detail-header {
     height: 31px;
     padding-top: 15px;
-    background: url("../images/post.png") no-repeat;
+    background: url(../images/post.png) no-repeat;
 }
 .detail-header .title {
     float: left;
@@ -754,7 +758,7 @@ ul.newest-articles-list li:hover {
     overflow: hidden;
     text-align: left;
     border: 1px;
-    background: url("../images/post-body.png") repeat-y;
+    background: url(../images/post-body.png) repeat-y;
     text-shadow: 1px 1px 0px #fff;
     padding-left: 15px;
     padding-right: 15px;
@@ -792,7 +796,7 @@ ul.newest-articles-list li:hover {
 .detail-footer {
     height: 31px;
     padding: 12px 15px 0 15px;
-    background: url("../images/post.png") no-repeat 0 -55px;
+    background: url(../images/post.png) no-repeat 0 -55px;
 }
 .detail-footer .previous {
     float: left;
