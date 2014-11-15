@@ -4,3 +4,4 @@ PATH=/usr/local/sbin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bi
 
 # m h dom mon dow user command
 30 1 * * * root cd /var/app/enabled/blog/geekblog/ && python manage.py sync_views_and_comment_count >> /tmp/sync_views_and_comment_count.log 2>&1
+10 0 * * * root cd ~/GeekBlog/blog/scripts && ./backup_mysql.sh xianglong GeekBlog_Pa55w0rd
