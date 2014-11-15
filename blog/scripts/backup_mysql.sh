@@ -28,11 +28,12 @@ function git_pull()
 
 function git_push()
 {
+    cd ~/GeekBlog
     git add -A
     git commit -m "backup mysql database of ${TODAY}"
     git push origin master
 }
 
-#git_pull
-#backup_mysql
+git_pull
+backup_mysql
 git_push
