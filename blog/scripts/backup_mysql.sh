@@ -26,6 +26,7 @@ function git_push()
 }
 
 echo "git pull...."
+rm *.gz
 git pull
 backup_mysql
 git_push
