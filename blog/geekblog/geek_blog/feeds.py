@@ -39,6 +39,10 @@ class LatestArticleFeed(Feed):
     def item_title(self, item):
         return item.title
 
+    # item_link is only needed if NewsItem has no get_absolute_url method.
+    def item_link(self, item):
+        return '/article/%s/' % item.slug
+
     def item_description(self, item):
         return item.description
 
