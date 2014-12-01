@@ -92,5 +92,3 @@ Version 1.4.2 (2014-11-12)
 
 TODOs
 =====
-  * RSS Button
-  * side on top
