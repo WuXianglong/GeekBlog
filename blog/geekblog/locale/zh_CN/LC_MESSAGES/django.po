@@ -709,7 +709,7 @@ msgid ""
 "                "
 msgstr ""
 "\n"
-"                    工作地点： <a href=\"http://cn.dolphin-browser.com/\" "
+"                    工作地点： <a href=\"http://m.sohu.com/\" "
 "rel=\"me\">手机搜狐</a>, @北京\n"
 "                "
 
