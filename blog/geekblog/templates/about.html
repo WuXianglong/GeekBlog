@@ -79,7 +79,10 @@
                         <li id="about-personal">
                             <h3>
                                 <a href="http://xianglong.me/" rel="me">
+                                    {% comment %}
                                     <img src="{% gravatar_for_email "wuxianglong098@gmail.com" 41 %}" width="40" height="41" alt="{% trans "About me" %}">
+                                    {% endcomment %}
+                                    <img src="{{ STATIC_URL }}images/me.png" width="40" height="41" alt="{% trans "About me" %}">
                                     <small>{% trans "Personal" %}</small>
                                     <strong>{% trans "About me" %}</strong>xianlgong.me
                                 </a>
