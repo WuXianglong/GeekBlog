@@ -15,7 +15,9 @@ function backup_mysql()
     sleep 3 
 
     echo "gzip sql file to git dir..."
-    gzip blog_${TODAY}.sql
+    tar -zcf - blog_${TODAY}.sql |openssl des3 -salt -k ${PWD}_${TODAY} | dd of=test.des3
+    rm blog_${TODAY}.sql
+    # 解密:dd if=test.des3 |openssl des3 -d -k password | tar zxf -
 }
 
 function git_push()
@@ -26,7 +28,7 @@ function git_push()
 }
 
 echo "git pull...."
-rm *.gz
 git pull
+rm test.des3
 backup_mysql
 git_push
