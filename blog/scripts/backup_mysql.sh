@@ -23,7 +23,7 @@ function backup_mysql()
 function git_push()
 {
     git add -A ../..
-    git commit -m "backup mysql database of ${TODAY}"
+    git commit -m "backup ${TODAY}"
     git push origin master
 }
 
