@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-15 12:58+0800\n"
+"POT-Creation-Date: 2015-01-01 10:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -538,7 +538,7 @@ msgstr "评论"
 msgid "Archive"
 msgstr "归档"
 
-#: blog/views.py:247 templates/about.html:23 templates/base.html:81
+#: blog/views.py:247 templates/about.html:27 templates/base.html:81
 #: templates/mobile/m_base.html:36
 msgid "About"
 msgstr "关于"
@@ -697,11 +697,11 @@ msgid ""
 "mail and should be fixed shortly. Thanks for your patience."
 msgstr "内部服务器错误, 我们正在努力解决, 如有不便深感抱歉!!"
 
-#: templates/about.html:14
+#: templates/about.html:18
 msgid "Xianglong Wu"
 msgstr "吴降龙"
 
-#: templates/about.html:16
+#: templates/about.html:20
 msgid ""
 "\n"
 "                    Work at <a href=\"http://m.sohu.com/\" rel=\"me\">Sohu "
@@ -709,74 +709,74 @@ msgid ""
 "                "
 msgstr ""
 "\n"
-"                    工作地点： <a href=\"http://m.sohu.com/\" "
-"rel=\"me\">手机搜狐</a>, @北京\n"
+"                    工作地点： <a href=\"http://m.sohu.com/\" rel=\"me\">手机"
+"搜狐</a>, @北京\n"
 "                "
 
-#: templates/about.html:22 templates/about.html.py:26
+#: templates/about.html:26 templates/about.html.py:30
 msgid "Contact"
 msgstr "联系方式"
 
-#: templates/about.html:30
+#: templates/about.html:34
 msgid "Email"
 msgstr "邮箱"
 
-#: templates/about.html:36
+#: templates/about.html:40
 msgid "WeChat"
 msgstr "微信"
 
-#: templates/about.html:42
+#: templates/about.html:46
 msgid "Weibo"
 msgstr "新浪微博"
 
-#: templates/about.html:48
+#: templates/about.html:52
 msgid "RenRen"
 msgstr "人人网"
 
-#: templates/about.html:54
+#: templates/about.html:58
 msgid "Facebook"
 msgstr "Facebook"
 
-#: templates/about.html:60
+#: templates/about.html:64
 msgid "Twitter"
 msgstr "Twitter"
 
-#: templates/about.html:66
+#: templates/about.html:70
 msgid "Google+"
 msgstr "Google+"
 
-#: templates/about.html:72
+#: templates/about.html:76
 msgid "Github"
 msgstr "Github"
 
-#: templates/about.html:77 templates/about.html.py:82 templates/about.html:84
+#: templates/about.html:81 templates/about.html.py:90 templates/about.html:92
 msgid "About me"
 msgstr "关于我"
 
-#: templates/about.html:83
+#: templates/about.html:91
 msgid "Personal"
 msgstr "个人信息"
 
-#: templates/about.html:99 templates/about.html.py:101
+#: templates/about.html:107 templates/about.html.py:109
 msgid "Sohu Mobile"
 msgstr "手机搜狐"
 
-#: templates/about.html:100
+#: templates/about.html:108
 msgid "My work"
 msgstr "我的工作"
 
-#: templates/about.html:108 templates/about.html.py:110
+#: templates/about.html:116 templates/about.html.py:118
 msgid "Xianglong"
 msgstr "降龙"
 
-#: templates/about.html:109
+#: templates/about.html:117
 msgid "My blog"
 msgstr "我的博客"
 
-#: templates/about.html:116
-#, python-format
-msgid "Copyright © 2012 - 2014 %(site_name)s, Inc. All Rights Reserved."
-msgstr "Copyright © 2012 - 2014 %(site_name)s, 保留所有权利."
+#: templates/about.html:124
+#, fuzzy, python-format
+msgid "Copyright © 2012 - 2015 %(site_name)s, Inc. All Rights Reserved."
+msgstr "Copyright © 2012 - 2015 %(site_name)s, 保留所有权利."
 
 #: templates/archive.html:19
 msgid "Blog Archive"
@@ -845,19 +845,19 @@ msgstr "热门标签"
 msgid "Newest Comments"
 msgstr "最新评论"
 
-#: templates/base.html:170 templates/mobile/m_base.html:58
-#, python-format
+#: templates/base.html:149 templates/mobile/m_base.html:58
+#, fuzzy, python-format
 msgid ""
 "\n"
-"                    Copyright © 2012 - 2014 %(site_name)s, Inc. All Rights "
+"                    Copyright © 2012 - 2015 %(site_name)s, Inc. All Rights "
 "Reserved.\n"
 "                    "
 msgstr ""
 "\n"
-"                    Copyright © 2012 - 2014 %(site_name)s, 保留所有权利.\n"
+"                    Copyright © 2012 - 2015 %(site_name)s, 保留所有权利.\n"
 "                    "
 
-#: templates/base.html:182 templates/base.html.py:183
+#: templates/base.html:161 templates/base.html.py:162
 #: templates/mobile/m_base.html:37
 msgid "Feed"
 msgstr "订阅"
@@ -903,7 +903,7 @@ msgstr "本文地址："
 msgid "Statement："
 msgstr "特别声明："
 
-#: templates/detail.html:120 templates/mobile/m_detail.html:59
+#: templates/detail.html:101 templates/mobile/m_detail.html:56
 msgid "Comment of this article has closed."
 msgstr "文章的评论已经关闭"
 
