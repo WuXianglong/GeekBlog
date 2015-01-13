@@ -1,11 +1,11 @@
 server {
 	listen %(web_port)s;
-	listen %(https_port)s ssl;
+	# listen %(https_port)s ssl;
 	server_name %(url)s;
 
 	# They never request frequantly, so keep-alive is meaningless for them.
 	keepalive_timeout 60;
-    client_max_body_size 60M;
+        client_max_body_size 60M;
 	
 	gzip on;
 	gzip_comp_level 6;
@@ -37,27 +37,27 @@ server {
 	}
 	proxy_set_header X-Real-HTTPS $real_secure;
 
-    location = /favicon.ico { access_log off; log_not_found off; }	
+        location = /favicon.ico { access_log off; log_not_found off; }	
 
 	location / {
-		uwsgi_pass blog;
-		include uwsgi_params;
-        uwsgi_send_timeout 1800;
-        uwsgi_read_timeout 1800;
-        uwsgi_connect_timeout 1800;
+            uwsgi_pass blog;
+            include uwsgi_params;
+            uwsgi_send_timeout 1800;
+            uwsgi_read_timeout 1800;
+            uwsgi_connect_timeout 1800;
 	}
 	
 	location /static {
-        alias /var/app/enabled/blog-webfront/static; 
-        expires 1d;
+            alias /var/app/enabled/blog-webfront/static; 
+            expires 1d;
 	}
 	location /upload/images {
-        alias /mnt/blog/upload/images;
-        expires 1d;
+            alias /mnt/blog/upload/images;
+            expires 1d;
 	}
 	location /upload/files {
-        alias /mnt/blog/upload/files;
-        expires 1d;
+            alias /mnt/blog/upload/files;
+            expires 1d;
 	}
 }
 
