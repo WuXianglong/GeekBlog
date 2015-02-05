@@ -215,7 +215,7 @@ def show_search(request, keyword, page_num):
     return _render_response(request, 'index', context_infos, is_index=True)
 
 
-@cache_page(60 * 60 * 4)
+@cache_page(60 * 60 * 1)
 def show_archive_page(request):
     articles = blog_db.get_articles({}, count=10000, fields={'_id': 0, 'id': 1, 'title': 1, 'publish_date': 1, 'slug': 1},
                                     has_login=(not request.user.is_anonymous()), with_total=True)
@@ -242,12 +242,12 @@ def show_archive_page(request):
     return _render_response(request, 'archive', context_infos)
 
 
-@cache_page(60 * 60 * 4)
+@cache_page(60 * 60 * 1)
 def show_about_page(request):
     return _render_response(request, 'about', {'page_title': _('About')})
 
 
-@cache_page(60 * 60 * 4)
+@cache_page(60 * 60 * 1)
 def show_friend_link_page(request):
     all_links = blog_db.get_all_links()
     friend_links = [link for link in all_links if link['type'] == LINK_TYPES.FRIEND_LINK]
