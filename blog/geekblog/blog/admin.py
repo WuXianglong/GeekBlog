@@ -175,7 +175,7 @@ class CommentAdmin(BaseModelAdmin):
     special_exclude = ('sync_status',)
     special_readonly = ('sync_status',)
 
-    def short_content(self):
+    def short_content(self, obj):
         return obj.content[:20] + '...' if len(obj.content) > 20 else obj.content
     short_content.short_description = _('Content')
 
