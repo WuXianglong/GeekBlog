@@ -97,7 +97,8 @@ def show_homepage(request, page_num):
 
 
 def show_article(request, slug):
-    article_infos = blog_db.get_article_by_slug(slug)
+    # 兼容之前的旧URL格式
+    article_infos = blog_db.get_article_by_id(slug) if str.isdigit(str(slug)) else blog_db.get_article_by_slug(slug)
     # if article_infos is None or this article can only be viewed by logined user
     if not article_infos or (request.user.is_anonymous() and article_infos['login_required']):
         logger.warning('Invaild article slug: %s' % slug)
