@@ -27,16 +27,16 @@ GeekBlog是一个基于Django框架实现的博客系统，包含了完善的后
     3). cd blog && sudo mkdir upload && sudo chmod 777 upload
     4). cd upload && sudo mkdir images files && sudo chmod 777 files images
 
-###创建数据库
-
-    1). create database geekblog character set utf8;
-    2). grant all on geekblog.* to 'username'@'localhost' identified by 'password';
-
 ###更改配置文件
 
     1). cd Geekblog/blog/geekblog
     2). mv geekblog-example.cfg geekblog.cfg
     3). 修改geekblog.cfg文件中的配置，将部分配置替换成自己的信息
+
+###创建数据库
+
+    1). create database geekblog character set utf8;
+    2). grant all on geekblog.* to 'username'@'localhost' identified by 'password';
 
 ###初始化数据库
 
