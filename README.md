@@ -18,8 +18,7 @@ GeekBlog是一个基于Django框架实现的博客系统，包含了完善的后
 
 ###根据install_deps.sh安装所有依赖
 
-    1). cd GeekBlog/core/scripts && sudo ./install_deps.sh
-    2). cd GeekBlog/blog/scripts && sudo ./install_deps.sh
+    1). cd GeekBlog/blog/scripts && sudo ./install_deps.sh
 
 ###创建存放静态文件的目录
 
@@ -33,6 +32,12 @@ GeekBlog是一个基于Django框架实现的博客系统，包含了完善的后
     1). create database geekblog character set utf8;
     2). grant all on geekblog.* to 'username'@'localhost' identified by 'password';
 
+###更改配置文件
+
+    1). cd Geekblog/blog/geekblog
+    2). mv geekblog-example.cfg geekblog.cfg
+    3). 修改geekblog.cfg文件中的配置，将部分配置替换成自己的信息
+
 ###初始化数据库
 
     1). cd GeekBlog/blog/geekblog
@@ -45,12 +50,6 @@ GeekBlog是一个基于Django框架实现的博客系统，包含了完善的后
     3). django-admin.py makemessages -d djangojs -a
     4). django-admin.py compilemessages --locale=zh_CN
     5). https://github.com/django-mptt/django-mptt/commit/4b6a9758396450651bc2d02b2c7d49bac6cd3f25
-
-###更改配置文件
-
-    1). cd Geekblog/blog/geekblog
-    2). mv geekblog-example.cfg geekblog.cfg
-    3). 修改geekblog.cfg文件中的配置，将部分配置替换成自己的信息
 
 ###运行website
 
