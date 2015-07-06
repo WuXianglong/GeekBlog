@@ -6,7 +6,7 @@ server {
 
 	# They never request frequantly, so keep-alive is meaningless for them.
 	keepalive_timeout 60;
-    client_max_body_size 60M;
+        client_max_body_size 8M;
 	
 	gzip on;
 	gzip_comp_level 6;
