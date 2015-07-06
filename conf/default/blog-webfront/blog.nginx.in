@@ -1,5 +1,6 @@
 server {
 	listen %(web_port)s;
+	charset utf-8;
 	# listen %(https_port)s ssl;
 	server_name %(url)s;
 
