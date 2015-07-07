@@ -49,15 +49,18 @@ server {
 	}
 	
 	location /static {
-        alias /var/app/enabled/blog-webfront/static; 
+        alias /var/app/enabled/blog-webfront/static;
+        access_log off;
         expires 1d;
 	}
 	location /upload/images {
         alias /mnt/blog/upload/images;
+        access_log off;
         expires 1d;
 	}
 	location /upload/files {
         alias /mnt/blog/upload/files;
+        access_log off;
         expires 1d;
 	}
 }
