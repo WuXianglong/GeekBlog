@@ -142,6 +142,7 @@ code {
 .backToTop {
     width: 54px;
     height: 54px;
+    display: none;
     background: url(../images/back2top.png) center no-repeat;
     overflow: hidden;
     position: fixed;
