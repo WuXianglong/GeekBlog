@@ -61,8 +61,8 @@ def _get_pagination_infos(article_infos, page_num):
     return {
         'current_page': page_num,
         'total_page': article_infos['page_count'],
-        'has_prev': page_num > 1 and page_num <= article_infos['page_count'],
-        'has_next': page_num >= 1 and article_infos['page_count'] > page_num,
+        'has_prev': 1 < page_num <= article_infos['page_count'],
+        'has_next': 1 <= article_infos['page_count'] > page_num,
     }
 
 
@@ -105,7 +105,7 @@ def show_article(request, slug):
         return _render_404_response(request)
 
     a_id, publish_date = article_infos.get('id', 0), article_infos.get('publish_date', 0)
-    # update articel views_count
+    # update article views_count
     blog_db.increment_article_views_count(a_id)
 
     # get previous and next articles
