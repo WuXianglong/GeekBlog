@@ -197,6 +197,7 @@ img.alignleft {
     background: #40444b;
     z-index: 0;
     color: #8991a0;
+    display: none;
 }
 
 #slide-menu >article {
@@ -401,6 +402,7 @@ body.menu-active #page {
     font-size: 18px;
     letter-spacing: 2px;
     font-weight: bold;
+    text-align: center;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
