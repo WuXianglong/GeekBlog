@@ -86,8 +86,7 @@ class SliderAdmin(BaseModelAdmin):
 
 class PhotoAdmin(BaseModelAdmin):
     list_editable = ('published', 'order')
-    list_display = ('order', 'id', 'title', 'url', 'path', 'modified_time', 'published', 'sync_status')
-    list_display_links = ('id',)
+    list_display = ('id', 'title', 'url', 'path', 'modified_time', 'published', 'sync_status')
     list_per_page = settings.ADMIN_LIST_PER_PAGE
     search_fields = ['title', 'path']
     ordering = ('order',)
