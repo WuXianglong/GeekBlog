@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /ueditor/
+Disallow: /console/
+Disallow: /i18n/
+Disallow: /jsi18n/
+Disallow: /verify_code
+
+Sitemap: http://xianglong.me/sitemap.xml
+
