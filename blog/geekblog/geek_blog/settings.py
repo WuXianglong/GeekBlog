@@ -293,6 +293,7 @@ PIPELINE_JS = {
         'source_filenames': (
             'js/jquery.slider.min.js',
             'js/jquery.animation.easing.js',
+            # 'js/jquery.lazyload.js',
             'js/modernizr.min.js',
             'js/jquery.ui.touch-punch.min.js',
             'js/jquery.pagination.js',

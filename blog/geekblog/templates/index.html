@@ -3,6 +3,7 @@
 
 {% block scripts %}
     {% compressed_js "index" %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.lazyload.min.js"></script>
     <script type="text/javascript">
         /* turn to the page with given page num when click pagination buttons */
         function turnToPage(page_num) {
@@ -43,6 +44,10 @@
                 }
             });
             createQrCode();
+
+            $("img.lazy").lazyload({
+                effect : "fadeIn"
+            });
         });
         // load duoshuo js for comment count
         var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};
