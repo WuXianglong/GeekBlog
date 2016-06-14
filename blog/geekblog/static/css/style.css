@@ -817,6 +817,7 @@ ul.newest-articles-list li:hover {
     border: 1px solid #0084fa;
 }
 .detail-addr {
+    width: 665px;
     margin-bottom: 10px;
 }
 
