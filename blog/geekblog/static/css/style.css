@@ -660,6 +660,7 @@ ul.newest-articles-list li {
     display: block;
     float: left;
     overflow: hidden;
+    word-break: break-all;
 }
 ul.newest-articles-list li:hover {
     background: url(../images/sidebar-item.png) no-repeat scroll -5px -21px transparent;
