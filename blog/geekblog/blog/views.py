@@ -238,6 +238,7 @@ def show_archive_page(request):
     context_infos = {
         'page_title': _('Archive'),
         'archives': sorted_archives,
+        'years': sorted(sorted_archives.keys(), reverse=True),
         'total_num': articles['total'],
     }
     return _render_response(request, 'archive', context_infos)

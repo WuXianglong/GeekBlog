@@ -18,7 +18,8 @@
 
 <h1 id="archive-title" class="fw_b mt15">{% trans "Blog Archive" %}</h1>
 <div id="archives-content" class="ml10 mt25">
-    {% for year, all_months in archives.items %}
+    {% for year in years %}
+    {% with all_months=archives|get_item:year %}
     <div class="year ml40">
         <div class="year-header pb40"><a href="#" class="year-title">{{ year }}</a></div>
         <ul class="all-month pt20">
@@ -43,6 +44,7 @@
             {% endfor %}
         </ul>
     </div>
+    {% endwith %}
     {% endfor %}
     <div class="archives-bottom ml40"></div>
 </div>
