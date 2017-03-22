@@ -21,5 +21,5 @@ def website_meta(request):
         'site_url': getattr(settings, 'WEBSITE_URL', ''),
         'site_keywords': getattr(settings, 'WEBSITE_KEYWORDS', ''),
         'blog_version': getattr(settings, 'GEEKBLOG_VERSION', '1.3.4'),
-        'duoshuo_short_name': getattr(settings, 'DUOSHUO_SHORT_NAME', ''),
+        # 'duoshuo_short_name': getattr(settings, 'DUOSHUO_SHORT_NAME', ''),
     }

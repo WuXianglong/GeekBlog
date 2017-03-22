@@ -49,15 +49,9 @@
                 effect : "fadeIn"
             });
         });
-        // load duoshuo js for comment count
-        var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};
-        (function() {
-            var ds = document.createElement('script');
-            ds.type = 'text/javascript';ds.async = true;
-            ds.src = 'http://static.duoshuo.com/embed.js';
-            ds.charset = 'UTF-8';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
+
+    </script>
+    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysUkrlEx">
     </script>
 {% endblock %}
 

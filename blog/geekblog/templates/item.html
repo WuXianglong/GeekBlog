@@ -30,7 +30,7 @@
                         {% blocktrans %}Commented by {{ comment_count }} people {% endblocktrans %}
                     {% endif %}
                     {% endcomment %}
-                    <span class="ds-thread-count" data-thread-key="{{ id }}" data-count-type="comments"></span>
+                    <span id="sourceId::{{ id }}" class="cy_cmt_count" ></span> 条评论
                 </a>
             </span>
             {% endif %}

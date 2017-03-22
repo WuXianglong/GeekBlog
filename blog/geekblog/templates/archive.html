@@ -4,16 +4,7 @@
 
 {% block core %}
 {% compressed_js "archive" %}
-<script type="text/javascript">
-    // load duoshuo js for comment count
-    var duoshuoQuery = {short_name: "{{ duoshuo_short_name }}"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = 'http://static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysUkrlEx">
 </script>
 
 <h1 id="archive-title" class="fw_b mt15">{% trans "Blog Archive" %}</h1>
@@ -35,7 +26,7 @@
                     <li class="omo-post left">
                         <span class="day">{% blocktrans with day=a.day %}{{ day }}: {% endblocktrans %}</span>
                         <span class="title"><a target="_blank" href="/article/{{ a.slug }}/">{{ a.title }}</a></span>
-                        <span class="comment">/<a target="_blank" href="/article/{{ a.slug }}/#comments"><span class="ds-thread-count" data-thread-key="{{ a.id }}" data-count-type="comments"></span></a></span>
+                        <span class="comment">/<a target="_blank" href="/article/{{ a.slug }}/#comments"><span id="sourceId::{{ a.id }}" class="cy_cmt_count" ></span> 条评论</a></span>
                     </li>
                     {% endfor %}
                 </ul>

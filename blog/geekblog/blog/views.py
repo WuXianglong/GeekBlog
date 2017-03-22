@@ -69,6 +69,7 @@ def _get_pagination_infos(article_infos, page_num):
 def _render_response(request, template_name, context, is_index=False):
     is_mobile = request.META.get('IS_MOBILE', False)
     template_path = settings.TEMPLATE_NAMES[template_name]['m' if is_mobile else 'p']
+    context['is_mobile'] = is_mobile
 
     # update context to add all_tags and newest_articles infos when is_mobile is False
     if context and not is_mobile:
@@ -256,6 +257,7 @@ def show_friend_link_page(request):
     site_links = [link for link in all_links if link['type'] == LINK_TYPES.SITE_LINK]
 
     context_infos = {
+        'id': 'friend',
         'page_title': ugettext('Friend Links'),
         'friend_links': friend_links,
         'site_links': site_links,
