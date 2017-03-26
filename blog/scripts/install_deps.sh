@@ -5,7 +5,7 @@
 # python-software-properties depend by add-apt-repository to add nginx ppa
 SYS_DEPS=(mysql-server mysql-client python-pip python-software-properties python2.7-dev libxml2-dev python-mysqldb libjpeg8-dev libmemcached-dev memcached python-memcache yui-compressor)
 
-PYTHON_DEPS=("django==1.6.5" "pymongo==2.4.1" PIL PyJWT django-pipeline)
+PYTHON_DEPS=("django==1.6.5" "pymongo==2.4.1" PIL PyJWT django-pipeline==1.3.25)
 
 function install_dependencies()
 {
