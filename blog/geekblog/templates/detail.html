@@ -91,11 +91,27 @@
     <p class="detail-addr">{% trans "Address：" %}<a href="/article/{{ slug }}/">http://xianglong.me/article/{{ slug }}/</a></p>
     <p>{% trans "Statement："%}本站文章，如非注明，皆为<a href="/">{{ site_name }}</a>原创。转载需注明本文链接并保证链接可用。</p>
 </div>
-<!-- 广告代码 -->
+
+<!-- 如果您配置过sourceid，建议在div标签中配置sourceid、cid(分类id)，没有请忽略  -->
+<div id="cyReward" role="cylabs" data-use="reward" sourceid="{{ id }}" style="text-align: center;margin-bottom: 20px;"></div>
+
+<script type="text/javascript">
+    document.write('<a style="display:none!important" id="tanx-a-mm_17571358_7092068_23934073"></a>');
+    tanx_s = document.createElement("script");
+    tanx_s.type = "text/javascript";
+    tanx_s.charset = "gbk";
+    tanx_s.id = "tanx-s-mm_17571358_7092068_23934073";
+    tanx_s.async = true;
+    tanx_s.src = "http://p.tanx.com/ex?i=mm_17571358_7092068_23934073";
+    tanx_h = document.getElementsByTagName("head")[0];
+    if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
 
 <div id="comments">
 {% if enable_comment %}
 {% duoshuo_comments %}
+<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cysUkrlEx"></script>
 {% else %}
 {% trans "Comment of this article has closed." %}
 {% endif %}
