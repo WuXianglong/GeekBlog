@@ -73,7 +73,10 @@ def _render_response(request, template_name, context, is_index=False):
 
     # update context to add all_tags and newest_articles infos when is_mobile is False
     if context and not is_mobile:
-        context.update({'all_tags': blog_db.get_tags(), 'newest_articles': blog_db.get_hottest_articles(has_login=(not request.user.is_anonymous()))})
+        context.update({
+            'all_tags': blog_db.get_tags(),
+            'newest_articles': blog_db.get_hottest_articles(has_login=(not request.user.is_anonymous()))
+        })
     # if page is blog list page, update slider infos
     if is_index:
         context.update({'sliders': blog_db.get_all_sliders()})
@@ -87,7 +90,8 @@ def _render_404_response(request):
 
 def show_homepage(request, page_num):
     start_index = _get_start_index(page_num)
-    article_infos = blog_db.get_articles({}, start_index=start_index, count=settings.LIST_PER_PAGE, has_login=(not request.user.is_anonymous()), with_total=True)
+    article_infos = blog_db.get_articles({}, start_index=start_index, count=settings.LIST_PER_PAGE,
+                                         has_login=(not request.user.is_anonymous()), with_total=True)
 
     context_infos = {
         'articles': _process_articles(article_infos['results']),
@@ -154,7 +158,8 @@ def preview_article(request, slug):
         'login_required': article.login_required,
         'views_count': article.views_count,
         'publish_date': publish_date,
-        'thumbnail_url': (article.thumbnail.path.url if article.thumbnail.path else article.thumbnail.url) if article.thumbnail else 'http://xianglong.qiniudn.com/default_article_image.gif',
+        'thumbnail_url': (article.thumbnail.path.url if article.thumbnail.path else article.thumbnail.url)
+        if article.thumbnail else 'http://xianglong.qiniudn.com/default_article_image.gif',
         'tags': article.get_tags(),
     }
     context_infos.update(_process_single_article(article_infos))

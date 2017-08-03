@@ -93,7 +93,7 @@
                         <div class="s-item-content">
                             <div class="search-box" id="search-box">
                                 <input type="text" class="sb-text" placeholder='{% trans "Enter search term..." %}' value="">
-                                <img class="sb-submit" width="16" height="16" src="{{ STATIC_URL }}images/search.png" alt='{% trans "Search" %}'></img>
+                                <img class="sb-submit" width="16" height="16" src="{{ STATIC_URL }}images/search.png" alt='{% trans "Search" %}'/>
                             </div>
                         </div>
                         <div class="s-item-footer"></div>
@@ -114,7 +114,7 @@
                         <h3>{% trans "View On Mobile" %}</h3>
                         <div class="s-item-content" id='qrcode-div'>
                             {% comment %}
-                            <img class="s-qrcode" width="155" height="155" src="http://chart.googleapis.com/chart?cht=qr&chs=155x155&chld=H&chl={{ site_url }}{{ request.path }}?from=qrcode" alt='{% trans "View on mobile" %}'></img>
+                            <img class="s-qrcode" width="155" height="155" src="http://chart.googleapis.com/chart?cht=qr&chs=155x155&chld=H&chl={{ site_url }}{{ request.path }}?from=qrcode" alt='{% trans "View on mobile" %}'/>
                             {% endcomment %}
                         </div>
                         <div class="s-item-footer"></div>
@@ -153,7 +153,7 @@
                         </select>
                     </form>
                     <a href="/feed/" target="_blank" title="{% trans "Feed" %}" id="feed">
-                        <img src="{{ STATIC_URL }}images/feed.png" alt="{% trans "Feed" %}"></img>
+                        <img src="{{ STATIC_URL }}images/feed.png" alt="{% trans "Feed" %}"/>
                     </a>
                 </div>
             </div>
