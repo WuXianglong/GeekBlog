@@ -7,7 +7,7 @@
         var sec = 5;
         var intervalId = setInterval("returnHomePage()", 1000);
         function returnHomePage(){
-            if(sec == 0){
+            if(sec === 0){
                 window.location.href = "/";
                 clearInterval(intervalId);
             }

@@ -9,8 +9,8 @@
         <meta name="robots" content="index,follow">
         <meta name="author" content="Xianglong Wu,wuxianglong098@gmail.com">
         <meta name="copyright" content="Copyright © 2015 Xianglong Wu. All Rights Reserved.">
-        <meta name="description" content="{% if page_title %}{{ page_title }} - {% endif %}{{ site_desc }}, 关注{{ site_keywords }}">
-        <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }} | {{ site_desc }}</title>
+        <meta name="description" content="{% if page_title %}{{ page_title }}_{% endif %}{{ site_desc }}, 关注{{ site_keywords }}">
+        <title>{% if page_title %}{{ page_title }}_{% endif %}{{ site_name }}_{{ site_desc }}</title>
         <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
         {% compressed_css "base" %}
         {% block styles %}
