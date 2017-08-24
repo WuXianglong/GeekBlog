@@ -98,15 +98,21 @@
                 opacity: 1;
             }
         </style>
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?c1781625dbb129f0c534d597d16a5790";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
     </head>
     <body>
         <img src="{{ STATIC_URL }}images/404.png" alt="404" width="610" height="213">
         <a href="/">
             <span class="text">{% trans "You Look Lost. Head This Way."%}</span>
-	        <span class="hover"></span>
+            <span class="hover"></span>
         </a>
-        <div id="cnzz" style="display: none;">
-            <script src="http://s95.cnzz.com/z_stat.php?id=1253027820&web_id=1253027820" language="JavaScript"></script>
-        </div>
     </body>
 </html>
