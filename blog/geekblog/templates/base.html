@@ -8,60 +8,12 @@
         <meta name="generator" content="GeekBlog {{ blog_version }}">
         <meta name="robots" content="index,follow">
         <meta name="author" content="Xianglong Wu,wuxianglong098@gmail.com">
-        <meta name="copyright" content="Copyright © 2015 Xianglong Wu. All Rights Reserved.">
+        <meta name="copyright" content="Copyright © 2017 Xianglong Wu. All Rights Reserved.">
         <meta name="description" content="{% if page_title %}{{ page_title }}_{% endif %}{{ site_desc }}, 关注{{ site_keywords }}">
         <title>{% if page_title %}{{ page_title }}_{% endif %}{{ site_name }}_{{ site_desc }}</title>
         <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
         {% compressed_css "base" %}
         {% block styles %}
-        {% endblock %}
-        <script type="text/javascript" src="/jsi18n/"></script>
-        {% compressed_js "base" %}
-        <script type="text/javascript">
-            var staticPath = '{{ STATIC_URL }}';
-            $(function() {
-                // $(".primary-navigation a[title]").tooltips();
-
-                var $backToTopEle = $('<div class="backToTop"></div>').appendTo($("body")).click(function() {
-                            $("html, body").animate({scrollTop: 0}, 800);
-                            return false;
-                        }),
-                    $backToTopFun = function() {
-                        var st = $(window).scrollTop(), winh = $(window).height();
-                        (st > 50) ? $backToTopEle.fadeIn() : $backToTopEle.fadeOut();
-                        // IE6下的定位
-                        if (!window.XMLHttpRequest) {
-                            $backToTopEle.css("top", st + winh - 166);
-                        }
-                    };
-                $(window).bind("scroll", $backToTopFun);
-                $(function() {
-                    $backToTopFun();
-                });
-            });
-            var createQrCode = function (){
-                var options = {
-                    render: "image",  // div or canvas
-                    ecLevel: "H",
-                    minVersion: 4,
-                    fill: "#1e90ff",
-                    background: "#ffffff",
-                    text: "{{ site_url }}{{ request.path }}",
-                    size: 155,
-                    radius: 0.3,
-                    quiet: 1,
-                    mode: 2,
-                    mSize: 0.1,
-                    mPosX: 0.5,
-                    mPosY: 0.5,
-                    label: "降龙",
-                    fontname: "微软雅黑",
-                    fontcolor: "#ff9818"
-                };
-                $("#qrcode-div").empty().qrcode(options);
-            };
-        </script>
-        {% block scripts %}
         {% endblock %}
         <script>
         var _hmt = _hmt || [];
@@ -150,7 +102,7 @@
                 <div class="footerinner">
                     <span id="copyright">
                     {% blocktrans %}
-                    Copyright © 2012 - 2015 {{ site_name }}, Inc. All Rights Reserved.
+                    Copyright © 2012 - 2017 {{ site_name }}, Inc. All Rights Reserved.
                     {% endblocktrans %}
                     &nbsp;&nbsp;
                     </span>
@@ -167,5 +119,54 @@
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript" src="/jsi18n/"></script>
+        {% compressed_js "base" %}
+        <script type="text/javascript">
+            var staticPath = '{{ STATIC_URL }}';
+            $(function() {
+                // $(".primary-navigation a[title]").tooltips();
+
+                var $backToTopEle = $('<div class="backToTop"></div>').appendTo($("body")).click(function() {
+                            $("html, body").animate({scrollTop: 0}, 800);
+                            return false;
+                        }),
+                    $backToTopFun = function() {
+                        var st = $(window).scrollTop(), winh = $(window).height();
+                        (st > 50) ? $backToTopEle.fadeIn() : $backToTopEle.fadeOut();
+                        // IE6下的定位
+                        if (!window.XMLHttpRequest) {
+                            $backToTopEle.css("top", st + winh - 166);
+                        }
+                    };
+                $(window).bind("scroll", $backToTopFun);
+                $(function() {
+                    $backToTopFun();
+                });
+            });
+            var createQrCode = function (){
+                var options = {
+                    render: "image",  // div or canvas
+                    ecLevel: "H",
+                    minVersion: 4,
+                    fill: "#1e90ff",
+                    background: "#ffffff",
+                    text: "{{ site_url }}{{ request.path }}",
+                    size: 155,
+                    radius: 0.3,
+                    quiet: 1,
+                    mode: 2,
+                    mSize: 0.1,
+                    mPosX: 0.5,
+                    mPosY: 0.5,
+                    label: "降龙",
+                    fontname: "微软雅黑",
+                    fontcolor: "#ff9818"
+                };
+                $("#qrcode-div").empty().qrcode(options);
+            };
+        </script>
+        {% block scripts %}
+        {% endblock %}
     </body><!-- end of body -->
 </html>

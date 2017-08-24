@@ -8,7 +8,7 @@
         <meta name="generator" content="GeekBlog {{ blog_version }}">
         <meta name="robots" content="index,follow">
         <meta name="author" content="Xianglong Wu,wuxianglong098@gmail.com">
-        <meta name="copyright" content="Copyright © 2015 Xianglong Wu. All Rights Reserved.">
+        <meta name="copyright" content="Copyright © 2017 Xianglong Wu. All Rights Reserved.">
         <meta name="description" content="{% if page_title %}{{ page_title }}_{% endif %}{{ site_desc }}, 关注{{ site_keywords }}">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,11 +17,8 @@
         <title>{% if page_title %}{{ page_title }}_{% endif %}{{ site_name }}_{{ site_desc }}</title>
         <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
         <style>[touch-action="none"]{-ms-touch-action: none; touch-action: none;}[touch-action="pan-x"]{-ms-touch-action: pan-x; touch-action: pan-x;}[touch-action="pan-y"]{-ms-touch-action: pan-y; touch-action: pan-y;}[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{-ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y;}</style>
-        {% compressed_js "mobile" %}
         {% compressed_css "mobile" %}
         {% block styles %}
-        {% endblock %}
-        {% block scripts %}
         {% endblock %}
         <script>
         var _hmt = _hmt || [];
@@ -67,10 +64,14 @@
             <footer id="footer">
                 <p>
                     {% blocktrans %}
-                    Copyright © 2012 - 2015 {{ site_name }}, Inc. All Rights Reserved.
+                    Copyright © 2012 - 2017 {{ site_name }}, Inc. All Rights Reserved.
                     {% endblocktrans %}
                 </p>
             </footer><!-- end of footer -->
         </div>
+
+        {% compressed_js "mobile" %}
+        {% block scripts %}
+        {% endblock %}
     </body><!-- end of body -->
 </html>
